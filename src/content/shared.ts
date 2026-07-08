@@ -163,6 +163,11 @@ const projectBase: ProjectBase[] = [
     link: 'https://studio.apoc.day/#/',
     company: '',
     repo: '',
+    images: [
+      '/projects/apoc-studio/apoc-studio-sticker.png',
+      '/projects/apoc-studio/apoc-studio-video.png',
+      '/projects/apoc-studio/apoc-studio-motion.png',
+    ],
   },
   {
     slug: 'apoc-payment',
