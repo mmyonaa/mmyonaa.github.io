@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { onMounted, onUnmounted, ref } from 'vue'
 import { profile } from '../data'
+import { openCommand } from '../command'
 import ThemeToggle from './ThemeToggle.vue'
 import LanguageToggle from './LanguageToggle.vue'
 
@@ -40,6 +41,15 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
         >
           Resume ↓
         </a>
+        <button
+          type="button"
+          class="nav__cmdk"
+          title="Command menu — ⌘K"
+          aria-label="Open command menu"
+          @click="openCommand"
+        >
+          <span aria-hidden="true">⌘K</span>
+        </button>
         <LanguageToggle />
         <ThemeToggle />
       </div>
