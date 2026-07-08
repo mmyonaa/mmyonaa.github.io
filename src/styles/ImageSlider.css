@@ -349,6 +349,25 @@
   border-radius: 0;
 }
 
+/* 기기 종류 라벨 — 목업 프레임 좌상단, 카운터(우상단)와 같은 pill 룩 */
+.slider__device {
+  position: absolute;
+  top: 14px;
+  left: 16px;
+  z-index: 3;
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--dim);
+  background: var(--nav-bg);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 5px 12px;
+  pointer-events: none;
+}
+
 /* href 지정 시 전체를 덮는 이동 링크 (이미지 위, 화살표·점 아래) */
 .slider__link {
   position: absolute;

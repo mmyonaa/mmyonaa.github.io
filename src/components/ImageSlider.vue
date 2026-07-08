@@ -16,6 +16,11 @@ const props = withDefaults(
   { alt: '', href: '', autoplay: true, frame: undefined, tall: false, wide: false, zoomable: false },
 )
 
+// 목업 프레임별 기기 라벨 (좌상단 표시)
+const frameLabel = computed(
+  () => props.frame && { kiosk: 'Kiosk', tablet: 'Tablet', phone: 'Mobile' }[props.frame],
+)
+
 const canZoom = computed(() => props.zoomable && !props.href)
 function onImgClick(src: string) {
   if (canZoom.value) openLightbox(src, props.alt)
@@ -84,6 +89,9 @@ const hasMany = computed(() => props.images.length > 1)
         <img :src="src" :alt="`${alt} 스크린샷 ${i + 1}`" loading="lazy" draggable="false" @click="onImgClick(src)" />
       </figure>
     </div>
+
+    <!-- 목업 프레임일 때 기기 종류 라벨 -->
+    <span v-if="frameLabel" class="slider__device">{{ frameLabel }}</span>
 
     <!-- href 지정 시 슬라이더 전체를 덮는 이동 링크 (화살표·점은 그 위에 위치) -->
     <a v-if="href" class="slider__link" :href="href" :aria-label="`${alt} 자세히 보기`"></a>
