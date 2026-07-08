@@ -1,0 +1,272 @@
+.works {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 10vh 40px 6vh;
+}
+
+.works__head {
+  display: flex;
+  align-items: baseline;
+  gap: 18px;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 26px;
+}
+
+.works__title {
+  margin: 0;
+  font-weight: 500;
+  font-size: clamp(2.4rem, 6vw, 4.5rem);
+  letter-spacing: -0.02em;
+}
+
+.works__body {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 60px;
+}
+
+/* left sticky rail */
+.rail {
+  position: relative;
+}
+
+.rail__sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 28px;
+  padding-left: 34px;
+}
+
+.rail__line {
+  position: absolute;
+  left: 0;
+  top: 22%;
+  bottom: 22%;
+  width: 2px;
+  background: var(--line);
+}
+
+.rail__dot {
+  position: absolute;
+  left: 50%;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: var(--gold);
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 14px rgba(230, 200, 77, 0.7);
+  transition: top 0.5s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.rail__active {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  animation: railIn 0.45s ease;
+}
+
+@keyframes railIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: none; }
+}
+
+.rail__name {
+  font-size: clamp(1.8rem, 3.4vw, 3rem);
+  font-weight: 500;
+  line-height: 1.08;
+  letter-spacing: -0.01em;
+  color: var(--text);
+  word-break: keep-all;
+  transition: color 0.2s ease;
+}
+
+a.rail__name:hover {
+  color: var(--gold);
+}
+
+.rail__period {
+  font-family: var(--mono);
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+  color: var(--gold);
+}
+
+.rail__count {
+  font-family: var(--mono);
+  font-size: 1.2rem;
+  color: var(--faint);
+}
+
+.rail__count i {
+  color: var(--faint);
+  font-style: normal;
+  font-size: 0.9rem;
+}
+
+/* right panels */
+.panels {
+  display: flex;
+  flex-direction: column;
+  gap: 16vh;
+  padding: 24vh 0;
+}
+
+.panel {
+  opacity: 0.35;
+  transform: translateY(8px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.panel.is-active {
+  opacity: 1;
+  transform: none;
+}
+
+.panel__mock {
+  position: relative;
+  display: block;
+  aspect-ratio: 16 / 11;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* 카드 목업 자리에 들어가는 슬라이더는 카드와 동일한 라운드 */
+.panel__slider {
+  --slider-radius: 16px;
+}
+
+.panel__ghost {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 28px;
+  text-align: center;
+  word-break: keep-all;
+  font-size: clamp(1.05rem, 2.2vw, 1.7rem);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: rgba(255, 255, 255, 0.14);
+}
+
+:root[data-theme='light'] .panel__ghost {
+  color: rgba(23, 22, 27, 0.16);
+}
+
+.panel__cta {
+  position: absolute;
+  right: 18px;
+  bottom: 16px;
+  font-family: var(--mono);
+  font-size: 0.74rem;
+  letter-spacing: 0.06em;
+  color: var(--gold);
+}
+
+.panel__lock {
+  position: absolute;
+  top: 16px;
+  right: 18px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gold);
+  background: var(--nav-bg);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 5px 11px;
+}
+
+.panel__period {
+  margin: 22px 0 0;
+  font-family: var(--mono);
+  font-size: 0.76rem;
+  letter-spacing: 0.06em;
+  color: var(--gold);
+}
+
+.panel__desc {
+  margin: 10px 0 0;
+  font-size: 1.12rem;
+  line-height: 1.5;
+  color: var(--text);
+  max-width: 46ch;
+}
+
+.panel__role {
+  margin-top: 18px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.panel__role-label {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--faint);
+}
+
+.panel__role ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+}
+
+.panel__role li {
+  font-size: 0.8rem;
+  color: var(--dim);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 5px 13px;
+}
+
+@media (max-width: 860px) {
+  .works__body {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .rail__sticky {
+    position: static;
+    height: auto;
+    padding: 8px 0 30px 34px;
+    gap: 14px;
+  }
+
+  .rail__line {
+    top: 6px;
+    bottom: 6px;
+  }
+
+  .rail__name {
+    font-size: 1.5rem;
+  }
+
+  .panels {
+    padding: 4vh 0;
+    gap: 12vh;
+  }
+
+  .panel {
+    opacity: 1;
+    transform: none;
+  }
+}

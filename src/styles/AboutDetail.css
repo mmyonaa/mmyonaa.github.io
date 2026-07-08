@@ -1,0 +1,369 @@
+.about-detail {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+}
+
+/* ---------- top bar (ProjectDetail 와 동일한 룩) ---------- */
+.detail__bar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 40px;
+  background: var(--nav-bg);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--line);
+}
+
+.detail__bar-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.detail__back {
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  color: var(--dim);
+  transition: color 0.2s ease;
+}
+
+.detail__back:hover {
+  color: var(--gold);
+}
+
+.detail__brand {
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+
+.detail__brand span {
+  color: var(--gold);
+}
+
+/* ---------- layout ---------- */
+.detail__wrap {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 70px 40px 120px;
+}
+
+.about-detail__title {
+  margin: 14px 0 0;
+  font-weight: 500;
+  font-size: clamp(2.6rem, 8vw, 5.6rem);
+  line-height: 0.98;
+  letter-spacing: -0.02em;
+}
+
+.about-detail__role {
+  margin: 16px 0 0;
+  font-family: var(--mono);
+  font-size: 0.9rem;
+  letter-spacing: 0.06em;
+  color: var(--gold);
+}
+
+.about-detail__intro {
+  margin: 46px 0 0;
+  font-size: clamp(1.4rem, 3vw, 2.1rem);
+  font-weight: 300;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+  max-width: 24ch;
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+}
+
+.about-detail__grid {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: 56px;
+  margin-top: 56px;
+}
+
+.about-detail__main {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.about-detail__para {
+  margin: 0;
+  font-size: 1.08rem;
+  line-height: 1.7;
+  color: var(--text);
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+}
+
+/* ---------- side ---------- */
+.about-detail__side {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-self: start;
+  position: sticky;
+  top: 110px;
+}
+
+.side__block {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.side__label {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--faint);
+}
+
+.about-detail__short {
+  margin: 0;
+  font-size: 0.98rem;
+  line-height: 1.6;
+  color: var(--dim);
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+}
+
+.side__links {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.side__links a {
+  font-size: 0.95rem;
+  color: var(--text);
+  transition: color 0.2s ease;
+}
+
+.side__links a:hover {
+  color: var(--gold);
+}
+
+/* ---------- sections ---------- */
+.about-detail__section {
+  margin-top: 96px;
+}
+
+.about-detail__heading {
+  margin: 0 0 36px;
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--faint);
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--line);
+}
+
+/* principles */
+.about-detail__principles {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px 56px;
+}
+
+.principle {
+  display: flex;
+  gap: 18px;
+}
+
+.principle__num {
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  color: var(--gold);
+  flex-shrink: 0;
+  padding-top: 4px;
+}
+
+.principle__title {
+  margin: 0 0 10px;
+  font-size: 1.12rem;
+  font-weight: 600;
+  line-height: 1.35;
+  word-break: keep-all;
+}
+
+.principle__text {
+  margin: 0;
+  font-size: 0.98rem;
+  line-height: 1.65;
+  color: var(--dim);
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+}
+
+/* timeline */
+.about-detail__timeline {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.tl {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 28px;
+  padding: 26px 0;
+  border-top: 1px solid var(--line);
+}
+
+.tl:last-child {
+  border-bottom: 1px solid var(--line);
+}
+
+.tl__period {
+  font-family: var(--mono);
+  font-size: 0.82rem;
+  letter-spacing: 0.04em;
+  color: var(--gold);
+  padding-top: 4px;
+}
+
+.tl__title {
+  margin: 0 0 8px;
+  font-size: 1.15rem;
+  font-weight: 600;
+  word-break: keep-all;
+}
+
+.tl__text {
+  margin: 0;
+  font-size: 0.98rem;
+  line-height: 1.65;
+  color: var(--dim);
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+}
+
+.tl__notes {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.tl__notes li {
+  position: relative;
+  padding-left: 16px;
+  font-size: 0.98rem;
+  line-height: 1.6;
+  color: var(--dim);
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+}
+
+.tl__notes li::before {
+  content: '–';
+  position: absolute;
+  left: 0;
+  color: var(--gold);
+}
+
+/* skills */
+.about-detail__skills {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+.skillgroup {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.skillgroup__cat {
+  font-family: var(--mono);
+  font-size: 0.82rem;
+  letter-spacing: 0.04em;
+  color: var(--text);
+}
+
+.skillgroup__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.skillgroup__list li {
+  font-size: 0.78rem;
+  color: var(--dim);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 6px 14px;
+}
+
+/* next / footer link */
+.detail__next {
+  display: block;
+  margin-top: 96px;
+  padding-top: 30px;
+  border-top: 1px solid var(--line);
+}
+
+.detail__next-title {
+  display: block;
+  margin-top: 10px;
+  font-weight: 500;
+  font-size: clamp(1.8rem, 5vw, 3.4rem);
+  letter-spacing: -0.02em;
+  transition: color 0.2s ease;
+}
+
+.detail__next:hover .detail__next-title {
+  color: var(--gold);
+}
+
+/* ---------- responsive ---------- */
+@media (max-width: 860px) {
+  .detail__bar {
+    padding: 16px 22px;
+  }
+
+  .detail__wrap {
+    padding: 50px 22px 90px;
+  }
+
+  .about-detail__grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .about-detail__side {
+    position: static;
+  }
+
+  .about-detail__principles {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .tl {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .about-detail__skills {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+}

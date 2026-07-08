@@ -1,0 +1,38 @@
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Claude Code / MCP (개인 개발 환경 설정)
+.mcp.json
+.claude/
+.serena/
+.playwright-mcp/
+
+# 실제 고객사명 포함 — 공개 배포/저장소에서 제외 (로컬 보관)
+public/portfolio/resume.html
+
+# 개발 노트·내부 작업 정리(개인 참고용) — 저장소/배포 제외
+docs/
+
+# nie 다이어그램: draw.io 원본·중간 파일은 비배포 (렌더된 PNG만 포함)
+public/projects/nie/**
+!public/projects/nie/flow.png
+!public/projects/nie/flow-light.png
+!public/projects/nie/flow-en.png
+!public/projects/nie/flow-en-light.png
+!public/projects/nie/kakao-flow.png
+!public/projects/nie/kakao-flow-light.png
+!public/projects/nie/kakao-flow-en.png
+!public/projects/nie/kakao-flow-en-light.png

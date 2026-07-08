@@ -1,0 +1,23 @@
+.stars {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.stars span {
+  position: absolute;
+  border-radius: 50%;
+  background: #fff;
+  animation: twinkle 4s ease-in-out infinite;
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: inherit; }
+  50% { opacity: 0.15; }
+}
+
+/* 라이트 테마에서는 별을 숨김 */
+:root[data-theme='light'] .stars {
+  display: none;
+}

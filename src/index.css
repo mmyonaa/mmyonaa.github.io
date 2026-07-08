@@ -1,0 +1,139 @@
+/* =========================================================
+   전역 스타일 — 디자인 토큰, 리셋, 여러 컴포넌트 공용 규칙만.
+   컴포넌트별 스타일은 각 .vue 파일의 <style scoped> 에 위치.
+   ========================================================= */
+
+:root {
+  --bg: #0a0a0b;
+  --bg-2: #0f0f12;
+  --text: #ececea;
+  --dim: #8c8c92;
+  --faint: #56565c;
+  --line: #232327;
+  --gold: #e6c84d;
+
+  --sans: 'Manrope', ui-sans-serif, system-ui, -apple-system, 'Apple SD Gothic Neo',
+    'Noto Sans KR', sans-serif;
+  --mono: 'Space Mono', ui-monospace, monospace;
+
+  --nav-bg: rgba(10, 10, 11, 0.72);
+
+  color-scheme: dark;
+}
+
+:root[data-theme='light'] {
+  --bg: #f4f2ea;
+  --bg-2: #ffffff;
+  --text: #17161b;
+  --dim: #57565e;
+  --faint: #9a98a0;
+  --line: #dcd8cd;
+  --gold: #9a7400;
+  --nav-bg: rgba(244, 242, 234, 0.82);
+
+  color-scheme: light;
+}
+
+/* ---------- reset / base ---------- */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  font-weight: 400;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  transition: background 0.4s ease, color 0.4s ease;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+::selection {
+  background: var(--gold);
+  color: #000;
+}
+
+main {
+  position: relative;
+  z-index: 1;
+}
+
+/* 한글 본문은 글자 단위가 아닌 단어(어절) 단위로 줄바꿈 — 여러 컴포넌트 공용 */
+.about__lead,
+.about__sub,
+.panel__desc,
+.detail__desc,
+.detail__points li {
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+}
+
+/* ---------- 공용 라벨 ---------- */
+.eyebrow {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--dim);
+}
+
+/* ---------- 공용: 카드 상단 점 3개 (Works · ProjectDetail) ---------- */
+.panel__dots {
+  position: absolute;
+  top: 16px;
+  left: 18px;
+  display: flex;
+  gap: 7px;
+}
+
+.panel__dots i {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.18);
+}
+
+:root[data-theme='light'] .panel__dots i {
+  background: rgba(23, 22, 27, 0.2);
+}
+
+/* ---------- reveal 모션 — App.vue 가 .is-in 을 전역으로 토글 ---------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(26px);
+  transition: opacity 0.9s cubic-bezier(0.2, 0.7, 0.2, 1),
+    transform 0.9s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.reveal.is-in {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .stars span,
+  .badge__ring,
+  .mouse span {
+    animation: none !important;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}
