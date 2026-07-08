@@ -194,7 +194,11 @@ const projectBase: ProjectBase[] = [
     company: '',
     repo: '',
     imageFrame: 'tablet', // 태블릿용 콘텐츠 → 태블릿 기기 목업
-    images: ['/projects/gs/guseong-content-play.png'],
+    images: [
+      '/projects/gs/guseong-content-play.png',
+      '/projects/gs/guseong-content-search.png',
+      '/projects/gs/guseong-content-suno.png',
+    ],
   },
 ]
 
