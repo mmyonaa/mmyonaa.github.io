@@ -1,0 +1,53 @@
+.boot {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  background: var(--bg);
+  cursor: pointer;
+}
+
+.boot__log {
+  margin: 0;
+  font-family: var(--mono);
+  font-size: 13px;
+  line-height: 1.9;
+  color: var(--gold);
+  min-width: 280px;
+}
+
+.boot__line {
+  display: block;
+  white-space: pre;
+}
+
+.boot__caret {
+  display: inline-block;
+  color: var(--gold);
+  animation: boot-blink 1s steps(2, start) infinite;
+}
+
+@keyframes boot-blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+.boot__skip {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--faint);
+}
+
+.boot-leave-active {
+  transition: opacity 0.5s ease;
+}
+.boot-leave-to {
+  opacity: 0;
+}

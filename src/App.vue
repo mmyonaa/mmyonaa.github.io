@@ -4,6 +4,7 @@ import Stars from './components/Stars.vue'
 import CursorFollower from './components/CursorFollower.vue'
 import Lightbox from './components/Lightbox.vue'
 import CommandPalette from './components/CommandPalette.vue'
+import BootIntro from './components/BootIntro.vue'
 import Navbar from './components/Navbar.vue'
 import Hero from './components/Hero.vue'
 import About from './components/About.vue'
@@ -81,6 +82,7 @@ onUnmounted(() => {
   <CursorFollower />
   <Lightbox />
   <CommandPalette />
+  <BootIntro />
   <ProjectDetail v-if="project" :key="project.slug" :project="project" />
   <AboutDetail v-else-if="isAbout" />
   <template v-else>
