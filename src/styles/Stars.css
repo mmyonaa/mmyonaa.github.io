@@ -1,24 +1,8 @@
+/* 커서 반응형 별자리 캔버스. 색/반짝임/연결선은 Stars.vue 안에서 그린다
+   (다크=흰 별·골드 선, 라이트=골드 점·선). */
 .stars {
   position: fixed;
   inset: 0;
   z-index: 0;
   pointer-events: none;
-}
-
-.stars span {
-  position: absolute;
-  border-radius: 50%;
-  background: #fff;
-  animation: twinkle 4s ease-in-out infinite;
-}
-
-@keyframes twinkle {
-  0%, 100% { opacity: inherit; }
-  50% { opacity: 0.15; }
-}
-
-/* 라이트 테마에서는 흰 별 대신 골드 점 — 위치·반짝임은 다크와 동일.
-   어두운 무채색 점은 얼룩처럼 보여서 포인트 컬러로 통일. */
-:root[data-theme='light'] .stars span {
-  background: rgba(154, 116, 0, 0.5);
 }
