@@ -17,7 +17,8 @@
   50% { opacity: 0.15; }
 }
 
-/* 라이트 테마에서는 별을 숨김 */
-:root[data-theme='light'] .stars {
-  display: none;
+/* 라이트 테마에서는 흰 별 대신 골드 점 — 위치·반짝임은 다크와 동일.
+   어두운 무채색 점은 얼룩처럼 보여서 포인트 컬러로 통일. */
+:root[data-theme='light'] .stars span {
+  background: rgba(154, 116, 0, 0.5);
 }
