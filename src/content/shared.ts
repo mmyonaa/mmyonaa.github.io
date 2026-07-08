@@ -73,7 +73,7 @@ const projectBase: ProjectBase[] = [
     slug: 'bk-theater',
     period: '2025.09 – 2026.07',
     tags: ['Vue 3', 'TypeScript', 'vite-ssg', 'Koa', 'PostgreSQL', 'AWS S3', 'EC2', 'PM2', 'Nginx', 'SCSS'],
-    link: 'http://bktheater.com/',
+    link: 'https://bktheater.com/',
     company: '',
     repo: 'https://github.com/mmyonaa/outsourcing',
     // 앞 3장은 사용자 화면(랜딩 카드 슬라이더용), 이후는 관리자 화면(상세 페이지용)
