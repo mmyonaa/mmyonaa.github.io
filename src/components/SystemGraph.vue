@@ -9,8 +9,9 @@ const props = withDefaults(
     current: { slug: string; title: string }
     related: { slug: string; title: string; role: string }[]
     hub?: string
+    hubSub?: string
   }>(),
-  { hub: 'Shared backend' },
+  { hub: 'Shared backend', hubSub: '' },
 )
 
 const hovered = ref('')
@@ -50,7 +51,7 @@ function pos(x: number, y: number) {
 
     <div class="sysgraph__hub" :style="pos(50, 50)">
       <span class="sysgraph__hub-label">{{ hub }}</span>
-      <span class="sysgraph__hub-sub">Koa · PostgreSQL</span>
+      <span v-if="hubSub" class="sysgraph__hub-sub">{{ hubSub }}</span>
     </div>
 
     <component

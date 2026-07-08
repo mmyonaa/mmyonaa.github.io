@@ -190,6 +190,8 @@ const relatedProjects = computed(() =>
           <SystemGraph
             :current="{ slug: project.slug, title: project.title }"
             :related="relatedProjects"
+            :hub="project.systemHub?.label ?? 'Shared backend'"
+            :hub-sub="project.systemHub?.sub ?? ''"
           />
         </div>
       </section>

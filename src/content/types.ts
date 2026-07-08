@@ -68,7 +68,7 @@ export interface Project {
   company: string
   repo?: string
   images?: string[] // 상세 페이지 히어로에 슬라이드로 표시되는 스크린샷 경로
-  imageFrame?: 'kiosk' // 세로 화면을 키오스크 기기 목업 프레임으로 표시
+  imageFrame?: 'kiosk' | 'tablet' // 스크린샷을 기기 목업 프레임으로 표시 (kiosk: 세로, tablet: 가로 16:9)
   overview?: string[] // 상세 페이지 Overview 문단 (포트폴리오용 상세 설명)
   techNotes?: ProjectTechNote[] // 상세 페이지 Technical notes (기술 포인트/문제 해결)
   mediaNote?: string // 이미지 비공개 사유 (값이 있으면 이미지 자리에 '비공개' 플레이스홀더 표시)
@@ -78,6 +78,7 @@ export interface Project {
   architectureCaptions?: string[] // 각 다이어그램 캡션 (images 와 같은 순서)
   architectureNotes?: string[] // 각 다이어그램 아래 설명 문단 (images 와 같은 순서)
   related?: { slug: string; role: string }[] // 함께 이루는 시스템의 관련 프로젝트 (slug + 이 시스템에서의 역할)
+  systemHub?: { label: string; sub?: string } // SystemGraph 중앙 허브 라벨 (예: 공유 백엔드 / 플랫폼 연동)
 }
 
 export interface Social {

@@ -58,16 +58,26 @@ type ProjectBase = Omit<Project, 'title' | 'description' | 'highlights'>
 
 const projectBase: ProjectBase[] = [
   {
-    slug: 'sentivex',
+    slug: 'sentivex-ai',
     period: '2025.09 –',
-    tags: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Fastify', 'Prisma', 'PostgreSQL', 'Redis', 'BullMQ', 'LiteLLM', 'OpenAI · Azure · Gemini'],
+    tags: ['Fastify', 'TypeScript', 'AI SDK', 'LiteLLM', 'OpenAI · Azure · Gemini', 'BullMQ', 'Redis', 'Prisma', 'PostgreSQL', 'Kubernetes'],
     link: '',
     company: '',
     repo: '',
+    systemHub: { label: 'SentiveX platform', sub: 'REST · SSE' },
     presentationImages: [
       '/projects/sentivex/sentivex-slide-01.jpg',
       '/projects/sentivex/sentivex-slide-02.jpg',
     ],
+  },
+  {
+    slug: 'sentivex-web',
+    period: '2025.09 –',
+    tags: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Prisma', 'PostgreSQL', 'NextAuth', 'next-intl', 'BlockNote', 'OpenSearch'],
+    link: '',
+    company: '',
+    repo: '',
+    systemHub: { label: 'SentiveX platform', sub: 'REST · SSE' },
   },
   {
     slug: 'bk-theater',
@@ -111,6 +121,7 @@ const projectBase: ProjectBase[] = [
       '/projects/esim-site/esim-cs.png',
     ],
     architectureImages: ['/projects/esim/system.png'], // 키오스크·어드민과 공유하는 시스템 다이어그램
+    systemHub: { label: 'Shared backend', sub: 'Koa · PostgreSQL' },
   },
   {
     slug: 'esim-kiosk',
@@ -128,6 +139,7 @@ const projectBase: ProjectBase[] = [
       '/projects/esim-kiosk/esim-kiosk-05.png',
     ],
     architectureImages: ['/projects/esim/system.png'], // 서비스·어드민과 공유하는 시스템 다이어그램
+    systemHub: { label: 'Shared backend', sub: 'Koa · PostgreSQL' },
   },
   {
     slug: 'esim-admin',
@@ -137,6 +149,7 @@ const projectBase: ProjectBase[] = [
     company: '',
     repo: '',
     architectureImages: ['/projects/esim/system.png'], // 서비스·키오스크와 공유하는 시스템 다이어그램
+    systemHub: { label: 'Shared backend', sub: 'Koa · PostgreSQL' },
   },
   {
     slug: 'ecology-content',
@@ -180,6 +193,8 @@ const projectBase: ProjectBase[] = [
     link: '',
     company: '',
     repo: '',
+    imageFrame: 'tablet', // 태블릿용 콘텐츠 → 태블릿 기기 목업
+    images: ['/projects/gs/guseong-content-play.png'],
   },
 ]
 

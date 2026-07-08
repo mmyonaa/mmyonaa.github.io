@@ -4,48 +4,83 @@ import type { SiteContent } from './types'
 import { buildProjects, contacts, profileBase, skills, socials, type ProjectText } from './shared'
 
 const projectText: Record<string, ProjectText> = {
-  sentivex: {
-    title: 'SentiveX — Integrated Security Platform',
+  'sentivex-ai': {
+    title: 'SentiveX AI Server',
     description:
-      'An enterprise multi-tenant SIEM security platform built with a Next.js full-stack app and a Fastify AI server. I owned the multi-agent AI pipeline for automated incident analysis and the LiteLLM gateway that unifies all LLM calls.',
+      'A Fastify AI server that automatically analyzes SIEM security incidents. As the top contributor, I led the multi-agent analysis pipeline and the LiteLLM gateway that unifies all LLM calls.',
     mediaNote: 'Screens are withheld as they contain live operational data.',
     presentationNote:
       'Slides from presentations introducing the SentiveX solution to enterprise clients. Structured around the product overview, core capabilities, and business value, I delivered the presentations, demos, and Q&A myself — in Korean for domestic clients and in English for overseas clients. I designed an end-to-end demo scenario — threat detection → automated AI analysis → host isolation response → multilingual report generation — to show the product’s real operational flow.',
     overview: [
-      'An enterprise integrated security (SIEM) platform at InBridge. It consolidates features previously spread across multiple security tools — covering everything from security-event monitoring to incident response, automated AI analysis, and report generation in a multi-tenant environment. Within it, I owned the AI incident-analysis pipeline and the LiteLLM gateway.',
-      'The main app is a Next.js (App Router) full-stack service — from the UI to API routes, server logic, and the database layer (Prisma/PostgreSQL). Built with TypeScript, Tailwind, and shadcn/ui for the SIEM dashboard and incident management, with NextAuth authentication & RBAC and multilingual support (ko/en/ja).',
-      'The AI server (a stateless Fastify service) runs role-specific security agents (Triage, IOC, MITRE, Correlation, Compliance, SecurityIntel) in parallel via an orchestrator to analyze a single incident from multiple angles, streaming progress and results in real time over SSE. Several EDR vendors are abstracted behind a common NormalizedIncident type so agents stay vendor-agnostic, and every LLM call is consolidated onto a single LiteLLM (OpenAI-compatible) gateway path that handles provider-agnostic fallback, concurrency, token controls, per-tenant model configuration, and BYOK in one layer.',
+      'The AI backbone of the SentiveX platform — a stateless Fastify server that analyzes security incidents in real time. It normalizes incidents from multiple EDR vendors into a common type (OCSF lite), runs role-specific security agents via an orchestrator to analyze threats from multiple angles, and streams results over SSE. As the top contributor I owned the orchestrator, the LiteLLM gateway, multi-tenant model management, and deployment.',
+      'Analysis runs in three stages. Stage 1 runs IOC, MITRE, and Network agents in parallel; Stage 2 runs an external threat-intel (SecurityIntel) agent only when conditions (IOC match / benign ratio) are met; Stage 3 has the Correlation agent synthesize results into a kill-chain graph, threat score (0–100), and confidence as structured output (generateObject), with compliance (ISMS-P, ISO 27001, GDPR) analysis in the background. Agents are pruned by priority to control cost.',
+      'Every LLM call is consolidated onto a single LiteLLM (OpenAI-compatible) gateway path that handles provider-agnostic fallback, concurrency, and token control in one layer, and per-tenant model CRUD plus BYOK (virtual-key allow-list) isolation is implemented via the LiteLLM Admin API. Reports are generated as BlockNote JSON via async BullMQ/Redis jobs, and the service is deployed on Kubernetes (EKS) as three services — API, workers, and report worker.',
     ],
     highlights: [
-      'Designed and built a multi-agent AI pipeline for automated incident analysis (Triage, IOC, MITRE, Correlation, Compliance, SecurityIntel)',
-      'Orchestrated parallel execution with real-time SSE streaming, progress tracking, and a manual re-analysis API',
-      'Abstracted multi-vendor EDR behind a common NormalizedIncident type (CrowdStrike, SentinelOne, Symantec, Cortex XDR)',
-      'Consolidated per-provider SDK branches onto a single LiteLLM (OpenAI-compatible) gateway path — fallback, concurrency, and token budgets moved into the gateway layer',
-      'Per-tenant AI model CRUD via the LiteLLM Admin API, BYOK (virtual-key isolation), post-save verification, and a translation-delegation endpoint',
-      'SIEM dashboard and endpoint management (3-tier RBAC, network isolation)',
+      'Designed the multi-agent incident-analysis orchestrator — 3 stages (parallel code agents → conditional LLM → synthesis) with priority-based pruning',
+      'Correlation structured output — kill-chain graph, threat score (0–100), confidence (generateObject/zod)',
+      'Real-time SSE progress/partial-result streaming + manual re-analysis API',
+      'Normalized multi-vendor EDR into a common OCSF-lite type (CrowdStrike, SentinelOne, Cortex XDR, Symantec)',
+      'LiteLLM gateway consolidation — removed per-provider SDK branches; fallback, provider concurrency, 429/5xx backoff, and token budgets moved into the gateway layer',
+      'Per-tenant model CRUD via the LiteLLM Admin API, BYOK (virtual-key isolation), post-save verification, plus BullMQ reports and a 3-service Kubernetes deployment',
     ],
     techNotes: [
       {
-        title: 'Multi-tenant SIEM platform (Next.js full-stack)',
-        body: 'A Next.js App Router full-stack app implementing the UI plus API routes/server logic and the database layer (Prisma/PostgreSQL). Dashboards, incidents, endpoints (scan, network isolation), charts, and maps, with NextAuth 3-tier RBAC and next-intl i18n (ko/en/ja).',
+        title: 'Multi-agent analysis pipeline (3 stages)',
+        body: 'IOC, MITRE, and Network agents run in parallel (Promise.allSettled), and SecurityIntel (LLM) runs conditionally based on IOC-match / benign ratio. The Correlation agent synthesizes results into a kill-chain graph, threat score, and confidence as structured output (generateObject/zod), while compliance (ISMS-P, ISO 27001, GDPR) runs in the background. Agents are pruned by priority (e.g. P3) to control cost.',
       },
       {
-        title: 'Multi-agent AI analysis pipeline',
-        body: 'Role-specific security agents — Triage, IOC, MITRE, Correlation, Compliance, SecurityIntel — run in parallel via an orchestrator to analyze a single incident from multiple angles. Each agent returns structured output, and the orchestrator aggregates them and streams progress and partial results in real time over SSE. A manual re-analysis API for re-running a specific incident plus worker-pool exception handling keep long-running analyses stable.',
-      },
-      {
-        title: 'Multi-vendor EDR integration',
-        body: 'CrowdStrike, SentinelOne, Symantec, and Cortex XDR are abstracted behind a common NormalizedIncident type with per-vendor index routing, so the analysis agent pipeline behaves identically regardless of vendor differences.',
+        title: 'SSE streaming & manual re-analysis',
+        body: 'The pipeline is exposed over SSE, delivering progress, partial results (analysis_chunk), complete, and error events in real time, with analysis_pipeline_runs tracking completed-agent counts. A manual re-analysis path re-runs a specific incident with prior analysis context, sharing the same code as the automatic (queue) path.',
       },
       {
         title: 'LiteLLM gateway consolidation',
-        body: 'Consolidated LLM calls that were scattered across per-provider SDK branches (azure, gemini, bedrock, plus dynamic imports and Azure api-version handling) into a single createOpenAI({ apiKey, baseURL }) path. Since all traffic goes through the LiteLLM (OpenAI-compatible) gateway, per-provider SDKs were dropped (@ai-sdk/anthropic, google, groq, bedrock removed) and incident-analysis agents call by alias without knowing the underlying model. Fallback default models, concurrency caps, 429/5xx retries, and token budget guards moved into the gateway layer, removing provider hardcoding.',
+        body: 'Per-provider SDK branches were consolidated into createOpenAI({ baseURL }) so every call goes through the LiteLLM (OpenAI-compatible) gateway. Fallback models, per-provider semaphore concurrency, 429/5xx exponential backoff (Retry-After first), and token budgets moved into the gateway/middleware layer, and provider status is health-checked with a 10s TTL cache. Chat Completions API is used for multi-step tool calls.',
       },
       {
-        title: 'Multi-tenant AI model management & BYOK',
-        body: 'Per-tenant AI model CRUD is delegated through the LiteLLM Admin API. The admin key lives only on the ai-server while the client calls this endpoint with an internal key, with post-save verification (verifyModel) and retries for deployment-propagation delay. Tenant isolation is handled via a virtual key’s model allow-list (BYOK) instead of team_id, and a health-ping cache and translation-delegation endpoint round out stable multi-tenant operations.',
+        title: 'Multi-tenant AI models & BYOK',
+        body: 'Per-tenant model deployments are created, verified (virtual key + alias ping), and deleted (with rollback on allow-list sync failure) via the LiteLLM Admin API. Tenant isolation uses a virtual key + team_id allow-list to block cross-tenant access. Translation is delegated to a separate endpoint, and the service ships on k8s (EKS) as three services — API, BullMQ workers, and report worker — with health split into live/readiness.',
       },
     ],
+    related: [{ slug: 'sentivex-web', role: 'Web / full-stack of the same platform (dashboard, report editor)' }],
+  },
+  'sentivex-web': {
+    title: 'SentiveX Web Platform',
+    description:
+      'The Next.js 15 full-stack web of a multi-tenant SIEM security platform. I co-developed the SIEM dashboard, incident management, and AI report editor with the team.',
+    mediaNote: 'Screens are withheld as they contain live operational data.',
+    overview: [
+      'The web surface of the SentiveX platform — a Next.js 15 (App Router) full-stack app spanning the UI, API routes, server logic, and the DB layer (Prisma/PostgreSQL, multi-schema). It provides the SIEM dashboard, incident/alert management (severity, MITRE ATT&CK), endpoint scan & network isolation, threat intelligence, and real-time monitoring (SSE). On this collaborative project I was among the top contributors, working across the full stack.',
+      'It applies NextAuth-based authentication with 4-tier RBAC (VIEWER, USER, ADMIN, SUPER_ADMIN) and per-tenant data isolation, and supports i18n (ko/en/ja by default) via next-intl. Sensitive fields like email are encrypted with AES-256-GCM and searched by hash, and it covers security/compliance needs — auth/config/download audit logs and data retention.',
+      'At its core is a BlockNote-based AI security report editor. When incidents are selected, the AI server generates an analysis report; block-level AI edit suggestions are previewed with diff highlighting before commit. Reports are stored per language (ko/en/ja), and heavy analysis/generation is delegated to the separate AI server (REST/SSE).',
+    ],
+    highlights: [
+      'Next.js 15 App Router full-stack (UI + API routes + Prisma/PostgreSQL) — collaborative development',
+      'SIEM dashboard, incident/alert management (severity, MITRE ATT&CK), endpoint isolation, threat intelligence',
+      'BlockNote-based AI report editor — block-level AI editing, diff highlighting, preview, multilingual (ko/en/ja)',
+      'NextAuth + 4-tier RBAC, per-tenant data isolation, AES-256-GCM field encryption & audit logs',
+      'next-intl i18n (ko/en/ja by default) + OpenSearch SIEM search & real-time monitoring (SSE)',
+      'Integrates with the AI server (REST/SSE) — delegating report generation and block edits',
+    ],
+    techNotes: [
+      {
+        title: 'Next.js 15 full-stack (collaborative)',
+        body: 'Built in one app with the App Router — UI/server components, hundreds of API routes, and a Prisma multi-schema (PostgreSQL) DB layer. On a collaborative team repo I was among the top contributors, building screens and APIs across the incident, report, and endpoint domains.',
+      },
+      {
+        title: 'AI report editor (BlockNote)',
+        body: 'Added custom blocks (charts, status cards, progress bars) to BlockNote and highlighted AI edits with block/table/character-level diffing (compareBlockNoteContent) for preview-before-commit. Reports are stored and previewed per language (ko/en/ja).',
+      },
+      {
+        title: 'Auth, RBAC & multi-tenancy',
+        body: 'NextAuth (JWT/Credentials) auth with 4-tier RBAC (VIEWER, USER, ADMIN, SUPER_ADMIN) and per-tenant data isolation. Sensitive fields like email are AES-256-GCM encrypted and searched by hash, with auth/config/download audit logs.',
+      },
+      {
+        title: 'SIEM integration & real time',
+        body: 'OpenSearch powers SIEM log search/aggregation, and Cortex XDR webhooks ingest incidents. A comprehensive-monitoring SSE stream updates dashboards live, while heavy AI analysis and report generation are delegated to the AI server (REST/SSE).',
+      },
+    ],
+    related: [{ slug: 'sentivex-ai', role: 'AI analysis server of the same platform (pipeline, LiteLLM)' }],
   },
   'bk-theater': {
     title: 'Bogwang Theater Promotion & Booking Site',

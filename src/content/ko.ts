@@ -4,47 +4,83 @@ import type { SiteContent } from './types'
 import { buildProjects, contacts, profileBase, skills, socials, type ProjectText } from './shared'
 
 const projectText: Record<string, ProjectText> = {
-  sentivex: {
-    title: 'SentiveX 통합 보안 플랫폼',
+  'sentivex-ai': {
+    title: 'SentiveX AI 서버',
     description:
-      '기업용 멀티테넌트 SIEM 보안 플랫폼. Next.js 풀스택 앱과 Fastify AI 서버로 구성되며, 저는 보안 인시던트를 자동 분석하는 멀티 에이전트 AI 파이프라인과 모든 LLM 호출을 통합하는 LiteLLM 게이트웨이를 담당했습니다.',
+      'SIEM 보안 인시던트를 자동 분석하는 Fastify AI 서버. 멀티 에이전트 분석 파이프라인과 모든 LLM 호출을 통합하는 LiteLLM 게이트웨이를 최다 기여자로 주도 개발했습니다.',
     mediaNote: '실제 운영 데이터가 포함되어 화면은 비공개합니다.',
     presentationNote:
       '고객사를 대상으로 SentiveX 솔루션을 소개한 발표 자료입니다. 제품 개요와 핵심 기능, 도입 효과를 중심으로 구성했고, 국내 고객에게는 한국어로 해외 고객에게는 영문으로 직접 발표와 데모·질의응답까지 진행했습니다. 위협 탐지 → AI 자동 분석 → 호스트 격리 대응 → 다국어 리포트 생성으로 이어지는 end-to-end 데모 시나리오를 직접 구성해 제품의 실제 운영 흐름을 보여줬습니다.',
     overview: [
-      'InBridge의 기업용 통합 보안(SIEM) 플랫폼입니다. 흩어져 있던 여러 보안 도구의 기능을 하나로 통합해, 멀티테넌트 환경에서 보안 이벤트 모니터링부터 인시던트 대응, AI 자동 분석과 리포트 생성까지 제공합니다. 저는 이 중 AI 인시던트 분석 파이프라인과 LiteLLM 게이트웨이를 맡았습니다.',
-      '메인 앱은 Next.js(App Router) 풀스택으로, 화면(UI)부터 API 라우트·서버 로직·DB(Prisma/PostgreSQL)까지 함께 구현했습니다. TypeScript·Tailwind·shadcn/ui로 SIEM 대시보드·인시던트 관리를 구축하고, NextAuth 기반 인증·권한(RBAC)과 다국어(ko/en/ja)를 적용했습니다.',
-      'AI 서버(상태 비저장 Fastify)는 Triage·IOC·MITRE·Correlation·Compliance·SecurityIntel 등 역할별 보안 에이전트를 오케스트레이터로 병렬 실행해, 하나의 인시던트를 다각도로 자동 분석하고 진행률과 결과를 SSE로 실시간 스트리밍합니다. 여러 EDR 벤더는 NormalizedIncident 공통 타입으로 추상화해 에이전트가 벤더 차이를 몰라도 되게 했고, 모든 LLM 호출은 LiteLLM(OpenAI 호환) 게이트웨이 단일 경로로 통합해 provider 무관 Fallback·동시성·토큰 제어와 테넌트별 모델 설정·BYOK를 한 계층에서 처리합니다.',
+      'SentiveX 플랫폼의 AI 축으로, 보안 인시던트를 실시간 자동 분석하는 상태 비저장 Fastify 서버입니다. 여러 EDR 벤더의 인시던트를 공통 타입(OCSF lite)으로 정규화하고, 역할별 보안 에이전트를 오케스트레이터로 실행해 위협을 다각도로 분석한 뒤 결과를 SSE로 스트리밍합니다. 이 서버의 최다 기여자로 오케스트레이터·LiteLLM 게이트웨이·멀티테넌트 모델 관리·배포 전반을 맡았습니다.',
+      '분석은 3-스테이지로 구성됩니다. 1단계는 IOC·MITRE·Network 에이전트를 병렬 실행하고, 2단계는 조건(IOC 매치·benign 비율)을 만족할 때만 외부 위협 인텔(SecurityIntel) 에이전트를, 3단계는 Correlation 에이전트가 결과를 종합해 kill-chain 그래프·위협 점수(0–100)·신뢰도를 구조화 출력(generateObject)으로 만들고 컴플라이언스(ISMS-P·ISO 27001·GDPR) 분석을 백그라운드로 처리합니다. 우선순위에 따라 실행 에이전트를 가지쳐 비용을 조절합니다.',
+      '모든 LLM 호출은 LiteLLM(OpenAI 호환) 게이트웨이 단일 경로로 통합해 provider 무관 폴백·동시성·토큰 제어를 한 계층에서 처리하고, LiteLLM Admin API로 테넌트별 모델 CRUD와 BYOK(가상 키 허용목록) 격리를 구현했습니다. 리포트는 BullMQ·Redis 비동기 잡으로 BlockNote JSON을 생성하고, Kubernetes(EKS)에 API·워커·리포트워커 3개 서비스로 배포합니다.',
     ],
     highlights: [
-      '보안 인시던트 자동 분석 멀티 에이전트 AI 파이프라인 설계·구현 (Triage·IOC·MITRE·Correlation·Compliance·SecurityIntel)',
-      '오케스트레이터 병렬 실행 + SSE 실시간 스트리밍·진행률 추적·수동 재분석 API',
-      '멀티 벤더 EDR를 NormalizedIncident 공통 타입으로 추상화 (CrowdStrike·SentinelOne·Symantec·Cortex XDR)',
-      'provider별 SDK 분기를 LiteLLM(OpenAI 호환) 게이트웨이 단일 경로로 통합 — Fallback·동시성·토큰 budget을 게이트웨이 계층으로 이전',
-      'LiteLLM Admin API 기반 테넌트별 AI 모델 CRUD·BYOK(가상 키 격리)·저장 직후 검증·번역 위임 엔드포인트',
+      '멀티 에이전트 인시던트 분석 오케스트레이터 설계 — 3-스테이지(병렬 코드 에이전트 → 조건부 LLM → 종합)·우선순위 기반 가지치기',
+      'Correlation 구조화 출력 — kill-chain 그래프·위협 점수(0–100)·신뢰도 (generateObject·zod)',
+      'SSE 실시간 진행률·부분결과 스트리밍 + 수동 재분석 API',
+      '멀티 벤더 EDR를 OCSF lite 공통 타입으로 정규화 (CrowdStrike·SentinelOne·Cortex XDR·Symantec)',
+      'LiteLLM 게이트웨이 통합 — provider SDK 분기 제거, 폴백·provider 동시성·429/5xx 백오프·토큰 budget을 게이트웨이 계층으로 이전',
+      'LiteLLM Admin API 기반 테넌트별 모델 CRUD·BYOK(가상 키 격리)·저장 직후 검증 + BullMQ 리포트·Kubernetes 3서비스 배포',
     ],
     techNotes: [
       {
-        title: '멀티테넌트 SIEM 플랫폼 (Next.js 풀스택)',
-        body: 'Next.js App Router 풀스택으로 UI와 API 라우트·서버 로직·DB(Prisma/PostgreSQL)까지 함께 구현했습니다. 대시보드·인시던트·엔드포인트(스캔·네트워크 격리)·차트·지도 화면에 NextAuth 3-tier RBAC와 next-intl 다국어(ko/en/ja)를 적용했습니다.',
+        title: '멀티 에이전트 분석 파이프라인 (3-스테이지)',
+        body: 'IOC·MITRE·Network 에이전트를 병렬 실행(Promise.allSettled)하고, IOC 매치·benign 비율 조건에 따라 SecurityIntel(LLM)을 선택 실행합니다. Correlation 에이전트가 결과를 종합해 kill-chain 그래프·위협 점수·신뢰도를 generateObject(zod)로 구조화 출력하고, 컴플라이언스(ISMS-P·ISO 27001·GDPR)는 백그라운드로 돌립니다. 우선순위(P3 등)에 따라 실행 에이전트를 가지쳐 비용을 조절합니다.',
       },
       {
-        title: '멀티 에이전트 AI 분석 파이프라인',
-        body: 'Triage·IOC·MITRE·Correlation·Compliance·SecurityIntel 등 역할이 다른 보안 에이전트를 오케스트레이터가 병렬 실행해 하나의 인시던트를 다각도로 자동 분석합니다. 각 에이전트는 구조화 출력(structured output)으로 결과를 반환하고, 오케스트레이터가 이를 취합해 SSE로 진행률·부분 결과를 실시간 스트리밍합니다. 특정 인시던트를 다시 돌리는 수동 재분석 API와 워커 풀 예외 처리를 더해 장시간 분석의 안정성을 확보했습니다.',
-      },
-      {
-        title: '멀티 벤더 EDR 연동',
-        body: 'CrowdStrike·SentinelOne·Symantec·Cortex XDR을 NormalizedIncident 공통 타입으로 추상화하고 벤더별 인덱스로 라우팅해, 분석 에이전트 파이프라인이 벤더 차이를 몰라도 동일하게 동작하도록 했습니다.',
+        title: 'SSE 스트리밍 · 수동 재분석',
+        body: '분석 파이프라인을 SSE로 노출해 progress·부분결과(analysis_chunk)·complete·error 이벤트를 실시간 전달하고, analysis_pipeline_runs로 에이전트 완료 수를 추적합니다. 특정 인시던트를 이전 분석 컨텍스트와 함께 다시 돌리는 수동 재분석 경로를 자동(큐) 경로와 공용으로 제공합니다.',
       },
       {
         title: 'LiteLLM 게이트웨이 통합',
-        body: 'provider별로 흩어져 있던 LLM 호출(azure·gemini·bedrock 등 provider SDK 분기와 dynamic import·Azure api-version 처리)을 createOpenAI({ apiKey, baseURL }) 한 갈래로 통합했습니다. 모든 트래픽이 LiteLLM(OpenAI 호환) 게이트웨이를 경유하므로 provider별 SDK가 사라졌고(@ai-sdk/anthropic·google·groq·bedrock 제거), 인시던트 분석 에이전트는 모델을 몰라도 alias로만 호출합니다. Fallback 기본 모델·동시성 제한·429/5xx 재시도·토큰 budget guard를 게이트웨이 계층으로 옮겨 provider 하드코딩을 제거했습니다.',
+        body: 'provider별 SDK 분기를 createOpenAI({ baseURL })로 통합해 모든 호출이 LiteLLM(OpenAI 호환)을 경유하도록 했습니다. 폴백 모델·provider별 세마포어 동시성·429/5xx 지수 백오프(Retry-After 우선)·토큰 budget을 게이트웨이/미들웨어 계층으로 옮기고, provider 상태는 10초 TTL 캐시로 헬스 체크합니다. tool 멀티스텝을 위해 Chat Completions API를 사용합니다.',
       },
       {
-        title: '멀티테넌트 AI 모델 관리 · BYOK',
-        body: 'LiteLLM Admin API로 테넌트별 AI 모델 CRUD를 위임받습니다. admin 키는 ai-server에만 두고 client는 내부 키로 이 엔드포인트만 호출하도록 분리했으며, 저장 직후 검증(verifyModel)과 배포 전파 지연 재시도를 넣었습니다. 테넌트 격리는 team_id 대신 virtual key의 모델 허용목록으로 처리(BYOK)하고, health ping 캐시·번역 위임 엔드포인트까지 구성해 멀티테넌트 운영을 안정화했습니다.',
+        title: '멀티테넌트 AI 모델 · BYOK',
+        body: 'LiteLLM Admin API로 테넌트별 모델 deployment를 생성·검증(virtual key + alias ping)·삭제(허용목록 동기화 실패 시 롤백)합니다. 테넌트 격리는 virtual key + team_id 허용목록으로 처리해 크로스테넌트 접근을 차단합니다. 번역은 별도 엔드포인트로 위임하고, k8s(EKS)에 API·BullMQ 워커·리포트 워커 3개 서비스로 배포하며 헬스를 live/readiness로 분리했습니다.',
       },
     ],
+    related: [{ slug: 'sentivex-web', role: '같은 플랫폼의 웹·풀스택 (대시보드·리포트 에디터)' }],
+  },
+  'sentivex-web': {
+    title: 'SentiveX 웹 플랫폼',
+    description:
+      '멀티테넌트 SIEM 보안 플랫폼의 Next.js 15 풀스택 웹. SIEM 대시보드·인시던트 관리·AI 리포트 에디터를 팀과 협업으로 개발했습니다.',
+    mediaNote: '실제 운영 데이터가 포함되어 화면은 비공개합니다.',
+    overview: [
+      'SentiveX 플랫폼의 웹 축으로, Next.js 15(App Router) 풀스택으로 UI부터 API 라우트·서버 로직·DB(Prisma/PostgreSQL 멀티스키마)까지 구성됩니다. SIEM 대시보드, 인시던트/경고(severity·MITRE ATT&CK) 관리, 엔드포인트 스캔·네트워크 격리, 위협 인텔리전스, 실시간 모니터링(SSE) 등을 제공하는 협업 프로젝트로, 저는 최다 기여자군에 속해 풀스택 전반에 참여했습니다.',
+      'NextAuth 기반 인증과 4-tier RBAC(VIEWER·USER·ADMIN·SUPER_ADMIN), 테넌트별 데이터 격리를 적용하고, next-intl로 다국어(기본 한/영/일)를 지원합니다. 이메일 등 민감정보는 AES-256-GCM으로 암호화하고 해시로 검색하며, 인증·설정·다운로드 감사 로그와 데이터 보존 등 보안·컴플라이언스 요건을 반영했습니다.',
+      '핵심은 BlockNote 기반 AI 보안 리포트 에디터입니다. 인시던트를 선택하면 AI 서버가 분석 리포트를 생성하고, 블록 단위로 AI 편집 제안을 받아 diff 하이라이팅으로 미리보고 커밋합니다. 리포트는 한/영/일 다국어로 저장되며, 무거운 분석·생성은 별도 AI 서버(REST·SSE)에 위임합니다.',
+    ],
+    highlights: [
+      'Next.js 15 App Router 풀스택(UI + API 라우트 + Prisma/PostgreSQL) 협업 개발',
+      'SIEM 대시보드·인시던트/경고 관리(severity·MITRE ATT&CK)·엔드포인트 격리·위협 인텔리전스',
+      'BlockNote 기반 AI 리포트 에디터 — 블록 단위 AI 편집·diff 하이라이팅·미리보기·다국어(한/영/일)',
+      'NextAuth 인증 + 4-tier RBAC·테넌트 데이터 격리, AES-256-GCM 필드 암호화·감사 로그',
+      'next-intl 다국어(기본 한/영/일) + OpenSearch SIEM 검색·실시간 모니터링(SSE)',
+      'AI 서버(REST·SSE)와 연동 — 리포트 생성·블록 편집 위임',
+    ],
+    techNotes: [
+      {
+        title: 'Next.js 15 풀스택 협업 개발',
+        body: 'App Router로 UI·서버 컴포넌트와 수백 개의 API 라우트, Prisma 멀티스키마(PostgreSQL) DB 레이어까지 한 앱에서 구성했습니다. 팀 협업 레포에서 최다 기여자군으로 참여해 인시던트·리포트·엔드포인트 등 여러 도메인의 화면과 API를 개발했습니다.',
+      },
+      {
+        title: 'AI 리포트 에디터 (BlockNote)',
+        body: 'BlockNote에 차트·상태카드·프로그레스 등 커스텀 블록을 더하고, 블록/표/문자 단위 diff 비교(compareBlockNoteContent)로 AI 편집 결과를 하이라이팅해 미리보고 커밋하게 했습니다. 리포트는 한/영/일 언어별로 저장·미리보기됩니다.',
+      },
+      {
+        title: '인증 · RBAC · 멀티테넌트',
+        body: 'NextAuth(JWT·Credentials) 인증에 VIEWER·USER·ADMIN·SUPER_ADMIN 4-tier RBAC와 테넌트별 데이터 격리를 적용했습니다. 이메일 등 민감정보는 AES-256-GCM으로 암호화하고 해시로 검색하며, 인증·설정·다운로드 감사 로그를 남깁니다.',
+      },
+      {
+        title: 'SIEM 연동 · 실시간',
+        body: 'OpenSearch로 SIEM 로그를 검색·집계하고 Cortex XDR 웹훅으로 인시던트를 수집합니다. comprehensive-monitoring SSE로 대시보드를 라이브 업데이트하고, 무거운 AI 분석·리포트 생성은 AI 서버(REST·SSE)에 위임합니다.',
+      },
+    ],
+    related: [{ slug: 'sentivex-ai', role: '같은 플랫폼의 AI 분석 서버 (파이프라인·LiteLLM)' }],
   },
   'bk-theater': {
     title: '보광 극장 홍보·대관 사이트',
