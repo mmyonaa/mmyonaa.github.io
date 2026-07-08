@@ -66,6 +66,7 @@ const projectBase: ProjectBase[] = [
     company: '',
     repo: '',
     systemHub: { label: 'SentiveX platform', sub: 'REST · SSE' },
+    analysisPipeline: true,
     presentationImages: [
       '/projects/sentivex/sentivex-slide-01.jpg',
       '/projects/sentivex/sentivex-slide-02.jpg',

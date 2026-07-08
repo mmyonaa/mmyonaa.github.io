@@ -81,6 +81,7 @@ export interface Project {
   architectureNotes?: string[] // 각 다이어그램 아래 설명 문단 (images 와 같은 순서)
   related?: { slug: string; role: string }[] // 함께 이루는 시스템의 관련 프로젝트 (slug + 이 시스템에서의 역할)
   systemHub?: { label: string; sub?: string } // SystemGraph 중앙 허브 라벨 (예: 공유 백엔드 / 플랫폼 연동)
+  analysisPipeline?: boolean // 'Analysis pipeline' 라이브 다이어그램 섹션 표시 (sentivex-ai 전용)
 }
 
 export interface Social {

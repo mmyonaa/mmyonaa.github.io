@@ -512,3 +512,9 @@
     display: none;
   }
 }
+
+/* 라이브 분석 파이프라인 다이어그램 — 좁은 화면에선 가로 스크롤 */
+.detail__pipeline {
+  overflow-x: auto;
+  padding-bottom: 4px;
+}

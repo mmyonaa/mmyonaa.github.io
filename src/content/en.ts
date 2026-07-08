@@ -13,11 +13,11 @@ const projectText: Record<string, ProjectText> = {
       'Slides from presentations introducing the SentiveX solution to enterprise clients. Structured around the product overview, core capabilities, and business value, I delivered the presentations, demos, and Q&A myself — in Korean for domestic clients and in English for overseas clients. I designed an end-to-end demo scenario — threat detection → automated AI analysis → host isolation response → multilingual report generation — to show the product’s real operational flow.',
     overview: [
       'The AI backbone of the SentiveX platform — a stateless Fastify server that analyzes security incidents in real time. It normalizes incidents from multiple EDR vendors into a common type (OCSF lite), runs role-specific security agents via an orchestrator to analyze threats from multiple angles, and streams results over SSE. As the top contributor I owned the orchestrator, the LiteLLM gateway, multi-tenant model management, and deployment.',
-      'Analysis runs in three stages. Stage 1 runs IOC, MITRE, and Network agents in parallel; Stage 2 runs an external threat-intel (SecurityIntel) agent only when conditions (IOC match / benign ratio) are met; Stage 3 has the Correlation agent synthesize results into a kill-chain graph, threat score (0–100), and confidence as structured output (generateObject), with compliance (ISMS-P, ISO 27001, GDPR) analysis in the background. Agents are pruned by priority to control cost.',
+      'A Triage agent first classifies the incident and assigns a priority that gates the pipeline. Analysis then runs in three stages. Stage 1 runs IOC, MITRE, and Network agents in parallel; Stage 2 runs an external threat-intel (SecurityIntel) agent only when conditions are met; Stage 3 has the Correlation agent synthesize results into a kill-chain graph, threat score (0–100), and confidence as structured output (generateObject), with compliance (ISMS-P, ISO 27001, GDPR) analysis in the background. Agents are pruned by priority to control cost.',
       'Every LLM call is consolidated onto a single LiteLLM (OpenAI-compatible) gateway path that handles provider-agnostic fallback, concurrency, and token control in one layer, and per-tenant model CRUD plus BYOK (virtual-key allow-list) isolation is implemented via the LiteLLM Admin API. Reports are generated as BlockNote JSON via async BullMQ/Redis jobs, and the service is deployed on Kubernetes (EKS) as three services — API, workers, and report worker.',
     ],
     highlights: [
-      'Designed the multi-agent incident-analysis orchestrator — 3 stages (parallel code agents → conditional LLM → synthesis) with priority-based pruning',
+      'Designed the multi-agent incident-analysis orchestrator — Triage (classify/priority) + 3 stages (parallel grounding → conditional LLM → synthesis) with priority-based pruning',
       'Correlation structured output — kill-chain graph, threat score (0–100), confidence (generateObject/zod)',
       'Real-time SSE progress/partial-result streaming + manual re-analysis API',
       'Normalized multi-vendor EDR into a common OCSF-lite type (CrowdStrike, SentinelOne, Cortex XDR, Symantec)',
@@ -26,8 +26,8 @@ const projectText: Record<string, ProjectText> = {
     ],
     techNotes: [
       {
-        title: 'Multi-agent analysis pipeline (3 stages)',
-        body: 'IOC, MITRE, and Network agents run in parallel (Promise.allSettled), and SecurityIntel (LLM) runs conditionally based on IOC-match / benign ratio. The Correlation agent synthesizes results into a kill-chain graph, threat score, and confidence as structured output (generateObject/zod), while compliance (ISMS-P, ISO 27001, GDPR) runs in the background. Agents are pruned by priority (e.g. P3) to control cost.',
+        title: 'Multi-agent analysis pipeline (Triage + 3 stages)',
+        body: 'A Triage agent first classifies the incident and assigns priority, gating the pipeline. IOC, MITRE, and Network agents then run in parallel (Promise.allSettled), and SecurityIntel (LLM) runs conditionally. The Correlation agent synthesizes results into a kill-chain graph, threat score, and confidence as structured output (generateObject/zod), while compliance (ISMS-P, ISO 27001, GDPR) runs in the background. Agents are pruned by priority to control cost.',
       },
       {
         title: 'SSE streaming & manual re-analysis',

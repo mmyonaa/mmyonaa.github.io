@@ -13,11 +13,11 @@ const projectText: Record<string, ProjectText> = {
       '고객사를 대상으로 SentiveX 솔루션을 소개한 발표 자료입니다. 제품 개요와 핵심 기능, 도입 효과를 중심으로 구성했고, 국내 고객에게는 한국어로 해외 고객에게는 영문으로 직접 발표와 데모·질의응답까지 진행했습니다. 위협 탐지 → AI 자동 분석 → 호스트 격리 대응 → 다국어 리포트 생성으로 이어지는 end-to-end 데모 시나리오를 직접 구성해 제품의 실제 운영 흐름을 보여줬습니다.',
     overview: [
       'SentiveX 플랫폼의 AI 축으로, 보안 인시던트를 실시간 자동 분석하는 상태 비저장 Fastify 서버입니다. 여러 EDR 벤더의 인시던트를 공통 타입(OCSF lite)으로 정규화하고, 역할별 보안 에이전트를 오케스트레이터로 실행해 위협을 다각도로 분석한 뒤 결과를 SSE로 스트리밍합니다. 이 서버의 최다 기여자로 오케스트레이터·LiteLLM 게이트웨이·멀티테넌트 모델 관리·배포 전반을 맡았습니다.',
-      '분석은 3-스테이지로 구성됩니다. 1단계는 IOC·MITRE·Network 에이전트를 병렬 실행하고, 2단계는 조건(IOC 매치·benign 비율)을 만족할 때만 외부 위협 인텔(SecurityIntel) 에이전트를, 3단계는 Correlation 에이전트가 결과를 종합해 kill-chain 그래프·위협 점수(0–100)·신뢰도를 구조화 출력(generateObject)으로 만들고 컴플라이언스(ISMS-P·ISO 27001·GDPR) 분석을 백그라운드로 처리합니다. 우선순위에 따라 실행 에이전트를 가지쳐 비용을 조절합니다.',
+      '먼저 Triage 에이전트가 인시던트를 분류하고 우선순위를 산정해 이후 파이프라인 실행을 게이팅합니다. 분석은 3-스테이지로 구성됩니다. 1단계는 IOC·MITRE·Network 에이전트를 병렬 실행하고, 2단계는 조건을 만족할 때만 외부 위협 인텔(SecurityIntel) 에이전트를, 3단계는 Correlation 에이전트가 결과를 종합해 kill-chain 그래프·위협 점수(0–100)·신뢰도를 구조화 출력(generateObject)으로 만들고 컴플라이언스(ISMS-P·ISO 27001·GDPR) 분석을 백그라운드로 처리합니다. 우선순위에 따라 실행 에이전트를 가지쳐 비용을 조절합니다.',
       '모든 LLM 호출은 LiteLLM(OpenAI 호환) 게이트웨이 단일 경로로 통합해 provider 무관 폴백·동시성·토큰 제어를 한 계층에서 처리하고, LiteLLM Admin API로 테넌트별 모델 CRUD와 BYOK(가상 키 허용목록) 격리를 구현했습니다. 리포트는 BullMQ·Redis 비동기 잡으로 BlockNote JSON을 생성하고, Kubernetes(EKS)에 API·워커·리포트워커 3개 서비스로 배포합니다.',
     ],
     highlights: [
-      '멀티 에이전트 인시던트 분석 오케스트레이터 설계 — 3-스테이지(병렬 코드 에이전트 → 조건부 LLM → 종합)·우선순위 기반 가지치기',
+      '멀티 에이전트 인시던트 분석 오케스트레이터 설계 — Triage(분류·우선순위) + 3-스테이지(병렬 grounding → 조건부 LLM → 종합)·우선순위 기반 가지치기',
       'Correlation 구조화 출력 — kill-chain 그래프·위협 점수(0–100)·신뢰도 (generateObject·zod)',
       'SSE 실시간 진행률·부분결과 스트리밍 + 수동 재분석 API',
       '멀티 벤더 EDR를 OCSF lite 공통 타입으로 정규화 (CrowdStrike·SentinelOne·Cortex XDR·Symantec)',
@@ -26,8 +26,8 @@ const projectText: Record<string, ProjectText> = {
     ],
     techNotes: [
       {
-        title: '멀티 에이전트 분석 파이프라인 (3-스테이지)',
-        body: 'IOC·MITRE·Network 에이전트를 병렬 실행(Promise.allSettled)하고, IOC 매치·benign 비율 조건에 따라 SecurityIntel(LLM)을 선택 실행합니다. Correlation 에이전트가 결과를 종합해 kill-chain 그래프·위협 점수·신뢰도를 generateObject(zod)로 구조화 출력하고, 컴플라이언스(ISMS-P·ISO 27001·GDPR)는 백그라운드로 돌립니다. 우선순위(P3 등)에 따라 실행 에이전트를 가지쳐 비용을 조절합니다.',
+        title: '멀티 에이전트 분석 파이프라인 (Triage + 3-스테이지)',
+        body: '먼저 Triage 에이전트가 인시던트를 분류·우선순위 산정해 파이프라인을 게이팅합니다. 이후 IOC·MITRE·Network 에이전트를 병렬 실행(Promise.allSettled)하고, 조건에 따라 SecurityIntel(LLM)을 선택 실행합니다. Correlation 에이전트가 결과를 종합해 kill-chain 그래프·위협 점수·신뢰도를 generateObject(zod)로 구조화 출력하고, 컴플라이언스(ISMS-P·ISO 27001·GDPR)는 백그라운드로 돌립니다. 우선순위에 따라 실행 에이전트를 가지쳐 비용을 조절합니다.',
       },
       {
         title: 'SSE 스트리밍 · 수동 재분석',

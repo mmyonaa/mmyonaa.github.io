@@ -5,6 +5,7 @@ import ThemeToggle from './ThemeToggle.vue'
 import LanguageToggle from './LanguageToggle.vue'
 import ImageSlider from './ImageSlider.vue'
 import SystemGraph from './SystemGraph.vue'
+import AnalysisPipeline from './AnalysisPipeline.vue'
 import { tints } from '../tints'
 import { theme } from '../theme'
 import { locale } from '../i18n'
@@ -149,6 +150,13 @@ const relatedProjects = computed(() =>
             </div>
           </li>
         </ul>
+      </section>
+
+      <section v-if="project.analysisPipeline" class="detail__section">
+        <h2 class="detail__section-title reveal">Analysis pipeline</h2>
+        <div class="detail__pipeline reveal">
+          <AnalysisPipeline />
+        </div>
       </section>
 
       <section v-if="project.architectureImages?.length" class="detail__section">

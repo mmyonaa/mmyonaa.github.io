@@ -1,0 +1,197 @@
+.apl {
+  position: relative;
+  min-width: 720px;
+  padding: 16px 18px 18px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background:
+    radial-gradient(circle, color-mix(in srgb, var(--faint) 24%, transparent) 0.6px, transparent 0.6px)
+      0 0 / 22px 22px,
+    var(--bg-2);
+  overflow: hidden;
+}
+
+/* ---- 헤더 바 ---- */
+.apl__bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.08em;
+  color: var(--faint);
+  padding-bottom: 10px;
+}
+
+.apl__live {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--dim);
+}
+
+.apl__dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--gold);
+  box-shadow: 0 0 8px var(--gold);
+  animation: apl-blink 1.4s ease-in-out infinite;
+}
+
+.apl__tag {
+  text-transform: uppercase;
+}
+
+/* ---- 캔버스 ---- */
+.apl__canvas {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 100 / 50;
+}
+
+.apl__stage {
+  position: absolute;
+  top: 0;
+  transform: translateX(-50%);
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.09em;
+  color: var(--faint);
+  white-space: nowrap;
+  z-index: 3;
+}
+
+.apl__edges {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.apl__edge {
+  stroke: var(--line);
+  stroke-width: 1;
+  stroke-dasharray: 4 4;
+  transition: stroke 0.4s ease, stroke-width 0.4s ease;
+}
+.apl__edge.is-hot {
+  stroke: var(--gold);
+  stroke-width: 1.4;
+}
+
+/* 흐르는 신호 글로우 점 */
+.apl__pulse {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--gold);
+  box-shadow: 0 0 12px 3px color-mix(in srgb, var(--gold) 70%, transparent);
+  transform: translate(-50%, -50%);
+  transition: left 1.05s cubic-bezier(0.5, 0, 0.2, 1), top 1.05s cubic-bezier(0.5, 0, 0.2, 1);
+  z-index: 4;
+  pointer-events: none;
+}
+
+/* ---- 노드 카드 ---- */
+.apl__node {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  min-width: 120px;
+  padding: 9px 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--bg-2);
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  z-index: 2;
+  transition: border-color 0.35s ease, box-shadow 0.35s ease, transform 0.35s ease;
+}
+
+.apl__node--dashed {
+  border-style: dashed;
+}
+
+.apl__node.is-active {
+  border-color: var(--gold);
+  border-style: solid;
+  box-shadow: 0 0 0 1px var(--gold), 0 10px 30px color-mix(in srgb, var(--gold) 22%, transparent);
+  transform: translate(-50%, -50%) translateY(-1px);
+  z-index: 5;
+}
+
+.apl__code {
+  font-family: var(--mono);
+  font-size: 8.5px;
+  letter-spacing: 0.06em;
+  color: var(--faint);
+}
+.apl__node.is-active .apl__code {
+  color: var(--gold);
+}
+
+.apl__name {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.apl__kind {
+  font-family: var(--mono);
+  font-size: 8px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--faint);
+}
+
+/* ---- 캡션 ---- */
+.apl__caption {
+  margin-top: 12px;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--gold) 6%, var(--bg-2));
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-height: 64px;
+}
+.apl__caption-head {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--gold);
+}
+.apl__caption-code {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--faint);
+  margin-right: 6px;
+}
+.apl__caption-text {
+  font-size: 12.5px;
+  color: var(--dim);
+  line-height: 1.5;
+  word-break: keep-all;
+}
+
+@keyframes apl-blink {
+  50% {
+    opacity: 0.25;
+  }
+}
+
+.apl--static .apl__dot {
+  animation: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .apl__pulse,
+  .apl__node,
+  .apl__edge {
+    transition: none;
+  }
+  .apl__dot {
+    animation: none;
+  }
+}
