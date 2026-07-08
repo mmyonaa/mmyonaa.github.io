@@ -121,6 +121,82 @@
   border-radius: 0;
 }
 
+/* ---------- 태블릿 기기 목업 (가로 16:9 화면용) ---------- */
+/* 키오스크와 같은 방식: 기기 1대를 고정하고 화면 안에서만 이미지가 슬라이드된다. */
+.slider--tablet {
+  aspect-ratio: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 0 56px;
+  background:
+    radial-gradient(120% 120% at 50% 0%, color-mix(in srgb, var(--gold) 8%, transparent), transparent 60%),
+    var(--bg-2);
+}
+
+/* 기기 본체 (가로 태블릿) — 화면을 얇은 베젤로 감싼다.
+   다크 배경과 실루엣이 구분되도록 윗면 하이라이트 + 밝은 테두리를 준다. */
+.slider__tablet {
+  position: relative;
+  width: min(86%, 590px);
+  padding: 13px;
+  border-radius: 22px;
+  background: linear-gradient(160deg, #26262b, #17171b 60%, #101013);
+  border: 1px solid #35353d;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.09),
+    0 26px 56px rgba(0, 0, 0, 0.55);
+}
+
+/* 전면 카메라 — 가로 모드 상단 베젤 중앙 */
+.slider__tablet::before {
+  content: '';
+  position: absolute;
+  top: 4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #4a4a52, #18181c);
+}
+
+/* 전원·볼륨 버튼 — 상단 모서리 우측, 기기 윤곽을 배경에서 띄워준다.
+   본체가 전원 버튼, box-shadow 두 개가 볼륨 버튼 역할. */
+.slider__tablet::after {
+  content: '';
+  position: absolute;
+  top: -4px;
+  right: 34px;
+  width: 34px;
+  height: 4px;
+  border-radius: 3px 3px 0 0;
+  background: linear-gradient(180deg, #4a4a54, #34343c);
+  box-shadow:
+    -46px 0 0 0 #3d3d46,
+    -84px 0 0 0 #3d3d46;
+}
+
+/* 화면 — 이미지와 동일한 16:9 (내부 슬라이더 컨테이너) */
+.slider__tablet-screen {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #000;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.6);
+}
+
+.slider__tablet-screen .slider__track {
+  height: 100%;
+}
+
+.slider__tablet-screen .slider__slide img {
+  border-radius: 0;
+}
+
 /* href 지정 시 전체를 덮는 이동 링크 (이미지 위, 화살표·점 아래) */
 .slider__link {
   position: absolute;
