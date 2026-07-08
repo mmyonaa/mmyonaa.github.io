@@ -100,7 +100,7 @@ const projectText: Record<string, ProjectText> = {
       'After a send request, the reservation status is polled every second and retried up to 10 times on failure. A confirmed failure surfaces an alert, completion (GIFT_ENDED) updates the result screen, and an optional batch re-poll of completed orders reconciles the final values.',
     ],
     description:
-      'A digital content service with iframe-based content playback, activity logging and surveys, and automated KakaoTalk gift sending. (A company project at Famppy.)',
+      'A digital content service with iframe-based content playback, activity logging and surveys, and automated KakaoTalk gift sending. When a visitor plays the content and completes the survey, a gifticon is sent automatically once the conditions are met, while all activity and survey data is operated and aggregated in the admin system. I owned both the content service and the admin solo — from system design through development — including status polling and retries to handle send failures.',
     highlights: [
       'Built both the content service and the admin system',
       'iframe-based content playback with activity-log storage',
@@ -279,7 +279,7 @@ const projectText: Record<string, ProjectText> = {
   'guseong-content': {
     title: 'Guseong Elementary Content Play & Admin Site',
     description:
-      'An elementary digital-literacy content site with role-based UIs for students and teachers, content viewing history, and student management for teachers. (A company project at Famppy.)',
+      'An elementary digital-literacy content site with role-based UIs for students and teachers, content viewing history, and student management for teachers.',
     highlights: [
       'Differentiated UI and access by student/teacher role',
       'Role-based dynamic routing to split teacher/student views',

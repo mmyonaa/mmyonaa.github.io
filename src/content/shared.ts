@@ -148,14 +148,6 @@ const projectBase: ProjectBase[] = [
     architectureImages: ['/projects/nie/flow.png', '/projects/nie/kakao-flow.png'],
   },
   {
-    slug: 'apoc-studio',
-    period: '2025.04 – 2025.08',
-    tags: ['Vue.js', 'Koa', 'PostgreSQL', 'SCSS', 'Phaser', 'Three.js'],
-    link: 'https://studio.apoc.day/#/',
-    company: '',
-    repo: '',
-  },
-  {
     slug: 'apoc-renewal',
     period: '2024.01 – 2025.05',
     tags: ['Vue.js', 'Koa', 'PostgreSQL', 'SCSS'],
@@ -163,6 +155,14 @@ const projectBase: ProjectBase[] = [
     company: '',
     repo: '',
     images: ['/projects/apoc-platform/apoc-home.png'],
+  },
+  {
+    slug: 'apoc-studio',
+    period: '2025.04 – 2025.08',
+    tags: ['Vue.js', 'Koa', 'PostgreSQL', 'SCSS', 'Phaser', 'Three.js'],
+    link: 'https://studio.apoc.day/#/',
+    company: '',
+    repo: '',
   },
   {
     slug: 'apoc-payment',
