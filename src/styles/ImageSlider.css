@@ -197,6 +197,105 @@
   border-radius: 0;
 }
 
+/* ---------- 스마트폰 기기 목업 (세로 3:5 화면용) ---------- */
+/* 키오스크·태블릿과 같은 방식: 기기 1대를 고정하고 화면 안에서만 이미지가 슬라이드된다. */
+.slider--phone {
+  --pscreen-h: 330px; /* 랜딩 카드 기본 화면 높이 */
+  aspect-ratio: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px 0 66px; /* 하단 여백: 기기와 점(dots) 사이 간격 확보 */
+  background:
+    radial-gradient(120% 120% at 50% 0%, color-mix(in srgb, var(--gold) 8%, transparent), transparent 60%),
+    var(--bg-2);
+}
+
+/* 상세 페이지: 세로로 크게 */
+.slider--phone.is-tall {
+  --pscreen-h: clamp(520px, 74vh, 700px);
+}
+
+/* 랜딩 카드: 일반 슬라이더와 같은 16:11 비율로 통일하고,
+   기기 높이는 카드에 맞춰 자동 계산 (aspect-ratio 가 height → width 를 결정) */
+.slider--phone:not(.is-tall) {
+  aspect-ratio: 16 / 11;
+  padding: 0;
+}
+
+.slider--phone:not(.is-tall) .slider__phone {
+  height: calc(100% - 48px);
+}
+
+.slider--phone:not(.is-tall) .slider__phone-screen {
+  height: 100%;
+  width: auto;
+  aspect-ratio: 3 / 5;
+}
+
+/* 기기 본체 (세로 스마트폰) — 얇은 베젤, 다크 배경에서 실루엣이 살도록
+   태블릿과 같은 밝은 테두리·윗면 하이라이트를 준다. */
+.slider__phone {
+  position: relative;
+  /* 상하 베젤은 얇게 — 화면이 기기 대부분을 차지 */
+  padding: 16px 10px;
+  border-radius: 30px;
+  background: linear-gradient(160deg, #26262b, #17171b 60%, #101013);
+  border: 1px solid #35353d;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.09),
+    0 26px 56px rgba(0, 0, 0, 0.55);
+}
+
+/* 전면 카메라 + 수화부 스피커 — 상단 베젤 중앙 */
+.slider__phone::before {
+  content: '';
+  position: absolute;
+  top: 6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 34px;
+  height: 4px;
+  border-radius: 999px;
+  background: #101014;
+  box-shadow:
+    inset 0 1px 1px rgba(0, 0, 0, 0.8),
+    26px 0 0 -0.5px #18181c;
+}
+
+/* 전원·볼륨 버튼 — 오른쪽 모서리. 본체가 전원, box-shadow 가 볼륨. */
+.slider__phone::after {
+  content: '';
+  position: absolute;
+  top: 96px;
+  right: -4px;
+  width: 4px;
+  height: 42px;
+  border-radius: 0 3px 3px 0;
+  background: linear-gradient(90deg, #34343c, #4a4a54);
+  box-shadow: 0 -56px 0 0 #3d3d46;
+}
+
+/* 화면 — 이미지와 동일한 3:5 (크롭 없이 원본 그대로 표시) */
+.slider__phone-screen {
+  position: relative;
+  display: block;
+  height: var(--pscreen-h);
+  width: calc(var(--pscreen-h) * 3 / 5);
+  border-radius: 18px;
+  overflow: hidden;
+  background: #000;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.6);
+}
+
+.slider__phone-screen .slider__track {
+  height: 100%;
+}
+
+.slider__phone-screen .slider__slide img {
+  border-radius: 0;
+}
+
 /* href 지정 시 전체를 덮는 이동 링크 (이미지 위, 화살표·점 아래) */
 .slider__link {
   position: absolute;

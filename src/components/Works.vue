@@ -69,7 +69,7 @@ const activeProject = computed(() => projects.value[active.value])
           <ImageSlider
             v-if="p.images?.length"
             class="panel__slider"
-            :images="p.images.slice(0, 3)"
+            :images="p.images.slice(0, 1)"
             :alt="p.title"
             :href="`#/project/${p.slug}`"
             :autoplay="i === active"

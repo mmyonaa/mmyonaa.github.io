@@ -158,6 +158,12 @@ const projectBase: ProjectBase[] = [
     link: '',
     company: '',
     repo: '',
+    imageFrame: 'phone', // 모바일 콘텐츠 → 스마트폰 기기 목업
+    images: [
+      '/projects/nie/nie-stamp-board.png',
+      '/projects/nie/nie-content-detail.png',
+      '/projects/nie/nie-code-entry.png',
+    ],
     architectureImages: ['/projects/nie/flow.png', '/projects/nie/kakao-flow.png'],
   },
   {

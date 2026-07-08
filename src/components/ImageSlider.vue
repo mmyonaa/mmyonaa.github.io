@@ -8,7 +8,7 @@ const props = withDefaults(
     alt?: string
     href?: string // 지정 시 이미지가 해당 경로로 이동하는 링크가 됨
     autoplay?: boolean
-    frame?: 'kiosk' | 'tablet' // 기기 목업 프레임 (kiosk: 세로 스탠딩 기기, tablet: 가로 태블릿)
+    frame?: 'kiosk' | 'tablet' | 'phone' // 기기 목업 프레임 (kiosk: 세로 스탠딩 기기, tablet: 가로 태블릿, phone: 세로 스마트폰)
     tall?: boolean // 키오스크 기기를 세로로 길게 (상세 페이지용)
     wide?: boolean // 16:9 비율 (발표 슬라이드 등)
     zoomable?: boolean // 클릭 시 라이트박스로 확대 (링크(href)가 없을 때만)
@@ -63,13 +63,13 @@ const hasMany = computed(() => props.images.length > 1)
 <template>
   <div
     class="slider"
-    :class="{ 'slider--kiosk': frame === 'kiosk', 'slider--tablet': frame === 'tablet', 'is-tall': tall, 'slider--wide': wide, 'is-zoomable': canZoom }"
+    :class="[frame && `slider--${frame}`, { 'is-tall': tall, 'slider--wide': wide, 'is-zoomable': canZoom }]"
     @mouseenter="stopAuto"
     @mouseleave="startAuto"
   >
     <!-- 기기 목업: 기기 1대 고정, 화면 안에서만 슬라이드 -->
-    <div v-if="frame" :class="frame === 'kiosk' ? 'slider__kiosk' : 'slider__tablet'">
-      <span :class="frame === 'kiosk' ? 'slider__kiosk-screen' : 'slider__tablet-screen'">
+    <div v-if="frame" :class="`slider__${frame}`">
+      <span :class="`slider__${frame}-screen`">
         <div class="slider__track" :style="{ transform: `translateX(-${slide * 100}%)` }">
           <figure v-for="(src, i) in images" :key="src" class="slider__slide">
             <img :src="src" :alt="`${alt} 스크린샷 ${i + 1}`" loading="lazy" draggable="false" @click="onImgClick(src)" />

@@ -68,7 +68,7 @@ export interface Project {
   company: string
   repo?: string
   images?: string[] // 상세 페이지 히어로에 슬라이드로 표시되는 스크린샷 경로
-  imageFrame?: 'kiosk' | 'tablet' // 스크린샷을 기기 목업 프레임으로 표시 (kiosk: 세로, tablet: 가로 16:9)
+  imageFrame?: 'kiosk' | 'tablet' | 'phone' // 스크린샷을 기기 목업 프레임으로 표시 (kiosk: 세로 9:16, tablet: 가로 16:9, phone: 세로 3:5)
   overview?: string[] // 상세 페이지 Overview 문단 (포트폴리오용 상세 설명)
   techNotes?: ProjectTechNote[] // 상세 페이지 Technical notes (기술 포인트/문제 해결)
   mediaNote?: string // 이미지 비공개 사유 (값이 있으면 이미지 자리에 '비공개' 플레이스홀더 표시)

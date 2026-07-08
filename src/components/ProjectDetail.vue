@@ -80,7 +80,7 @@ const relatedProjects = computed(() =>
             :images="images"
             :alt="project.title"
             :frame="project.imageFrame"
-            :tall="project.imageFrame === 'kiosk'"
+            :tall="project.imageFrame === 'kiosk' || project.imageFrame === 'phone'"
             zoomable
           />
           <div
