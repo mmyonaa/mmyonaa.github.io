@@ -149,7 +149,7 @@ const projectText: Record<string, ProjectText> = {
     title: 'eSIM Sales Management Site',
     architectureCaptions: ['eSIM platform map — operations & management'],
     architectureNotes: [
-      'This admin manages products, stock, partners, users, and settlement, while the online commerce and kiosk sell using that data through a shared backend (Koa/PostgreSQL). Online and offline sales run on one operations/settlement system.',
+      'This admin manages products, stock, partners, users, and settlement, while the online commerce and kiosk sell using that data through a shared backend (Koa/PostgreSQL). Online and offline sales run on one operations/settlement system. Kiosks are distributed across multiple airports/locations (1–2 operating partners), and the admin aggregates each device’s orders and settlement.',
     ],
     related: [
       { slug: 'esim-service', role: 'Online sales channel on the same backend' },
@@ -206,7 +206,7 @@ const projectText: Record<string, ProjectText> = {
     description:
       'An unattended eSIM kiosk. I led the Vue kiosk web and owned hardware-facing features of the Android app — printers, payment, and multilingual encoding.',
     overview: [
-      'A self-service kiosk installed at stores in Japan where travelers buy and issue eSIMs themselves. I implemented the kiosk flow — from selecting continent, country, and plan to payment, eSIM QR issuance, receipt printing, and email delivery.',
+      'A self-service kiosk installed at stores in Japan where travelers buy and issue eSIMs themselves. I implemented the kiosk flow — from selecting continent, country, and plan to payment, eSIM QR issuance, receipt printing, and email delivery. The eSIM catalog covers 30+ countries, but the kiosk itself is Japan-only (JPY) and takes card, QR, and NFC-tag payments through the terminal. After development, I also ran the initial on-site operation in Japan (about 5 units).',
       'The UI is a Vue 3 PWA — which I led as the primary contributor — wrapped in an Android (Kotlin) WebView app running on the hardware. The app foundation was built by the team; on top of it I owned and extended the hardware-facing features: printing, payment, encoding, and unattended-operation stability.',
       'In particular I auto-detected and supported both legacy and new receipt printers, handled Japanese/Korean multi-encoding (Shift-JIS ↔ UTF-8), payment-terminal status/error handling, real-time paper-low detection, and Wi-Fi auto-reconnect for unattended reliability — inspecting and supporting it in real time on-site in Japan.',
     ],
@@ -214,8 +214,9 @@ const projectText: Record<string, ProjectText> = {
       'Led development of the kiosk web (Vue 3 PWA)',
       'Dual-driver auto-detection across legacy and new receipt printers (SII ↔ Epson)',
       'Japanese/Korean multi-encoding (Shift-JIS ↔ UTF-8) with automatic selection',
-      'Payment-terminal per-type response and error handling relayed back to the web',
+      'Payment-terminal card/QR/NFC-tag per-type response and error handling relayed back to the web',
       'Unattended-ops hardening: real-time paper-low monitoring and Wi-Fi auto-reconnect',
+      'Japan-only (JPY), ~5 units in initial on-site operation; eSIM catalog covers 30+ countries',
     ],
     techNotes: [
       {
