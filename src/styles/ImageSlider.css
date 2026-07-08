@@ -62,12 +62,14 @@
 }
 
 /* 기기 본체 (세로형 스탠딩 키오스크) — 화면 크기에 맞춰 감싼다 */
+/* 기본값 = 상세 페이지(화면 ~600px) 기준. 랜딩 카드는 기기가 절반 크기라
+   아래 :not(.is-tall) 블록에서 같은 비율로 절반 수치를 쓴다. */
 .slider__kiosk {
   position: relative;
   display: flex;
   flex-direction: column;
-  padding: 30px 12px 50px;
-  border-radius: 22px 22px 12px 12px;
+  padding: 27px 15px 63px;
+  border-radius: 29px 29px 17px 17px;
   background: linear-gradient(160deg, #202024, #131316 60%, #0d0d0f);
   border: 1px solid var(--line);
   box-shadow: 0 24px 54px rgba(0, 0, 0, 0.5);
@@ -77,11 +79,11 @@
 .slider__kiosk::before {
   content: '';
   position: absolute;
-  top: 12px;
+  top: 8px;
   left: 50%;
   transform: translateX(-50%);
-  width: 7px;
-  height: 7px;
+  width: 10px;
+  height: 10px;
   border-radius: 50%;
   background: radial-gradient(circle at 35% 35%, #4a4a52, #18181c);
 }
@@ -91,13 +93,13 @@
   content: '';
   position: absolute;
   left: 50%;
-  bottom: 26px;
+  bottom: 25px;
   transform: translateX(-50%);
   width: 58%;
-  height: 5px;
+  height: 8px;
   border-radius: 999px;
   background: #2a2a30;
-  box-shadow: 0 10px 0 -1px #34343c;
+  box-shadow: 0 13px 0 -2px #34343c;
 }
 
 /* 화면 — 이미지와 동일한 9:16 으로 고정 (내부 슬라이더 컨테이너) */
@@ -105,8 +107,8 @@
   position: relative;
   height: var(--screen-h);
   width: calc(var(--screen-h) * 9 / 16);
-  margin: 4px 0 16px;
-  border-radius: 6px;
+  margin: 4px 0 13px;
+  border-radius: 8px;
   overflow: hidden;
   background: #000;
   box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.6);
@@ -216,21 +218,71 @@
   --pscreen-h: clamp(520px, 74vh, 700px);
 }
 
-/* 랜딩 카드: 일반 슬라이더와 같은 16:11 비율로 통일하고,
-   기기 높이는 카드에 맞춰 자동 계산 (aspect-ratio 가 height → width 를 결정) */
-.slider--phone:not(.is-tall) {
+/* ---------- 랜딩 카드: 기기 목업도 일반 슬라이더와 같은 16:11 로 통일 ----------
+   상세 페이지(is-tall)는 기기별 고정 크기, 카드에서는 16:11 안에 맞춰
+   기기 높이를 자동 계산한다 (aspect-ratio 가 height → width 를 결정). */
+.slider--phone:not(.is-tall),
+.slider--kiosk:not(.is-tall),
+.slider--tablet:not(.is-tall) {
   aspect-ratio: 16 / 11;
   padding: 0;
 }
 
 .slider--phone:not(.is-tall) .slider__phone {
   height: calc(100% - 48px);
+  padding: 12px 7px;
+  border-radius: 20px;
+}
+
+.slider--phone:not(.is-tall) .slider__phone::before {
+  top: 4px;
+  width: 20px;
+  height: 4px;
+  box-shadow:
+    inset 0 1px 1px rgba(0, 0, 0, 0.8),
+    14px 0 0 -0.5px #18181c;
+}
+
+.slider--phone:not(.is-tall) .slider__phone::after {
+  top: 52px;
+  right: -3px;
+  width: 3px;
+  height: 24px;
+  box-shadow: 0 -32px 0 0 #3d3d46;
 }
 
 .slider--phone:not(.is-tall) .slider__phone-screen {
   height: 100%;
   width: auto;
   aspect-ratio: 3 / 5;
+  border-radius: 11px;
+}
+
+/* 카드의 기기는 상세(화면 높이 ~640px)의 절반 크기이므로,
+   베젤·하드웨어 디테일도 절반으로 줄여 두 화면의 비율을 맞춘다. */
+.slider--kiosk:not(.is-tall) .slider__kiosk {
+  height: calc(100% - 44px);
+  padding: 13px 7px 30px;
+  border-radius: 14px 14px 8px 8px;
+}
+
+.slider--kiosk:not(.is-tall) .slider__kiosk::before {
+  top: 4px;
+  width: 5px;
+  height: 5px;
+}
+
+.slider--kiosk:not(.is-tall) .slider__kiosk::after {
+  bottom: 12px;
+  height: 4px;
+  box-shadow: 0 6px 0 -1px #34343c;
+}
+
+.slider--kiosk:not(.is-tall) .slider__kiosk-screen {
+  height: calc(100% - 8px); /* 상하 margin(2+6px) 몫을 제외 */
+  width: auto;
+  aspect-ratio: 9 / 16;
+  margin: 2px 0 6px;
 }
 
 /* 기기 본체 (세로 스마트폰) — 얇은 베젤, 다크 배경에서 실루엣이 살도록
