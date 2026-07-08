@@ -4,11 +4,15 @@ Vue 3 + TypeScript + Vite로 만든 개인 포트폴리오. 다크/라이트 테
 
 ## ✨ 특징
 
-- **다크 미니멀 디자인** — 골드 액센트, 별가루(starfield) 배경, 거대 타이포그래피
+- **다크 미니멀 디자인** — 골드 액센트, 거대 타이포그래피
+- **⌘K 커맨드 팔레트** — 프로젝트 점프·섹션 이동·테마/언어 토글을 키보드로 (Mac `⌘K` / 그 외 `Ctrl K` 자동 표시)
+- **커서 반응형 별자리** — 커서 근처 별들이 얇은 선으로 연결되는 constellation 배경(캔버스, 라이트=골드 점)
+- **터미널 부팅 인트로** — 첫 로드 시 mono 타이핑 시퀀스 (세션당 1회, 클릭/키로 스킵)
 - **다크 / 라이트 테마 토글** — 선택값을 `localStorage`에 저장, 첫 페인트 전 적용으로 깜빡임 없음
 - **한 / 영 다국어(i18n)** — 라이브러리 없이 반응형 로케일 전환, 선택값 `localStorage` 저장
 - **프로젝트 상세 페이지** — 해시 라우팅(`#/project/<slug>`)으로 정적 호스팅에서도 새로고침·직접 링크 안전
 - **아키텍처 다이어그램** — 프로젝트별 구조도를 다크/라이트·한/영 변형으로 표시, 클릭 시 확대(라이트박스)
+- **시스템 그래프** — 함께 이루는 시스템(관련 프로젝트)을 인터랙티브 노드 그래프로 표시(호버 강조·클릭 이동)
 - **스크롤 모션** — 등장(reveal) 애니메이션, Works 타임라인 스크럽 (외부 라이브러리 없이 IntersectionObserver + CSS)
 - **반응형** + `prefers-reduced-motion` 대응
 - **콘텐츠 분리** — 모든 텍스트·프로젝트·연락처를 [`src/content/`](src/content) 한 곳에서 언어별로 관리
@@ -19,7 +23,7 @@ Vue 3 + TypeScript + Vite로 만든 개인 포트폴리오. 다크/라이트 테
 - [TypeScript](https://www.typescriptlang.org/) (+ `vue-tsc` 타입 체크)
 - [Vite 6](https://vite.dev/)
 - 순수 CSS (변수 기반 테마) — 컴포넌트별 스타일은 [`src/styles/`](src/styles)로 분리
-- 라우팅·테마·i18n·라이트박스는 외부 라이브러리 없이 직접 구현
+- 라우팅·테마·i18n·라이트박스·커맨드 팔레트는 외부 라이브러리 없이 직접 구현
 - 패키지 매니저: **pnpm**
 
 ## 🚀 시작하기
@@ -49,13 +53,15 @@ portfolio/
 │  ├─ i18n.ts                # 로케일(ko/en) 상태 + localStorage
 │  ├─ tints.ts               # 프로젝트별 색조
 │  ├─ lightbox.ts            # 이미지 라이트박스 상태
+│  ├─ command.ts             # ⌘K 커맨드 팔레트 상태 + 플랫폼별 단축키 라벨
 │  ├─ data.ts                # ★ 콘텐츠 파사드 — 언어별 콘텐츠를 현재 로케일로 병합해 반응형 export
 │  ├─ content/               # 콘텐츠 소스
 │  │  ├─ types.ts            #   콘텐츠 타입 정의
 │  │  ├─ shared.ts           #   언어 공통 (slug·기간·태그·링크·이미지/다이어그램·스킬·연락처)
 │  │  └─ ko.ts / en.ts       #   언어별 텍스트 (제목·설명·overview·techNotes 등)
 │  ├─ components/            # Navbar·Hero·About(Detail)·Works·Contact·ProjectDetail
-│  │                         # ImageSlider·Lightbox·ThemeToggle·LanguageToggle·CursorFollower·Stars
+│  │                         # ImageSlider·Lightbox·CommandPalette·BootIntro·SystemGraph
+│  │                         # ThemeToggle·LanguageToggle·CursorFollower·Stars
 │  └─ styles/                # 컴포넌트별 추출 CSS
 └─ public/projects/          # 프로젝트 스크린샷·아키텍처 다이어그램(PNG)
 ```
