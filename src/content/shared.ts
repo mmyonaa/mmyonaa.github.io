@@ -49,6 +49,7 @@ export type ProjectText = Pick<
   | 'overview'
   | 'techNotes'
   | 'mediaNote'
+  | 'imageNote'
   | 'presentationNote'
   | 'architectureCaptions'
   | 'architectureNotes'

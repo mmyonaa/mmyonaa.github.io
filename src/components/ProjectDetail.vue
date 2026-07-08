@@ -83,8 +83,11 @@ const relatedProjects = computed(() =>
             :tall="!!project.imageFrame"
             zoomable
           />
+          <p v-if="images.length && project.imageNote" class="detail__media-note reveal">
+            {{ project.imageNote }}
+          </p>
           <div
-            v-else
+            v-if="!images.length"
             class="detail__hero"
             :class="{ 'detail__hero--locked': project.mediaNote }"
             :style="{ background: tint }"

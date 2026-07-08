@@ -136,6 +136,8 @@ const projectText: Record<string, ProjectText> = {
     ],
     description:
       'A digital content service with iframe-based content playback, activity logging and surveys, and automated KakaoTalk gift sending.',
+    imageNote:
+      'The interpretive content shown (illustrations · curriculum) was produced by a separate content team — my work covers the playback, activity-logging and verification platform.',
     overview: [
       'A digital content service that lets National Ecology Institute visitors enjoy content and take part in surveys on the web. After content playback, activity logging, and survey participation, a Kakao gifticon is sent automatically once the conditions are met, and the collected activity and survey data is operated and aggregated in the admin system.',
       'I owned both the content service and the admin system solo — from system design through development — and secured reliable automated sending with status polling and retries that handle send failures.',
@@ -320,6 +322,8 @@ const projectText: Record<string, ProjectText> = {
     title: 'Guseong Elementary Content Play & Admin Site',
     description:
       'An elementary digital-literacy content site with role-based UIs for students and teachers, content viewing history, and student management for teachers.',
+    imageNote:
+      'The lesson content shown (curriculum · illustrations) was produced by a separate content team — my work covers the role-based playback, viewing-history and student-management platform.',
     highlights: [
       'Differentiated UI and access by student/teacher role',
       'Role-based dynamic routing to split teacher/student views',

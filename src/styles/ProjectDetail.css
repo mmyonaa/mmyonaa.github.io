@@ -171,6 +171,16 @@
   top: 100px;
 }
 
+/* 슬라이더 아래 한 줄 캡션 — 화면 속 콘텐츠의 저작·기여 범위 명시 */
+.detail__media-note {
+  margin: 12px 4px 0;
+  font-size: 0.82rem;
+  line-height: 1.6;
+  color: var(--faint);
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+}
+
 .detail__info {
   display: flex;
   flex-direction: column;
