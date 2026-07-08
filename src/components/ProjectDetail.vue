@@ -9,6 +9,7 @@ import { tints } from '../tints'
 import { theme } from '../theme'
 import { locale } from '../i18n'
 import { openLightbox } from '../lightbox'
+import { openCommand, cmdKLabel } from '../command'
 
 const props = defineProps<{ project: Project }>()
 
@@ -51,6 +52,15 @@ const relatedProjects = computed(() =>
       <a class="detail__back" href="#/">← Back to index</a>
       <div class="detail__bar-right">
         <span class="detail__brand">{{ profile.name.toLowerCase() }}<span>_</span></span>
+        <button
+          type="button"
+          class="detail__cmdk"
+          :title="`Command menu — ${cmdKLabel}`"
+          aria-label="Open command menu"
+          @click="openCommand"
+        >
+          <span aria-hidden="true">{{ cmdKLabel }}</span>
+        </button>
         <LanguageToggle />
         <ThemeToggle />
       </div>

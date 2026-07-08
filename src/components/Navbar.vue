@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { onMounted, onUnmounted, ref } from 'vue'
 import { profile } from '../data'
-import { openCommand } from '../command'
+import { openCommand, cmdKLabel } from '../command'
 import ThemeToggle from './ThemeToggle.vue'
 import LanguageToggle from './LanguageToggle.vue'
 
@@ -44,11 +44,11 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
         <button
           type="button"
           class="nav__cmdk"
-          title="Command menu — ⌘K"
+          :title="`Command menu — ${cmdKLabel}`"
           aria-label="Open command menu"
           @click="openCommand"
         >
-          <span aria-hidden="true">⌘K</span>
+          <span aria-hidden="true">{{ cmdKLabel }}</span>
         </button>
         <LanguageToggle />
         <ThemeToggle />

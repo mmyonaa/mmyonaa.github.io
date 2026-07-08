@@ -12,3 +12,8 @@ export function closeCommand(): void {
 export function toggleCommand(): void {
   commandOpen.value = !commandOpen.value
 }
+
+// 플랫폼별 단축키 라벨 — Mac 은 ⌘K, 그 외는 Ctrl K
+const ua = typeof navigator !== 'undefined' ? navigator.userAgent : ''
+export const isMac = /Mac|iPhone|iPad|iPod/i.test(ua)
+export const cmdKLabel = isMac ? '⌘K' : 'Ctrl K'
