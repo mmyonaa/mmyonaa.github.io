@@ -4,6 +4,7 @@ import { profile, projects, type Project } from '../data'
 import ThemeToggle from './ThemeToggle.vue'
 import LanguageToggle from './LanguageToggle.vue'
 import ImageSlider from './ImageSlider.vue'
+import SystemGraph from './SystemGraph.vue'
 import { tints } from '../tints'
 import { theme } from '../theme'
 import { locale } from '../i18n'
@@ -175,16 +176,11 @@ const relatedProjects = computed(() =>
 
       <section v-if="relatedProjects.length" class="detail__section">
         <h2 class="detail__section-title reveal">Part of the same system</h2>
-        <div class="detail__related">
-          <a
-            v-for="r in relatedProjects"
-            :key="r.slug"
-            class="related reveal"
-            :href="`#/project/${r.slug}`"
-          >
-            <span class="related__title">{{ r.title }} ↗</span>
-            <span class="related__role">{{ r.role }}</span>
-          </a>
+        <div class="detail__sysgraph reveal">
+          <SystemGraph
+            :current="{ slug: project.slug, title: project.title }"
+            :related="relatedProjects"
+          />
         </div>
       </section>
 
