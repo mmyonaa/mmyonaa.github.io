@@ -100,7 +100,11 @@ const projectText: Record<string, ProjectText> = {
       'After a send request, the reservation status is polled every second and retried up to 10 times on failure. A confirmed failure surfaces an alert, completion (GIFT_ENDED) updates the result screen, and an optional batch re-poll of completed orders reconciles the final values.',
     ],
     description:
-      'A digital content service with iframe-based content playback, activity logging and surveys, and automated KakaoTalk gift sending. When a visitor plays the content and completes the survey, a gifticon is sent automatically once the conditions are met, while all activity and survey data is operated and aggregated in the admin system. I owned both the content service and the admin solo — from system design through development — including status polling and retries to handle send failures.',
+      'A digital content service with iframe-based content playback, activity logging and surveys, and automated KakaoTalk gift sending.',
+    overview: [
+      'A digital content service that lets National Ecology Institute visitors enjoy content and take part in surveys on the web. After content playback, activity logging, and survey participation, a Kakao gifticon is sent automatically once the conditions are met, and the collected activity and survey data is operated and aggregated in the admin system.',
+      'I owned both the content service and the admin system solo — from system design through development — and secured reliable automated sending with status polling and retries that handle send failures.',
+    ],
     highlights: [
       'Built both the content service and the admin system',
       'iframe-based content playback with activity-log storage',
