@@ -67,6 +67,7 @@ export interface Project {
   link: string
   company: string
   repo?: string
+  apiDocs?: string // API 문서(Swagger 등) 링크 — 상세 페이지 Links 블록에 표시
   images?: string[] // 상세 페이지 히어로에 슬라이드로 표시되는 스크린샷 경로
   imageFrame?: 'kiosk' | 'tablet' | 'phone' // 스크린샷을 기기 목업 프레임으로 표시 (kiosk: 세로 9:16, tablet: 가로 16:9, phone: 세로 3:5)
   overview?: string[] // 상세 페이지 Overview 문단 (포트폴리오용 상세 설명)

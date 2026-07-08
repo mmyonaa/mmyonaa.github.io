@@ -86,6 +86,7 @@ const projectBase: ProjectBase[] = [
     link: 'https://bktheater.com/',
     company: '',
     repo: 'https://github.com/mmyonaa/outsourcing',
+    apiDocs: 'https://bktheater.com/api/docs',
     // 앞 3장은 사용자 화면(랜딩 카드 슬라이더용), 이후는 관리자 화면(상세 페이지용)
     images: [
       '/projects/bktheater/bk-theater.png',
