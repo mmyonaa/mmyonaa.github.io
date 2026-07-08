@@ -370,6 +370,11 @@ export const ko: SiteContent = {
     ],
     timeline: [
       {
+        period: '2025.09 – 현재',
+        title: 'InBridge · SentiveX 보안 플랫폼 (AI 서버·웹)',
+        body: 'InBridge의 멀티테넌트 SIEM 보안 플랫폼. Fastify AI 서버의 멀티 에이전트 인시던트 분석 파이프라인과 LiteLLM 게이트웨이·멀티테넌트 BYOK를 최다 기여자로 주도하고, Next.js 15 풀스택 웹(대시보드·리포트 에디터)에도 협업으로 참여했습니다.',
+      },
+      {
         period: '2023.11 – 2025.05',
         title: 'eSIM 판매 플랫폼 (서비스·키오스크·어드민)',
         body: '온라인 서비스·키오스크·어드민·공유 미들웨어로 이뤄진 eSIM 플랫폼에 핵심 개발자로 참여(대부분 영역 최다 기여). 다중 PG 결제(Paygent·Google/Apple Pay), RBAC 권한·정산, eSIM 발급·SES 메일 발송, 키오스크 프린터·다국어 인코딩 등 하드웨어 연동까지 담당하고 일본 현지 실운영을 대응했습니다.',

@@ -371,6 +371,11 @@ export const en: SiteContent = {
     ],
     timeline: [
       {
+        period: '2025.09 – Present',
+        title: 'InBridge · SentiveX Security Platform (AI server & web)',
+        body: 'A multi-tenant SIEM security platform at InBridge. As the top contributor, I led the Fastify AI server’s multi-agent incident-analysis pipeline, LiteLLM gateway, and multi-tenant BYOK, and also contributed to the Next.js 15 full-stack web (dashboard, report editor).',
+      },
+      {
         period: '2023.11 – 2025.05',
         title: 'eSIM Sales Platform (service · kiosk · admin)',
         body: 'A key developer (top contributor in most areas) across an eSIM platform of the online service, kiosk, admin, and shared middleware. Owned multi-gateway payments (Paygent, Google/Apple Pay), RBAC and settlement, eSIM issuance with SES email delivery, and kiosk hardware integration (printers, multilingual encoding), and handled live operations on-site in Japan.',
