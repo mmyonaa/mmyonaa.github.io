@@ -189,7 +189,8 @@ const projectBase: ProjectBase[] = [
     link: 'https://studio.apoc.day/#/',
     company: '',
     repo: '',
-    images: ['/projects/apoc-studio/apoc-studio-3d-mapping.png'],
+    imageFrame: 'tablet', // 태블릿 대응이 주제 → 태블릿 기기 목업
+    images: ['/projects/apoc-studio/apoc-studio-tablet-editor.png'],
     systemHub: { label: 'apoc', sub: 'product ecosystem' },
   },
   {
