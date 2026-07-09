@@ -185,7 +185,7 @@ const projectBase: ProjectBase[] = [
   {
     slug: 'apoc-studio',
     period: '2025.04 – 2025.08',
-    tags: ['Vue.js', 'Koa', 'PostgreSQL', 'SCSS', 'Phaser', 'Three.js'],
+    tags: ['Vue.js', 'Koa', 'PostgreSQL', 'SCSS'],
     link: 'https://studio.apoc.day/#/',
     company: '',
     repo: '',
