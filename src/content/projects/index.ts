@@ -12,7 +12,6 @@ import * as apocPayment from './apoc-payment'
 import * as esimAdmin from './esim-admin'
 import * as esimKiosk from './esim-kiosk'
 import * as esimService from './esim-service'
-import * as guseongContent from './guseong-content'
 
 // slug → 프로젝트 모듈 (표시 순서와 무관 — buildProjects 가 shared 의 순서를 따름)
 const modules: Record<string, { ko: ProjectText; en: ProjectText }> = {
@@ -26,7 +25,6 @@ const modules: Record<string, { ko: ProjectText; en: ProjectText }> = {
   'esim-admin': esimAdmin,
   'esim-kiosk': esimKiosk,
   'esim-service': esimService,
-  'guseong-content': guseongContent,
 }
 
 export const projectTextKo: Record<string, ProjectText> = Object.fromEntries(

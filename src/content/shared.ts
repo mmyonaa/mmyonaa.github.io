@@ -202,20 +202,6 @@ const projectBase: ProjectBase[] = [
     systemId: 'apoc',
     paymentFlow: true,
   },
-  {
-    slug: 'guseong-content',
-    period: '2024.08 – 2024.09',
-    tags: ['Vue.js', 'Koa', 'PostgreSQL', 'SCSS'],
-    link: '',
-    company: '',
-    repo: '',
-    imageFrame: 'tablet', // 태블릿용 콘텐츠 → 태블릿 기기 목업
-    images: [
-      '/projects/gs/guseong-content-play.png',
-      '/projects/gs/guseong-content-search.png',
-      '/projects/gs/guseong-content-suno.png',
-    ],
-  },
 ]
 
 // 'Part of the same system' 레이어 다이어그램 — 시스템 단위로 실제 구조를 정의.
