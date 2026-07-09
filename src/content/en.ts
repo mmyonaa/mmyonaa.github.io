@@ -425,6 +425,10 @@ export const en: SiteContent = {
         notes: ['Completed the Cloud/Big Data Security track'],
       },
     ],
+    languages: [
+      { name: 'Korean', level: 'Native' },
+      { name: 'English', level: 'Business proficiency · product demos & presentations' },
+    ],
   },
   projects: buildProjects(projectText),
 }

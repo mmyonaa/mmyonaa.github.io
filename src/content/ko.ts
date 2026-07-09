@@ -424,6 +424,10 @@ export const ko: SiteContent = {
         notes: ['Cloud/Bigdata 보안 트랙 이수'],
       },
     ],
+    languages: [
+      { name: '한국어', level: '모국어' },
+      { name: 'English', level: '업무 회화 · 영문 제품 데모·발표' },
+    ],
   },
   projects: buildProjects(projectText),
 }

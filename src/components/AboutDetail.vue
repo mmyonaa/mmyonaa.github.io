@@ -5,6 +5,7 @@ import ThemeToggle from './ThemeToggle.vue'
 import LanguageToggle from './LanguageToggle.vue'
 
 const education = computed(() => aboutDetail.value.education)
+const languages = computed(() => aboutDetail.value.languages)
 </script>
 
 <template>
@@ -126,6 +127,18 @@ const education = computed(() => aboutDetail.value.education)
             </div>
           </li>
         </ul>
+      </section>
+
+      <section v-if="languages.length" class="about-detail__section">
+        <h2 class="about-detail__heading reveal">Languages</h2>
+        <div class="about-detail__skills">
+          <div v-for="l in languages" :key="l.name" class="skillgroup reveal">
+            <span class="skillgroup__cat">{{ l.name }}</span>
+            <ul class="skillgroup__list">
+              <li>{{ l.level }}</li>
+            </ul>
+          </div>
+        </div>
       </section>
 
       <section class="about-detail__section">

@@ -38,6 +38,11 @@ export interface AboutEducationItem {
   notes: string[]
 }
 
+export interface AboutLanguageItem {
+  name: string
+  level: string
+}
+
 export interface AboutDetail {
   intro: string
   paragraphs: string[]
@@ -45,6 +50,7 @@ export interface AboutDetail {
   timeline: AboutTimelineItem[]
   activities: AboutTimelineItem[]
   education: AboutEducationItem[]
+  languages: AboutLanguageItem[]
 }
 
 export interface SkillGroup {
