@@ -201,6 +201,7 @@ const projectBase: ProjectBase[] = [
     company: '',
     repo: '',
     systemHub: { label: 'apoc', sub: 'product ecosystem' },
+    paymentFlow: true,
   },
   {
     slug: 'guseong-content',

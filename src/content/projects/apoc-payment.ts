@@ -4,6 +4,7 @@ export const ko: ProjectText = {
   title: '자사 서비스 결제 시스템',
   description:
     'Toss·PayPal 결제 모듈을 연동하고 단건/정기 구독 결제와 요금제 업·다운그레이드, 자동 갱신 배치까지 설계·개발했습니다.',
+  mediaNote: '실제 운영 데이터가 포함되어 화면은 비공개합니다.',
   overview: [
     'apoc 플랫폼의 결제 시스템으로, Toss·PayPal을 연동해 단건 결제부터 정기 구독까지 담당했습니다. 구독은 요금제 간 업그레이드·다운그레이드와 자동 갱신을 지원하며, 구독·결제 상태는 상태 값으로 관리하고 모든 변경은 별도 히스토리 테이블(구독/결제 이력)에 적재해 정산과 감사 추적이 가능하도록 설계했습니다.',
     '업그레이드는 전환 시점에 남은 기간의 차액을 즉시 결제(proration)하고 다음 결제 주기부터 상향된 금액으로 청구하며, 다운그레이드는 즉시 환불 없이 다음 주기부터 하향 금액을 반영합니다. Toss는 요금제(plan) 개념 없이 billing key(결제수단)–사용자 매칭으로 청구되는 구조라 금액 계산을 서비스 측에서 수행해 billing key로 과금하도록 설계했고, plan 기반으로 동작하는 PayPal과는 로직을 분리해 각 PG 모델에 맞게 추상화했습니다.',
@@ -42,6 +43,7 @@ export const en: ProjectText = {
   title: 'In-house Service Payment System',
   description:
     'Integrated Toss and PayPal payment modules and designed/built one-time and recurring subscription payments, plan up/downgrades, and an auto-renewal batch.',
+  mediaNote: 'Screens are withheld as they contain live operational data.',
   overview: [
     'The payment system of the apoc platform — integrating Toss and PayPal for everything from one-time payments to recurring subscriptions. Subscriptions support upgrades, downgrades, and auto-renewal; subscription and payment states are managed as status values, while every change is appended to separate history tables so settlement and audit trails are preserved.',
     'Upgrades charge the prorated difference for the remaining period immediately and bill the higher amount from the next cycle; downgrades apply the lower amount from the next cycle (no immediate refund) and keep the pre-change plan as history. Since Toss bills via a billing-key (payment method)–user match with no plan concept, the service computes the amount itself and charges through the billing key — logic kept separate from PayPal, which operates on plans, and abstracted per gateway.',

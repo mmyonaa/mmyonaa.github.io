@@ -6,6 +6,7 @@ import LanguageToggle from './LanguageToggle.vue'
 import ImageSlider from './ImageSlider.vue'
 import SystemGraph from './SystemGraph.vue'
 import AnalysisPipeline from './AnalysisPipeline.vue'
+import PaymentFlow from './PaymentFlow.vue'
 import { tints } from '../tints'
 import { theme } from '../theme'
 import { locale } from '../i18n'
@@ -184,6 +185,13 @@ const relatedProjects = computed(() =>
         <h2 class="detail__section-title reveal">Analysis pipeline</h2>
         <div class="detail__pipeline reveal">
           <AnalysisPipeline />
+        </div>
+      </section>
+
+      <section v-if="project.paymentFlow" class="detail__section">
+        <h2 class="detail__section-title reveal">Subscription flow</h2>
+        <div class="detail__pipeline reveal">
+          <PaymentFlow />
         </div>
       </section>
 
