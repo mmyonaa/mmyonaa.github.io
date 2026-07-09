@@ -50,6 +50,7 @@ export type ProjectText = Pick<
   | 'techNotes'
   | 'mediaNote'
   | 'imageNote'
+  | 'qa'
   | 'presentationNote'
   | 'photosNote'
   | 'architectureCaptions'

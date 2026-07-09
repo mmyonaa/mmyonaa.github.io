@@ -79,6 +79,11 @@ export interface Project {
   imageNote?: string // 슬라이더 아래 한 줄 캡션 — 화면 속 콘텐츠의 저작·기여 범위 명시용
   overview?: string[] // 상세 페이지 Overview 문단 (포트폴리오용 상세 설명)
   techNotes?: ProjectTechNote[] // 상세 페이지 Technical notes (기술 포인트/문제 해결)
+  qa?: {
+    stats: { value: string; label: string }[] // 요약 지표 (기기 수·케이스 수 등)
+    findings?: { title: string; body: string }[] // 대표 발견 이슈 (익명화 재작성)
+    note?: string // 원본 문서 비공개 등 부가 설명
+  } // 'QA & Testing' 섹션 — 테스트 시트에서 추출한 지표·대표 이슈
   mediaNote?: string // 이미지 비공개 사유 (값이 있으면 이미지 자리에 '비공개' 플레이스홀더 표시)
   presentationImages?: string[] // 상세 하단 'Presentation' 갤러리 슬라이드 (16:9)
   presentationNote?: string // Presentation 섹션 설명 문구
