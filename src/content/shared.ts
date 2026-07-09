@@ -179,6 +179,7 @@ const projectBase: ProjectBase[] = [
     company: '',
     repo: '',
     images: ['/projects/apoc-platform/apoc-home.png'],
+    systemHub: { label: 'apoc', sub: 'product ecosystem' },
   },
   {
     slug: 'apoc-studio',
@@ -188,6 +189,7 @@ const projectBase: ProjectBase[] = [
     company: '',
     repo: '',
     images: ['/projects/apoc-studio/apoc-studio-3d-mapping.png'],
+    systemHub: { label: 'apoc', sub: 'product ecosystem' },
   },
   {
     slug: 'apoc-payment',
@@ -196,6 +198,7 @@ const projectBase: ProjectBase[] = [
     link: '',
     company: '',
     repo: '',
+    systemHub: { label: 'apoc', sub: 'product ecosystem' },
   },
   {
     slug: 'guseong-content',

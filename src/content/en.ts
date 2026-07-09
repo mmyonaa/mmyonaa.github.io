@@ -159,6 +159,10 @@ const projectText: Record<string, ProjectText> = {
       'Optimized layout consistency and UX across resolutions and tablets',
       'Improved responsiveness and cross-browser compatibility',
     ],
+    related: [
+      { slug: 'apoc-renewal', role: 'Platform (apoc.day) UI renewal' },
+      { slug: 'apoc-payment', role: 'Cross-service payments & subscriptions' },
+    ],
   },
   'apoc-renewal': {
     title: 'In-house Service Platform Renewal',
@@ -170,6 +174,10 @@ const projectText: Record<string, ProjectText> = {
       'Ensured UI consistency with a design system and component guide',
       'Minimized conflicts with existing logic and planned migrations when adding new features',
     ],
+    related: [
+      { slug: 'apoc-studio', role: 'Authoring tool (studio.apoc.day) enhancements' },
+      { slug: 'apoc-payment', role: 'Cross-service payments & subscriptions' },
+    ],
   },
   'apoc-payment': {
     title: 'In-house Service Payment System',
@@ -180,6 +188,10 @@ const projectText: Record<string, ProjectText> = {
       'Designed and built single/multiple and recurring subscription payments',
       'Designed and built a batch system for automatic subscription renewal',
       'Set up payment scenarios and a test environment with Jest',
+    ],
+    related: [
+      { slug: 'apoc-renewal', role: 'Platform (apoc.day) UI renewal' },
+      { slug: 'apoc-studio', role: 'Authoring tool (studio.apoc.day) enhancements' },
     ],
   },
   'esim-admin': {

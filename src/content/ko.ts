@@ -159,6 +159,10 @@ const projectText: Record<string, ProjectText> = {
       '다양한 해상도·태블릿 레이아웃 일관성 및 UX 최적화',
       '반응형 개선과 크로스브라우징 대응',
     ],
+    related: [
+      { slug: 'apoc-renewal', role: '플랫폼(apoc.day) UI 리뉴얼' },
+      { slug: 'apoc-payment', role: '서비스 전반의 결제·정기구독' },
+    ],
   },
   'apoc-renewal': {
     title: '자사 서비스 플랫폼 리뉴얼',
@@ -170,6 +174,10 @@ const projectText: Record<string, ProjectText> = {
       '디자인 시스템·컴포넌트 가이드로 UI 일관성 확보',
       '신규 기능 도입 시 기존 로직 충돌 최소화·마이그레이션 고려',
     ],
+    related: [
+      { slug: 'apoc-studio', role: '저작도구(studio.apoc.day) 고도화' },
+      { slug: 'apoc-payment', role: '서비스 전반의 결제·정기구독' },
+    ],
   },
   'apoc-payment': {
     title: '자사 서비스 결제 시스템',
@@ -180,6 +188,10 @@ const projectText: Record<string, ProjectText> = {
       '단건/다건·정기 구독 결제 기능 설계·개발',
       '구독 자동 갱신용 Batch 시스템 설계·개발',
       'Jest 기반 결제 시나리오·테스트 환경 구성',
+    ],
+    related: [
+      { slug: 'apoc-renewal', role: '플랫폼(apoc.day) UI 리뉴얼' },
+      { slug: 'apoc-studio', role: '저작도구(studio.apoc.day) 고도화' },
     ],
   },
   'esim-admin': {
