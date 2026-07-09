@@ -42,10 +42,6 @@ export const ko: ProjectText = {
     ],
     note: '갤럭시 탭 S9 FE·S6·A8, iPad Air 3·4, Xiaomi Pad 4에서 Chrome·Safari·Whale·Firefox·Edge·삼성인터넷, 터치·터치펜 입력으로 검증 — 원본 테스트 시트는 사내 문서로 비공개입니다.',
   },
-  related: [
-    { slug: 'apoc-renewal', role: '플랫폼(apoc.day) UI 리뉴얼' },
-    { slug: 'apoc-payment', role: '서비스 전반의 결제·정기구독' },
-  ],
 }
 
 export const en: ProjectText = {
@@ -90,8 +86,4 @@ export const en: ProjectText = {
     ],
     note: 'Verified on Galaxy Tab S9 FE · S6 · A8, iPad Air 3 · 4 and Xiaomi Pad 4 across Chrome · Safari · Whale · Firefox · Edge · Samsung Internet with touch and stylus input — the original test sheet is an internal document and not public.',
   },
-  related: [
-    { slug: 'apoc-renewal', role: 'Platform (apoc.day) UI renewal' },
-    { slug: 'apoc-payment', role: 'Cross-service payments & subscriptions' },
-  ],
 }

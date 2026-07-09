@@ -33,10 +33,6 @@ export const ko: ProjectText = {
       body: 'Toss는 요금제(plan) 개념 없이 billing key(결제수단)–사용자 매칭으로 청구되는 구조라, 금액 계산을 서비스가 직접 수행해 billing key로 과금하도록 구현했습니다. plan 기반으로 동작하는 PayPal과는 결제·갱신 로직을 분리해 각 PG 모델에 맞게 추상화했고, 정기 구독은 자동 갱신 배치로 결제 주기마다 청구되도록 구성했습니다.',
     },
   ],
-  related: [
-    { slug: 'apoc-renewal', role: '플랫폼(apoc.day) UI 리뉴얼' },
-    { slug: 'apoc-studio', role: '저작도구(studio.apoc.day) 고도화' },
-  ],
 }
 
 export const en: ProjectText = {
@@ -71,9 +67,5 @@ export const en: ProjectText = {
       title: 'Multi-gateway abstraction (Toss·PayPal)',
       body: 'Because Toss bills via a billing-key (payment method)–user match with no plan concept, the service computes amounts itself and charges through the billing key. Payment and renewal logic is kept separate from PayPal, which operates on plans, and abstracted per gateway; recurring subscriptions are billed each cycle by an auto-renewal batch.',
     },
-  ],
-  related: [
-    { slug: 'apoc-renewal', role: 'Platform (apoc.day) UI renewal' },
-    { slug: 'apoc-studio', role: 'Authoring tool (studio.apoc.day) enhancements' },
   ],
 }

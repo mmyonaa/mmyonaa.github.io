@@ -38,7 +38,6 @@ export const ko: ProjectText = {
       body: 'LiteLLM Admin API로 테넌트별 모델 deployment를 생성·검증(virtual key + alias ping)·삭제(허용목록 동기화 실패 시 롤백)합니다. 테넌트 격리는 virtual key + team_id 허용목록으로 처리해 크로스테넌트 접근을 차단합니다. 번역은 별도 엔드포인트로 위임하고, k8s(EKS)에 API·BullMQ 워커·리포트 워커 3개 서비스로 배포하며 헬스를 live/readiness로 분리했습니다.',
     },
   ],
-  related: [{ slug: 'sentivex-web', role: '같은 플랫폼의 웹·풀스택 (대시보드·리포트 에디터)' }],
 }
 
 export const en: ProjectText = {
@@ -79,5 +78,4 @@ export const en: ProjectText = {
       body: 'Per-tenant model deployments are created, verified (virtual key + alias ping), and deleted (with rollback on allow-list sync failure) via the LiteLLM Admin API. Tenant isolation uses a virtual key + team_id allow-list to block cross-tenant access. Translation is delegated to a separate endpoint, and the service ships on k8s (EKS) as three services — API, BullMQ workers, and report worker — with health split into live/readiness.',
     },
   ],
-  related: [{ slug: 'sentivex-web', role: 'Web / full-stack of the same platform (dashboard, report editor)' }],
 }

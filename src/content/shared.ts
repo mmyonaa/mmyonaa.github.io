@@ -55,7 +55,6 @@ export type ProjectText = Pick<
   | 'photosNote'
   | 'architectureCaptions'
   | 'architectureNotes'
-  | 'related'
 >
 type ProjectBase = Omit<Project, 'title' | 'description' | 'highlights'>
 

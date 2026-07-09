@@ -6,10 +6,6 @@ export const ko: ProjectText = {
   architectureNotes: [
     '이 어드민이 상품·재고·업체·유저·정산을 관리하고, 온라인 커머스와 키오스크는 그 데이터를 공유 백엔드(Koa·PostgreSQL)로 받아 판매합니다. 즉 온·오프라인 판매가 하나의 운영·정산 체계로 묶입니다. 키오스크는 여러 공항·장소에 분산 배치되며(영업업체 1~2곳), 어드민에서 각 기기의 주문·정산을 집계·관리합니다.',
   ],
-  related: [
-    { slug: 'esim-service', role: '같은 백엔드의 온라인 판매 채널' },
-    { slug: 'esim-kiosk', role: '같은 백엔드의 오프라인 키오스크 채널' },
-  ],
   description: 'eSIM 어드민과 백엔드 미들웨어를 함께 개발하며 권한·정산·주문·다국어 등 핵심 기능을 담당했습니다.',
   mediaNote: '실제 운영 데이터가 포함되어 화면은 비공개합니다.',
   overview: [
@@ -53,10 +49,6 @@ export const en: ProjectText = {
   architectureCaptions: ['eSIM platform map — operations & management'],
   architectureNotes: [
     'This admin manages products, stock, partners, users, and settlement, while the online commerce and kiosk sell using that data through a shared backend (Koa/PostgreSQL). Online and offline sales run on one operations/settlement system. Kiosks are distributed across multiple airports/locations (1–2 operating partners), and the admin aggregates each device’s orders and settlement.',
-  ],
-  related: [
-    { slug: 'esim-service', role: 'Online sales channel on the same backend' },
-    { slug: 'esim-kiosk', role: 'Offline kiosk channel on the same backend' },
   ],
   description:
     'Built both the eSIM admin and its backend middleware, owning core features like permissions, settlement, orders, and i18n.',

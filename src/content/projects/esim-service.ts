@@ -6,10 +6,6 @@ export const ko: ProjectText = {
   architectureNotes: [
     '이 서비스(온라인 커머스)는 어드민이 관리하는 상품·재고를 공유 백엔드로 받아 웹에서 판매합니다. 키오스크·어드민과 같은 시스템의 한 축입니다.',
   ],
-  related: [
-    { slug: 'esim-admin', role: '상품·재고·정산 운영 관리' },
-    { slug: 'esim-kiosk', role: '같은 백엔드의 오프라인 키오스크 채널' },
-  ],
   description:
     'Vue 3 글로벌 eSIM 커머스. 프론트엔드 설계 전반을 주도하고 다중 PG 결제·다국어·웹/키오스크 겸용 결제 플로우를 직접 구현했습니다.',
   overview: [
@@ -50,10 +46,6 @@ export const en: ProjectText = {
   architectureCaptions: ['eSIM platform map — online sales channel'],
   architectureNotes: [
     'This service (online commerce) sells on the web using products and stock managed in the admin, served through the shared backend. It is one surface of the same system as the kiosk and admin.',
-  ],
-  related: [
-    { slug: 'esim-admin', role: 'Manages products, stock, and settlement' },
-    { slug: 'esim-kiosk', role: 'Offline kiosk channel on the same backend' },
   ],
   description:
     'A Vue 3 global eSIM commerce. I led the frontend architecture and built the multi-gateway payments, i18n, and a web/kiosk-shared checkout flow.',

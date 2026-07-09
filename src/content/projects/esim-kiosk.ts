@@ -11,10 +11,6 @@ export const ko: ProjectText = {
   architectureNotes: [
     '이 키오스크는 어드민이 관리하는 상품·재고를 공유 백엔드로 받아 일본 매장에서 오프라인으로 판매합니다. 온라인 커머스·어드민과 같은 시스템의 한 축입니다.',
   ],
-  related: [
-    { slug: 'esim-admin', role: '상품·기기·정산 운영 관리' },
-    { slug: 'esim-service', role: '같은 백엔드의 온라인 판매 채널' },
-  ],
   description:
     '무인 eSIM 판매 키오스크. Vue 키오스크 웹을 주도 개발하고, Android 앱의 프린터·결제·다국어 인코딩 등 하드웨어 연동 기능을 담당했습니다.',
   overview: [
@@ -60,10 +56,6 @@ export const en: ProjectText = {
   architectureCaptions: ['eSIM platform map — offline sales channel'],
   architectureNotes: [
     'This kiosk sells in-store in Japan using products and stock managed in the admin, served through the shared backend. It is one surface of the same system as the online commerce and admin.',
-  ],
-  related: [
-    { slug: 'esim-admin', role: 'Manages products, devices, and settlement' },
-    { slug: 'esim-service', role: 'Online sales channel on the same backend' },
   ],
   description:
     'An unattended eSIM kiosk. I led the Vue kiosk web and owned hardware-facing features of the Android app — printers, payment, and multilingual encoding.',

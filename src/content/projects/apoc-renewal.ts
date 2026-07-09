@@ -10,10 +10,6 @@ export const ko: ProjectText = {
     '디자인 시스템·컴포넌트 가이드로 UI 일관성 확보',
     '신규 기능 도입 시 기존 로직 충돌 최소화·마이그레이션 고려',
   ],
-  related: [
-    { slug: 'apoc-studio', role: '저작도구(studio.apoc.day) 고도화' },
-    { slug: 'apoc-payment', role: '서비스 전반의 결제·정기구독' },
-  ],
 }
 
 export const en: ProjectText = {
@@ -25,9 +21,5 @@ export const en: ProjectText = {
     'Improved maintainability and scalability via component-based refactoring',
     'Ensured UI consistency with a design system and component guide',
     'Minimized conflicts with existing logic and planned migrations when adding new features',
-  ],
-  related: [
-    { slug: 'apoc-studio', role: 'Authoring tool (studio.apoc.day) enhancements' },
-    { slug: 'apoc-payment', role: 'Cross-service payments & subscriptions' },
   ],
 }

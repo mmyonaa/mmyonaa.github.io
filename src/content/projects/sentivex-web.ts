@@ -40,7 +40,6 @@ export const ko: ProjectText = {
       body: 'BullMQ와 Redis로 데이터 보존·알림 발송을 워커에서 비동기 처리하고, 크론 기반 리포트 스케줄링(재시도 포함)으로 정기 리포트 생성을 자동화했습니다. 무거운 작업을 요청 흐름과 분리해 응답 지연 없이 처리합니다.',
     },
   ],
-  related: [{ slug: 'sentivex-ai', role: '같은 플랫폼의 AI 분석 서버 (파이프라인·LiteLLM)' }],
 }
 
 export const en: ProjectText = {
@@ -83,5 +82,4 @@ export const en: ProjectText = {
       body: 'Processed data retention and notification delivery asynchronously in BullMQ/Redis workers, and automated recurring report generation with cron-based scheduling (with retries). Heavy work is decoupled from the request path so responses stay fast.',
     },
   ],
-  related: [{ slug: 'sentivex-ai', role: 'AI analysis server of the same platform (pipeline, LiteLLM)' }],
 }

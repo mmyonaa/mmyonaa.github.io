@@ -114,7 +114,6 @@ export interface Project {
   architectureImages?: string[] // 'Architecture' 섹션 다이어그램 이미지 경로 (다크 기본, '-light' 변형 지원)
   architectureCaptions?: string[] // 각 다이어그램 캡션 (images 와 같은 순서)
   architectureNotes?: string[] // 각 다이어그램 아래 설명 문단 (images 와 같은 순서)
-  related?: { slug: string; role: string }[] // 함께 이루는 시스템의 관련 프로젝트 (slug + 이 시스템에서의 역할)
   systemId?: string // 소속 시스템 (shared.ts systemMaps 키) — 'Part of the same system' 레이어 다이어그램 표시
   analysisPipeline?: boolean // 'Analysis pipeline' 라이브 다이어그램 섹션 표시 (sentivex-ai 전용)
   paymentFlow?: boolean // 'Subscription flow' 업/다운그레이드 플로우 다이어그램 표시 (apoc-payment 전용)
