@@ -20,7 +20,7 @@ const projectText: Record<string, ProjectText> = {
       '멀티 에이전트 인시던트 분석 오케스트레이터 설계 — Triage(분류·우선순위) + 3-스테이지(병렬 grounding → 조건부 LLM → 종합)·우선순위 기반 가지치기',
       'Correlation 구조화 출력 — kill-chain 그래프·위협 점수(0–100)·신뢰도 (generateObject·zod)',
       'SSE 실시간 진행률·부분결과 스트리밍 + 수동 재분석 API',
-      '멀티 벤더 EDR를 OCSF lite 공통 타입으로 정규화 (CrowdStrike·SentinelOne·Cortex XDR·Symantec)',
+      '여러 보안 벤더의 EDR/XDR 데이터를 OCSF lite 공통 타입으로 정규화',
       'LiteLLM 게이트웨이 통합 — provider SDK 분기 제거, 폴백·provider 동시성·429/5xx 백오프·토큰 budget을 게이트웨이 계층으로 이전',
       'LiteLLM Admin API 기반 테넌트별 모델 CRUD·BYOK(가상 키 격리)·저장 직후 검증 + BullMQ 리포트·Kubernetes 3서비스 배포',
     ],
@@ -51,15 +51,15 @@ const projectText: Record<string, ProjectText> = {
     mediaNote: '실제 운영 데이터가 포함되어 화면은 비공개합니다.',
     overview: [
       'SentiveX 플랫폼의 웹 축으로, Next.js 15(App Router) 풀스택으로 UI부터 API 라우트·서버 로직·DB(Prisma/PostgreSQL 멀티스키마)까지 구성됩니다. SIEM 대시보드, 인시던트/경고(severity·MITRE ATT&CK) 관리, 엔드포인트 스캔·네트워크 격리, 위협 인텔리전스, 실시간 모니터링(SSE) 등을 제공하는 협업 프로젝트로, 저는 최다 기여자군에 속해 풀스택 전반에 참여했습니다.',
-      'NextAuth 기반 인증과 4-tier RBAC(VIEWER·USER·ADMIN·SUPER_ADMIN), 테넌트별 데이터 격리를 적용하고, next-intl로 다국어(기본 한/영/일)를 지원합니다. 이메일 등 민감정보는 AES-256-GCM으로 암호화하고 해시로 검색하며, 인증·설정·다운로드 감사 로그와 데이터 보존 등 보안·컴플라이언스 요건을 반영했습니다.',
       '핵심은 BlockNote 기반 AI 보안 리포트 에디터입니다. 인시던트를 선택하면 AI 서버가 분석 리포트를 생성하고, 블록 단위로 AI 편집 제안을 받아 diff 하이라이팅으로 미리보고 커밋합니다. 리포트는 한/영/일 다국어로 저장되며, 무거운 분석·생성은 별도 AI 서버(REST·SSE)에 위임합니다.',
     ],
     highlights: [
       'Next.js 15 App Router 풀스택(UI + API 라우트 + Prisma/PostgreSQL) 협업 개발',
       'SIEM 대시보드·인시던트/경고 관리(severity·MITRE ATT&CK)·엔드포인트 격리·위협 인텔리전스',
-      'BlockNote 기반 AI 리포트 에디터 — 블록 단위 AI 편집·diff 하이라이팅·미리보기·다국어(한/영/일)',
-      'NextAuth 인증 + 4-tier RBAC·테넌트 데이터 격리, AES-256-GCM 필드 암호화·감사 로그',
-      'next-intl 다국어(기본 한/영/일) + OpenSearch SIEM 검색·실시간 모니터링(SSE)',
+      'BlockNote 기반 AI 리포트 에디터 — 블록 단위 AI 편집·diff 하이라이팅·미리보기·다국어(한/영/일)·PDF/DOCX/CSV·XLSX 익스포트',
+      'Recharts 대시보드 차트 + XY Flow·dagre 킬체인(MITRE ATT&CK) 토폴로지 그래프',
+      'BullMQ·Redis 워커·크론 스케줄링 — 데이터 보존·알림·정기 리포트 자동화',
+      'OpenSearch SIEM 검색·실시간 모니터링(SSE)',
       'AI 서버(REST·SSE)와 연동 — 리포트 생성·블록 편집 위임',
     ],
     techNotes: [
@@ -69,15 +69,19 @@ const projectText: Record<string, ProjectText> = {
       },
       {
         title: 'AI 리포트 에디터 (BlockNote)',
-        body: 'BlockNote에 차트·상태카드·프로그레스 등 커스텀 블록을 더하고, 블록/표/문자 단위 diff 비교(compareBlockNoteContent)로 AI 편집 결과를 하이라이팅해 미리보고 커밋하게 했습니다. 리포트는 한/영/일 언어별로 저장·미리보기됩니다.',
-      },
-      {
-        title: '인증 · RBAC · 멀티테넌트',
-        body: 'NextAuth(JWT·Credentials) 인증에 VIEWER·USER·ADMIN·SUPER_ADMIN 4-tier RBAC와 테넌트별 데이터 격리를 적용했습니다. 이메일 등 민감정보는 AES-256-GCM으로 암호화하고 해시로 검색하며, 인증·설정·다운로드 감사 로그를 남깁니다.',
+        body: 'BlockNote에 차트·상태카드·프로그레스 등 커스텀 블록을 더하고, 블록/표/문자 단위 diff 비교(compareBlockNoteContent)로 AI 편집 결과를 하이라이팅해 미리보고 커밋하게 했습니다. 리포트는 한/영/일 언어별로 저장·미리보기되며, 완성본은 PDF(Puppeteer 서버 렌더 — 차트 이미지화·웹폰트 로딩·다국어 파일명)·DOCX(표지·머리말/꼬리말·표 스타일 보존)·CSV/XLSX로 내보냅니다.',
       },
       {
         title: 'SIEM 연동 · 실시간',
-        body: 'OpenSearch로 SIEM 로그를 검색·집계하고 Cortex XDR 웹훅으로 인시던트를 수집합니다. comprehensive-monitoring SSE로 대시보드를 라이브 업데이트하고, 무거운 AI 분석·리포트 생성은 AI 서버(REST·SSE)에 위임합니다.',
+        body: 'OpenSearch로 SIEM 로그를 검색·집계하고 여러 보안 벤더(EDR/XDR) 웹훅으로 인시던트를 수집합니다. comprehensive-monitoring SSE로 대시보드를 라이브 업데이트하고, 무거운 AI 분석·리포트 생성은 AI 서버(REST·SSE)에 위임합니다.',
+      },
+      {
+        title: '데이터 시각화 · 킬체인 그래프',
+        body: 'Recharts로 대시보드 차트(영역·막대·도넛·게이지 등)를 구성하고, XY Flow와 dagre 자동 레이아웃으로 MITRE ATT&CK 킬체인 토폴로지 그래프를 구현했습니다. 노드·엣지 커스터마이징, 미니맵·줌·검색, 다크/라이트 테마를 지원합니다.',
+      },
+      {
+        title: '백그라운드 잡 · 스케줄링',
+        body: 'BullMQ와 Redis로 데이터 보존·알림 발송을 워커에서 비동기 처리하고, 크론 기반 리포트 스케줄링(재시도 포함)으로 정기 리포트 생성을 자동화했습니다. 무거운 작업을 요청 흐름과 분리해 응답 지연 없이 처리합니다.',
       },
     ],
     related: [{ slug: 'sentivex-ai', role: '같은 플랫폼의 AI 분석 서버 (파이프라인·LiteLLM)' }],

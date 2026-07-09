@@ -76,7 +76,7 @@ const projectBase: ProjectBase[] = [
   {
     slug: 'sentivex-web',
     period: '2025.09 –',
-    tags: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Prisma', 'PostgreSQL', 'NextAuth', 'next-intl', 'BlockNote', 'OpenSearch'],
+    tags: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Prisma', 'PostgreSQL', 'BlockNote', 'Recharts', 'XY Flow', 'BullMQ', 'OpenSearch'],
     link: '',
     company: '',
     repo: '',

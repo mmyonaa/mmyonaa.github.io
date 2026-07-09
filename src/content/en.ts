@@ -20,7 +20,7 @@ const projectText: Record<string, ProjectText> = {
       'Designed the multi-agent incident-analysis orchestrator — Triage (classify/priority) + 3 stages (parallel grounding → conditional LLM → synthesis) with priority-based pruning',
       'Correlation structured output — kill-chain graph, threat score (0–100), confidence (generateObject/zod)',
       'Real-time SSE progress/partial-result streaming + manual re-analysis API',
-      'Normalized multi-vendor EDR into a common OCSF-lite type (CrowdStrike, SentinelOne, Cortex XDR, Symantec)',
+      'Normalized EDR/XDR data from multiple security vendors into a common OCSF-lite type',
       'LiteLLM gateway consolidation — removed per-provider SDK branches; fallback, provider concurrency, 429/5xx backoff, and token budgets moved into the gateway layer',
       'Per-tenant model CRUD via the LiteLLM Admin API, BYOK (virtual-key isolation), post-save verification, plus BullMQ reports and a 3-service Kubernetes deployment',
     ],
@@ -51,15 +51,15 @@ const projectText: Record<string, ProjectText> = {
     mediaNote: 'Screens are withheld as they contain live operational data.',
     overview: [
       'The web surface of the SentiveX platform — a Next.js 15 (App Router) full-stack app spanning the UI, API routes, server logic, and the DB layer (Prisma/PostgreSQL, multi-schema). It provides the SIEM dashboard, incident/alert management (severity, MITRE ATT&CK), endpoint scan & network isolation, threat intelligence, and real-time monitoring (SSE). On this collaborative project I was among the top contributors, working across the full stack.',
-      'It applies NextAuth-based authentication with 4-tier RBAC (VIEWER, USER, ADMIN, SUPER_ADMIN) and per-tenant data isolation, and supports i18n (ko/en/ja by default) via next-intl. Sensitive fields like email are encrypted with AES-256-GCM and searched by hash, and it covers security/compliance needs — auth/config/download audit logs and data retention.',
       'At its core is a BlockNote-based AI security report editor. When incidents are selected, the AI server generates an analysis report; block-level AI edit suggestions are previewed with diff highlighting before commit. Reports are stored per language (ko/en/ja), and heavy analysis/generation is delegated to the separate AI server (REST/SSE).',
     ],
     highlights: [
       'Next.js 15 App Router full-stack (UI + API routes + Prisma/PostgreSQL) — collaborative development',
       'SIEM dashboard, incident/alert management (severity, MITRE ATT&CK), endpoint isolation, threat intelligence',
-      'BlockNote-based AI report editor — block-level AI editing, diff highlighting, preview, multilingual (ko/en/ja)',
-      'NextAuth + 4-tier RBAC, per-tenant data isolation, AES-256-GCM field encryption & audit logs',
-      'next-intl i18n (ko/en/ja by default) + OpenSearch SIEM search & real-time monitoring (SSE)',
+      'BlockNote-based AI report editor — block-level AI editing, diff highlighting, preview, multilingual (ko/en/ja), PDF/DOCX/CSV·XLSX export',
+      'Recharts dashboard charts + XY Flow/dagre kill-chain (MITRE ATT&CK) topology graph',
+      'BullMQ/Redis workers & cron scheduling — data retention, notifications, recurring reports',
+      'OpenSearch SIEM search & real-time monitoring (SSE)',
       'Integrates with the AI server (REST/SSE) — delegating report generation and block edits',
     ],
     techNotes: [
@@ -69,15 +69,19 @@ const projectText: Record<string, ProjectText> = {
       },
       {
         title: 'AI report editor (BlockNote)',
-        body: 'Added custom blocks (charts, status cards, progress bars) to BlockNote and highlighted AI edits with block/table/character-level diffing (compareBlockNoteContent) for preview-before-commit. Reports are stored and previewed per language (ko/en/ja).',
-      },
-      {
-        title: 'Auth, RBAC & multi-tenancy',
-        body: 'NextAuth (JWT/Credentials) auth with 4-tier RBAC (VIEWER, USER, ADMIN, SUPER_ADMIN) and per-tenant data isolation. Sensitive fields like email are AES-256-GCM encrypted and searched by hash, with auth/config/download audit logs.',
+        body: 'Added custom blocks (charts, status cards, progress bars) to BlockNote and highlighted AI edits with block/table/character-level diffing (compareBlockNoteContent) for preview-before-commit. Reports are stored and previewed per language (ko/en/ja), and the finished report exports to PDF (server-side Puppeteer render — charts rasterized, web-font loading, multilingual filenames), DOCX (cover page, headers/footers, table-style preservation), and CSV/XLSX.',
       },
       {
         title: 'SIEM integration & real time',
-        body: 'OpenSearch powers SIEM log search/aggregation, and Cortex XDR webhooks ingest incidents. A comprehensive-monitoring SSE stream updates dashboards live, while heavy AI analysis and report generation are delegated to the AI server (REST/SSE).',
+        body: 'OpenSearch powers SIEM log search/aggregation, and webhooks from multiple security vendors (EDR/XDR) ingest incidents. A comprehensive-monitoring SSE stream updates dashboards live, while heavy AI analysis and report generation are delegated to the AI server (REST/SSE).',
+      },
+      {
+        title: 'Data visualization & kill-chain graph',
+        body: 'Built dashboard charts (area, bar, donut, gauge, etc.) with Recharts and implemented a MITRE ATT&CK kill-chain topology graph using XY Flow with dagre auto-layout — custom nodes/edges, minimap, zoom, search, and dark/light theming.',
+      },
+      {
+        title: 'Background jobs & scheduling',
+        body: 'Processed data retention and notification delivery asynchronously in BullMQ/Redis workers, and automated recurring report generation with cron-based scheduling (with retries). Heavy work is decoupled from the request path so responses stay fast.',
       },
     ],
     related: [{ slug: 'sentivex-ai', role: 'AI analysis server of the same platform (pipeline, LiteLLM)' }],
