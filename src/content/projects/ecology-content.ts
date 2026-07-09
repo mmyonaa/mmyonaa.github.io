@@ -19,7 +19,8 @@ export const ko: ProjectText = {
     '콘텐츠 서비스부터 관리자 시스템까지 1인 구축',
     '이미지 인식 기반 해설 완료 인증 — 미인식 시 직원 코드 입력 폴백',
     '누적 인증 단계(해설 3개=새싹·5개=나무)·스탬프 말판·단계별 인증서 발급',
-    'iframe 콘텐츠 플레이·활동 기록, 설문조사 연동으로 참여 데이터 수집',
+    'APOC 콘텐츠 iframe 연동(origin 검증 postMessage 이벤트 브리지)·활동 기록, 설문 연동으로 참여 데이터 수집',
+    '카카오·네이버·인스타 인앱 브라우저 감지 → 외부 브라우저 유도(실사용 안정화)',
     '카카오 API 기프티콘 — 조건 충족 자동 발송 + 관리자 일괄 발송(카카오비즈니스)',
     '기프티콘 발송 상태 폴링·재시도로 안정적 자동 발송',
     '관리자 월별 통계 대시보드(총/첫/재방문·당첨 대상·발송 상태) + 만족도 엑셀 다운로드',
@@ -32,6 +33,14 @@ export const ko: ProjectText = {
     {
       title: '관리자 운영·정산 (통계·일괄 발송·엑셀)',
       body: '관리자에서 월별로 총 참여자·첫 방문/재방문·당첨 대상자(누적 3개 이상)·상품 발송 상태를 집계해 보여주고, 참여자별 완료 해설/만족도 수와 프로그램별 참여 현황을 상세로 제공합니다. 상품은 카카오비즈니스(기프티콘)로 선택 참여자에게 일괄 발송하고, 만족도 조사 결과는 엑셀로 내보냅니다. 경량 회원 식별(이름·연락처·4자리 비밀번호)과 14세 이상 개인정보 동의를 함께 처리했습니다.',
+    },
+    {
+      title: 'iframe 콘텐츠 연동 (이벤트 브리지)',
+      body: '해설·활동 콘텐츠는 별도로 제작된 APOC 콘텐츠를 iframe으로 임베드해 재생합니다. 콘텐츠 내부 요소가 발생시키는 이벤트를 origin을 검증한 postMessage로 수신해 미리 등록한 uuid–콜백으로 매칭 처리하고, 필요한 값은 GLOBAL_VALUE 요청으로 조회합니다. 이를 통해 콘텐츠 진행·완료를 활동 기록으로 남기고, 모바일 키보드로 화면이 바뀌는 상황은 visualViewport 리사이즈로 대응했습니다.',
+    },
+    {
+      title: '인앱 브라우저 우회',
+      body: '방문자는 주로 카카오 기프티콘 링크로 진입하고 완료 인증에 이미지 인식(카메라)을 쓰는데, 카카오·네이버·인스타그램 인앱 브라우저에서는 이런 기능이 제한될 수 있습니다. userAgent로 인앱 환경을 감지하면 외부 브라우저로 열도록 유도했고(카카오는 kakaotalk://web/openExternal 스킴), 안드로이드/iOS를 분기해 안내 UI를 함께 노출했습니다. 실사용 안정성에 직접 영향을 주는 처리입니다.',
     },
   ],
 }
@@ -55,7 +64,8 @@ export const en: ProjectText = {
     'Built both the content service and the admin system solo',
     'Image-recognition certification of program completion — staff code-entry fallback when recognition fails',
     'Cumulative tiers (3 = sprout, 5 = tree), a stamp board, and per-tier certificate issuance',
-    'iframe content playback with activity logging, plus survey integration to collect participation data',
+    'APOC content embedded via iframe (origin-checked postMessage event bridge) with activity logging, plus survey integration',
+    'In-app browser detection (KakaoTalk, Naver, Instagram) → redirect to an external browser for real-world reliability',
     'Kakao gifticons — automatic send on conditions met + admin bulk send (Kakao Business)',
     'Reliable automated sending via send-status polling and retries',
     'Admin monthly stats dashboard (total/first/return visitors, eligibility, send status) + satisfaction Excel export',
@@ -68,6 +78,14 @@ export const en: ProjectText = {
     {
       title: 'Admin operations & settlement (stats, bulk send, Excel)',
       body: 'The admin aggregates monthly totals — total/first/return visitors, prize-eligible participants (3+ cumulative certs), and send status — and provides per-participant detail (completed programs, survey completions) and per-program participation. Prizes are bulk-sent as KakaoTalk gifticons (Kakao Business) to selected participants, and survey results export to Excel. It also handles lightweight member identification (name, phone, 4-digit password) with 14+ privacy consent.',
+    },
+    {
+      title: 'iframe content integration (event bridge)',
+      body: 'The interpretive/activity content is separately produced APOC content, embedded and played in an iframe. Events fired by elements inside the content are received over origin-checked postMessage and matched to pre-registered uuid–callbacks, with values fetched via a GLOBAL_VALUE request. This drives activity logging of content progress/completion, and mobile keyboard/viewport changes are handled via visualViewport resize.',
+    },
+    {
+      title: 'In-app browser bypass',
+      body: 'Visitors mostly arrive through a Kakao gifticon link and use image recognition (camera) for completion — both of which can be restricted inside in-app browsers. Detecting the in-app environment via userAgent, the app guides users to open in an external browser (KakaoTalk via the kakaotalk://web/openExternal scheme), branching Android/iOS with accompanying guidance UI. This directly affects real-world reliability.',
     },
   ],
 }
