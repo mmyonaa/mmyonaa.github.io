@@ -152,6 +152,34 @@ const relatedProjects = computed(() =>
         </ul>
       </section>
 
+      <section v-if="project.qa" class="detail__section">
+        <h2 class="detail__section-title reveal">QA & Testing</h2>
+        <div class="detail__qa-stats reveal">
+          <div v-for="s in project.qa.stats" :key="s.label" class="qa-stat">
+            <span class="qa-stat__value">{{ s.value }}</span>
+            <span class="qa-stat__label">{{ s.label }}</span>
+          </div>
+        </div>
+        <ul v-if="project.qa.findings?.length" class="detail__notes reveal">
+          <li v-for="(n, i) in project.qa.findings" :key="i" class="note">
+            <span class="note__num">{{ String(i + 1).padStart(2, '0') }}</span>
+            <div class="note__body">
+              <h3 class="note__title">{{ n.title }}</h3>
+              <p class="note__text">{{ n.body }}</p>
+              <img
+                v-if="n.media"
+                class="note__media"
+                :src="n.media"
+                :alt="`${n.title} — 개선 후 동작`"
+                loading="lazy"
+                @click="openLightbox(n.media, n.title)"
+              />
+            </div>
+          </li>
+        </ul>
+        <p v-if="project.qa.note" class="detail__qa-note reveal">{{ project.qa.note }}</p>
+      </section>
+
       <section v-if="project.analysisPipeline" class="detail__section">
         <h2 class="detail__section-title reveal">Analysis pipeline</h2>
         <div class="detail__pipeline reveal">

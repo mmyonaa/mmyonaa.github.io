@@ -81,7 +81,7 @@ export interface Project {
   techNotes?: ProjectTechNote[] // 상세 페이지 Technical notes (기술 포인트/문제 해결)
   qa?: {
     stats: { value: string; label: string }[] // 요약 지표 (기기 수·케이스 수 등)
-    findings?: { title: string; body: string }[] // 대표 발견 이슈 (익명화 재작성)
+    findings?: { title: string; body: string; media?: string }[] // 대표 개선 사항 (media: 개선 동작 애니메이션 webp)
     note?: string // 원본 문서 비공개 등 부가 설명
   } // 'QA & Testing' 섹션 — 테스트 시트에서 추출한 지표·대표 이슈
   mediaNote?: string // 이미지 비공개 사유 (값이 있으면 이미지 자리에 '비공개' 플레이스홀더 표시)
