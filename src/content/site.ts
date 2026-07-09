@@ -60,8 +60,8 @@ export const siteKo: SiteText = {
       },
       {
         period: '2024.08 – 2025.08',
-        title: '팜피 · 국립 생태원 · 구성초 콘텐츠 서비스',
-        body: '팜피 재직 중 회사 프로젝트로 진행. 국립 생태원은 iframe 콘텐츠 플레이·활동 기록·설문과 카카오 기프티콘 자동 발송을, 구성초는 학생/교사 권한별 UI·동적 라우팅과 콘텐츠 시청 기록·학생 관리를 구현했습니다.',
+        title: '팜피 · 국립 생태원 콘텐츠 서비스',
+        body: '팜피 재직 중 회사 프로젝트로 진행. 국립생태원 해설 프로그램 참여 인증제(현장 이미지 인식 인증·단계별 인증서·카카오 기프티콘 자동/일괄 발송·관리자 통계)의 콘텐츠 서비스와 관리자 시스템을 1인으로 개발했습니다.',
       },
       {
         period: '2025.09 – 2026.07',
@@ -148,8 +148,8 @@ export const siteEn: SiteText = {
       },
       {
         period: '2024.08 – 2025.08',
-        title: 'Famppy · National Ecology Institute & Guseong Elementary',
-        body: 'Company projects at Famppy. Built the National Ecology Institute content service (iframe content playback, activity logging, surveys, automated KakaoTalk gift sending) and the Guseong Elementary site (role-based UIs, dynamic routing, viewing history, and student management).',
+        title: 'Famppy · National Ecology Institute',
+        body: 'A company project at Famppy. Solo-built the content service and admin for the National Ecology Institute participation-certification program — on-site image-recognition certification, tiered certificates, automatic/bulk KakaoTalk gifticons, and admin stats.',
       },
       {
         period: '2025.09 – 2026.07',
