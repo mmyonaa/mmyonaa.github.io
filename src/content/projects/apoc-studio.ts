@@ -1,9 +1,12 @@
 import type { ProjectText } from '../shared'
 
 export const ko: ProjectText = {
-  title: '자사 서비스 저작도구 태블릿 대응·크로스브라우징 고도화',
+  title: '자사 서비스 저작도구 태블릿 대응',
   description:
     '3D·인터랙티브 저작도구의 태블릿(768~1023px) 대응 기준을 세우고, 터치 UX와 크로스브라우징을 고도화해 태블릿에서 안정적인 저작 경험을 확보했습니다.',
+  overview: [
+    'APOC Studio(studio.apoc.day)는 APOC Play에 올릴 3D·인터랙티브 콘텐츠를 만드는 블록형 저작도구입니다. 데스크톱 위주로 설계돼 태블릿에서는 저작 흐름이 끊기던 이 도구의 태블릿 대응을 맡아, 사용 기준(768~1023px)을 세우고 화면 줌·레이어 스크롤·캔버스 위치·팝업 위치 등 터치 환경 특유의 문제를 기기 6종 × 브라우저 6종으로 검증·개선했습니다.',
+  ],
   highlights: [
     '태블릿 대응 기준(768~1023px) 수립과 QA 기반 UI/기능 개선 — 이슈 39건 처리',
     '화면 줌·레이어 스크롤·캔버스 위치 등 태블릿 터치 UX 전면 개선',
@@ -45,9 +48,12 @@ export const ko: ProjectText = {
 }
 
 export const en: ProjectText = {
-  title: 'In-house Authoring Tool Tablet Support & Cross-Browser Enhancement',
+  title: 'In-house Authoring Tool Tablet Support',
   description:
     'Established tablet support criteria (768–1023px) for the 3D/interactive authoring tool and refined touch UX and cross-browser behavior for a stable authoring experience on tablets.',
+  overview: [
+    'APOC Studio (studio.apoc.day) is a block-based authoring tool for creating the 3D/interactive content published on APOC Play. Designed desktop-first, its authoring flow broke down on tablets; I took on its tablet support — setting usage criteria (768–1023px) and verifying and fixing touch-specific issues (screen zoom, layer scrolling, canvas position, popup position) across 6 devices × 6 browsers.',
+  ],
   highlights: [
     'Set tablet support criteria (768–1023px) and improved UI/features from QA — 39 issues resolved',
     'Overhauled tablet touch UX — screen zoom, layer scrolling, canvas positioning',
