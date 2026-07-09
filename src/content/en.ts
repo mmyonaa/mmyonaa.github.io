@@ -232,6 +232,11 @@ const projectText: Record<string, ProjectText> = {
   },
   'esim-kiosk': {
     title: 'eSIM Sales Kiosk',
+    photosNote: [
+      'The unattended eSIM kiosk actually deployed at a store in Japan. Travelers complete everything themselves — choosing continent, country, and plan, paying, receiving the eSIM QR, and getting a printed/emailed receipt — with no staff.',
+      'I integrated the payment terminal (card/QR/NFC) and receipt printer into the app and set up unattended operation with auto-boot and Device Admin lockdown.',
+      'After development, I handled the initial on-site operation and real-time response to field issues such as paper-outs and network drops, in Japan.',
+    ],
     architectureCaptions: ['eSIM platform map — offline sales channel'],
     architectureNotes: [
       'This kiosk sells in-store in Japan using products and stock managed in the admin, served through the shared backend. It is one surface of the same system as the online commerce and admin.',

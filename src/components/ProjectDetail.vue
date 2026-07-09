@@ -179,6 +179,23 @@ const relatedProjects = computed(() =>
         </div>
       </section>
 
+      <section v-if="project.photos?.length" class="detail__section">
+        <h2 class="detail__section-title reveal">On-site</h2>
+        <div class="detail__photos reveal">
+          <figure v-for="(src, i) in project.photos" :key="src" class="photo">
+            <img
+              :src="src"
+              :alt="`${project.title} 현장 ${i + 1}`"
+              loading="lazy"
+              @click="openLightbox(src, project.photosNote?.[0] || '')"
+            />
+          </figure>
+          <div v-if="project.photosNote?.length" class="detail__photos-info">
+            <p v-for="(p, i) in project.photosNote" :key="i" class="detail__photos-note">{{ p }}</p>
+          </div>
+        </div>
+      </section>
+
       <section v-if="project.presentationImages?.length" class="detail__section">
         <h2 class="detail__section-title reveal">Presentation</h2>
         <div class="detail__pres">

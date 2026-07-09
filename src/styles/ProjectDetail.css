@@ -518,3 +518,44 @@
   overflow-x: auto;
   padding-bottom: 4px;
 }
+
+/* On-site 현장 사진 — 사진 + (설명 + 포인트 칩) 2단 */
+.detail__photos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 28px 40px;
+  align-items: stretch;
+}
+.detail__photos .photo {
+  margin: 0;
+  flex: 0 0 auto;
+  width: min(340px, 100%);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: zoom-in;
+}
+.detail__photos .photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: transform 0.4s ease;
+}
+.detail__photos .photo:hover img {
+  transform: scale(1.03);
+}
+.detail__photos-info {
+  flex: 1 1 300px;
+  max-width: 520px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 14px;
+}
+.detail__photos-note {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--dim);
+  word-break: keep-all;
+}

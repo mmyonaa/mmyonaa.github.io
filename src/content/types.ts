@@ -76,6 +76,8 @@ export interface Project {
   mediaNote?: string // 이미지 비공개 사유 (값이 있으면 이미지 자리에 '비공개' 플레이스홀더 표시)
   presentationImages?: string[] // 상세 하단 'Presentation' 갤러리 슬라이드 (16:9)
   presentationNote?: string // Presentation 섹션 설명 문구
+  photos?: string[] // 'On-site' 현장 사진 갤러리 (기기 프레임 없이 원본 비율, 라이트박스)
+  photosNote?: string[] // On-site 섹션 설명 문단(들)
   architectureImages?: string[] // 'Architecture' 섹션 다이어그램 이미지 경로 (다크 기본, '-light' 변형 지원)
   architectureCaptions?: string[] // 각 다이어그램 캡션 (images 와 같은 순서)
   architectureNotes?: string[] // 각 다이어그램 아래 설명 문단 (images 와 같은 순서)

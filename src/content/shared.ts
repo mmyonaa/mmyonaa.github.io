@@ -51,6 +51,7 @@ export type ProjectText = Pick<
   | 'mediaNote'
   | 'imageNote'
   | 'presentationNote'
+  | 'photosNote'
   | 'architectureCaptions'
   | 'architectureNotes'
   | 'related'
@@ -141,6 +142,7 @@ const projectBase: ProjectBase[] = [
       '/projects/esim-kiosk/esim-kiosk-04.png',
       '/projects/esim-kiosk/esim-kiosk-05.png',
     ],
+    photos: ['/projects/esim-kiosk/esim-kiosk-field-01.jpg'], // 일본 현지 매장 배포 현장 사진
     architectureImages: ['/projects/esim/system.png'], // 서비스·어드민과 공유하는 시스템 다이어그램
     systemHub: { label: 'Shared backend', sub: 'Koa · PostgreSQL' },
   },
