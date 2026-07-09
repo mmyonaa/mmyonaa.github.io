@@ -3,7 +3,7 @@ import type { ProjectText } from '../shared'
 export const ko: ProjectText = {
   title: 'SentiveX AI 서버',
   description:
-    'SIEM 보안 인시던트를 자동 분석하는 Fastify AI 서버. 멀티 에이전트 분석 파이프라인과 모든 LLM 호출을 통합하는 LiteLLM 게이트웨이를 최다 기여자로 주도 개발했습니다.',
+    'SIEM 보안 인시던트를 자동 분석하는 Fastify AI 서버. 멀티 에이전트 분석 파이프라인과 모든 LLM 호출을 통합하는 LiteLLM 게이트웨이를 최다 기여자로 주도적으로 개발했습니다.',
   mediaNote: '실제 운영 데이터가 포함되어 화면은 비공개합니다.',
   presentationNote:
     '고객사를 대상으로 SentiveX 솔루션을 소개한 발표 자료입니다. 제품 개요와 핵심 기능, 도입 효과를 중심으로 구성했고, 국내 고객에게는 한국어로 해외 고객에게는 영문으로 직접 발표와 데모·질의응답까지 진행했습니다. 위협 탐지 → AI 자동 분석 → 호스트 격리 대응 → 다국어 리포트 생성으로 이어지는 end-to-end 데모 시나리오를 직접 구성해 제품의 실제 운영 흐름을 보여줬습니다.',
