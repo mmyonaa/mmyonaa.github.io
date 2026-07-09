@@ -63,6 +63,28 @@ export interface ProjectTechNote {
   body: string
 }
 
+// 'Part of the same system' 레이어 다이어그램 (시스템 단위로 shared.ts systemMaps 에 정의)
+export interface SystemNode {
+  id: string
+  label: string
+  sub?: string // 부제 (기술 스택 등)
+  slug?: string // 포트폴리오 프로젝트 slug — 있으면 해당 상세 페이지로 링크
+  layer: number // 층 인덱스 (SystemMap.layers 기준, 위 → 아래)
+  x?: number // 가로 위치(%) 수동 지정 — 생략 시 층 내 균등 배치
+}
+
+export interface SystemEdge {
+  from: string // SystemNode.id
+  to: string // SystemNode.id
+  label?: string // 엣지 중앙 라벨 (REST · SSE 등 프로토콜)
+}
+
+export interface SystemMap {
+  layers: string[] // 층 라벨 (위 → 아래 순서)
+  nodes: SystemNode[]
+  edges: SystemEdge[]
+}
+
 export interface Project {
   slug: string
   title: string
@@ -93,7 +115,7 @@ export interface Project {
   architectureCaptions?: string[] // 각 다이어그램 캡션 (images 와 같은 순서)
   architectureNotes?: string[] // 각 다이어그램 아래 설명 문단 (images 와 같은 순서)
   related?: { slug: string; role: string }[] // 함께 이루는 시스템의 관련 프로젝트 (slug + 이 시스템에서의 역할)
-  systemHub?: { label: string; sub?: string } // SystemGraph 중앙 허브 라벨 (예: 공유 백엔드 / 플랫폼 연동)
+  systemId?: string // 소속 시스템 (shared.ts systemMaps 키) — 'Part of the same system' 레이어 다이어그램 표시
   analysisPipeline?: boolean // 'Analysis pipeline' 라이브 다이어그램 섹션 표시 (sentivex-ai 전용)
   paymentFlow?: boolean // 'Subscription flow' 업/다운그레이드 플로우 다이어그램 표시 (apoc-payment 전용)
 }

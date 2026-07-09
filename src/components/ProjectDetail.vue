@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { profile, projects, type Project } from '../data'
+import { systemMaps } from '../content/shared'
 import ThemeToggle from './ThemeToggle.vue'
 import LanguageToggle from './LanguageToggle.vue'
 import ImageSlider from './ImageSlider.vue'
@@ -37,14 +38,9 @@ const num = computed(() => String(idx.value + 1).padStart(2, '0'))
 const totalLabel = computed(() => String(projects.value.length).padStart(2, '0'))
 const hasLinks = computed(() => !!(props.project.link || props.project.repo || props.project.apiDocs))
 
-// 함께 이루는 시스템의 관련 프로젝트 (slug → 대상 프로젝트 제목 + 역할)
-const relatedProjects = computed(() =>
-  (props.project.related ?? [])
-    .map((r) => {
-      const target = projects.value.find((p) => p.slug === r.slug)
-      return target ? { slug: r.slug, role: r.role, title: target.title } : null
-    })
-    .filter((r): r is { slug: string; role: string; title: string } => r !== null),
+// 함께 이루는 시스템의 레이어 다이어그램 (systemMaps 에 시스템 단위로 정의)
+const systemMap = computed(() =>
+  props.project.systemId ? systemMaps[props.project.systemId] : undefined,
 )
 </script>
 
@@ -249,15 +245,10 @@ const relatedProjects = computed(() =>
         </div>
       </section>
 
-      <section v-if="relatedProjects.length" class="detail__section">
+      <section v-if="systemMap" class="detail__section">
         <h2 class="detail__section-title reveal">Part of the same system</h2>
         <div class="detail__sysgraph reveal">
-          <SystemGraph
-            :current="{ slug: project.slug, title: project.title }"
-            :related="relatedProjects"
-            :hub="project.systemHub?.label ?? 'Shared backend'"
-            :hub-sub="project.systemHub?.sub ?? ''"
-          />
+          <SystemGraph :map="systemMap" :current-slug="project.slug" />
         </div>
       </section>
 

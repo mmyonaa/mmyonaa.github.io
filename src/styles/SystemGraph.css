@@ -1,31 +1,64 @@
-.sysgraph {
+.sysmap {
   position: relative;
   width: 100%;
   max-width: 680px;
   aspect-ratio: 2 / 1;
+  min-height: 300px;
   margin: 0 auto;
 }
 
-.sysgraph__edges {
+.sysmap__edges {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
 }
 
-.sysgraph__edge {
+.sysmap__edge {
   stroke: var(--line);
   stroke-width: 1;
   transition: stroke 0.2s ease, stroke-width 0.2s ease;
 }
 
-.sysgraph__edge.is-hot {
+.sysmap__edge.is-hot {
   stroke: var(--gold);
   stroke-width: 1.6;
 }
 
-.sysgraph__hub,
-.sysgraph__node {
+/* 층 라벨 (좌측) */
+.sysmap__layer {
+  position: absolute;
+  left: 0;
+  transform: translateY(-50%);
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--faint);
+}
+
+/* 엣지 중앙 프로토콜 라벨 */
+.sysmap__edge-label {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  padding: 1px 7px;
+  border-radius: 999px;
+  background: var(--bg-2);
+  border: 1px solid var(--line);
+  font-family: var(--mono);
+  font-size: 8.5px;
+  letter-spacing: 0.04em;
+  color: var(--faint);
+  white-space: nowrap;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.sysmap__edge-label.is-hot {
+  color: var(--gold);
+  border-color: color-mix(in srgb, var(--gold) 55%, var(--line));
+}
+
+.sysmap__node {
   position: absolute;
   transform: translate(-50%, -50%);
   display: flex;
@@ -34,30 +67,7 @@
   gap: 2px;
   text-align: center;
   white-space: nowrap;
-}
-
-.sysgraph__hub {
-  padding: 8px 14px;
-  border: 1px dashed color-mix(in srgb, var(--gold) 55%, var(--line));
-  border-radius: 999px;
-  background: var(--bg-2);
-}
-
-.sysgraph__hub-label {
-  font-family: var(--mono);
-  font-size: 11px;
-  letter-spacing: 0.04em;
-  color: var(--gold);
-}
-
-.sysgraph__hub-sub {
-  font-family: var(--mono);
-  font-size: 9px;
-  color: var(--faint);
-}
-
-.sysgraph__node {
-  min-width: 130px;
+  min-width: 110px;
   padding: 9px 14px;
   border: 1px solid var(--line);
   border-radius: 10px;
@@ -66,65 +76,82 @@
   transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-a.sysgraph__node {
+a.sysmap__node {
   cursor: pointer;
 }
 
-a.sysgraph__node.is-hot {
+a.sysmap__node.is-hot {
   border-color: var(--gold);
   transform: translate(-50%, -50%) translateY(-2px);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.28);
 }
 
-.sysgraph__node.is-current {
+.sysmap__node.is-current {
   border-color: color-mix(in srgb, var(--gold) 60%, var(--line));
   background: color-mix(in srgb, var(--gold) 8%, var(--bg-2));
 }
 
-.sysgraph__node-title {
+/* slug 없는 표시용 노드(인프라·외부 화면) — 점선 테두리로 구분 */
+.sysmap__node.is-plain {
+  border-style: dashed;
+  min-width: 90px;
+  padding: 7px 12px;
+}
+
+.sysmap__node-title {
   font-size: 12.5px;
   font-weight: 600;
   color: var(--text);
 }
 
-.sysgraph__node-role {
-  font-size: 10px;
-  color: var(--faint);
-  white-space: normal;
-  max-width: 190px;
+.sysmap__node.is-plain .sysmap__node-title {
+  font-size: 11.5px;
+  font-weight: 500;
+  color: color-mix(in srgb, var(--text) 75%, var(--faint));
 }
 
-.sysgraph__node.is-current .sysgraph__node-role {
+.sysmap__node-sub {
+  font-family: var(--mono);
+  font-size: 9px;
+  color: var(--faint);
+}
+
+.sysmap__node-here {
+  font-family: var(--mono);
+  font-size: 9px;
   color: var(--gold);
 }
 
-/* 좁은 화면: 그래프 대신 세로로 쌓이는 노드(가독성) */
+/* 좁은 화면: 다이어그램 대신 세로로 쌓이는 노드(가독성) */
 @media (max-width: 560px) {
-  .sysgraph {
+  .sysmap {
     aspect-ratio: auto;
+    min-height: 0;
     display: flex;
     flex-direction: column;
     gap: 10px;
     max-width: 360px;
   }
-  .sysgraph__edges {
+  .sysmap__edges,
+  .sysmap__layer,
+  .sysmap__edge-label {
     display: none;
   }
-  .sysgraph__hub,
-  .sysgraph__node {
+  .sysmap__node {
     position: static;
     transform: none;
     width: 100%;
     white-space: normal;
   }
-  a.sysgraph__node.is-hot {
+  a.sysmap__node.is-hot {
     transform: none;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .sysgraph__edge,
-  .sysgraph__node {
+  .sysmap__edge,
+  .sysmap__edge-label,
+  .sysmap__node {
     transition: none;
   }
 }

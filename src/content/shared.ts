@@ -1,6 +1,6 @@
 // 언어 공통 데이터 (기술명·링크·날짜·연락처 등 번역이 필요 없는 항목)
 
-import type { ContactItem, Project, SkillGroup, Social } from './types'
+import type { ContactItem, Project, SkillGroup, Social, SystemMap } from './types'
 
 export const profileBase = {
   name: 'Hyonah',
@@ -67,7 +67,7 @@ const projectBase: ProjectBase[] = [
     link: '',
     company: '',
     repo: '',
-    systemHub: { label: 'SentiveX platform', sub: 'REST · SSE' },
+    systemId: 'sentivex',
     analysisPipeline: true,
     presentationImages: [
       '/projects/sentivex/sentivex-slide-01.jpg',
@@ -81,7 +81,7 @@ const projectBase: ProjectBase[] = [
     link: '',
     company: '',
     repo: '',
-    systemHub: { label: 'SentiveX platform', sub: 'REST · SSE' },
+    systemId: 'sentivex',
   },
   {
     slug: 'bk-theater',
@@ -112,7 +112,7 @@ const projectBase: ProjectBase[] = [
   {
     slug: 'esim-service',
     period: '2023.11 – 2024.08',
-    tags: ['Vue 3', 'TypeScript', 'Pinia', 'vue-i18n', 'PWA', 'Koa', 'TypeORM', 'PostgreSQL', 'Redis', 'AWS EC2', 'AWS SES', 'AWS S3', 'SCSS'],
+    tags: ['Vue 3', 'TypeScript', 'Pinia', 'vue-i18n', 'PWA', 'Koa', 'TypeORM', 'PostgreSQL', 'AWS EC2', 'AWS SES', 'AWS S3', 'SCSS'],
     link: 'https://pre-esim.shop/',
     company: '',
     repo: '',
@@ -126,7 +126,7 @@ const projectBase: ProjectBase[] = [
       '/projects/esim-site/esim-cs.png',
     ],
     architectureImages: ['/projects/esim/system.png'], // 키오스크·어드민과 공유하는 시스템 다이어그램
-    systemHub: { label: 'Shared backend', sub: 'Koa · PostgreSQL' },
+    systemId: 'esim',
   },
   {
     slug: 'esim-kiosk',
@@ -145,7 +145,7 @@ const projectBase: ProjectBase[] = [
     ],
     photos: ['/projects/esim-kiosk/esim-kiosk-field-01.jpg'], // 일본 현지 매장 배포 현장 사진
     architectureImages: ['/projects/esim/system.png'], // 서비스·어드민과 공유하는 시스템 다이어그램
-    systemHub: { label: 'Shared backend', sub: 'Koa · PostgreSQL' },
+    systemId: 'esim',
   },
   {
     slug: 'esim-admin',
@@ -155,7 +155,7 @@ const projectBase: ProjectBase[] = [
     company: '',
     repo: '',
     architectureImages: ['/projects/esim/system.png'], // 서비스·키오스크와 공유하는 시스템 다이어그램
-    systemHub: { label: 'Shared backend', sub: 'Koa · PostgreSQL' },
+    systemId: 'esim',
   },
   {
     slug: 'ecology-content',
@@ -180,7 +180,7 @@ const projectBase: ProjectBase[] = [
     company: '',
     repo: '',
     images: ['/projects/apoc-platform/apoc-home.png'],
-    systemHub: { label: 'apoc', sub: 'product ecosystem' },
+    systemId: 'apoc',
   },
   {
     slug: 'apoc-studio',
@@ -191,7 +191,7 @@ const projectBase: ProjectBase[] = [
     repo: '',
     imageFrame: 'tablet', // 태블릿 대응이 주제 → 태블릿 기기 목업
     images: ['/projects/apoc-studio/apoc-studio-tablet-editor.png'],
-    systemHub: { label: 'apoc', sub: 'product ecosystem' },
+    systemId: 'apoc',
   },
   {
     slug: 'apoc-payment',
@@ -200,7 +200,7 @@ const projectBase: ProjectBase[] = [
     link: '',
     company: '',
     repo: '',
-    systemHub: { label: 'apoc', sub: 'product ecosystem' },
+    systemId: 'apoc',
     paymentFlow: true,
   },
   {
@@ -218,6 +218,69 @@ const projectBase: ProjectBase[] = [
     ],
   },
 ]
+
+// 'Part of the same system' 레이어 다이어그램 — 시스템 단위로 실제 구조를 정의.
+// slug 있는 노드는 해당 프로젝트 상세로 링크, 없는 노드는 표시용(인프라·외부 화면).
+export const systemMaps: Record<string, SystemMap> = {
+  // 프론트 3종(서비스 웹·키오스크·어드민)이 Koa API 하나를 공유
+  esim: {
+    layers: ['Clients', 'API', 'Infra'],
+    nodes: [
+      { id: 'service', label: 'Service Web', sub: 'Vue 3 · PWA', slug: 'esim-service', layer: 0 },
+      { id: 'kiosk', label: 'Kiosk', sub: 'WebView · ESC/POS', slug: 'esim-kiosk', layer: 0 },
+      { id: 'admin', label: 'Admin', sub: 'Vue 3 · i18n', slug: 'esim-admin', layer: 0 },
+      { id: 'api', label: 'Shared API', sub: 'Koa · Node.js', layer: 1 },
+      { id: 'pg', label: 'PostgreSQL', sub: 'TypeORM', layer: 2 },
+      { id: 'aws', label: 'S3 · SES', sub: 'upload · mail', layer: 2 },
+    ],
+    edges: [
+      { from: 'service', to: 'api', label: 'REST' },
+      { from: 'kiosk', to: 'api', label: 'REST' },
+      { from: 'admin', to: 'api', label: 'REST' },
+      { from: 'api', to: 'pg' },
+      { from: 'api', to: 'aws' },
+    ],
+  },
+  // 웹(Next.js 풀스택) ↔ AI 서버(Fastify)가 PostgreSQL 을 공유 (AI 서버는 read-only 동기화)
+  sentivex: {
+    layers: ['Services', 'Infra'],
+    nodes: [
+      { id: 'web', label: 'Web', sub: 'Next.js · full-stack', slug: 'sentivex-web', layer: 0, x: 28 },
+      { id: 'ai', label: 'AI Server', sub: 'Fastify · BullMQ', slug: 'sentivex-ai', layer: 0, x: 72 },
+      { id: 'os', label: 'OpenSearch', sub: 'SIEM logs', layer: 1 },
+      { id: 'pg', label: 'PostgreSQL', sub: 'shared', layer: 1 },
+      { id: 'redis', label: 'Redis', sub: 'queue', layer: 1 },
+      { id: 'llm', label: 'LLM Gateway', sub: 'LiteLLM', layer: 1 },
+    ],
+    edges: [
+      { from: 'web', to: 'ai', label: 'REST · SSE' },
+      { from: 'web', to: 'os' },
+      { from: 'web', to: 'pg' },
+      { from: 'ai', to: 'pg' },
+      { from: 'ai', to: 'redis' },
+      { from: 'ai', to: 'llm' },
+    ],
+  },
+  // platform·studio 웹은 middleware(공유 API), 결제 페이지(별도 웹)는 payment API 사용
+  apoc: {
+    layers: ['Web', 'API', 'Data'],
+    nodes: [
+      { id: 'platform', label: 'Platform Web', sub: 'Vue.js', slug: 'apoc-renewal', layer: 0, x: 20 },
+      { id: 'studio', label: 'Studio Web', sub: 'Vue.js · Three.js', slug: 'apoc-studio', layer: 0, x: 50 },
+      { id: 'payweb', label: 'Payment Pages', sub: 'separate web', layer: 0, x: 80 },
+      { id: 'mw', label: 'Middleware API', sub: 'Koa', layer: 1, x: 35 },
+      { id: 'payment', label: 'Payment API', sub: 'Koa', slug: 'apoc-payment', layer: 1, x: 80 },
+      { id: 'pg', label: 'PostgreSQL', layer: 2, x: 57 },
+    ],
+    edges: [
+      { from: 'platform', to: 'mw', label: 'REST' },
+      { from: 'studio', to: 'mw', label: 'REST' },
+      { from: 'payweb', to: 'payment', label: 'REST' },
+      { from: 'mw', to: 'pg' },
+      { from: 'payment', to: 'pg' },
+    ],
+  },
+}
 
 // 공통 필드 + 언어별 텍스트를 slug 기준으로 합쳐 Project[] 생성
 export function buildProjects(text: Record<string, ProjectText>): Project[] {
