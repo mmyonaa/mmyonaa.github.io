@@ -62,7 +62,7 @@ const projectBase: ProjectBase[] = [
   {
     slug: 'sentivex-ai',
     period: '2025.09 –',
-    tags: ['Fastify', 'TypeScript', 'AI SDK', 'LiteLLM', 'OpenAI · Azure · Gemini', 'BullMQ', 'Redis', 'Prisma', 'PostgreSQL', 'Kubernetes'],
+    tags: ['Fastify', 'TypeScript', 'AI SDK', 'LiteLLM', 'OpenAI · Azure · Gemini', 'BullMQ', 'Redis', 'Prisma', 'PostgreSQL'],
     link: '',
     company: '',
     repo: '',
