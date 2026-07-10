@@ -6,7 +6,7 @@ export const ko: ProjectText = {
     '멀티테넌트 SIEM 보안 플랫폼의 Next.js 15 풀스택 웹. SIEM 대시보드·인시던트 관리·AI 리포트 에디터를 팀과 협업으로 개발했습니다.',
   mediaNote: '실제 운영 데이터가 포함되어 화면은 비공개합니다.',
   overview: [
-    'SentiveX 플랫폼의 웹 축으로, Next.js 15(App Router) 풀스택으로 UI부터 API 라우트·서버 로직·DB(Prisma/PostgreSQL 멀티스키마)까지 구성됩니다. SIEM 대시보드, 인시던트/경고(severity·MITRE ATT&CK) 관리, 엔드포인트 스캔·네트워크 격리, 위협 인텔리전스, 실시간 모니터링(SSE) 등을 제공하는 협업 프로젝트로, 저는 최다 기여자군에 속해 풀스택 전반에 참여했습니다.',
+    'SentiveX 플랫폼의 웹 축으로, Next.js 15(App Router) 풀스택으로 UI부터 API 라우트·서버 로직·DB(Prisma/PostgreSQL 멀티스키마)까지 구성됩니다. SIEM 대시보드, 인시던트/경고(severity·MITRE ATT&CK) 관리, 엔드포인트 스캔·네트워크 격리, 위협 인텔리전스, 실시간 모니터링(SSE) 등을 제공하는 협업 프로젝트로, 저는 주요 기여자 중 한 명으로 풀스택 전반에 참여했습니다.',
     '핵심은 BlockNote 기반 AI 보안 리포트 에디터입니다. 인시던트를 선택하면 AI 서버가 분석 리포트를 생성하고, 블록 단위로 AI 편집 제안을 받아 diff 하이라이팅으로 미리보고 커밋합니다. 리포트는 한/영/일 다국어로 저장되며, 무거운 분석·생성은 별도 AI 서버(REST·SSE)에 위임합니다.',
   ],
   highlights: [
@@ -21,7 +21,7 @@ export const ko: ProjectText = {
   techNotes: [
     {
       title: 'Next.js 15 풀스택 협업 개발',
-      body: 'App Router로 UI·서버 컴포넌트와 수백 개의 API 라우트, Prisma 멀티스키마(PostgreSQL) DB 레이어까지 한 앱에서 구성했습니다. 팀 협업 레포에서 최다 기여자군으로 참여해 인시던트·리포트·엔드포인트 등 여러 도메인의 화면과 API를 개발했습니다.',
+      body: 'App Router로 UI·서버 컴포넌트와 수백 개의 API 라우트, Prisma 멀티스키마(PostgreSQL) DB 레이어까지 한 앱에서 구성했습니다. 팀 협업 레포에서 주요 기여자로 참여해 인시던트·리포트·엔드포인트 등 여러 도메인의 화면과 API를 개발했습니다.',
     },
     {
       title: 'AI 리포트 에디터 (BlockNote)',
