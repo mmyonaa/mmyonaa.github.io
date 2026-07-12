@@ -7,7 +7,7 @@ export const ko: ProjectText = {
   mediaNote: '실제 운영 데이터가 포함되어 화면은 비공개합니다.',
   overview: [
     'apoc 플랫폼의 결제 시스템으로, Toss·PayPal을 연동해 단건 결제부터 정기 구독까지 담당했습니다. 구독은 요금제 간 업그레이드·다운그레이드와 자동 갱신을 지원하며, 구독·결제 상태는 상태 값으로 관리하고 모든 변경은 별도 히스토리 테이블(구독/결제 이력)에 적재해 정산과 감사 추적이 가능하도록 설계했습니다.',
-    '업그레이드는 전환 시점에 남은 기간의 차액을 즉시 결제(proration)하고 다음 결제 주기부터 상향된 금액으로 청구하며, 다운그레이드는 즉시 환불 없이 다음 주기부터 하향 금액을 반영합니다. Toss는 요금제(plan) 개념 없이 billing key(결제수단)–사용자 매칭으로 청구되는 구조라 금액 계산을 서비스 측에서 수행해 billing key로 과금하도록 설계했고, plan 기반으로 동작하는 PayPal과는 로직을 분리해 각 PG 모델에 맞게 추상화했습니다.',
+    '요금제 전환은 업그레이드 즉시 차액 정산(proration)·다운그레이드 다음 주기 반영을 원칙으로 정산 규칙을 설계했고, plan 개념 없이 billing key로 청구되는 Toss와 plan 기반 PayPal의 서로 다른 과금 모델을 각 PG에 맞게 추상화했습니다.',
   ],
   highlights: [
     'Toss·PayPal 결제 모듈 연동',
@@ -26,7 +26,7 @@ export const ko: ProjectText = {
     },
     {
       title: '구독 업/다운그레이드 & 정산(proration)',
-      body: '요금제 전환을 업그레이드와 다운그레이드로 나눠 설계했습니다. 업그레이드는 전환 시점에 남은 기간의 차액을 billing key로 즉시 결제하고 다음 주기부터 상향 금액으로 청구하며, 다운그레이드는 즉시 환불 없이 다음 결제 주기부터 하향 금액을 반영하고 전환 전 요금제 정보를 이력으로 남깁니다. 결제 전 차액을 미리 계산해 반환하는 API로 사용자가 전환 금액을 확인한 뒤 결제하도록 했고, 구독 취소 API도 함께 설계했습니다. 구독·결제 상태는 상태 값 업데이트로 관리하고 변경 내역은 별도 히스토리 테이블에 적재해 정산·감사 추적이 가능하도록 했습니다.',
+      body: '요금제 전환을 업그레이드와 다운그레이드로 나눠 설계했습니다. 업그레이드는 전환 시점에 남은 기간의 차액을 billing key로 즉시 결제하고 다음 주기부터 상향 금액으로 청구하며, 다운그레이드는 즉시 환불 없이 다음 결제 주기부터 하향 금액을 반영하고 전환 전 요금제 정보를 이력으로 남깁니다. 결제 전 차액을 미리 계산해 반환하는 API로 사용자가 전환 금액을 확인한 뒤 결제하도록 했고, 구독 취소 API도 함께 설계했습니다.',
     },
     {
       title: '멀티 PG 추상화 (Toss·PayPal)',
@@ -42,7 +42,7 @@ export const en: ProjectText = {
   mediaNote: 'Screens are withheld as they contain live operational data.',
   overview: [
     'The payment system of the apoc platform — integrating Toss and PayPal for everything from one-time payments to recurring subscriptions. Subscriptions support upgrades, downgrades, and auto-renewal; subscription and payment states are managed as status values, while every change is appended to separate history tables so settlement and audit trails are preserved.',
-    'Upgrades charge the prorated difference for the remaining period immediately and bill the higher amount from the next cycle; downgrades apply the lower amount from the next cycle (no immediate refund) and keep the pre-change plan as history. Since Toss bills via a billing-key (payment method)–user match with no plan concept, the service computes the amount itself and charges through the billing key — logic kept separate from PayPal, which operates on plans, and abstracted per gateway.',
+    'For plan changes I designed the settlement rules — an immediate prorated charge on upgrade, next-cycle application on downgrade — and abstracted two very different billing models per gateway: Toss, which bills through a billing key with no plan concept, and plan-based PayPal.',
   ],
   highlights: [
     'Integrated Toss and PayPal payment modules',
@@ -61,7 +61,7 @@ export const en: ProjectText = {
     },
     {
       title: 'Subscription up/downgrade & proration',
-      body: 'Plan changes are split into upgrades and downgrades. An upgrade charges the prorated difference for the remaining period immediately via the billing key and bills the higher amount from the next cycle; a downgrade applies the lower amount from the next billing cycle (no immediate refund) and records the pre-change plan as history. A separate endpoint computes the prorated difference before charging so users can confirm the amount first, and a subscription-cancellation API is provided as well. Subscription and payment states are managed by status updates, with every change appended to dedicated history tables for settlement and audit trails.',
+      body: 'Plan changes are split into upgrades and downgrades. An upgrade charges the prorated difference for the remaining period immediately via the billing key and bills the higher amount from the next cycle; a downgrade applies the lower amount from the next billing cycle (no immediate refund) and records the pre-change plan as history. A separate endpoint computes the prorated difference before charging so users can confirm the amount first, and a subscription-cancellation API is provided as well.',
     },
     {
       title: 'Multi-gateway abstraction (Toss·PayPal)',

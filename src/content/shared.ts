@@ -23,11 +23,11 @@ export const skills: SkillGroup[] = [
   },
   {
     category: 'Backend',
-    items: ['Node.js', 'Koa', 'PostgreSQL', 'Prisma', 'Redis', 'BullMQ', 'REST API'],
+    items: ['Node.js', 'Koa', 'PostgreSQL', 'Prisma', 'Redis', 'BullMQ'],
   },
   {
     category: 'Infra · Tooling',
-    items: ['AWS EC2', 'Nginx', 'PM2', 'Vite', 'Git'],
+    items: ['AWS EC2', 'Nginx', 'PM2', 'Vite'],
   },
   {
     category: 'AI',

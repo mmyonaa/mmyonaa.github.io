@@ -12,7 +12,7 @@ export const siteKo: SiteText = {
   tagline: '사용자 중심의 안정적이고 확장 가능한 웹 서비스를 구현하는 풀스택 개발자입니다.',
   about: {
     paragraphs: [
-      '사용자 중심의 안정적이고 확장 가능한 웹 서비스를 만드는 풀스택 개발자입니다.',
+      '보안 AI 플랫폼부터 글로벌 커머스·키오스크까지, 서비스의 처음부터 끝까지 직접 만들어 온 풀스택 개발자입니다.',
       '프론트엔드부터 백엔드, 인프라까지 폭넓게 다루며, 작은 디테일이 만드는 사용성의 차이를 중요하게 생각합니다.',
     ],
   },
@@ -100,7 +100,7 @@ export const siteEn: SiteText = {
   tagline: 'A full-stack developer building user-centered, stable, and scalable web services.',
   about: {
     paragraphs: [
-      'A full-stack developer who builds user-centered, stable, and scalable web services.',
+      'A full-stack developer who has built services end to end — from a security AI platform to global commerce and kiosks.',
       'I work across the stack — frontend, backend, and infrastructure — and care about the small details that make a real difference in usability.',
     ],
   },

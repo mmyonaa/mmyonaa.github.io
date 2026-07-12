@@ -22,7 +22,7 @@ export const ko: ProjectText = {
   techNotes: [
     {
       title: '멀티 에이전트 분석 파이프라인 (Triage + 3-스테이지)',
-      body: '먼저 Triage 에이전트가 인시던트를 분류·우선순위 산정해 파이프라인을 게이팅합니다. 이후 IOC·MITRE·Network 에이전트를 병렬 실행(Promise.allSettled)하고, 조건에 따라 SecurityIntel(LLM)을 선택 실행합니다. Correlation 에이전트가 결과를 종합해 kill-chain 그래프·위협 점수·신뢰도를 generateObject(zod)로 구조화 출력하고, 컴플라이언스(ISMS-P·ISO 27001·GDPR)는 백그라운드로 돌립니다. 우선순위에 따라 실행 에이전트를 가지쳐 비용을 조절합니다.',
+      body: '파이프라인을 Triage + 3-스테이지로 나눈 것은 LLM 호출을 꼭 필요한 곳에만 쓰기 위해서입니다. Triage가 인시던트를 분류·우선순위 산정해 이후 실행 범위를 게이팅하고, 1단계는 코드 기반 에이전트(IOC·MITRE·Network)를 병렬 실행(Promise.allSettled)해 LLM 비용 없이 분석 근거를 먼저 확보합니다. LLM을 쓰는 SecurityIntel은 근거가 부족할 때만 조건부로 실행하고, Correlation 종합은 마지막에 한 번만 수행합니다. 결과를 generateObject(zod) 구조화 출력으로 만든 것도 후속 화면·리포트가 파싱 없이 바로 소비하게 하려는 선택입니다.',
     },
     {
       title: 'SSE 스트리밍 · 수동 재분석',
@@ -61,7 +61,7 @@ export const en: ProjectText = {
   techNotes: [
     {
       title: 'Multi-agent analysis pipeline (Triage + 3 stages)',
-      body: 'A Triage agent first classifies the incident and assigns priority, gating the pipeline. IOC, MITRE, and Network agents then run in parallel (Promise.allSettled), and SecurityIntel (LLM) runs conditionally. The Correlation agent synthesizes results into a kill-chain graph, threat score, and confidence as structured output (generateObject/zod), while compliance (ISMS-P, ISO 27001, GDPR) runs in the background. Agents are pruned by priority to control cost.',
+      body: 'The pipeline is split into Triage + three stages to spend LLM calls only where they matter. Triage classifies each incident and assigns a priority that gates what runs next; stage 1 runs code-based agents (IOC, MITRE, Network) in parallel (Promise.allSettled) to gather grounding evidence at zero LLM cost. The LLM-backed SecurityIntel agent runs conditionally only when evidence is insufficient, and Correlation synthesis runs once at the end. Structured output via generateObject (zod) is likewise a deliberate choice — downstream screens and reports consume results without parsing.',
     },
     {
       title: 'SSE streaming & manual re-analysis',

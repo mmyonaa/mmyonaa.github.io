@@ -11,14 +11,14 @@ export const ko: ProjectText = {
   overview: [
     '여행자가 국가·상품을 검색·비교하고 장바구니·결제 후 eSIM QR을 메일로 받아 바로 설치하는 글로벌 eSIM 커머스입니다. Vue 3·TypeScript 프론트엔드의 초기 아키텍처(라우팅·상태·API·스타일·다국어)를 설계하고, 프로젝트 최다 커밋(전체의 약 1/3)으로 개발을 이끌었습니다.',
     '핵심은 결제입니다. Paygent 카드 결제(달러)에 Google Pay·Apple Pay(엔화)까지 묶은 다중 결제와, 상품 검증 → 결제 정보 생성 → 카드 토큰화 → 완료로 이어지는 다단계 결제 플로우를 구현했습니다. 같은 화면이 웹 고객과 키오스크(무로그인) 결제를 함께 처리하도록 orderId 기준으로 경로를 분기하고, 실패 시 롤백을 두어 상태 꼬임을 막았습니다.',
-    '해외 사용자를 위해 vue-i18n 3개 언어(한/영/일) 사전을 직접 구축하고 국가·언어별 통화(USD/JPY)를 전환했으며, PC~모바일 반응형과 PWA(Workbox)를 적용했습니다. lz-string으로 로컬 저장소를 압축하고 html2canvas로 영수증을 이미지로 내려받는 등 클라이언트 최적화도 담당했습니다. 이 서비스는 어드민·키오스크·공유 백엔드(미들웨어)와 함께 하나의 eSIM 플랫폼을 이루며, 그 공유 백엔드 개발도 제가 주도했습니다.',
+    '해외 사용자를 위해 vue-i18n 3개 언어(한/영/일) 사전을 직접 구축하고 국가·언어별 통화(USD/JPY)를 전환했으며, PC~모바일 반응형과 PWA(Workbox)를 적용했습니다. lz-string 로컬 저장소 압축 같은 클라이언트 최적화도 담당했습니다. 이 서비스는 어드민·키오스크·공유 백엔드(미들웨어)와 함께 하나의 eSIM 플랫폼을 이룹니다.',
   ],
   highlights: [
     'Vue 3 프론트엔드 아키텍처 설계·개발 주도 (프로젝트 최다 커밋)',
     '다중 PG 결제 구현 — Paygent 카드(USD) + Google Pay·Apple Pay(JPY)',
     '웹·키오스크 겸용 다단계 결제 플로우 (경로 분기·실패 롤백)',
     'vue-i18n 3개 언어 사전 구축 + 국가·언어별 통화 전환',
-    '반응형·PWA + lz-string 저장소 압축·html2canvas 영수증 등 클라이언트 최적화',
+    '반응형·PWA + lz-string 저장소 압축 등 클라이언트 최적화',
     '공유 백엔드(미들웨어) 개발 주도 (최다 커밋) — eSIM 공급사 외부 연동, 결제 후 eSIM 발급·SES 메일 발송',
   ],
   techNotes: [
@@ -32,7 +32,7 @@ export const ko: ProjectText = {
     },
     {
       title: '다국어 · 클라이언트 최적화',
-      body: 'vue-i18n 3개 언어(한/영/일) 사전을 직접 구축하고, lz-string으로 localStorage(다국어·결제 정보)를 압축 저장했습니다. html2canvas로 주문 영수증을 이미지로 내려받고, 국가/대륙 기준으로 상품 이미지(webp)를 동적 선택했습니다.',
+      body: 'vue-i18n 3개 언어(한/영/일) 사전을 직접 구축하고, lz-string으로 localStorage(다국어·결제 정보)를 압축 저장해 저장 용량 한계에 대응했습니다.',
     },
     {
       title: '반응형·PWA & 플랫폼 연동',
@@ -52,14 +52,14 @@ export const en: ProjectText = {
   overview: [
     'A global eSIM commerce where travelers search and compare plans by country, check out, and receive an eSIM QR by email to install instantly. I designed the initial Vue 3 / TypeScript frontend architecture (routing, state, API layer, styling, i18n) and led development as the top committer (about a third of the project).',
     'Payments are the core. I integrated Paygent card payments (USD) plus Google Pay and Apple Pay (JPY), and built a multi-step checkout — validate cart → create payment info → tokenize card → complete. The same screens serve both web customers and (login-free) kiosk checkout, branching by orderId, with rollback on failure to avoid stuck states.',
-    'For international users I built the vue-i18n dictionaries for three languages (KO/EN/JP) and switched currency (USD/JPY) by country and language, with a responsive UI and PWA (Workbox). I also handled client optimizations — compressing local storage with lz-string and letting users download receipts as images via html2canvas. This service forms one eSIM platform together with the admin, kiosk, and a shared backend (middleware), and I also led development of that shared backend.',
+    'For international users I built the vue-i18n dictionaries for three languages (KO/EN/JP) and switched currency (USD/JPY) by country and language, with a responsive UI and PWA (Workbox). I also handled client optimizations such as compressing local storage with lz-string. This service forms one eSIM platform together with the admin, kiosk, and a shared backend (middleware).',
   ],
   highlights: [
     'Led the Vue 3 frontend architecture and development (top committer)',
     'Multi-gateway payments — Paygent card (USD) + Google Pay / Apple Pay (JPY)',
     'Web/kiosk-shared multi-step checkout (path branching, rollback on failure)',
     'Built vue-i18n dictionaries for three languages + per-country/language currency',
-    'Responsive/PWA + client optimizations (lz-string storage compression, html2canvas receipts)',
+    'Responsive/PWA + client optimizations (lz-string storage compression)',
     'Led development of the shared backend (middleware, top committer) — external eSIM-supplier integration, post-payment eSIM issuance & SES email delivery',
   ],
   techNotes: [
@@ -73,7 +73,7 @@ export const en: ProjectText = {
     },
     {
       title: 'i18n & client optimization',
-      body: 'Built the vue-i18n dictionaries for three languages (KO/EN/JP) and compressed localStorage (i18n and payment data) with lz-string. Users can download order receipts as images via html2canvas, and product images (webp) are selected dynamically by country/continent.',
+      body: 'Built the vue-i18n dictionaries for three languages (KO/EN/JP) and compressed localStorage (i18n and payment data) with lz-string to stay within storage limits.',
     },
     {
       title: 'Responsive/PWA & platform integration',

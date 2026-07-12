@@ -24,7 +24,6 @@ export const ko: ProjectText = {
     'vite-ssg 정적 사이트 생성(SSG) + 동적 메타·JSON-LD·사이트맵으로 SEO 최적화',
     '극장 조회·예약 기능과 예약 흐름 최적화',
     '관리자 공연·공지 등록으로 콘텐츠 운영 편의 향상',
-    '카카오맵 API 연동으로 위치 정보 제공',
   ],
   techNotes: [
     {
@@ -70,7 +69,6 @@ export const en: ProjectText = {
     'SEO optimization via vite-ssg static generation, dynamic meta/JSON-LD, and a sitemap',
     'Theater browsing/reservation features with an optimized booking flow',
     'Admin registration of performances and notices for easier content operations',
-    'Location info via Kakao Map API integration',
   ],
   techNotes: [
     {

@@ -21,8 +21,7 @@ export const ko: ProjectText = {
     '누적 인증 단계(해설 3개=새싹·5개=나무)·스탬프 말판·단계별 인증서 발급',
     'APOC 콘텐츠 iframe 연동(origin 검증 postMessage 이벤트 브리지)·활동 기록, 설문 연동으로 참여 데이터 수집',
     '카카오·네이버·인스타 인앱 브라우저 감지 → 외부 브라우저 유도(실사용 안정화)',
-    '카카오 API 기프티콘 — 조건 충족 자동 발송 + 관리자 일괄 발송(카카오비즈니스)',
-    '기프티콘 발송 상태 폴링·재시도로 안정적 자동 발송',
+    '카카오 API 기프티콘 — 조건 충족 자동 발송·관리자 일괄 발송(카카오비즈니스), 상태 폴링·재시도로 안정화',
     '관리자 월별 통계 대시보드(총/첫/재방문·당첨 대상·발송 상태) + 만족도 엑셀 다운로드',
   ],
   techNotes: [
@@ -66,8 +65,7 @@ export const en: ProjectText = {
     'Cumulative tiers (3 = sprout, 5 = tree), a stamp board, and per-tier certificate issuance',
     'APOC content embedded via iframe (origin-checked postMessage event bridge) with activity logging, plus survey integration',
     'In-app browser detection (KakaoTalk, Naver, Instagram) → redirect to an external browser for real-world reliability',
-    'Kakao gifticons — automatic send on conditions met + admin bulk send (Kakao Business)',
-    'Reliable automated sending via send-status polling and retries',
+    'Kakao gifticons — automatic send on conditions met + admin bulk send (Kakao Business), stabilized with send-status polling and retries',
     'Admin monthly stats dashboard (total/first/return visitors, eligibility, send status) + satisfaction Excel export',
   ],
   techNotes: [

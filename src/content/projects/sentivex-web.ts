@@ -15,8 +15,7 @@ export const ko: ProjectText = {
     'BlockNote 기반 AI 리포트 에디터 — 블록 단위 AI 편집·diff 하이라이팅·미리보기·다국어(한/영/일)·PDF/DOCX/CSV·XLSX 익스포트',
     'Recharts 대시보드 차트 + XY Flow·dagre 킬체인(MITRE ATT&CK) 토폴로지 그래프',
     'BullMQ·Redis 워커·크론 스케줄링 — 데이터 보존·알림·정기 리포트 자동화',
-    'OpenSearch SIEM 검색·실시간 모니터링(SSE)',
-    'AI 서버(REST·SSE)와 연동 — 리포트 생성·블록 편집 위임',
+    'OpenSearch SIEM 검색·실시간 모니터링(SSE) + AI 서버(REST·SSE) 연동',
   ],
   techNotes: [
     {
@@ -57,8 +56,7 @@ export const en: ProjectText = {
     'BlockNote-based AI report editor — block-level AI editing, diff highlighting, preview, multilingual (ko/en/ja), PDF/DOCX/CSV·XLSX export',
     'Recharts dashboard charts + XY Flow/dagre kill-chain (MITRE ATT&CK) topology graph',
     'BullMQ/Redis workers & cron scheduling — data retention, notifications, recurring reports',
-    'OpenSearch SIEM search & real-time monitoring (SSE)',
-    'Integrates with the AI server (REST/SSE) — delegating report generation and block edits',
+    'OpenSearch SIEM search & real-time monitoring (SSE) + AI-server (REST/SSE) integration',
   ],
   techNotes: [
     {
