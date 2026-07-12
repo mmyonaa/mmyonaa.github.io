@@ -202,6 +202,20 @@ const projectBase: ProjectBase[] = [
     systemId: 'apoc',
     paymentFlow: true,
   },
+  {
+    slug: 'portfolio',
+    period: '2026.07 –',
+    tags: ['Vue 3', 'TypeScript', 'Vite', 'GitHub Actions', 'CSS'],
+    link: '',
+    company: '',
+    repo: 'https://github.com/mmyonaa/mmyonaa.github.io',
+    // 사이트 자체 캡처 (다크 히어로 · 시스템 다이어그램 · 라이트 테마) — 사이트 개편 시 재캡처
+    images: [
+      '/projects/portfolio/portfolio-home.png',
+      '/projects/portfolio/portfolio-sysmap.png',
+      '/projects/portfolio/portfolio-home-light.png',
+    ],
+  },
 ]
 
 // 'Part of the same system' 레이어 다이어그램 — 시스템 단위로 실제 구조를 정의.
