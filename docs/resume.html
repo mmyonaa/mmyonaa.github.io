@@ -1,0 +1,605 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>임현아 Hyona Lim · Resume</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #ffffff;
+        --text: #1a1a1e;
+        --dim: #55555d;
+        --faint: #8a8992;
+        --line: #e3e0d8;
+        --gold: #9a7400;
+        --sans: 'Manrope', -apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
+        --mono: 'Space Mono', ui-monospace, monospace;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        font-family: var(--sans);
+        color: var(--text);
+        background: #7a7a7a;
+      }
+
+      /* A4 페이지 */
+      .page {
+        width: 210mm;
+        min-height: 297mm;
+        margin: 12mm auto;
+        padding: 16mm 15mm;
+        background: var(--bg);
+        box-shadow: 0 4px 24px rgba(0, 0, 0, 0.25);
+      }
+
+      /* ---------- 헤더 ---------- */
+      .head {
+        display: flex;
+        align-items: center;
+        gap: 22px;
+        padding-bottom: 20px;
+        border-bottom: 2px solid var(--text);
+      }
+
+      .head__photo {
+        width: 92px;
+        height: 92px;
+        border-radius: 50%;
+        object-fit: cover;
+        object-position: center 22%;
+        flex-shrink: 0;
+        border: 1px solid var(--line);
+      }
+
+      .head__main {
+        flex: 1;
+      }
+
+      .head__name {
+        font-size: 30px;
+        font-weight: 800;
+        letter-spacing: -0.01em;
+        line-height: 1.1;
+      }
+
+      .head__name span {
+        color: var(--gold);
+      }
+
+      .head__name-en {
+        margin-top: 3px;
+        font-family: var(--mono);
+        font-size: 12px;
+        letter-spacing: 0.06em;
+        color: var(--gold);
+      }
+
+      .head__role {
+        margin-top: 8px;
+        font-size: 13px;
+        font-weight: 500;
+        color: var(--dim);
+      }
+
+      .head__tagline {
+        margin-top: 4px;
+        font-size: 11px;
+        line-height: 1.4;
+        color: var(--faint);
+        word-break: keep-all;
+      }
+
+      .head__contact {
+        margin-top: 10px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 4px 16px;
+        font-family: var(--mono);
+        font-size: 10px;
+        letter-spacing: 0.02em;
+        color: var(--dim);
+      }
+
+      .head__contact a {
+        color: var(--dim);
+        text-decoration: none;
+      }
+
+      /* ---------- 섹션 ---------- */
+      .section {
+        margin-top: 13px;
+      }
+
+      .section__title {
+        font-family: var(--mono);
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: var(--gold);
+        padding-bottom: 5px;
+        margin-bottom: 8px;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .summary {
+        font-size: 12px;
+        line-height: 1.6;
+        color: var(--text);
+        word-break: keep-all;
+      }
+
+      /* 스킬 */
+      .skills {
+        display: grid;
+        grid-template-columns: 92px 1fr;
+        row-gap: 8px;
+        column-gap: 14px;
+        font-size: 11px;
+      }
+
+      .skills__cat {
+        font-family: var(--mono);
+        font-size: 10px;
+        color: var(--faint);
+        padding-top: 2px;
+      }
+
+      .skills__items {
+        color: var(--text);
+        line-height: 1.5;
+      }
+
+      /* 회사(재직) 블록 */
+      .company {
+        margin-bottom: 12px;
+        page-break-inside: avoid;
+      }
+
+      .company__head {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 12px;
+      }
+
+      .company__name {
+        font-size: 15px;
+        font-weight: 800;
+        letter-spacing: -0.01em;
+      }
+
+      .company__name em {
+        font-style: normal;
+        font-weight: 500;
+        font-size: 10px;
+        font-family: var(--mono);
+        color: var(--faint);
+        margin-left: 7px;
+      }
+
+      .company__period {
+        font-family: var(--mono);
+        font-size: 10.5px;
+        font-weight: 700;
+        color: var(--gold);
+        white-space: nowrap;
+        flex-shrink: 0;
+      }
+
+      .company__role {
+        margin: 2px 0 11px;
+        font-size: 11px;
+        color: var(--dim);
+      }
+
+      /* 회사 아래 프로젝트 항목은 좌측 라인으로 그룹 표시 */
+      .company .item {
+        margin-left: 11px;
+        padding-left: 13px;
+        border-left: 1px solid var(--line);
+      }
+
+      /* 경력/프로젝트 항목 */
+      .item {
+        margin-bottom: 9px;
+        page-break-inside: avoid;
+      }
+
+      .item:last-child {
+        margin-bottom: 0;
+      }
+
+      .item__head {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 12px;
+      }
+
+      .item__title {
+        font-size: 13px;
+        font-weight: 700;
+      }
+
+      .item__period {
+        font-family: var(--mono);
+        font-size: 10px;
+        color: var(--faint);
+        white-space: nowrap;
+        flex-shrink: 0;
+      }
+
+      .item__desc {
+        margin-top: 3px;
+        font-size: 11px;
+        line-height: 1.6;
+        color: var(--dim);
+        word-break: keep-all;
+      }
+
+      .item__bullets {
+        margin: 6px 0 0;
+        padding-left: 0;
+        list-style: none;
+      }
+
+      .item__bullets li {
+        position: relative;
+        padding-left: 13px;
+        font-size: 11px;
+        line-height: 1.6;
+        color: var(--text);
+        word-break: keep-all;
+        margin-bottom: 2px;
+      }
+
+      .item__bullets li::before {
+        content: '–';
+        position: absolute;
+        left: 0;
+        color: var(--gold);
+      }
+
+      .item__stack {
+        margin-top: 5px;
+        font-family: var(--mono);
+        font-size: 9.5px;
+        letter-spacing: 0.02em;
+        color: var(--faint);
+      }
+
+      .edu__line {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 12px;
+      }
+
+      .edu__note {
+        margin-top: 3px;
+        font-size: 11px;
+        color: var(--dim);
+      }
+
+      /* ---------- 인쇄 ---------- */
+      @media print {
+        html {
+          background: #fff;
+        }
+        .page {
+          margin: 0;
+          box-shadow: none;
+          width: auto;
+          min-height: 0;
+          padding: 0;
+        }
+      }
+
+      @page {
+        size: A4;
+        margin: 12mm;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <!-- 헤더 -->
+      <header class="head">
+        <img class="head__photo" src="../public/portfolio/profile.jpeg" alt="임현아 Hyona Lim" />
+        <div class="head__main">
+          <div class="head__name">임현아</div>
+          <div class="head__name-en">Hyona Lim</div>
+          <div class="head__role">Full-stack Developer · Seoul, Korea</div>
+          <div class="head__tagline">보안 AI · 결제 · 글로벌 커머스 · 키오스크까지 end-to-end로 구축하는 풀스택 개발자</div>
+          <div class="head__contact">
+            <a href="https://mmyonaa.github.io">mmyonaa.github.io</a>
+            <a href="mailto:apddfhsajrwk@gmail.com">apddfhsajrwk@gmail.com</a>
+            <a href="https://github.com/mmyonaa">github.com/mmyonaa</a>
+            <a href="https://www.linkedin.com/in/hyona-lim-a3a626319/">linkedin.com/in/hyona-lim</a>
+          </div>
+        </div>
+      </header>
+
+      <!-- 소개 -->
+      <section class="section">
+        <h2 class="section__title">About</h2>
+        <p class="summary">
+          기획 단계의 요구사항부터 배포·운영까지 서비스의 한 사이클 전체를 책임지는 풀스택 개발자입니다.
+          프론트엔드·백엔드·인프라를 폭넓게 다루며, 작은 디테일이 만드는 사용성의 차이를 중요하게
+          생각합니다. 여러 프로젝트를 1인 또는 소수 인원으로 주도해 설계·개발·배포·현장 대응까지 직접
+          담당했습니다. 요구사항의 본질을 파악해 기술 부채를 줄이는 구조를 제안하고, 기획·디자인·운영 등
+          다양한 직군과 협업하며 반복되던 시스템 문제를 개선해왔습니다.
+        </p>
+      </section>
+
+      <!-- 스킬 -->
+      <section class="section">
+        <h2 class="section__title">Skills</h2>
+        <div class="skills">
+          <div class="skills__cat">Frontend</div>
+          <div class="skills__items">
+            Vue 3 · TypeScript · JavaScript · Pinia · vue-i18n · SCSS · PWA
+          </div>
+          <div class="skills__cat">Backend</div>
+          <div class="skills__items">Koa · Node.js · TypeORM · PostgreSQL · Redis · REST API</div>
+          <div class="skills__cat">Infra · Tooling</div>
+          <div class="skills__items">
+            AWS EC2 · S3 · SES · Nginx · Docker · PM2 · Git · Jest · vite-ssg
+          </div>
+          <div class="skills__cat">AI</div>
+          <div class="skills__items">LiteLLM · OpenAI · Azure OpenAI · Gemini</div>
+          <div class="skills__cat">Etc.</div>
+          <div class="skills__items">Kotlin (Android WebView) · Quill · Kakao Maps</div>
+        </div>
+      </section>
+
+      <!-- 경력 -->
+      <section class="section">
+        <h2 class="section__title">Experience</h2>
+
+        <!-- 인브릿지 (현재) -->
+        <div class="company">
+          <div class="company__head">
+            <span class="company__name">인브릿지 <em>Inbridge</em></span>
+            <span class="company__period">2025.09 – 현재</span>
+          </div>
+          <div class="company__role">Full-stack Developer</div>
+
+          <div class="item">
+            <div class="item__head">
+              <span class="item__title">SentiveX AI 서버</span>
+              <span class="item__period">2025.09 – 현재</span>
+            </div>
+            <p class="item__desc">
+              SIEM 보안 인시던트를 자동 분석하는 Fastify AI 서버. <b>멀티 에이전트 분석 파이프라인</b>과
+              <b>LiteLLM 게이트웨이</b>의 설계·개발을 주도 (레포 최다 커밋 기여).
+            </p>
+            <ul class="item__bullets">
+              <li>
+                <b>멀티 에이전트 오케스트레이터(역할별 에이전트 8종)</b> 설계: Triage(분류·우선순위) → 3-스테이지(IOC·MITRE·Network
+                병렬 → 조건부 SecurityIntel → Correlation 종합), 우선순위 기반 가지치기
+              </li>
+              <li>
+                Correlation <b>구조화 출력</b>: kill-chain 그래프·위협 점수(0–100)·신뢰도(generateObject/zod),
+                컴플라이언스(ISMS-P·ISO 27001·GDPR) 백그라운드 처리
+              </li>
+              <li>분석 <b>SSE 실시간 스트리밍</b> + 진행률 추적, 수동 재분석 API</li>
+              <li>
+                <b>LiteLLM 게이트웨이 통합</b>: provider SDK 분기 제거, 폴백·provider 세마포어 동시성·429/5xx
+                백오프·토큰 budget을 게이트웨이 계층으로 이전, provider 헬스 10s 캐시
+              </li>
+              <li>
+                <b>멀티테넌트 모델·BYOK</b>: LiteLLM Admin API 모델 CRUD·virtual key 허용목록 격리·저장 직후
+                검증, BullMQ 비동기 리포트, 헬스 엔드포인트 live/readiness 분리
+              </li>
+            </ul>
+            <div class="item__stack">
+              Fastify · TypeScript · AI SDK · LiteLLM · LLM(Azure·Gemini·OpenAI) · BullMQ · Redis · Prisma ·
+              PostgreSQL
+            </div>
+          </div>
+
+          <div class="item">
+            <div class="item__head">
+              <span class="item__title">SentiveX 웹 플랫폼</span>
+              <span class="item__period">2025.09 – 현재</span>
+            </div>
+            <p class="item__desc">
+              멀티테넌트 SIEM 플랫폼의 <b>Next.js 15 풀스택 웹</b>. SIEM 대시보드·인시던트 관리·AI
+              리포트 에디터를 팀과 공동 개발 — 주요 기여자로 풀스택 전반에 참여.
+            </p>
+            <ul class="item__bullets">
+              <li>
+                <b>Next.js 15 App Router 풀스택</b>: UI·서버 컴포넌트 + 241개 API 라우트 + Prisma
+                멀티스키마(9 스키마·60+ 모델, PostgreSQL)
+              </li>
+              <li>
+                <b>SIEM 대시보드·인시던트/경고 관리</b>: severity·MITRE ATT&CK 분석 뷰, 엔드포인트 스캔·네트워크
+                격리, 위협 인텔리전스
+              </li>
+              <li>
+                <b>AI 리포트 에디터(BlockNote)</b>: 커스텀 블록 + 블록/표/문자 단위 diff 하이라이팅·미리보기,
+                다국어(한/영/일) 리포트, PDF(Puppeteer)·DOCX·CSV/XLSX 익스포트
+              </li>
+              <li>
+                <b>데이터 시각화</b>: Recharts 대시보드 차트 + XY Flow·dagre 킬체인(MITRE ATT&CK) 토폴로지 그래프
+              </li>
+              <li>
+                <b>백그라운드 잡·스케줄링</b>: BullMQ·Redis 워커·크론 — 데이터 보존·알림·정기 리포트 자동화
+              </li>
+              <li>
+                <b>OpenSearch SIEM 검색</b>·실시간 모니터링(SSE), 여러 보안 벤더 웹훅 수집, AI 서버(REST·SSE) 연동
+              </li>
+            </ul>
+            <div class="item__stack">
+              Next.js 15 · React · TypeScript · Tailwind · shadcn/ui · Prisma · PostgreSQL ·
+              BlockNote · Recharts · XY Flow · BullMQ · Redis · OpenSearch
+            </div>
+          </div>
+        </div>
+
+        <!-- 팜피 -->
+        <div class="company">
+          <div class="company__head">
+            <span class="company__name">팜피 주식회사 <em>Famppy Inc.</em></span>
+            <span class="company__period">2023.07 – 2025.09</span>
+          </div>
+          <div class="company__role">Full-stack Developer</div>
+
+        <div class="item">
+          <div class="item__head">
+            <span class="item__title">eSIM 플랫폼 — 서비스 · 키오스크 · 어드민</span>
+            <span class="item__period">2023.11 – 2025.05</span>
+          </div>
+          <p class="item__desc">
+            온라인 서비스·키오스크·관리자·공유 미들웨어로 이뤄진 eSIM 플랫폼 전반에 핵심 개발자로 참여
+            (대부분 영역에서 최다 커밋 기여).
+          </p>
+          <ul class="item__bullets">
+            <li>
+              글로벌 eSIM 커머스(프론트 설계 주도): 다중 PG 결제 — Paygent 카드(USD) + Google Pay·Apple
+              Pay(JPY), 웹·키오스크 겸용 결제 플로우, 결제 후 eSIM QR 발급·메일 전송
+            </li>
+            <li>
+              백엔드 미들웨어(Koa·TypeORM·PostgreSQL) 개발 주도: 역할 계층 권한(RBAC), 광고·유입업체 정산,
+              국내외 eSIM 공급사(일본·중국 현지 업체 포함) API 연동 — 상품 조회·소싱부터
+              주문까지 처리, 규격 차이·인증·문자 인코딩 이슈 직접 대응
+            </li>
+            <li>
+              무인 키오스크(일본 매장 전용·JPY, 현지 초기 약 5대 운영, 판매 eSIM 상품 30개국+): 키오스크
+              웹(Vue PWA) 개발 주도 + Android WebView 앱의 프린터 이중 드라이버 자동 감지(SII↔Epson)·
+              Shift-JIS/UTF-8 다국어 인코딩·결제 단말(카드·QR·NFC 태그) 연동, 개발 후 초기 운영·일본 현지
+              실시간 이슈 대응까지 담당
+            </li>
+            <li>
+              통합 어드민: 상품·회원·주문·정산 관리 + 여러 공항·장소에 분산된 키오스크
+              운영·주문/정산 집계, xlsx 주문/정산 내보내기, 3개국어(한·영·일) i18n·다국어 입력 검증
+            </li>
+          </ul>
+          <div class="item__stack">Vue 3 · TypeScript · Pinia · vue-i18n · PWA · Koa · TypeORM · PostgreSQL · Kotlin · AWS</div>
+        </div>
+
+        <div class="item">
+          <div class="item__head">
+            <span class="item__title">자사 SaaS 저작도구 (apoc)</span>
+            <span class="item__period">2024.01 – 2025.05</span>
+          </div>
+          <ul class="item__bullets">
+            <li>플랫폼 리뉴얼: 인터페이스 전면 개선 및 컴포넌트 기반 리팩토링으로 유지보수성·확장성 향상</li>
+            <li>
+              결제 시스템: Toss·PayPal 연동(단건/정기 구독), PayPal 결제 플로우 설계, 결제·구독·취소 이력을
+              관심사별 테이블로 분리(멀티 PG 통합 기록), 자동 갱신 배치·Jest 테스트
+            </li>
+            <li>
+              구독 업/다운그레이드: 업그레이드 즉시 차액 정산(proration)·다음 주기 청구, 다운그레이드 다음 주기
+              반영, 차액 미리 계산 API·구독 취소 API 설계
+            </li>
+            <li>
+              저작도구 태블릿 대응(768~1023px 기준 수립): 화면 줌·레이어 스크롤·캔버스 위치 등 터치 UX
+              개선, 기기 6종 × 브라우저 6종 테스트 케이스 61항목 설계·검증으로 이슈 39건 처리
+            </li>
+          </ul>
+          <div class="item__stack">Vue.js · Koa · PostgreSQL · Jest · SCSS</div>
+        </div>
+
+        <div class="item">
+          <div class="item__head">
+            <span class="item__title">클라이언트 콘텐츠 서비스 — 국립 생태원</span>
+            <span class="item__period">2024.08 – 2025.08</span>
+          </div>
+          <ul class="item__bullets">
+            <li>
+              국립 생태원(참여 인증제): 현장 해설을 이미지 인식으로 완료 인증(미인식 시 직원 코드 입력 폴백),
+              누적 단계(해설 3개=새싹·5개=나무)·단계별 인증서 발급, iframe 콘텐츠 플레이·활동 기록·설문 수집
+            </li>
+            <li>
+              카카오 API 기프티콘 자동 발송 + 관리자 일괄 발송(카카오비즈니스), 발송 상태 폴링·재시도로 안정화,
+              관리자 월별 통계 대시보드·만족도 조사 엑셀 다운로드
+            </li>
+          </ul>
+          <div class="item__stack">Vue.js · Koa · PostgreSQL · Kakao API · Batch · SCSS</div>
+        </div>
+        </div>
+        <!-- /팜피 -->
+      </section>
+
+      <!-- 외주 프로젝트 (1인 개발) -->
+      <section class="section">
+        <h2 class="section__title">Freelance · 외주 프로젝트</h2>
+
+        <div class="item">
+          <div class="item__head">
+            <span class="item__title">보광 극장 홍보·대관 사이트</span>
+            <span class="item__period">2025.09 – 2026.07</span>
+          </div>
+          <p class="item__desc">기획·설계·개발·인프라까지 1인으로 완성한 극장 홍보·대관 사이트.</p>
+          <ul class="item__bullets">
+            <li>극장 조회·예약, 관리자 콘텐츠(공연·공지·배너) 운영 기능 구현</li>
+            <li>vite-ssg 기반 SSG + 동적 메타/JSON-LD·빌드타임 사이트맵으로 SEO 최적화</li>
+            <li>AWS EC2·S3, PM2·Nginx 배포 및 카카오맵 연동</li>
+          </ul>
+          <div class="item__stack">Vue 3 · TypeScript · vite-ssg · Koa · PostgreSQL · AWS · Nginx</div>
+        </div>
+      </section>
+
+      <!-- 대외활동 -->
+      <section class="section">
+        <h2 class="section__title">Activities</h2>
+
+        <div class="item">
+          <div class="item__head">
+            <span class="item__title">고객사 대상 제품 프리젠테이션</span>
+            <span class="item__period">2026.05 – 06</span>
+          </div>
+          <p class="item__desc">
+            제품 개요·핵심 기능·도입 효과를 다루고, 탐지 → AI 분석 → 대응 → 리포트로 이어지는
+            end-to-end 데모와 Q&A를 직접 진행.
+          </p>
+          <ul class="item__bullets">
+            <li>SentiveX 제품 데모·발표 (한국어) — 글로벌 IT 기업 대상, 2026.05.21</li>
+            <li>SentiveX 제품 데모·발표 (영문) — 대기업 계열사 대상, 2026.06.03</li>
+          </ul>
+        </div>
+
+        <div class="item">
+          <div class="item__head">
+            <span class="item__title">RSAC 2026 참관</span>
+            <span class="item__period">2026</span>
+          </div>
+          <p class="item__desc">글로벌 보안 컨퍼런스(RSA Conference) 참관 — 최신 보안 트렌드·솔루션 리서치.</p>
+        </div>
+      </section>
+
+      <!-- 학력 -->
+      <section class="section">
+        <h2 class="section__title">Education</h2>
+        <div class="item">
+          <div class="edu__line">
+            <span class="item__title">아주대학교 · 사이버보안학과 학사</span>
+            <span class="item__period">2020.03 – 2025.02</span>
+          </div>
+          <p class="edu__note">Cloud/Bigdata 보안 트랙 이수</p>
+        </div>
+      </section>
+
+      <!-- 언어 -->
+      <section class="section">
+        <h2 class="section__title">Languages</h2>
+        <p class="edu__note">한국어 (모국어) · English — 업무 회화 및 영문 제품 데모·발표 가능</p>
+      </section>
+    </div>
+  </body>
+</html>

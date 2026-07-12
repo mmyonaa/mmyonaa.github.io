@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>임현아 Hyona Lim · 자기소개서</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #ffffff;
+        --text: #1a1a1e;
+        --dim: #55555d;
+        --faint: #8a8992;
+        --line: #e3e0d8;
+        --gold: #9a7400;
+        --sans: 'Manrope', -apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
+        --mono: 'Space Mono', ui-monospace, monospace;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        font-family: var(--sans);
+        color: var(--text);
+        background: #7a7a7a;
+      }
+
+      /* A4 페이지 */
+      .page {
+        width: 210mm;
+        min-height: 297mm;
+        margin: 12mm auto;
+        padding: 16mm 15mm;
+        background: var(--bg);
+        box-shadow: 0 4px 24px rgba(0, 0, 0, 0.25);
+      }
+
+      /* ---------- 헤더 ---------- */
+      .head {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 16px;
+        padding-bottom: 14px;
+        border-bottom: 2px solid var(--text);
+      }
+
+      .head__name {
+        font-size: 22px;
+        font-weight: 800;
+        letter-spacing: -0.01em;
+      }
+
+      .head__name em {
+        font-style: normal;
+        font-family: var(--mono);
+        font-size: 11px;
+        letter-spacing: 0.06em;
+        color: var(--gold);
+        margin-left: 8px;
+      }
+
+      .head__doc {
+        font-family: var(--mono);
+        font-size: 10px;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: var(--faint);
+      }
+
+      /* ---------- 섹션 ---------- */
+      .section {
+        margin-top: 18px;
+      }
+
+      .section__title {
+        font-family: var(--mono);
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: var(--gold);
+        padding-bottom: 5px;
+        margin-bottom: 9px;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .section p {
+        font-size: 11.5px;
+        line-height: 1.75;
+        color: var(--text);
+        word-break: keep-all;
+        margin-bottom: 8px;
+      }
+
+      .section p:last-child {
+        margin-bottom: 0;
+      }
+
+      .section b {
+        font-weight: 700;
+      }
+
+      /* ---------- 인쇄 ---------- */
+      @media print {
+        html {
+          background: #fff;
+        }
+        .page {
+          margin: 0;
+          box-shadow: none;
+          width: auto;
+          min-height: 0;
+          padding: 0;
+        }
+      }
+
+      @page {
+        size: A4;
+        margin: 12mm;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <header class="head">
+        <div class="head__name">임현아 <em>Hyona Lim</em></div>
+        <div class="head__doc">Cover Letter · 자기소개서</div>
+      </header>
+
+      <section class="section">
+        <h2 class="section__title">지원동기</h2>
+        <p>
+          모든 세대에는 각자의 과업이 있고, 많은 사람들이 목적의식을 가지고 자신의 역할을 다해 왔기에 인류가
+          달에 착륙하고 수많은 기술을 발명할 수 있었다는 연설을 본 적이 있습니다. 이 이야기는 저에게 깊은
+          울림을 주었고, 저 또한 제 자리에서 역할을 충실히 수행하며 사회적 가치 창출과 기업의 경쟁력 향상에
+          기여하고 싶다는 열망을 갖게 했습니다.
+        </p>
+        <p>
+          저는 기업을 선택할 때 ‘나의 역량이 가치 있게 쓰일 수 있는가’를 가장 중요한 기준으로 삼습니다. 웹
+          프론트엔드와 백엔드를 함께 다루며 사용자 경험을 고려한 UI 개발부터 서버 구축, 데이터 처리까지 직접
+          경험해 왔습니다. Vue·React와 TypeScript로 반응형 웹과 직관적인 UI를 구현하고, Node.js(Koa·Fastify)와
+          PostgreSQL 기반의 RESTful API 설계·개발, 데이터베이스 설계, AWS 배포·운영까지 서비스의 전 과정을
+          수행할 수 있습니다.
+        </p>
+        <p>
+          그동안의 웹 개발 경험과 지식을 바탕으로 의미 있는 성과를 만들고, 새로운 언어와 프레임워크에 열린
+          자세로 기술 변화에 민감하게 대응하며, 팀과의 협업 속에서 함께 성장하는 개발자가 되고자 지원했습니다.
+        </p>
+      </section>
+
+      <section class="section">
+        <h2 class="section__title">경험 및 경력</h2>
+        <p>
+          2023년 팜피 주식회사에서 프론트엔드 개발자로 커리어를 시작해, 현재는 인브릿지에서 SIEM 보안 플랫폼
+          <b>SentiveX</b>를 개발하고 있습니다. 처음에는 Vue.js와 TypeScript 기반 화면 개발에 집중하며 재사용
+          가능한 컴포넌트 설계와 반응형 UI 구현으로 실무 역량을 쌓았고, 서비스 전반의 구조를 이해하고자
+          백엔드를 병행하면서 Node.js(Koa)와 PostgreSQL 기반 API 서버 개발, 데이터베이스 설계까지 맡는 풀스택
+          개발자로 성장했습니다.
+        </p>
+        <p>
+          팜피에서는 일본 사용자 대상 <b>eSIM 판매 서비스</b>의 초기 설계부터 개발, 배포, 운영까지 전체를
+          주도했습니다. 다중 PG 결제(Paygent·Google/Apple Pay)와 다국어·다통화 처리 같은 기능 구현뿐 아니라,
+          안드로이드 기반 무인 키오스크의 프린터·결제 단말 연동과 일본 현지 매장의 실시간 이슈 대응까지
+          담당하며, 실운영 환경에서 예상치 못한 문제를 해결하고 사용자 피드백을 빠르게 반영하는 과정을 몸소
+          배웠습니다. 이 경험은 단순한 개발 역량을 넘어 서비스를 책임지고 운영하는 태도를 갖추는 데 큰 도움이
+          되었습니다. 이 외에도 Canva 유사 온라인 저작 도구의 고도화, Toss·PayPal 기반 자체 결제·구독 시스템
+          구축, SKT·Kakao 등 국내외 기업 API 연동 등 다양한 프로젝트에서 규격 차이·인증 방식·문자 인코딩 같은
+          기술 이슈를 직접 다뤘습니다.
+        </p>
+        <p>
+          현재 인브릿지에서는 보안 인시던트를 자동 분석하는 <b>AI 서버의 멀티 에이전트 분석 파이프라인과
+          LiteLLM 게이트웨이의 설계·개발을 주도</b>하고 있습니다. 역할별 보안 에이전트를 오케스트레이터로
+          실행해 위협을 다각도로 분석하고, 모든 LLM 호출을 단일 게이트웨이로 통합해 폴백·동시성·비용을 한
+          계층에서 제어하는 구조를 만들었습니다. 고객사 대상 제품 발표와 데모를 한국어·영어로 직접 진행하며
+          기술을 비즈니스 언어로 전달하는 경험도 쌓고 있습니다.
+        </p>
+        <p>
+          기능 개발에서는 주어진 요구사항의 구현에 그치지 않고 비즈니스 목표와 기술적 방향성을 함께 고려해
+          제안하고 개선해 왔습니다. 기획·디자인·운영 등 다양한 직군과 협업하며 부서 간 협력이 어려운 환경에서도
+          신뢰 기반의 커뮤니케이션으로 반복되던 시스템 문제를 해소한 경험은, 개발자가 코드를 넘어 조직의 목표를
+          함께 실현하는 파트너라는 제 생각을 굳혀 주었습니다.
+        </p>
+      </section>
+
+      <section class="section">
+        <h2 class="section__title">성격 및 장단점</h2>
+        <p>
+          저의 가장 큰 장점은 항상 배우려는 자세입니다. 강의나 책뿐 아니라 일상과 업무 속에서도 배움의 기회를
+          찾고, 새로운 것에 도전해 익숙해지는 과정 자체를 즐깁니다. 빠르게 변화하는 IT 환경에서 이러한 태도는
+          적응하고 성장하는 원동력이 되었고, 문제 해결 능력과 창의적인 사고를 함께 발전시켜 주었습니다.
+        </p>
+        <p>
+          한편 저는 복잡한 문제를 논리적으로 분석하고 근거를 제시하며 해결하는 데 강점이 있지만, 과거 팀
+          프로젝트에서 제 의견을 지나치게 강조해 다른 팀원의 목소리를 충분히 듣지 못한 적이 있음을 깨달았습니다.
+          이후 팀의 목표를 먼저 이해하고 필요할 때 유연하게 입장을 조율하는 법을 익히며, 다양한 의견을 존중하고
+          수용하는 자세를 기르기 위해 꾸준히 노력하고 있습니다. 협업이 좋은 결과물의 필수 조건임을 경험으로
+          깊이 이해하고 있기에, 앞으로도 팀원들과 활발히 소통하며 서로의 강점을 살리는 협업을 지향합니다.
+        </p>
+      </section>
+
+      <section class="section">
+        <h2 class="section__title">향후 계획</h2>
+        <p>
+          프론트엔드에서 시작해 백엔드·인프라로 영역을 넓혀 온 만큼, 앞으로는 더 구조적이고 확장 가능한 시스템
+          아키텍처 설계 능력을 키우고 클린 코드, 테스트 자동화, CI/CD 등 소프트웨어 품질과 생산성을 높이는
+          영역에 집중할 계획입니다. 운영 환경의 이슈 대응과 로그 분석, 사용자 피드백 반영을 통한 서비스 개선
+          역량도 강화해 DevOps 관점에서 지속 가능한 개발 문화에 기여하고자 합니다.
+        </p>
+        <p>
+          특히 전공인 사이버보안을 살려 현재 SIEM 보안 플랫폼을 개발하고 있는 만큼, 개발 역량에 보안 지식을
+          더해 안정적이고 신뢰할 수 있는 서비스를 만드는 개발자로 성장하려 합니다. 궁극적으로는 기술과 보안을
+          아우르는 풀스택 개발자로서 고객과 조직이 직면한 문제를 효과적으로 해결하고, 장기적인 관점에서 팀과
+          조직에 긍정적인 영향을 주는 것이 저의 커리어 방향입니다.
+        </p>
+      </section>
+    </div>
+  </body>
+</html>
