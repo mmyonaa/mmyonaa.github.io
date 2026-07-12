@@ -1,0 +1,621 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hyona Lim · Resume</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #ffffff;
+        --text: #1a1a1e;
+        --dim: #55555d;
+        --faint: #8a8992;
+        --line: #e3e0d8;
+        --gold: #9a7400;
+        --sans: 'Manrope', -apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
+        --mono: 'Space Mono', ui-monospace, monospace;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        font-family: var(--sans);
+        color: var(--text);
+        background: #7a7a7a;
+      }
+
+      /* A4 page */
+      .page {
+        width: 210mm;
+        min-height: 297mm;
+        margin: 12mm auto;
+        padding: 16mm 15mm;
+        background: var(--bg);
+        box-shadow: 0 4px 24px rgba(0, 0, 0, 0.25);
+      }
+
+      /* ---------- Header ---------- */
+      .head {
+        display: flex;
+        align-items: center;
+        gap: 22px;
+        padding-bottom: 20px;
+        border-bottom: 2px solid var(--text);
+      }
+
+      .head__photo {
+        width: 92px;
+        height: 92px;
+        border-radius: 50%;
+        object-fit: cover;
+        object-position: center 22%;
+        flex-shrink: 0;
+        border: 1px solid var(--line);
+      }
+
+      .head__main {
+        flex: 1;
+      }
+
+      .head__name {
+        font-size: 30px;
+        font-weight: 800;
+        letter-spacing: -0.01em;
+        line-height: 1.1;
+      }
+
+      .head__name span {
+        color: var(--gold);
+      }
+
+      .head__name-en {
+        margin-top: 3px;
+        font-family: var(--mono);
+        font-size: 12px;
+        letter-spacing: 0.06em;
+        color: var(--gold);
+      }
+
+      .head__role {
+        margin-top: 8px;
+        font-size: 13px;
+        font-weight: 500;
+        color: var(--dim);
+      }
+
+      .head__tagline {
+        margin-top: 4px;
+        font-size: 11px;
+        line-height: 1.4;
+        color: var(--faint);
+        word-break: keep-all;
+      }
+
+      .head__contact {
+        margin-top: 10px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 4px 16px;
+        font-family: var(--mono);
+        font-size: 10px;
+        letter-spacing: 0.02em;
+        color: var(--dim);
+      }
+
+      .head__contact a {
+        color: var(--dim);
+        text-decoration: none;
+      }
+
+      /* ---------- Sections ---------- */
+      .section {
+        margin-top: 13px;
+      }
+
+      .section__title {
+        font-family: var(--mono);
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: var(--gold);
+        padding-bottom: 5px;
+        margin-bottom: 8px;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .summary {
+        font-size: 12px;
+        line-height: 1.6;
+        color: var(--text);
+        word-break: keep-all;
+      }
+
+      /* Skills */
+      .skills {
+        display: grid;
+        grid-template-columns: 92px 1fr;
+        row-gap: 8px;
+        column-gap: 14px;
+        font-size: 11px;
+      }
+
+      .skills__cat {
+        font-family: var(--mono);
+        font-size: 10px;
+        color: var(--faint);
+        padding-top: 2px;
+      }
+
+      .skills__items {
+        color: var(--text);
+        line-height: 1.5;
+      }
+
+      /* Company block — items keep break-avoid individually; the block itself may span pages */
+      .company {
+        margin-bottom: 12px;
+      }
+
+      .company__head {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 12px;
+      }
+
+      .company__name {
+        font-size: 15px;
+        font-weight: 800;
+        letter-spacing: -0.01em;
+      }
+
+      .company__name em {
+        font-style: normal;
+        font-weight: 500;
+        font-size: 10px;
+        font-family: var(--mono);
+        color: var(--faint);
+        margin-left: 7px;
+      }
+
+      .company__period {
+        font-family: var(--mono);
+        font-size: 10.5px;
+        font-weight: 700;
+        color: var(--gold);
+        white-space: nowrap;
+        flex-shrink: 0;
+      }
+
+      .company__role {
+        margin: 2px 0 11px;
+        font-size: 11px;
+        color: var(--dim);
+      }
+
+      .company .item {
+        margin-left: 11px;
+        padding-left: 13px;
+        border-left: 1px solid var(--line);
+      }
+
+      /* Items */
+      .item {
+        margin-bottom: 9px;
+        page-break-inside: avoid;
+      }
+
+      .item:last-child {
+        margin-bottom: 0;
+      }
+
+      .item__head {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 12px;
+      }
+
+      .item__title {
+        font-size: 13px;
+        font-weight: 700;
+      }
+
+      .item__period {
+        font-family: var(--mono);
+        font-size: 10px;
+        color: var(--faint);
+        white-space: nowrap;
+        flex-shrink: 0;
+      }
+
+      .item__desc {
+        margin-top: 3px;
+        font-size: 11px;
+        line-height: 1.6;
+        color: var(--dim);
+      }
+
+      .item__bullets {
+        margin: 6px 0 0;
+        padding-left: 0;
+        list-style: none;
+      }
+
+      .item__bullets li {
+        position: relative;
+        padding-left: 13px;
+        font-size: 11px;
+        line-height: 1.6;
+        color: var(--text);
+        margin-bottom: 2px;
+      }
+
+      .item__bullets li::before {
+        content: '–';
+        position: absolute;
+        left: 0;
+        color: var(--gold);
+      }
+
+      .item__stack {
+        margin-top: 5px;
+        font-family: var(--mono);
+        font-size: 9.5px;
+        letter-spacing: 0.02em;
+        color: var(--faint);
+      }
+
+      .edu__line {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 12px;
+      }
+
+      .edu__note {
+        margin-top: 3px;
+        font-size: 11px;
+        color: var(--dim);
+      }
+
+      /* ---------- Print ---------- */
+      @media print {
+        html {
+          background: #fff;
+        }
+        .page {
+          margin: 0;
+          box-shadow: none;
+          width: auto;
+          min-height: 0;
+          padding: 0;
+        }
+      }
+
+      @page {
+        size: A4;
+        margin: 12mm;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <!-- Header -->
+      <header class="head">
+        <img class="head__photo" src="../public/portfolio/profile.jpeg" alt="Hyona Lim" />
+        <div class="head__main">
+          <div class="head__name">Hyona Lim</div>
+          <div class="head__name-en">임현아</div>
+          <div class="head__role">Full-stack Developer · Seoul, Korea</div>
+          <div class="head__tagline">A full-stack developer building security AI, payments, global commerce, and kiosks end to end</div>
+          <div class="head__contact">
+            <a href="https://mmyonaa.github.io">mmyonaa.github.io</a>
+            <a href="mailto:apddfhsajrwk@gmail.com">apddfhsajrwk@gmail.com</a>
+            <a href="https://github.com/mmyonaa">github.com/mmyonaa</a>
+            <a href="https://www.linkedin.com/in/hyona-lim-a3a626319/">linkedin.com/in/hyona-lim</a>
+          </div>
+        </div>
+      </header>
+
+      <!-- About -->
+      <section class="section">
+        <h2 class="section__title">About</h2>
+        <p class="summary">
+          A full-stack developer who owns the entire service cycle — from requirements at the planning
+          stage to deployment and operations. I work broadly across frontend, backend, and
+          infrastructure, and care about the small details that shape usability. I have led many
+          projects solo or in small teams, handling design, development, deployment, and on-site
+          support myself. I dig into the essence of each requirement to propose structures that reduce
+          technical debt, and collaborate across planning, design, and operations to fix recurring
+          system problems.
+        </p>
+      </section>
+
+      <!-- Skills -->
+      <section class="section">
+        <h2 class="section__title">Skills</h2>
+        <div class="skills">
+          <div class="skills__cat">Frontend</div>
+          <div class="skills__items">
+            Vue 3 · TypeScript · JavaScript · Pinia · vue-i18n · SCSS · PWA
+          </div>
+          <div class="skills__cat">Backend</div>
+          <div class="skills__items">Koa · Node.js · TypeORM · PostgreSQL · Redis · REST API</div>
+          <div class="skills__cat">Infra · Tooling</div>
+          <div class="skills__items">
+            AWS EC2 · S3 · SES · Nginx · Docker · PM2 · Git · Jest · vite-ssg
+          </div>
+          <div class="skills__cat">AI</div>
+          <div class="skills__items">LiteLLM · OpenAI · Azure OpenAI · Gemini</div>
+          <div class="skills__cat">Etc.</div>
+          <div class="skills__items">Kotlin (Android WebView) · Quill · Kakao Maps</div>
+        </div>
+      </section>
+
+      <!-- Experience -->
+      <section class="section">
+        <h2 class="section__title">Experience</h2>
+
+        <!-- Inbridge (current) -->
+        <div class="company">
+          <div class="company__head">
+            <span class="company__name">Inbridge <em>인브릿지</em></span>
+            <span class="company__period">2025.09 – Present</span>
+          </div>
+          <div class="company__role">Full-stack Developer</div>
+
+          <div class="item">
+            <div class="item__head">
+              <span class="item__title">SentiveX AI Server</span>
+              <span class="item__period">2025.09 – Present</span>
+            </div>
+            <p class="item__desc">
+              A Fastify AI server that automatically analyzes SIEM security incidents. Led the design
+              and development of the <b>multi-agent analysis pipeline</b> and the <b>LiteLLM gateway</b>
+              (top committer on the repo).
+            </p>
+            <ul class="item__bullets">
+              <li>
+                Designed the <b>multi-agent orchestrator (8 role-specific agents)</b>: Triage
+                (classify/priority) → 3 stages (IOC/MITRE/Network in parallel → conditional
+                SecurityIntel → Correlation synthesis) with priority-based pruning
+              </li>
+              <li>
+                Correlation <b>structured output</b>: kill-chain graph, threat score (0–100), and
+                confidence (generateObject/zod), with compliance (ISMS-P, ISO 27001, GDPR) analysis in
+                the background
+              </li>
+              <li>Real-time <b>SSE streaming</b> of analysis with progress tracking, plus a manual re-analysis API</li>
+              <li>
+                <b>LiteLLM gateway consolidation</b>: removed per-provider SDK branches; moved fallback,
+                per-provider semaphore concurrency, 429/5xx backoff, and token budgets into the gateway
+                layer, with 10s-cached provider health
+              </li>
+              <li>
+                <b>Multi-tenant models & BYOK</b>: model CRUD via the LiteLLM Admin API, virtual-key
+                allow-list isolation, post-save verification, async BullMQ reports, and live/readiness
+                health-endpoint split
+              </li>
+            </ul>
+            <div class="item__stack">
+              Fastify · TypeScript · AI SDK · LiteLLM · LLM(Azure·Gemini·OpenAI) · BullMQ · Redis · Prisma ·
+              PostgreSQL
+            </div>
+          </div>
+
+          <div class="item">
+            <div class="item__head">
+              <span class="item__title">SentiveX Web Platform</span>
+              <span class="item__period">2025.09 – Present</span>
+            </div>
+            <p class="item__desc">
+              The <b>Next.js 15 full-stack web</b> of a multi-tenant SIEM platform, co-developed with
+              the team — contributing across the full stack as one of the main contributors.
+            </p>
+            <ul class="item__bullets">
+              <li>
+                <b>Next.js 15 App Router full-stack</b>: UI/server components + 241 API routes + Prisma
+                multi-schema DB layer (9 schemas, 60+ models, PostgreSQL)
+              </li>
+              <li>
+                <b>SIEM dashboard & incident/alert management</b>: severity and MITRE ATT&CK views,
+                endpoint scan & network isolation, threat intelligence
+              </li>
+              <li>
+                <b>AI report editor (BlockNote)</b>: custom blocks + block/table/character-level diff
+                highlighting with preview, multilingual (KO/EN/JA) reports, and PDF (Puppeteer), DOCX,
+                CSV/XLSX export
+              </li>
+              <li>
+                <b>Data visualization</b>: Recharts dashboard charts + XY Flow/dagre kill-chain (MITRE
+                ATT&CK) topology graph
+              </li>
+              <li>
+                <b>Background jobs & scheduling</b>: BullMQ/Redis workers and cron — data retention,
+                notifications, recurring-report automation
+              </li>
+              <li>
+                <b>OpenSearch SIEM search</b> and real-time monitoring (SSE), multi-vendor webhook
+                ingestion, AI-server (REST/SSE) integration
+              </li>
+            </ul>
+            <div class="item__stack">
+              Next.js 15 · React · TypeScript · Tailwind · shadcn/ui · Prisma · PostgreSQL ·
+              BlockNote · Recharts · XY Flow · BullMQ · Redis · OpenSearch
+            </div>
+          </div>
+        </div>
+
+        <!-- Famppy -->
+        <div class="company">
+          <div class="company__head">
+            <span class="company__name">Famppy Inc. <em>팜피 주식회사</em></span>
+            <span class="company__period">2023.07 – 2025.09</span>
+          </div>
+          <div class="company__role">Full-stack Developer</div>
+
+        <div class="item">
+          <div class="item__head">
+            <span class="item__title">eSIM Platform — Service · Kiosk · Admin</span>
+            <span class="item__period">2023.11 – 2025.05</span>
+          </div>
+          <p class="item__desc">
+            A key developer across an eSIM platform made up of the online service, kiosk, admin, and
+            shared middleware (top committer in most areas).
+          </p>
+          <ul class="item__bullets">
+            <li>
+              Global eSIM commerce (led the frontend architecture): multi-gateway payments — Paygent
+              card (USD) + Google Pay / Apple Pay (JPY), a web/kiosk-shared checkout flow, and
+              post-payment eSIM QR issuance with email delivery
+            </li>
+            <li>
+              Led development of the backend middleware (Koa · TypeORM · PostgreSQL): role-hierarchy
+              permissions (RBAC), advertising/inflow-partner settlement, and API integration with
+              domestic and international eSIM suppliers (including local partners in Japan and China) —
+              from product sourcing to orders, handling spec differences, auth, and character encoding
+            </li>
+            <li>
+              Unattended kiosk (Japan-only stores, JPY; ~5 units in initial operation; catalog covering
+              30+ countries): led the kiosk web (Vue PWA) and owned the Android WebView app’s
+              hardware features — dual printer-driver auto-detection (SII ↔ Epson), Shift-JIS/UTF-8
+              multilingual encoding, and payment-terminal (card/QR/NFC) integration — plus initial
+              operations and real-time on-site support in Japan
+            </li>
+            <li>
+              Unified admin: product/member/order/settlement management, aggregation for kiosks
+              distributed across airports and venues, xlsx order/settlement export, and trilingual
+              (KO/EN/JA) i18n with multilingual input validation
+            </li>
+          </ul>
+          <div class="item__stack">Vue 3 · TypeScript · Pinia · vue-i18n · PWA · Koa · TypeORM · PostgreSQL · Kotlin · AWS</div>
+        </div>
+
+        <div class="item">
+          <div class="item__head">
+            <span class="item__title">In-house SaaS Authoring Tool (apoc)</span>
+            <span class="item__period">2024.01 – 2025.05</span>
+          </div>
+          <ul class="item__bullets">
+            <li>Platform renewal: full interface overhaul and component-based refactoring for maintainability and extensibility</li>
+            <li>
+              Payment system: Toss/PayPal integration (one-time and recurring subscriptions), PayPal
+              checkout-flow design, concern-separated payment/subscription/cancellation history tables
+              (a unified multi-gateway ledger), auto-renewal batch, and Jest tests
+            </li>
+            <li>
+              Subscription up/downgrades: immediate prorated charge on upgrade with next-cycle billing
+              at the higher tier, next-cycle application on downgrade, plus a proration-preview API and
+              a cancellation API
+            </li>
+            <li>
+              Authoring-tool tablet support (established the 768–1023px criteria): touch-UX fixes for
+              screen zoom, layer scrolling, and canvas positioning — designing and running 61 test
+              cases across 6 devices × 6 browsers and resolving 39 issues
+            </li>
+          </ul>
+          <div class="item__stack">Vue.js · Koa · PostgreSQL · Jest · SCSS</div>
+        </div>
+
+        <div class="item">
+          <div class="item__head">
+            <span class="item__title">Client Content Service — National Institute of Ecology</span>
+            <span class="item__period">2024.08 – 2025.08</span>
+          </div>
+          <ul class="item__bullets">
+            <li>
+              Participation-certification service: on-site talks verified by image recognition (staff
+              code-entry fallback), cumulative tiers (3 talks = Sprout, 5 = Tree) with per-tier
+              certificates, iframe content play, activity logging, and survey collection
+            </li>
+            <li>
+              Kakao API gifticon auto-delivery plus admin bulk sending (Kakao Business), stabilized
+              with delivery-status polling and retries; admin monthly statistics dashboard and
+              satisfaction-survey Excel export
+            </li>
+          </ul>
+          <div class="item__stack">Vue.js · Koa · PostgreSQL · Kakao API · Batch · SCSS</div>
+        </div>
+        </div>
+        <!-- /Famppy -->
+      </section>
+
+      <!-- Freelance -->
+      <section class="section">
+        <h2 class="section__title">Freelance</h2>
+
+        <div class="item">
+          <div class="item__head">
+            <span class="item__title">Bogwang Theater Promotion & Booking Site</span>
+            <span class="item__period">2025.09 – 2026.07</span>
+          </div>
+          <p class="item__desc">A theater promotion and booking site completed solo — planning, design, development, and infrastructure.</p>
+          <ul class="item__bullets">
+            <li>Theater browsing/reservations and admin content operations (performances, notices, banners)</li>
+            <li>SEO optimization via vite-ssg SSG with dynamic meta/JSON-LD and a build-time sitemap</li>
+            <li>Deployed on AWS EC2/S3 with PM2/Nginx, plus Kakao Map integration</li>
+          </ul>
+          <div class="item__stack">Vue 3 · TypeScript · vite-ssg · Koa · PostgreSQL · AWS · Nginx</div>
+        </div>
+      </section>
+
+      <!-- Activities -->
+      <section class="section">
+        <h2 class="section__title">Activities</h2>
+
+        <div class="item">
+          <div class="item__head">
+            <span class="item__title">Client-facing Product Presentations</span>
+            <span class="item__period">2026.05 – 06</span>
+          </div>
+          <p class="item__desc">
+            Covered the product overview, core capabilities, and business value, personally delivering
+            an end-to-end demo — detection → AI analysis → response → report — with Q&A.
+          </p>
+          <ul class="item__bullets">
+            <li>SentiveX product demo & presentation (Korean) — for a global IT company, 2026.05.21</li>
+            <li>SentiveX product demo & presentation (English) — for a major-conglomerate subsidiary, 2026.06.03</li>
+          </ul>
+        </div>
+
+        <div class="item">
+          <div class="item__head">
+            <span class="item__title">RSAC 2026 Attendance</span>
+            <span class="item__period">2026</span>
+          </div>
+          <p class="item__desc">Attended the global security conference (RSA Conference) — researching the latest security trends and solutions.</p>
+        </div>
+      </section>
+
+      <!-- Education -->
+      <section class="section">
+        <h2 class="section__title">Education</h2>
+        <div class="item">
+          <div class="edu__line">
+            <span class="item__title">Ajou University · B.S. in Cyber Security</span>
+            <span class="item__period">2020.03 – 2025.02</span>
+          </div>
+          <p class="edu__note">Completed the Cloud/Bigdata security track</p>
+        </div>
+      </section>
+
+      <!-- Languages -->
+      <section class="section">
+        <h2 class="section__title">Languages</h2>
+        <p class="edu__note">Korean (native) · English — working proficiency; product demos & presentations in English</p>
+      </section>
+    </div>
+  </body>
+</html>

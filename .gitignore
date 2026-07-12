@@ -28,6 +28,7 @@ public/portfolio/resume.html
 docs/*
 # 이력서·자기소개서 HTML은 추적 (PDF 변환 후 사이트 연결 예정)
 !docs/resume.html
+!docs/resume-en.html
 !docs/cover-letter.html
 
 # nie 다이어그램: draw.io 원본·중간 파일은 비배포 (렌더된 PNG만 포함)

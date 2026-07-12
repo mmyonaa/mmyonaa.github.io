@@ -7,7 +7,7 @@ export const profileBase = {
   role: 'Full-stack Developer',
   location: 'Seoul, Korea',
   email: 'apddfhsajrwk@gmail.com',
-  resumeUrl: '/resume.pdf', // public/resume.pdf 에 파일을 두면 다운로드됨 (없으면 Navbar 버튼도 자동 숨김)
+  resumeUrl: '/resume-ko.pdf', // 언어별 이력서 PDF — 영어는 en.ts 에서 '/resume-en.pdf' 로 교체 (docs/resume*.html 에서 생성)
 }
 
 export const contacts: ContactItem[] = [
