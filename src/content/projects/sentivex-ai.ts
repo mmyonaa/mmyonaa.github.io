@@ -8,15 +8,14 @@ export const ko: ProjectText = {
   presentationNote:
     '고객사를 대상으로 SentiveX 솔루션을 소개한 발표 자료입니다. 제품 개요와 핵심 기능, 도입 효과를 중심으로 구성했고, 국내 고객에게는 한국어로 해외 고객에게는 영문으로 직접 발표와 데모·질의응답까지 진행했습니다. 위협 탐지 → AI 자동 분석 → 호스트 격리 대응 → 다국어 리포트 생성으로 이어지는 end-to-end 데모 시나리오를 직접 구성해 제품의 실제 운영 흐름을 보여줬습니다.',
   overview: [
-    'SentiveX 플랫폼의 AI 축으로, 보안 인시던트를 실시간 자동 분석하는 상태 비저장 Fastify 서버입니다. 여러 EDR 벤더의 인시던트를 공통 타입(OCSF lite)으로 정규화하고, 역할별 보안 에이전트를 오케스트레이터로 실행해 위협을 다각도로 분석한 뒤 결과를 SSE로 스트리밍합니다. 저는 오케스트레이터·LiteLLM 게이트웨이·멀티테넌트 모델 관리 전반을 맡았습니다(레포 최다 커밋 기여).',
-    '먼저 Triage 에이전트가 인시던트를 분류하고 우선순위를 산정해 이후 파이프라인 실행을 게이팅합니다. 분석은 3-스테이지로 구성됩니다. 1단계는 IOC·MITRE·Network 에이전트를 병렬 실행하고, 2단계는 조건을 만족할 때만 외부 위협 인텔(SecurityIntel) 에이전트를, 3단계는 Correlation 에이전트가 결과를 종합해 kill-chain 그래프·위협 점수(0–100)·신뢰도를 구조화 출력(generateObject)으로 만들고 컴플라이언스(ISMS-P·ISO 27001·GDPR) 분석을 백그라운드로 처리합니다. 우선순위에 따라 실행 에이전트를 가지쳐 비용을 조절합니다.',
-    '모든 LLM 호출은 LiteLLM(OpenAI 호환) 게이트웨이 단일 경로로 통합해 provider 무관 폴백·동시성·토큰 제어를 한 계층에서 처리하고, LiteLLM Admin API로 테넌트별 모델 CRUD와 BYOK(가상 키 허용목록) 격리를 구현했습니다. 리포트는 BullMQ·Redis 비동기 잡으로 BlockNote JSON을 생성합니다.',
+    'SentiveX 플랫폼의 AI 축으로, 보안 인시던트를 실시간 자동 분석하는 Fastify 서버입니다. 저는 이 서버의 핵심인 멀티 에이전트 오케스트레이터와 LiteLLM 게이트웨이, 멀티테넌트 모델 관리의 설계·개발을 주도했습니다(레포 최다 커밋 기여).',
+    '분석 파이프라인은 Triage + 3-스테이지 구조로 설계했습니다. Triage 에이전트가 인시던트를 분류·우선순위 산정해 이후 실행을 게이팅하고, IOC·MITRE·Network 에이전트 병렬 실행 → 조건부 외부 위협 인텔(SecurityIntel) → Correlation 종합으로 이어집니다. 종합 결과는 kill-chain 그래프·위협 점수(0–100)·신뢰도로 구조화 출력(generateObject)하고, 컴플라이언스(ISMS-P·ISO 27001·GDPR) 분석은 백그라운드로 분리했으며, 우선순위에 따라 실행 에이전트를 가지쳐 LLM 비용을 조절하도록 만들었습니다.',
+    '흩어져 있던 provider별 LLM 호출은 LiteLLM(OpenAI 호환) 게이트웨이 단일 경로로 통합해 폴백·동시성·토큰 제어를 한 계층으로 모았고, LiteLLM Admin API 기반 테넌트별 모델 CRUD와 BYOK(가상 키 허용목록) 격리를 구현했습니다. 분석 결과는 SSE로 실시간 스트리밍하고, 리포트는 BullMQ·Redis 비동기 잡으로 생성하도록 구성했습니다.',
   ],
   highlights: [
     '멀티 에이전트 인시던트 분석 오케스트레이터 설계 — Triage(분류·우선순위) + 3-스테이지(병렬 grounding → 조건부 LLM → 종합)·우선순위 기반 가지치기',
     'Correlation 구조화 출력 — kill-chain 그래프·위협 점수(0–100)·신뢰도 (generateObject·zod)',
     'SSE 실시간 진행률·부분결과 스트리밍 + 수동 재분석 API',
-    '여러 보안 벤더의 EDR/XDR 데이터를 OCSF lite 공통 타입으로 정규화',
     'LiteLLM 게이트웨이 통합 — provider SDK 분기 제거, 폴백·provider 동시성·429/5xx 백오프·토큰 budget을 게이트웨이 계층으로 이전',
     'LiteLLM Admin API 기반 테넌트별 모델 CRUD·BYOK(가상 키 격리)·저장 직후 검증 + BullMQ 리포트',
   ],
@@ -48,15 +47,14 @@ export const en: ProjectText = {
   presentationNote:
     'Slides from presentations introducing the SentiveX solution to enterprise clients. Structured around the product overview, core capabilities, and business value, I delivered the presentations, demos, and Q&A myself — in Korean for domestic clients and in English for overseas clients. I designed an end-to-end demo scenario — threat detection → automated AI analysis → host isolation response → multilingual report generation — to show the product’s real operational flow.',
   overview: [
-    'The AI backbone of the SentiveX platform — a stateless Fastify server that analyzes security incidents in real time. It normalizes incidents from multiple EDR vendors into a common type (OCSF lite), runs role-specific security agents via an orchestrator to analyze threats from multiple angles, and streams results over SSE. I owned the orchestrator, the LiteLLM gateway, and multi-tenant model management (top committer on the repo).',
-    'A Triage agent first classifies the incident and assigns a priority that gates the pipeline. Analysis then runs in three stages. Stage 1 runs IOC, MITRE, and Network agents in parallel; Stage 2 runs an external threat-intel (SecurityIntel) agent only when conditions are met; Stage 3 has the Correlation agent synthesize results into a kill-chain graph, threat score (0–100), and confidence as structured output (generateObject), with compliance (ISMS-P, ISO 27001, GDPR) analysis in the background. Agents are pruned by priority to control cost.',
-    'Every LLM call is consolidated onto a single LiteLLM (OpenAI-compatible) gateway path that handles provider-agnostic fallback, concurrency, and token control in one layer, and per-tenant model CRUD plus BYOK (virtual-key allow-list) isolation is implemented via the LiteLLM Admin API. Reports are generated as BlockNote JSON via async BullMQ/Redis jobs.',
+    'The AI backbone of the SentiveX platform — a Fastify server that analyzes security incidents in real time. I led the design and development of its core: the multi-agent orchestrator, the LiteLLM gateway, and multi-tenant model management (top committer on the repo).',
+    'I designed the analysis pipeline as Triage + three stages: a Triage agent classifies each incident and assigns a priority that gates execution, followed by IOC/MITRE/Network agents running in parallel, a conditional external threat-intel (SecurityIntel) agent, and a Correlation agent that synthesizes the results. I structured that synthesis as a kill-chain graph, threat score (0–100), and confidence via structured output (generateObject), moved compliance (ISMS-P, ISO 27001, GDPR) analysis to the background, and pruned agents by priority to control LLM cost.',
+    'I consolidated scattered per-provider LLM calls onto a single LiteLLM (OpenAI-compatible) gateway path — fallback, concurrency, and token control in one layer — and implemented per-tenant model CRUD and BYOK (virtual-key allow-list) isolation via the LiteLLM Admin API. Analysis results stream in real time over SSE, and reports are generated via async BullMQ/Redis jobs.',
   ],
   highlights: [
     'Designed the multi-agent incident-analysis orchestrator — Triage (classify/priority) + 3 stages (parallel grounding → conditional LLM → synthesis) with priority-based pruning',
     'Correlation structured output — kill-chain graph, threat score (0–100), confidence (generateObject/zod)',
     'Real-time SSE progress/partial-result streaming + manual re-analysis API',
-    'Normalized EDR/XDR data from multiple security vendors into a common OCSF-lite type',
     'LiteLLM gateway consolidation — removed per-provider SDK branches; fallback, provider concurrency, 429/5xx backoff, and token budgets moved into the gateway layer',
     'Per-tenant model CRUD via the LiteLLM Admin API, BYOK (virtual-key isolation), post-save verification, plus BullMQ reports',
   ],
