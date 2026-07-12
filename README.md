@@ -2,6 +2,8 @@
 
 Vue 3 + TypeScript + Vite로 만든 개인 포트폴리오. 다크/라이트 테마, 한/영 다국어, 해시 기반 프로젝트 상세 페이지, 스크롤 인터랙션을 갖춘 정적 사이트입니다.
 
+**🔗 Live — [mmyonaa.github.io](https://mmyonaa.github.io/)**
+
 ## ✨ 특징
 
 - **다크 미니멀 디자인** — 골드 액센트, 거대 타이포그래피
@@ -89,10 +91,24 @@ portfolio/
 
 ## 📦 배포
 
-`pnpm build` 후 생성되는 `dist/`를 정적 호스팅(GitHub Pages, Netlify, Vercel 등)에 올리면 됩니다.
+**GitHub Pages(사용자 사이트)** 로 배포됩니다 — <https://mmyonaa.github.io/>
 
-GitHub Pages처럼 하위 경로(`/<repo>/`)로 배포할 경우 [`vite.config.ts`](vite.config.ts)의 `base`를 `'/<repo>/'`로 변경하세요.
+- [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml)가 `pnpm build` 후 `dist/`를 Pages에 업로드합니다.
+- 현재는 수동 트리거(`workflow_dispatch`): **Actions 탭 → Deploy to GitHub Pages → Run workflow**.
+  `deploy.yml`의 `push:` 트리거 주석을 해제하면 `main` push마다 자동 배포됩니다.
+- 사용자 사이트(루트)라 [`vite.config.ts`](vite.config.ts)의 `base`는 `'/'`. 프로젝트 페이지(`/<repo>/`)로 옮기면 `base`를 그에 맞게 변경하세요.
 
 ## 📝 커밋 규칙
 
 Conventional Commits를 따릅니다.
+
+## 🗓 버전 기록
+
+### v1.0 — 2026-07-12
+첫 정식 배포 (GitHub Actions → GitHub Pages, <https://mmyonaa.github.io/>).
+
+- 다크/라이트 테마 · 한/영 i18n · 해시 라우팅 기반 프로젝트 상세 페이지
+- ⌘K 커맨드 팔레트 · 커서 반응형 별자리 배경 · 터미널 부팅 인트로
+- 프로젝트별 아키텍처 다이어그램(테마·언어 변형 + 라이트박스) · 관련 프로젝트 시스템 그래프
+- 콘텐츠를 `src/content/`(공통 `shared` + 언어별 `ko`/`en`)로 분리, `data.ts` 반응형 파사드
+- 라우팅·테마·i18n·라이트박스·커맨드 팔레트를 외부 라이브러리 없이 직접 구현
