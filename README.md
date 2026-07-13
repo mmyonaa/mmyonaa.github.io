@@ -104,6 +104,14 @@ Conventional Commits를 따릅니다.
 
 ## 🗓 버전 기록
 
+### v1.1 — 2026-07-13
+콘텐츠 정합성 검수 반영 — 사이트 ↔ 이력서 ↔ 내부 작업 기록 3방향 대조.
+
+- 대외비·내부 정보 정리: 코드 주석의 내부 코드명 제거, 공급사 실명·내부 수치 정리
+- 사실 정정: 프로젝트 기간 통일(생태원·apoc), QA 이슈 수치 표현(처리→발견·추적), 작업 귀속 명확화(웹훅 수집 제거, 결제 단말 개선·확장), 영문판 과장 완화
+- 표기 통일: 영문 이름 Hyonah Lim, 기관 영문명(National Institute of Ecology), 어학 수준, LLM 프로바이더 일반화(Multi-provider LLM), 에이전트 8종 표기
+- 이력서(ko/en) 스킬 현행화·PDF 재생성, 시스템 다이어그램 데이터 보정(web→redis 엣지 등)
+
 ### v1.0 — 2026-07-12
 첫 정식 배포 (GitHub Actions → GitHub Pages, <https://mmyonaa.github.io/>).
 
