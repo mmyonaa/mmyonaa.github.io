@@ -5,7 +5,7 @@ import { onMounted, onUnmounted, ref } from 'vue'
 
 const lines = [
   '> initializing portfolio…',
-  '> hyona lim :: full-stack developer',
+  '> hyonah lim :: full-stack developer',
   '> mounting projects ████████ ok',
   '> ready.',
 ]
