@@ -36,7 +36,7 @@ const next = computed(() => projects.value[(idx.value + 1) % projects.value.leng
 const tint = computed(() => tints.value[idx.value % tints.value.length])
 const num = computed(() => String(idx.value + 1).padStart(2, '0'))
 const totalLabel = computed(() => String(projects.value.length).padStart(2, '0'))
-const hasLinks = computed(() => !!(props.project.link || props.project.repo || props.project.apiDocs))
+const hasLinks = computed(() => !!(props.project.link || props.project.repo || props.project.apiDocs || props.project.board))
 
 // 함께 이루는 시스템의 레이어 다이어그램 (systemMaps 에 시스템 단위로 정의)
 const systemMap = computed(() =>
@@ -123,6 +123,7 @@ const systemMap = computed(() =>
                 <a v-if="project.link" :href="project.link" target="_blank" rel="noreferrer">Live demo ↗</a>
                 <a v-if="project.repo" :href="project.repo" target="_blank" rel="noreferrer">GitHub ↗</a>
                 <a v-if="project.apiDocs" :href="project.apiDocs" target="_blank" rel="noreferrer">API Docs ↗</a>
+                <a v-if="project.board" :href="project.board" target="_blank" rel="noreferrer">Project board ↗</a>
               </div>
             </div>
           </div>

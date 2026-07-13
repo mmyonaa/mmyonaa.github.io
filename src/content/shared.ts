@@ -209,6 +209,7 @@ const projectBase: ProjectBase[] = [
     link: '',
     company: '',
     repo: 'https://github.com/mmyonaa/mmyonaa.github.io',
+    board: 'https://github.com/users/mmyonaa/projects/2',
     // 사이트 자체 캡처 (다크 히어로 · 시스템 다이어그램 · 라이트 테마) — 사이트 개편 시 재캡처
     images: [
       '/projects/portfolio/portfolio-home.png',
