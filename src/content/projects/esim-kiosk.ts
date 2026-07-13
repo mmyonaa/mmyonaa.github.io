@@ -4,7 +4,7 @@ export const ko: ProjectText = {
   title: 'eSIM 판매 키오스크',
   photosNote: [
     '일본 현지 매장에 실제 배포된 무인 eSIM 키오스크입니다. 여행자가 대륙·국가·상품 선택부터 결제, eSIM QR 발급, 영수증 출력·이메일 전송까지 직원 없이 스스로 완료합니다.',
-    '결제 단말(카드·QR·NFC)과 영수증 프린터를 앱에 연동하고, 부팅 자동 실행·기기 잠금(Device Admin)으로 무인 운영을 구성했습니다.',
+    '결제 단말(카드·QR·NFC)·영수증 프린터 연동 기능을 개선·확장하고, 부팅 자동 실행·기기 잠금(Device Admin)으로 무인 운영을 구성했습니다.',
     '개발 후 일본 현지에서 초기 운영과 용지 부족·네트워크 끊김 같은 현장 이슈의 실시간 대응까지 직접 담당했습니다.',
   ],
   architectureCaptions: ['eSIM 플랫폼 구조 — 오프라인 판매 채널'],
@@ -50,7 +50,7 @@ export const en: ProjectText = {
   title: 'eSIM Sales Kiosk',
   photosNote: [
     'The unattended eSIM kiosk actually deployed at a store in Japan. Travelers complete everything themselves — choosing continent, country, and plan, paying, receiving the eSIM QR, and getting a printed/emailed receipt — with no staff.',
-    'I integrated the payment terminal (card/QR/NFC) and receipt printer into the app and set up unattended operation with auto-boot and Device Admin lockdown.',
+    'I improved and extended the app’s payment-terminal (card/QR/NFC) and receipt-printer integrations, and set up unattended operation with auto-boot and Device Admin lockdown.',
     'After development, I handled the initial on-site operation and real-time response to field issues such as paper-outs and network drops, in Japan.',
   ],
   architectureCaptions: ['eSIM platform map — offline sales channel'],

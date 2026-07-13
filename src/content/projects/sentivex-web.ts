@@ -28,7 +28,7 @@ export const ko: ProjectText = {
     },
     {
       title: 'SIEM 연동 · 실시간',
-      body: 'OpenSearch로 SIEM 로그를 검색·집계하고 여러 보안 벤더(EDR/XDR) 웹훅으로 인시던트를 수집합니다. comprehensive-monitoring SSE로 대시보드를 라이브 업데이트하고, 무거운 AI 분석·리포트 생성은 AI 서버(REST·SSE)에 위임합니다.',
+      body: 'OpenSearch로 SIEM 로그를 검색·집계합니다. comprehensive-monitoring SSE로 대시보드를 라이브 업데이트하고, 무거운 AI 분석·리포트 생성은 AI 서버(REST·SSE)에 위임합니다.',
     },
     {
       title: '데이터 시각화 · 킬체인 그래프',
@@ -69,7 +69,7 @@ export const en: ProjectText = {
     },
     {
       title: 'SIEM integration & real time',
-      body: 'OpenSearch powers SIEM log search/aggregation, and webhooks from multiple security vendors (EDR/XDR) ingest incidents. A comprehensive-monitoring SSE stream updates dashboards live, while heavy AI analysis and report generation are delegated to the AI server (REST/SSE).',
+      body: 'OpenSearch powers SIEM log search/aggregation. A comprehensive-monitoring SSE stream updates dashboards live, while heavy AI analysis and report generation are delegated to the AI server (REST/SSE).',
     },
     {
       title: 'Data visualization & kill-chain graph',

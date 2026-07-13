@@ -76,7 +76,7 @@ const projectBase: ProjectBase[] = [
   {
     slug: 'sentivex-web',
     period: '2025.09 –',
-    tags: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Prisma', 'PostgreSQL', 'BlockNote', 'Recharts', 'XY Flow', 'BullMQ', 'OpenSearch'],
+    tags: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'shadcn/ui', 'Prisma', 'PostgreSQL', 'BlockNote', 'Recharts', 'XY Flow', 'BullMQ', 'Redis', 'OpenSearch'],
     link: '',
     company: '',
     repo: '',
@@ -255,6 +255,7 @@ export const systemMaps: Record<string, SystemMap> = {
       { from: 'web', to: 'ai', label: 'REST · SSE' },
       { from: 'web', to: 'os' },
       { from: 'web', to: 'pg' },
+      { from: 'web', to: 'redis' },
       { from: 'ai', to: 'pg' },
       { from: 'ai', to: 'redis' },
       { from: 'ai', to: 'llm' },
@@ -265,7 +266,7 @@ export const systemMaps: Record<string, SystemMap> = {
     layers: ['Web', 'API', 'Data'],
     nodes: [
       { id: 'platform', label: 'Platform Web', sub: 'Vue.js', slug: 'apoc-renewal', layer: 0, x: 20 },
-      { id: 'studio', label: 'Studio Web', sub: 'Vue.js · Three.js', slug: 'apoc-studio', layer: 0, x: 50 },
+      { id: 'studio', label: 'Studio Web', sub: 'Vue.js', slug: 'apoc-studio', layer: 0, x: 50 },
       { id: 'payweb', label: 'Payment Pages', sub: 'separate web', layer: 0, x: 80 },
       { id: 'mw', label: 'Middleware API', sub: 'Koa', layer: 1, x: 35 },
       { id: 'payment', label: 'Payment API', sub: 'Koa', slug: 'apoc-payment', layer: 1, x: 80 },

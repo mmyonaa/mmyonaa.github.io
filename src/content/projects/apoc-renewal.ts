@@ -31,9 +31,9 @@ export const ko: ProjectText = {
 export const en: ProjectText = {
   title: 'In-house Service Platform Renewal',
   description:
-    'Led the renewal of APOC Play (a 3D/interactive content-sharing platform), overhauling the home, search, content detail, and my-page screens to match the new design and restructuring them around reusable components.',
+    'Took on the renewal of APOC Play (a 3D/interactive content-sharing platform), overhauling the home, search, content detail, and my-page screens to match the new design and restructuring them around reusable components.',
   overview: [
-    'APOC Play (apoc.day) is a content-sharing platform where creators publish 3D/interactive content built in APOC Studio and users browse, view, and interact with it. I led its renewal — overhauling the interfaces across the entire user flow, from the home feed, search, and content detail to my page, creator pages, and my-content management, to match the new design and reimplementing their features.',
+    'APOC Play (apoc.day) is a content-sharing platform where creators publish 3D/interactive content built in APOC Studio and users browse, view, and interact with it. I took on its renewal — overhauling the interfaces across the entire user flow, from the home feed, search, and content detail to my page, creator pages, and my-content management, to match the new design and reimplementing their features.',
     'What I invested in most were extracting repeated UI into shared components, establishing the design system, and refactoring around migration to minimize conflicts with existing logic. I also wired content editing to flow into APOC Studio, with Korean/English support.',
   ],
   highlights: [

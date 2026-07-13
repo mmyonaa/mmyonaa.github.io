@@ -1,7 +1,6 @@
 <script setup lang="ts">
 // 멀티 에이전트 분석 파이프라인 라이브 시각화 — 실제 코드(orchestrator.ts) 기준.
 // 공개용(safe) 캡션만 렌더 — 임계값·내부 도구·레포명 등 대외 세부는 제외한다.
-// (full 상세는 docs/defenderx-ai-server-work-*.md 에만 보관)
 import { computed, onMounted, onUnmounted, ref } from 'vue'
 import { locale } from '../i18n'
 

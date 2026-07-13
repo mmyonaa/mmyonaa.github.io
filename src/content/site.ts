@@ -54,12 +54,12 @@ export const siteKo: SiteText = {
         body: '온라인 서비스·키오스크·어드민·공유 미들웨어로 이뤄진 eSIM 플랫폼에 핵심 개발자로 참여(대부분 영역 최다 기여). 다중 PG 결제(Paygent·Google/Apple Pay), RBAC 권한·정산, eSIM 발급·SES 메일 발송, 키오스크 프린터·다국어 인코딩 등 하드웨어 연동까지 담당하고 일본 현지 실운영을 대응했습니다.',
       },
       {
-        period: '2024.01 – 2025.05',
+        period: '2024.01 – 2025.08',
         title: '자사 SaaS 저작도구 (apoc)',
         body: '플랫폼 리뉴얼, 결제 시스템(Toss·PayPal), 3D·인터랙티브 저작도구 고도화를 담당. 컴포넌트 기반 리팩토링으로 유지보수성과 확장성을 높였습니다.',
       },
       {
-        period: '2024.08 – 2025.08',
+        period: '2025.07 – 2025.08',
         title: '팜피 · 국립 생태원 콘텐츠 서비스',
         body: '팜피 재직 중 회사 프로젝트로 진행. 국립생태원 해설 프로그램 참여 인증제(현장 이미지 인식 인증·단계별 인증서·카카오 기프티콘 자동/일괄 발송·관리자 통계)의 콘텐츠 서비스와 관리자 시스템을 1인으로 개발했습니다.',
       },
@@ -142,14 +142,14 @@ export const siteEn: SiteText = {
         body: 'A key developer (top contributor in most areas) across an eSIM platform of the online service, kiosk, admin, and shared middleware. Owned multi-gateway payments (Paygent, Google/Apple Pay), RBAC and settlement, eSIM issuance with SES email delivery, and kiosk hardware integration (printers, multilingual encoding), and handled live operations on-site in Japan.',
       },
       {
-        period: '2024.01 – 2025.05',
+        period: '2024.01 – 2025.08',
         title: 'In-house SaaS Authoring Tool (apoc)',
-        body: 'Led the platform renewal, payment system (Toss·PayPal), and enhancements to the 3D/interactive authoring tool. Improved maintainability and scalability through component-based refactoring.',
+        body: 'Handled the platform renewal, the payment system (Toss·PayPal), and enhancements to the 3D/interactive authoring tool. Improved maintainability and scalability through component-based refactoring.',
       },
       {
-        period: '2024.08 – 2025.08',
-        title: 'Famppy · National Ecology Institute',
-        body: 'A company project at Famppy. Solo-built the content service and admin for the National Ecology Institute participation-certification program — on-site image-recognition certification, tiered certificates, automatic/bulk KakaoTalk gifticons, and admin stats.',
+        period: '2025.07 – 2025.08',
+        title: 'Famppy · National Institute of Ecology',
+        body: 'A company project at Famppy. Solo-built the content service and admin for the National Institute of Ecology participation-certification program — on-site image-recognition certification, tiered certificates, automatic/bulk KakaoTalk gifticons, and admin stats.',
       },
       {
         period: '2025.09 – 2026.07',
@@ -179,7 +179,7 @@ export const siteEn: SiteText = {
     ],
     languages: [
       { name: 'Korean', level: 'Native' },
-      { name: 'English', level: 'Business proficiency · product demos & presentations' },
+      { name: 'English', level: 'Working proficiency · product demos & presentations in English' },
     ],
   },
 }

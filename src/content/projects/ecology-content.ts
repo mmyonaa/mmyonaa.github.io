@@ -45,7 +45,7 @@ export const ko: ProjectText = {
 }
 
 export const en: ProjectText = {
-  title: 'National Ecology Institute Content & Admin Site',
+  title: 'National Institute of Ecology Content & Admin Site',
   architectureCaptions: ['System & data flow', 'Kakao gifticon send · retry / failover flow'],
   architectureNotes: [
     'Visitors sign up (with privacy consent), play iframe content while their activity is logged, and completing the survey triggers an automatic gifticon send via the Kakao API once conditions are met. All activity and survey data is persisted to PostgreSQL, and admins run content, surveys, and sending from one place.',
@@ -56,7 +56,7 @@ export const en: ProjectText = {
   imageNote:
     'The interpretive content shown (illustrations · curriculum) was produced by a separate content team — my work covers the playback, activity-logging and verification platform.',
   overview: [
-    'A "participation-certification" digital content service where National Ecology Institute visitors join on-site guided programs and certify their attendance. After a program, a visitor certifies completion via on-site image recognition; cumulative certifications raise their tier (sprout, tree) and issue a tier certificate. Content playback, activity logs, and survey participation are all stored and aggregated in the admin system.',
+    'A "participation-certification" digital content service where National Institute of Ecology visitors join on-site guided programs and certify their attendance. After a program, a visitor certifies completion via on-site image recognition; cumulative certifications raise their tier (sprout, tree) and issue a tier certificate. Content playback, activity logs, and survey participation are all stored and aggregated in the admin system.',
     'I designed and built both the content service and the admin system solo. A Kakao gifticon is sent automatically once conditions are met, admins can bulk-send to selected participants, and status polling with retries secures reliable delivery against failures. Admins run monthly visit/eligibility stats and satisfaction-survey Excel exports all in one place.',
   ],
   highlights: [
