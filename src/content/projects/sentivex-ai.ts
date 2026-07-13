@@ -13,7 +13,7 @@ export const ko: ProjectText = {
     '흩어져 있던 provider별 LLM 호출은 LiteLLM(OpenAI 호환) 게이트웨이 단일 경로로 통합해 폴백·동시성·토큰 제어를 한 계층으로 모았고, LiteLLM Admin API 기반 테넌트별 모델 CRUD와 BYOK(가상 키 허용목록) 격리를 구현했습니다. 분석 결과는 SSE로 실시간 스트리밍하고, 리포트는 BullMQ·Redis 비동기 잡으로 생성하도록 구성했습니다.',
   ],
   highlights: [
-    '멀티 에이전트 인시던트 분석 오케스트레이터 설계 — Triage(분류·우선순위) + 3-스테이지(병렬 grounding → 조건부 LLM → 종합)·우선순위 기반 가지치기',
+    '멀티 에이전트 인시던트 분석 오케스트레이터(역할별 에이전트 8종) 설계 — Triage(분류·우선순위) + 3-스테이지(병렬 grounding → 조건부 LLM → 종합)·우선순위 기반 가지치기',
     'Correlation 구조화 출력 — kill-chain 그래프·위협 점수(0–100)·신뢰도 (generateObject·zod)',
     'SSE 실시간 진행률·부분결과 스트리밍 + 수동 재분석 API',
     'LiteLLM 게이트웨이 통합 — provider SDK 분기 제거, 폴백·provider 동시성·429/5xx 백오프·토큰 budget을 게이트웨이 계층으로 이전',
@@ -52,7 +52,7 @@ export const en: ProjectText = {
     'I consolidated scattered per-provider LLM calls onto a single LiteLLM (OpenAI-compatible) gateway path — fallback, concurrency, and token control in one layer — and implemented per-tenant model CRUD and BYOK (virtual-key allow-list) isolation via the LiteLLM Admin API. Analysis results stream in real time over SSE, and reports are generated via async BullMQ/Redis jobs.',
   ],
   highlights: [
-    'Designed the multi-agent incident-analysis orchestrator — Triage (classify/priority) + 3 stages (parallel grounding → conditional LLM → synthesis) with priority-based pruning',
+    'Designed the multi-agent incident-analysis orchestrator (8 role-specific agents) — Triage (classify/priority) + 3 stages (parallel grounding → conditional LLM → synthesis) with priority-based pruning',
     'Correlation structured output — kill-chain graph, threat score (0–100), confidence (generateObject/zod)',
     'Real-time SSE progress/partial-result streaming + manual re-analysis API',
     'LiteLLM gateway consolidation — removed per-provider SDK branches; fallback, provider concurrency, 429/5xx backoff, and token budgets moved into the gateway layer',

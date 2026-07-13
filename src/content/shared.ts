@@ -31,7 +31,7 @@ export const skills: SkillGroup[] = [
   },
   {
     category: 'AI',
-    items: ['LiteLLM', 'OpenAI · Azure · Gemini'],
+    items: ['LiteLLM', 'AI SDK', 'Multi-provider LLM'],
   },
 ]
 
@@ -62,7 +62,7 @@ const projectBase: ProjectBase[] = [
   {
     slug: 'sentivex-ai',
     period: '2025.09 –',
-    tags: ['Fastify', 'TypeScript', 'AI SDK', 'LiteLLM', 'OpenAI · Azure · Gemini', 'BullMQ', 'Redis', 'Prisma', 'PostgreSQL'],
+    tags: ['Fastify', 'TypeScript', 'AI SDK', 'LiteLLM', 'Multi-provider LLM', 'BullMQ', 'Redis', 'Prisma', 'PostgreSQL'],
     link: '',
     company: '',
     repo: '',
@@ -195,7 +195,7 @@ const projectBase: ProjectBase[] = [
   {
     slug: 'apoc-payment',
     period: '2024.01 – 2025.05',
-    tags: ['Vue.js', 'Koa', 'Jest', 'PostgreSQL', 'SCSS'],
+    tags: ['Koa', 'Jest', 'PostgreSQL'],
     link: '',
     company: '',
     repo: '',
