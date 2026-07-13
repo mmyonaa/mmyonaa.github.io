@@ -2,7 +2,7 @@
 
 Vue 3 + TypeScript + Vite로 만든 개인 포트폴리오. 다크/라이트 테마, 한/영 다국어, 해시 기반 프로젝트 상세 페이지, 스크롤 인터랙션을 갖춘 정적 사이트입니다.
 
-**🔗 Live — [mmyonaa.github.io](https://mmyonaa.github.io/)**
+**🔗 Live — [mmyonaa.github.io](https://mmyonaa.github.io/)** · **🗂 [Project board](https://github.com/users/mmyonaa/projects/2)**
 
 ## ✨ 특징
 
