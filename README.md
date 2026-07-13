@@ -59,8 +59,10 @@ portfolio/
 │  ├─ data.ts                # ★ 콘텐츠 파사드 — 언어별 콘텐츠를 현재 로케일로 병합해 반응형 export
 │  ├─ content/               # 콘텐츠 소스
 │  │  ├─ types.ts            #   콘텐츠 타입 정의
-│  │  ├─ shared.ts           #   언어 공통 (slug·기간·태그·링크·이미지/다이어그램·스킬·연락처)
-│  │  └─ ko.ts / en.ts       #   언어별 텍스트 (제목·설명·overview·techNotes 등)
+│  │  ├─ shared.ts           #   언어 공통 (프로필·스킬·연락처, 프로젝트 slug·기간·태그·링크·이미지, 시스템 그래프)
+│  │  ├─ site.ts             #   언어별 사이트 텍스트 (tagline·about·aboutDetail) — siteKo/siteEn
+│  │  ├─ ko.ts / en.ts       #   로케일별 SiteContent 조립 (shared + site + projects 병합)
+│  │  └─ projects/           #   프로젝트 텍스트 — <slug>.ts 안에 ko·en 나란히 (+ index.ts 집계)
 │  ├─ components/            # Navbar·Hero·About(Detail)·Works·Contact·ProjectDetail
 │  │                         # ImageSlider·Lightbox·CommandPalette·BootIntro·SystemGraph
 │  │                         # ThemeToggle·LanguageToggle·CursorFollower·Stars
@@ -70,11 +72,11 @@ portfolio/
 
 ## ✏️ 콘텐츠 수정
 
-콘텐츠는 [`src/content/`](src/content)에서 관리합니다. 컴포넌트는 [`src/data.ts`](src/data.ts)가 현재 로케일에 맞춰 병합·제공하는 값을 사용합니다.
+콘텐츠는 [`src/content/`](src/content)에서 관리하고, [`src/data.ts`](src/data.ts)가 현재 로케일에 맞춰 병합·제공합니다. 스키마가 [`types.ts`](src/content/types.ts)로 강제되어 필드·번역 누락이 빌드에서 잡힙니다.
 
-- [`src/content/shared.ts`](src/content/shared.ts) — **언어 공통**: 프로필·스킬·연락처, 프로젝트의 `slug`·기간·태그·링크(`link`/`company`/`repo`)·이미지/다이어그램 경로
-- [`src/content/ko.ts`](src/content/ko.ts) · [`src/content/en.ts`](src/content/en.ts) — **언어별 텍스트**: 제목·설명·소개·overview·techNotes·다이어그램 캡션 등
-- [`src/content/types.ts`](src/content/types.ts) — 콘텐츠 타입
+- **프로젝트 텍스트** → [`src/content/projects/<slug>.ts`](src/content/projects) — 한 파일에 `ko`·`en`을 나란히 (제목·설명·overview·techNotes·다이어그램 캡션 등). 새 프로젝트는 파일 추가 후 [`projects/index.ts`](src/content/projects/index.ts)에 등록
+- **프로젝트 공통 필드** → [`src/content/shared.ts`](src/content/shared.ts) — `slug`·기간·태그·링크(`link`/`company`/`repo`)·이미지/다이어그램 경로, 프로필·스킬·연락처, 시스템 그래프. **배열 순서 = 랜딩 노출 순서**
+- **사이트 텍스트(소개·타임라인)** → [`src/content/site.ts`](src/content/site.ts) — `tagline`·`about`·`aboutDetail` (`siteKo`/`siteEn`)
 
 주요 항목:
 
