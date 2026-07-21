@@ -28,7 +28,7 @@ export const ko: ProjectText = {
   techNotes: [
     {
       title: 'SSG 기반 SEO 최적화',
-      body: 'vite-ssg로 정적 빌드해 초기 렌더링과 색인을 개선하고, 상세 페이지마다 데이터 로드 후 메타·OG·JSON-LD(NewsArticle·TheaterEvent)를 주입했습니다. 빌드 시 API에서 전체 글·공연을 수집해 개별 URL까지 포함한 sitemap.xml을 자동 생성합니다.',
+      body: 'vite-ssg로 정적 빌드해 초기 렌더링과 색인을 개선하고, 상세 페이지마다 데이터 로드 후 메타·OG·JSON-LD(NewsArticle·TheaterEvent)를 주입했습니다. 빌드 시 API에서 전체 글·공연을 수집해 개별 URL까지 포함한 sitemap.xml을 자동 생성합니다. 그 결과 2026년 7월 기준 Google Search Console 최근 12개월간 누적 클릭 254·노출 902, 평균 CTR 28.2%, 평균 게재순위 3.9위로 검색 결과 상단 노출과 높은 유입을 확보했습니다.',
     },
     {
       title: '1인 풀스택 + 직접 운영',
@@ -73,7 +73,7 @@ export const en: ProjectText = {
   techNotes: [
     {
       title: 'SEO via static site generation',
-      body: 'Built statically with vite-ssg to improve initial render and indexing, injecting per-page meta/OG/JSON-LD (NewsArticle, TheaterEvent) after data load. The build collects all articles and performances from the API to auto-generate a sitemap.xml that includes individual URLs.',
+      body: 'Built statically with vite-ssg to improve initial render and indexing, injecting per-page meta/OG/JSON-LD (NewsArticle, TheaterEvent) after data load. The build collects all articles and performances from the API to auto-generate a sitemap.xml that includes individual URLs. As of July 2026, this translated into 254 clicks and 902 impressions with a 28.2% average CTR and a 3.9 average position over the trailing twelve months in Google Search Console — strong top-of-results visibility and click-through.',
     },
     {
       title: 'Solo full-stack + operations',
