@@ -45,3 +45,6 @@ public/projects/nie/**
 !public/projects/nie/nie-stamp-board.png
 !public/projects/nie/nie-content-detail.png
 !public/projects/nie/nie-code-entry.png
+
+# sentivex 발표 슬라이드: 실제 브랜드·도메인(sentivexsystems.com) 렌더링 — 비배포(로컬 보관)
+public/projects/sentivex/*.jpg
