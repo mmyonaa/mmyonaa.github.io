@@ -26,15 +26,15 @@ export const ko: ProjectText = {
     },
     {
       title: 'SSE 스트리밍 · 수동 재분석',
-      body: '분석 파이프라인을 SSE로 노출해 progress·부분결과(analysis_chunk)·complete·error 이벤트를 실시간 전달하고, analysis_pipeline_runs로 에이전트 완료 수를 추적합니다. 특정 인시던트를 이전 분석 컨텍스트와 함께 다시 돌리는 수동 재분석 경로를 자동(큐) 경로와 공용으로 제공합니다.',
+      body: '분석 파이프라인을 SSE로 노출해 진행률·부분결과·완료·오류 이벤트를 실시간 전달하고, 실행 단위로 에이전트 완료 수를 추적합니다. 특정 인시던트를 이전 분석 컨텍스트와 함께 다시 돌리는 수동 재분석 경로를 자동(큐) 경로와 공용으로 제공합니다.',
     },
     {
       title: 'LiteLLM 게이트웨이 통합',
-      body: 'provider별 SDK 분기를 createOpenAI({ baseURL })로 통합해 모든 호출이 LiteLLM(OpenAI 호환)을 경유하도록 했습니다. 폴백 모델·provider별 세마포어 동시성·429/5xx 지수 백오프(Retry-After 우선)·토큰 budget을 게이트웨이/미들웨어 계층으로 옮기고, provider 상태는 10초 TTL 캐시로 헬스 체크합니다. tool 멀티스텝을 위해 Chat Completions API를 사용합니다.',
+      body: 'provider별 SDK 분기를 OpenAI 호환 클라이언트로 통합해 모든 호출이 LiteLLM을 경유하도록 했습니다. 폴백 모델·provider별 세마포어 동시성·429/5xx 지수 백오프(Retry-After 우선)·토큰 budget을 게이트웨이/미들웨어 계층으로 옮기고, provider 상태는 10초 TTL 캐시로 헬스 체크합니다. tool 멀티스텝을 위해 Chat Completions API를 사용합니다.',
     },
     {
       title: '멀티테넌트 AI 모델 · BYOK',
-      body: 'LiteLLM Admin API로 테넌트별 모델 deployment를 생성·검증(virtual key + alias ping)·삭제(허용목록 동기화 실패 시 롤백)합니다. 테넌트 격리는 virtual key + team_id 허용목록으로 처리해 크로스테넌트 접근을 차단합니다. 번역은 별도 엔드포인트로 위임하고, 헬스 엔드포인트를 live/readiness로 분리했습니다.',
+      body: 'LiteLLM Admin API로 테넌트별 모델 deployment를 생성·검증(virtual key + alias ping)·삭제(허용목록 동기화 실패 시 롤백)합니다. 테넌트 격리는 가상 키 + 팀 단위 허용목록으로 처리해 크로스테넌트 접근을 차단합니다. 번역은 별도 엔드포인트로 위임하고, 헬스 엔드포인트를 live/readiness로 분리했습니다.',
     },
   ],
 }
@@ -65,15 +65,15 @@ export const en: ProjectText = {
     },
     {
       title: 'SSE streaming & manual re-analysis',
-      body: 'The pipeline is exposed over SSE, delivering progress, partial results (analysis_chunk), complete, and error events in real time, with analysis_pipeline_runs tracking completed-agent counts. A manual re-analysis path re-runs a specific incident with prior analysis context, sharing the same code as the automatic (queue) path.',
+      body: 'The pipeline is exposed over SSE, delivering progress, partial results, complete, and error events in real time, tracking completed-agent counts per run. A manual re-analysis path re-runs a specific incident with prior analysis context, sharing the same code as the automatic (queue) path.',
     },
     {
       title: 'LiteLLM gateway consolidation',
-      body: 'Per-provider SDK branches were consolidated into createOpenAI({ baseURL }) so every call goes through the LiteLLM (OpenAI-compatible) gateway. Fallback models, per-provider semaphore concurrency, 429/5xx exponential backoff (Retry-After first), and token budgets moved into the gateway/middleware layer, and provider status is health-checked with a 10s TTL cache. Chat Completions API is used for multi-step tool calls.',
+      body: 'Per-provider SDK branches were consolidated behind an OpenAI-compatible client so every call goes through the LiteLLM gateway. Fallback models, per-provider semaphore concurrency, 429/5xx exponential backoff (Retry-After first), and token budgets moved into the gateway/middleware layer, and provider status is health-checked with a 10s TTL cache. Chat Completions API is used for multi-step tool calls.',
     },
     {
       title: 'Multi-tenant AI models & BYOK',
-      body: 'Per-tenant model deployments are created, verified (virtual key + alias ping), and deleted (with rollback on allow-list sync failure) via the LiteLLM Admin API. Tenant isolation uses a virtual key + team_id allow-list to block cross-tenant access. Translation is delegated to a separate endpoint, and health endpoints are split into live/readiness.',
+      body: 'Per-tenant model deployments are created, verified (virtual key + alias ping), and deleted (with rollback on allow-list sync failure) via the LiteLLM Admin API. Tenant isolation uses a virtual key + team-level allow-list to block cross-tenant access. Translation is delegated to a separate endpoint, and health endpoints are split into live/readiness.',
     },
   ],
 }

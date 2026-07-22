@@ -20,15 +20,15 @@ export const ko: ProjectText = {
   techNotes: [
     {
       title: 'Next.js 15 풀스택 협업 개발',
-      body: 'App Router로 UI·서버 컴포넌트와 수백 개의 API 라우트, Prisma 멀티스키마(PostgreSQL) DB 레이어까지 한 앱에서 구성했습니다. 팀 협업 레포에서 주요 기여자로 참여해 인시던트·리포트·엔드포인트 등 여러 도메인의 화면과 API를 개발했습니다.',
+      body: 'App Router로 UI·서버 컴포넌트와 다수의 API 라우트, Prisma 멀티스키마(PostgreSQL) DB 레이어까지 한 앱에서 구성했습니다. 팀 협업 레포에서 주요 기여자로 참여해 인시던트·리포트·엔드포인트 등 여러 도메인의 화면과 API를 개발했습니다.',
     },
     {
       title: 'AI 리포트 에디터 (BlockNote)',
-      body: 'BlockNote에 차트·상태카드·프로그레스 등 커스텀 블록을 더하고, 블록/표/문자 단위 diff 비교(compareBlockNoteContent)로 AI 편집 결과를 하이라이팅해 미리보고 커밋하게 했습니다. 리포트는 한/영/일 언어별로 저장·미리보기되며, 완성본은 PDF(Puppeteer 서버 렌더 — 차트 이미지화·웹폰트 로딩·다국어 파일명)·DOCX(표지·머리말/꼬리말·표 스타일 보존)·CSV/XLSX로 내보냅니다.',
+      body: 'BlockNote에 차트·상태카드·프로그레스 등 커스텀 블록을 더하고, 블록/표/문자 단위 diff 비교로 AI 편집 결과를 하이라이팅해 미리보고 커밋하게 했습니다. 리포트는 한/영/일 언어별로 저장·미리보기되며, 완성본은 PDF(Puppeteer 서버 렌더 — 차트 이미지화·웹폰트 로딩·다국어 파일명)·DOCX(표지·머리말/꼬리말·표 스타일 보존)·CSV/XLSX로 내보냅니다.',
     },
     {
       title: 'SIEM 연동 · 실시간',
-      body: 'OpenSearch로 SIEM 로그를 검색·집계합니다. comprehensive-monitoring SSE로 대시보드를 라이브 업데이트하고, 무거운 AI 분석·리포트 생성은 AI 서버(REST·SSE)에 위임합니다.',
+      body: 'OpenSearch로 SIEM 로그를 검색·집계합니다. SSE 스트림으로 대시보드를 라이브 업데이트하고, 무거운 AI 분석·리포트 생성은 AI 서버(REST·SSE)에 위임합니다.',
     },
     {
       title: '데이터 시각화 · 킬체인 그래프',
@@ -61,15 +61,15 @@ export const en: ProjectText = {
   techNotes: [
     {
       title: 'Next.js 15 full-stack (collaborative)',
-      body: 'Built in one app with the App Router — UI/server components, hundreds of API routes, and a Prisma multi-schema (PostgreSQL) DB layer. On a collaborative team repo I was among the top contributors, building screens and APIs across the incident, report, and endpoint domains.',
+      body: 'Built in one app with the App Router — UI/server components, many API routes, and a Prisma multi-schema (PostgreSQL) DB layer. On a collaborative team repo I was among the top contributors, building screens and APIs across the incident, report, and endpoint domains.',
     },
     {
       title: 'AI report editor (BlockNote)',
-      body: 'Added custom blocks (charts, status cards, progress bars) to BlockNote and highlighted AI edits with block/table/character-level diffing (compareBlockNoteContent) for preview-before-commit. Reports are stored and previewed per language (ko/en/ja), and the finished report exports to PDF (server-side Puppeteer render — charts rasterized, web-font loading, multilingual filenames), DOCX (cover page, headers/footers, table-style preservation), and CSV/XLSX.',
+      body: 'Added custom blocks (charts, status cards, progress bars) to BlockNote and highlighted AI edits with block/table/character-level diffing for preview-before-commit. Reports are stored and previewed per language (ko/en/ja), and the finished report exports to PDF (server-side Puppeteer render — charts rasterized, web-font loading, multilingual filenames), DOCX (cover page, headers/footers, table-style preservation), and CSV/XLSX.',
     },
     {
       title: 'SIEM integration & real time',
-      body: 'OpenSearch powers SIEM log search/aggregation. A comprehensive-monitoring SSE stream updates dashboards live, while heavy AI analysis and report generation are delegated to the AI server (REST/SSE).',
+      body: 'OpenSearch powers SIEM log search/aggregation. An SSE stream updates dashboards live, while heavy AI analysis and report generation are delegated to the AI server (REST/SSE).',
     },
     {
       title: 'Data visualization & kill-chain graph',
