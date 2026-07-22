@@ -68,10 +68,11 @@ const projectBase: ProjectBase[] = [
     repo: '',
     systemId: 'sentivex',
     analysisPipeline: true,
-    presentationImages: [
-      '/projects/sentivex/sentivex-slide-01.jpg',
-      '/projects/sentivex/sentivex-slide-02.jpg',
-    ],
+    // 실제 브랜드·도메인(sentivexsystems.com)이 이미지에 렌더링돼 있어 노출 검토 중 — 일단 비활성화
+    // presentationImages: [
+    //   '/projects/sentivex/sentivex-slide-01.jpg',
+    //   '/projects/sentivex/sentivex-slide-02.jpg',
+    // ],
   },
   {
     slug: 'sentivex-web',
