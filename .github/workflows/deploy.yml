@@ -1,10 +1,9 @@
 name: Deploy to GitHub Pages
 
 on:
-  # 개발 완료 후 수동 배포만 하도록 자동 push 트리거는 비활성화.
-  # 다시 켜려면 아래 두 줄의 주석을 해제할 것.
-  # push:
-  #   branches: [main]
+  # main 에 push 되면 자동 배포. 수동 실행도 가능(workflow_dispatch).
+  push:
+    branches: [main]
   workflow_dispatch:
 
 permissions:
