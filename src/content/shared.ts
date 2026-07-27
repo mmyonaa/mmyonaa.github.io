@@ -204,6 +204,15 @@ const projectBase: ProjectBase[] = [
     paymentFlow: true,
   },
   {
+    slug: 'blog-mcp',
+    period: '2026.07 –',
+    tags: ['TypeScript', 'MCP', '@modelcontextprotocol/sdk', 'zod', 'Astro', 'pnpm', 'Shiki', 'GitHub Actions', 'GitHub Pages'],
+    link: 'https://mmyonaa.github.io/blog/',
+    company: '',
+    repo: 'https://github.com/mmyonaa/blog',
+    board: 'https://github.com/users/mmyonaa/projects/5',
+  },
+  {
     slug: 'portfolio',
     period: '2026.07 –',
     tags: ['Vue 3', 'TypeScript', 'Vite', 'GitHub Actions', 'CSS'],
