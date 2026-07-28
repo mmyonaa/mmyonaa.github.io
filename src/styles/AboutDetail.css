@@ -221,6 +221,12 @@
   border-top: 1px solid var(--line);
 }
 
+/* 타이틀 밑줄이 구분선 역할을 하므로 첫 항목의 윗선은 제거 (이중 선 방지) */
+.tl:first-child {
+  border-top: none;
+  padding-top: 0;
+}
+
 .tl:last-child {
   border-bottom: 1px solid var(--line);
 }
