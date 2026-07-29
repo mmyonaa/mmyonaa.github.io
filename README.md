@@ -106,6 +106,16 @@ Conventional Commits를 따릅니다.
 
 ## 🗓 버전 기록
 
+### v1.3 — 2026-07-29
+blog-mcp 프로젝트 추가 · 민감 정보 정리 · 자동 배포 · SEO 보강.
+
+- blog-mcp(MCP 서버 학습 프로젝트) 추가 — 상세 페이지·이력서(Personal Projects, ko/en)에 반영, 라이브 사이트 캡처 4종 연결
+- 센티벡스 민감 정보 정리: 내부 코드 식별자·규모 수치 일반화, 발표 슬라이드(브랜드·도메인 노출) 비배포 처리
+- 배포 자동화: main push 시 GitHub Actions 자동 배포 트리거 활성화
+- SEO 보강: 96px PNG 파비콘 + WebSite JSON-LD(사이트명), Google Search Console 루트 속성 소유권 확인 태그
+- 이력서(ko/en) 2페이지 유지 정리(중복 불릿 정돈·밀도 조정) 및 PDF 재생성
+- About 타임라인 섹션 타이틀 아래 이중 선 제거
+
 ### v1.2 — 2026-07-21
 보광극장 프로젝트 SEO 성과 지표 반영.
 
