@@ -211,6 +211,13 @@ const projectBase: ProjectBase[] = [
     company: '',
     repo: 'https://github.com/mmyonaa/blog',
     board: 'https://github.com/users/mmyonaa/projects/5',
+    // 라이브 사이트 캡처 (홈 3D 히어로 · About 발행 히트맵 · 글 읽기 화면 · 토픽/태그) — 첫 장이 랜딩 카드 썸네일
+    images: [
+      '/projects/blog-mcp/blog-mcp-home.png',
+      '/projects/blog-mcp/blog-mcp-about.png',
+      '/projects/blog-mcp/blog-mcp-post.png',
+      '/projects/blog-mcp/blog-mcp-topics.png',
+    ],
   },
   {
     slug: 'portfolio',
