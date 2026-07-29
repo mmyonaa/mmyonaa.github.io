@@ -79,6 +79,7 @@ const systemMap = computed(() =>
             :alt="project.title"
             :frame="project.imageFrame"
             :tall="!!project.imageFrame"
+            :themed="project.themedImages"
             zoomable
           />
           <p v-if="images.length && project.imageNote" class="detail__media-note reveal">

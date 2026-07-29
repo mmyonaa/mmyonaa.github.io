@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed, onBeforeUnmount, ref, watch } from 'vue'
 import { openLightbox } from '../lightbox'
+import { theme } from '../theme'
 
 const props = withDefaults(
   defineProps<{
@@ -12,8 +13,16 @@ const props = withDefaults(
     tall?: boolean // 키오스크 기기를 세로로 길게 (상세 페이지용)
     wide?: boolean // 16:9 비율 (발표 슬라이드 등)
     zoomable?: boolean // 클릭 시 라이트박스로 확대 (링크(href)가 없을 때만)
+    themed?: boolean // 이미지가 다크 기본 + '-light' 변형 쌍으로 존재 — 사이트 테마에 맞춰 스왑
   }>(),
-  { alt: '', href: '', autoplay: true, frame: undefined, tall: false, wide: false, zoomable: false },
+  { alt: '', href: '', autoplay: true, frame: undefined, tall: false, wide: false, zoomable: false, themed: false },
+)
+
+// 테마 스왑: base = 다크. 라이트 테마면 '-light' 변형 사용 (아키텍처 다이어그램의 archSrc 와 같은 컨벤션)
+const shownImages = computed(() =>
+  props.themed && theme.value === 'light'
+    ? props.images.map((src) => src.replace(/(\.\w+)$/, '-light$1'))
+    : props.images,
 )
 
 // 목업 프레임별 기기 라벨 (좌상단 표시)
@@ -76,7 +85,7 @@ const hasMany = computed(() => props.images.length > 1)
     <div v-if="frame" :class="`slider__${frame}`">
       <span :class="`slider__${frame}-screen`">
         <div class="slider__track" :style="{ transform: `translateX(-${slide * 100}%)` }">
-          <figure v-for="(src, i) in images" :key="src" class="slider__slide">
+          <figure v-for="(src, i) in shownImages" :key="src" class="slider__slide">
             <img :src="src" :alt="`${alt} 스크린샷 ${i + 1}`" loading="lazy" draggable="false" @click="onImgClick(src)" />
           </figure>
         </div>
@@ -85,7 +94,7 @@ const hasMany = computed(() => props.images.length > 1)
 
     <!-- 일반: 트랙이 통째로 슬라이드 -->
     <div v-else class="slider__track" :style="{ transform: `translateX(-${slide * 100}%)` }">
-      <figure v-for="(src, i) in images" :key="src" class="slider__slide">
+      <figure v-for="(src, i) in shownImages" :key="src" class="slider__slide">
         <img :src="src" :alt="`${alt} 스크린샷 ${i + 1}`" loading="lazy" draggable="false" @click="onImgClick(src)" />
       </figure>
     </div>
@@ -102,7 +111,7 @@ const hasMany = computed(() => props.images.length > 1)
       <button class="slider__arrow slider__arrow--next" type="button" aria-label="다음 이미지" @click="slideNext">›</button>
       <div class="slider__dots">
         <button
-          v-for="(src, i) in images"
+          v-for="(src, i) in shownImages"
           :key="src"
           type="button"
           class="slider__dot"

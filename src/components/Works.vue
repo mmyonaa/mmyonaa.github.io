@@ -74,6 +74,7 @@ const activeProject = computed(() => projects.value[active.value])
             :href="`#/project/${p.slug}`"
             :autoplay="i === active"
             :frame="p.imageFrame"
+            :themed="p.themedImages"
           />
           <a v-else class="panel__mock" :style="{ background: tints[i % tints.length] }" :href="`#/project/${p.slug}`">
             <span class="panel__dots" aria-hidden="true"><i /><i /><i /></span>
