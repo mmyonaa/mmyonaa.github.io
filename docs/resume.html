@@ -119,7 +119,7 @@
 
       /* ---------- 섹션 ---------- */
       .section {
-        margin-top: 13px;
+        margin-top: 8px;
       }
 
       .section__title {
@@ -130,13 +130,13 @@
         text-transform: uppercase;
         color: var(--gold);
         padding-bottom: 5px;
-        margin-bottom: 8px;
+        margin-bottom: 6px;
         border-bottom: 1px solid var(--line);
       }
 
       .summary {
         font-size: 12px;
-        line-height: 1.6;
+        line-height: 1.5;
         color: var(--text);
         word-break: keep-all;
       }
@@ -214,7 +214,7 @@
 
       /* 경력/프로젝트 항목 */
       .item {
-        margin-bottom: 9px;
+        margin-bottom: 5px;
         page-break-inside: avoid;
       }
 
@@ -245,7 +245,7 @@
       .item__desc {
         margin-top: 3px;
         font-size: 11px;
-        line-height: 1.6;
+        line-height: 1.5;
         color: var(--dim);
         word-break: keep-all;
       }
@@ -260,7 +260,7 @@
         position: relative;
         padding-left: 13px;
         font-size: 11px;
-        line-height: 1.6;
+        line-height: 1.5;
         color: var(--text);
         word-break: keep-all;
         margin-bottom: 2px;
@@ -484,10 +484,6 @@
               Shift-JIS/UTF-8 다국어 인코딩·결제 단말(카드·QR·NFC 태그) 상태·오류 처리 개선, 개발 후 초기 운영·일본 현지
               실시간 이슈 대응까지 담당
             </li>
-            <li>
-              통합 어드민: 상품·회원·주문·정산 관리 + 여러 공항·장소에 분산된 키오스크
-              운영·주문/정산 집계, xlsx 주문/정산 내보내기, 3개국어(한·영·일) i18n·다국어 입력 검증
-            </li>
           </ul>
           <div class="item__stack">Vue 3 · TypeScript · Pinia · vue-i18n · PWA · Koa · TypeORM · PostgreSQL · Kotlin · AWS</div>
         </div>
@@ -502,10 +498,6 @@
             <li>
               결제 시스템: Toss·PayPal 연동(단건/정기 구독), PayPal 결제 플로우 설계, 결제·구독·취소 이력을
               관심사별 테이블로 분리(멀티 PG 통합 기록), 자동 갱신 배치·Jest 테스트
-            </li>
-            <li>
-              구독 업/다운그레이드: 업그레이드 즉시 차액 정산(proration)·다음 주기 청구, 다운그레이드 다음 주기
-              반영, 차액 미리 계산 API·구독 취소 API 설계
             </li>
             <li>
               저작도구 태블릿 대응(768~1023px 기준 수립): 화면 줌·레이어 스크롤·캔버스 위치 등 터치 UX
@@ -524,10 +516,6 @@
             <li>
               국립 생태원(참여 인증제): 현장 해설을 이미지 인식으로 완료 인증(미인식 시 직원 코드 입력 폴백),
               누적 단계(해설 3개=새싹·5개=나무)·단계별 인증서 발급, iframe 콘텐츠 플레이·활동 기록·설문 수집
-            </li>
-            <li>
-              카카오 API 기프티콘 자동 발송 + 관리자 일괄 발송(카카오비즈니스), 발송 상태 폴링·재시도로 안정화,
-              관리자 월별 통계 대시보드·만족도 조사 엑셀 다운로드
             </li>
           </ul>
           <div class="item__stack">Vue.js · Koa · PostgreSQL · Kakao API · Batch · SCSS</div>
@@ -552,6 +540,25 @@
             <li>AWS EC2·S3, PM2·Nginx 배포·운영</li>
           </ul>
           <div class="item__stack">Vue 3 · TypeScript · vite-ssg · Koa · PostgreSQL · AWS · Nginx</div>
+        </div>
+      </section>
+
+      <!-- 개인 프로젝트 -->
+      <section class="section">
+        <h2 class="section__title">Personal Projects · 개인 프로젝트</h2>
+
+        <div class="item">
+          <div class="item__head">
+            <span class="item__title">blog-mcp · 블로그 발행 MCP 서버</span>
+            <span class="item__period">2026.07 –</span>
+          </div>
+          <p class="item__desc">블로그 자동 발행을 목표로 MCP(Model Context Protocol) 서버를 직접 만들며 배우는 학습 프로젝트.</p>
+          <ul class="item__bullets">
+            <li>MCP 3대 primitive(Tool·Resource·Prompt)를 갖춘 stdio 서버 직접 구현</li>
+            <li>LLM 미호출 순수 함수 원칙 — 트리거·오케스트레이터·MCP 서버로 책임 분리</li>
+            <li>결정론적 발행 게이트(follows/related 실존 검증)로 링크 할루시네이션 차단</li>
+          </ul>
+          <div class="item__stack">TypeScript · MCP · @modelcontextprotocol/sdk · zod · Astro · GitHub Actions</div>
         </div>
       </section>
 
