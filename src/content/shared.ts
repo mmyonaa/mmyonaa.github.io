@@ -85,7 +85,7 @@ const projectBase: ProjectBase[] = [
   },
   {
     slug: 'bk-theater',
-    period: '2025.09 – 2026.07',
+    period: '2025.09 –',
     tags: ['Vue 3', 'TypeScript', 'vite-ssg', 'Koa', 'PostgreSQL', 'AWS S3', 'EC2', 'PM2', 'Nginx', 'SCSS'],
     link: 'https://bktheater.com/',
     company: '',

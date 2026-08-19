@@ -531,13 +531,13 @@
         <div class="item">
           <div class="item__head">
             <span class="item__title">보광 극장 홍보·대관 사이트</span>
-            <span class="item__period">2025.09 – 2026.07</span>
+            <span class="item__period">2025.09 –</span>
           </div>
           <p class="item__desc">기획·설계·개발·인프라까지 1인으로 완성한 극장 홍보·대관 사이트.</p>
           <ul class="item__bullets">
             <li>극장 조회·예약, 관리자 콘텐츠(공연·공지·배너) 운영 기능 구현</li>
             <li>vite-ssg 기반 SSG + 동적 메타/JSON-LD·빌드타임 사이트맵으로 SEO 최적화 (2026.07 기준 12개월 누적 클릭 254·평균 CTR 28.2%·게재순위 3.9위)</li>
-            <li>AWS EC2·S3, PM2·Nginx 배포·운영</li>
+            <li>AWS EC2·S3, PM2·Nginx 배포 및 지속 운영 — 코드 리뷰 스프린트(버그 60여 건)·보안 하드닝·색인 회귀 복구</li>
           </ul>
           <div class="item__stack">Vue 3 · TypeScript · vite-ssg · Koa · PostgreSQL · AWS · Nginx</div>
         </div>
@@ -557,6 +557,7 @@
             <li>MCP 3대 primitive(Tool·Resource·Prompt)를 갖춘 stdio 서버 직접 구현</li>
             <li>LLM 미호출 순수 함수 원칙 — 트리거·오케스트레이터·MCP 서버로 책임 분리</li>
             <li>결정론적 발행 게이트(follows/related 실존 검증)로 링크 할루시네이션 차단</li>
+            <li>무인 발행 파이프라인 가동 — 매일 cron이 claude -p 오케스트레이터 실행, PreToolUse 발행 관문으로 검증</li>
           </ul>
           <div class="item__stack">TypeScript · MCP · @modelcontextprotocol/sdk · zod · Astro · GitHub Actions</div>
         </div>
@@ -569,15 +570,14 @@
         <div class="item">
           <div class="item__head">
             <span class="item__title">고객사 대상 제품 프리젠테이션</span>
-            <span class="item__period">2026.05 – 06</span>
+            <span class="item__period">2026.05 – 07</span>
           </div>
           <p class="item__desc">
             제품 개요·핵심 기능·도입 효과를 다루고, 탐지 → AI 분석 → 대응 → 리포트로 이어지는
             end-to-end 데모와 Q&A를 직접 진행.
           </p>
           <ul class="item__bullets">
-            <li>SentiveX 제품 데모·발표 (한국어) — 글로벌 IT 기업 대상, 2026.05.21</li>
-            <li>SentiveX 제품 데모·발표 (영문) — 대기업 계열사 대상, 2026.06.03</li>
+            <li>SentiveX 제품 데모·발표 3회 — 글로벌 IT 기업(한국어, 2026.05.21) · 대기업 계열사(영문, 2026.06.03) · 국내 대기업(한국어, 2026.07)</li>
           </ul>
         </div>
 

@@ -543,13 +543,13 @@
         <div class="item">
           <div class="item__head">
             <span class="item__title">Bogwang Theater Promotion & Booking Site</span>
-            <span class="item__period">2025.09 – 2026.07</span>
+            <span class="item__period">2025.09 –</span>
           </div>
           <p class="item__desc">A theater promotion and booking site completed solo — planning, design, development, and infrastructure.</p>
           <ul class="item__bullets">
             <li>Theater browsing/reservations and admin content operations (performances, notices, banners)</li>
             <li>SEO optimization via vite-ssg SSG with dynamic meta/JSON-LD and a build-time sitemap (254 clicks, 28.2% avg CTR, 3.9 avg position over trailing 12 months as of Jul 2026)</li>
-            <li>Deployed and operated on AWS EC2/S3 with PM2/Nginx</li>
+            <li>Deployed on AWS EC2/S3 with PM2/Nginx; ongoing sprints — 60+ fixes, security hardening, indexing recovery</li>
           </ul>
           <div class="item__stack">Vue 3 · TypeScript · vite-ssg · Koa · PostgreSQL · AWS · Nginx</div>
         </div>
@@ -569,6 +569,7 @@
             <li>Hand-built stdio server implementing all three MCP primitives (Tool · Resource · Prompt)</li>
             <li>No-LLM pure-function principle — responsibilities split across trigger, orchestrator, and MCP server</li>
             <li>Deterministic publish gate (follows/related existence checks) blocks link hallucination</li>
+            <li>Unattended publishing pipeline in production — a daily cron drives a claude -p orchestrator, gated by a PreToolUse hook</li>
           </ul>
           <div class="item__stack">TypeScript · MCP · @modelcontextprotocol/sdk · zod · Astro · GitHub Actions</div>
         </div>
@@ -581,15 +582,14 @@
         <div class="item">
           <div class="item__head">
             <span class="item__title">Client-facing Product Presentations</span>
-            <span class="item__period">2026.05 – 06</span>
+            <span class="item__period">2026.05 – 07</span>
           </div>
           <p class="item__desc">
             Covered the product overview, core capabilities, and business value, personally delivering
             an end-to-end demo — detection → AI analysis → response → report — with Q&A.
           </p>
           <ul class="item__bullets">
-            <li>SentiveX product demo & presentation (Korean) — for a global IT company, 2026.05.21</li>
-            <li>SentiveX product demo & presentation (English) — for a major-conglomerate subsidiary, 2026.06.03</li>
+            <li>Three SentiveX demos & presentations — a global IT company (Korean, 2026.05.21) · a major-conglomerate subsidiary (English, 2026.06.03) · a major Korean conglomerate (Korean, 2026.07)</li>
           </ul>
         </div>
 

@@ -64,16 +64,16 @@ export const siteKo: SiteText = {
         body: '팜피 재직 중 회사 프로젝트로 진행. 국립생태원 해설 프로그램 참여 인증제(현장 이미지 인식 인증·단계별 인증서·카카오 기프티콘 자동/일괄 발송·관리자 통계)의 콘텐츠 서비스와 관리자 시스템을 1인으로 개발했습니다.',
       },
       {
-        period: '2025.09 – 2026.07',
+        period: '2025.09 –',
         title: '외주 · 보광 극장 홍보·대관 사이트',
-        body: '보광 극장 홍보·대관 사이트를 기획·설계·개발·인프라까지 1인으로 완성했습니다. vite-ssg 기반 SSG와 동적 메타/JSON-LD로 SEO를 최적화하고 AWS·PM2·Nginx로 배포·운영합니다.',
+        body: '보광 극장 홍보·대관 사이트를 기획·설계·개발·인프라까지 1인으로 완성했습니다. vite-ssg 기반 SSG와 동적 메타/JSON-LD로 SEO를 최적화하고 AWS·PM2·Nginx로 배포·운영하며, 오픈 후에도 전면 코드 리뷰·보안 하드닝 스프린트로 정비를 이어가고 있습니다.',
       },
     ],
     activities: [
       {
-        period: '2026.05 – 06',
+        period: '2026.05 – 07',
         title: '고객사 대상 제품 프리젠테이션',
-        body: 'SentiveX 제품을 고객사 대상으로 한국어·영문 발표 (글로벌 IT 기업, 대기업 계열사).',
+        body: 'SentiveX 제품을 고객사 대상으로 한국어·영문 발표 (글로벌 IT 기업, 대기업 계열사, 국내 대기업).',
       },
       {
         period: '2026',
@@ -152,16 +152,16 @@ export const siteEn: SiteText = {
         body: 'A company project at Famppy. Solo-built the content service and admin for the National Institute of Ecology participation-certification program — on-site image-recognition certification, tiered certificates, automatic/bulk KakaoTalk gifticons, and admin stats.',
       },
       {
-        period: '2025.09 – 2026.07',
+        period: '2025.09 –',
         title: 'Freelance · Bogwang Theater Promotion & Booking Site',
-        body: 'Single-handedly delivered the Bogwang Theater promotion/booking site from planning and design to development and infrastructure. Optimized SEO with vite-ssg SSG and dynamic meta/JSON-LD, deployed and operated on AWS with PM2 and Nginx.',
+        body: 'Single-handedly delivered the Bogwang Theater promotion/booking site from planning and design to development and infrastructure. Optimized SEO with vite-ssg SSG and dynamic meta/JSON-LD, deployed and operated on AWS with PM2 and Nginx — with ongoing post-launch code-review and security-hardening sprints.',
       },
     ],
     activities: [
       {
-        period: '2026.05 – 06',
+        period: '2026.05 – 07',
         title: 'Client Product Presentations',
-        body: 'Presented and demoed SentiveX to enterprise clients in both Korean and English (a global IT firm and a large-enterprise affiliate).',
+        body: 'Presented and demoed SentiveX to enterprise clients in both Korean and English (a global IT firm, a large-enterprise affiliate, and a major Korean conglomerate).',
       },
       {
         period: '2026',

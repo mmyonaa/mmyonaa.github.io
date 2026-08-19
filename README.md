@@ -106,6 +106,14 @@ Conventional Commits를 따릅니다.
 
 ## 🗓 버전 기록
 
+### v1.4 — 2026-08-19
+프로젝트 이미지 테마 스왑 · bk-theater/blog-mcp 콘텐츠 최신화 · 이력서 동기화.
+
+- 프로젝트 이미지 라이트/다크 테마 스왑 — ImageSlider `themed` prop 도입, blog-mcp·portfolio 라이트/다크 캡처 쌍 연결 (기본=다크, `-light` 접미사)
+- bk-theater: 전면 코드 리뷰 스프린트·보안 하드닝 테크노트 신설, SEO 색인 회귀 복구 반영, 기간 진행형(2025.09 –)으로 정정
+- blog-mcp: Phase 3 무인 발행 파이프라인 가동·Mode R 리서치 발행·Supabase 조회수 반영, 오케스트레이터 서술을 실제 구현(claude -p)으로 정정
+- 발표 이력 추가(국내 대기업, 2026.07) 및 About 경력·이력서(ko/en) 동기화, 2페이지 유지 압축, PDF 재생성
+
 ### v1.3 — 2026-07-29
 blog-mcp 프로젝트 추가 · 민감 정보 정리 · 자동 배포 · SEO 보강.
 
