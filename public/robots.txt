@@ -1,0 +1,7 @@
+# 모든 크롤러 허용
+User-agent: *
+Allow: /
+
+# robots.txt는 호스트 루트에서만 읽힌다(/blog/robots.txt는 크롤러가 보지 않음).
+# 따라서 하위 경로인 블로그의 사이트맵도 여기서 알린다.
+Sitemap: https://mmyonaa.github.io/blog/sitemap-index.xml
