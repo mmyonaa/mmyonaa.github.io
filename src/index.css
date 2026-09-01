@@ -18,6 +18,9 @@
 
   --nav-bg: rgba(10, 10, 11, 0.72);
 
+  /* 계기판 프레임 여백 — 괘선/판독값이 화면 가장자리에서 떨어지는 거리 */
+  --hud-gutter: clamp(20px, 4vw, 56px);
+
   color-scheme: dark;
 }
 

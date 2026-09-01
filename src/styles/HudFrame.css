@@ -1,0 +1,118 @@
+/* 계기판 프레임. 괘선은 콘텐츠 뒤(z-index 0, main 이 1), 판독값은 콘텐츠 위(40)
+   — 단 Navbar(50)·팔레트(900)·라이트박스(1000)보다는 아래. 전부 클릭 통과. */
+.hud {
+  pointer-events: none;
+}
+
+/* ---------- 괘선 + 교차점 십자선 ---------- */
+.hud__grid {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: var(--hud-gutter);
+  right: var(--hud-gutter);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.hud__v,
+.hud__h {
+  position: absolute;
+  background: var(--line);
+}
+
+.hud__v {
+  top: 0;
+  bottom: 0;
+  width: 1px;
+}
+
+.hud__h {
+  left: 0;
+  right: 0;
+  height: 1px;
+}
+
+/* 십자선 — 괘선 교차점에 얹히는 9px 마커. haoqi 의 '도면' 인상을 만드는 핵심. */
+.hud__cross {
+  position: absolute;
+  left: 50%;
+  width: 9px;
+  height: 9px;
+  transform: translate(-50%, -50%);
+}
+
+.hud__cross::before,
+.hud__cross::after {
+  content: '';
+  position: absolute;
+  background: var(--faint);
+}
+
+.hud__cross::before {
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 1px;
+}
+
+.hud__cross::after {
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 1px;
+}
+
+/* ---------- 하단 판독값 ---------- */
+.hud__readout {
+  position: fixed;
+  bottom: var(--hud-gutter);
+  z-index: 40;
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  line-height: 1;
+  color: var(--dim);
+  pointer-events: none;
+  font-variant-numeric: tabular-nums;
+
+  /* 이 사이트는 콘텐츠가 화면 끝까지 찬다 — 밝은 스크린샷 위에서도 읽히도록
+     Navbar 와 같은 판(--nav-bg + 블러)을 깐다. */
+  padding: 5px 9px;
+  border-radius: 4px;
+  background: var(--nav-bg);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.hud__readout--left {
+  left: calc(var(--hud-gutter) - 9px);
+}
+
+.hud__readout--center {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.hud__readout--right {
+  right: calc(var(--hud-gutter) - 9px);
+}
+
+/* 좁은 화면 — 괘선은 바깥 2줄만, 커서 좌표는 뺀다(터치엔 커서가 없다). */
+@media (max-width: 860px) {
+  .hud__v:nth-child(2),
+  .hud__v:nth-child(3) {
+    display: none;
+  }
+
+  .hud__readout--center {
+    display: none;
+  }
+}
+
+@media (max-width: 560px) {
+  .hud__readout {
+    font-size: 0.6rem;
+    letter-spacing: 0.1em;
+  }
+}

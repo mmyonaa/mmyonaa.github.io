@@ -2,6 +2,7 @@
 import { computed, nextTick, onMounted, onUnmounted, ref, watch } from 'vue'
 import Stars from './components/Stars.vue'
 import CursorFollower from './components/CursorFollower.vue'
+import HudFrame from './components/HudFrame.vue'
 import Lightbox from './components/Lightbox.vue'
 import CommandPalette from './components/CommandPalette.vue'
 import BootIntro from './components/BootIntro.vue'
@@ -13,6 +14,7 @@ import Works from './components/Works.vue'
 import Contact from './components/Contact.vue'
 import ProjectDetail from './components/ProjectDetail.vue'
 import { projects } from './data'
+import { initSmoothScroll } from './smoothScroll'
 
 type Route =
   | { name: 'project'; slug: string }
@@ -38,6 +40,8 @@ const isAbout = computed(() => route.value.name === 'about')
 function onHash() {
   route.value = getRoute()
 }
+
+let disposeScroll: (() => void) | null = null
 
 let observer: IntersectionObserver | null = null
 function bindReveal() {
@@ -68,17 +72,20 @@ watch(route, async (r) => {
 
 onMounted(async () => {
   window.addEventListener('hashchange', onHash)
+  disposeScroll = initSmoothScroll()
   await nextTick()
   bindReveal()
 })
 onUnmounted(() => {
   window.removeEventListener('hashchange', onHash)
+  disposeScroll?.()
   observer?.disconnect()
 })
 </script>
 
 <template>
   <Stars />
+  <HudFrame />
   <CursorFollower />
   <Lightbox />
   <CommandPalette />
