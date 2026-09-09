@@ -48,3 +48,6 @@ public/projects/nie/**
 
 # sentivex 발표 슬라이드: 실제 브랜드·도메인(sentivexsystems.com) 렌더링 — 비배포(로컬 보관)
 public/projects/sentivex/*.jpg
+
+# 지원서 제출용 묶음(이력서·포트폴리오 PDF) — 개인 보관, 저장소/배포 제외
+apply/
