@@ -323,7 +323,7 @@
           <div class="head__name">임현아</div>
           <div class="head__name-en">Hyonah Lim</div>
           <div class="head__role">Full-stack Developer · Seoul, Korea</div>
-          <div class="head__tagline">보안 AI · 커머스 · 결제 · SaaS · 키오스크까지 여러 형태의 웹 서비스를 end-to-end로 구축하는 풀스택 개발자</div>
+          <div class="head__tagline">보안 AI·커머스·결제·SaaS·키오스크까지 여러 형태의 웹 서비스를 end-to-end로 구축하는 풀스택 개발자</div>
           <div class="head__contact">
             <a href="https://mmyonaa.github.io">mmyonaa.github.io</a>
             <a href="mailto:apddfhsajrwk@gmail.com">apddfhsajrwk@gmail.com</a>
@@ -388,20 +388,20 @@
             </p>
             <ul class="item__bullets">
               <li>
-                <b>실시간 수집 → 자동 분석 파이프라인</b>: CrowdStrike·SentinelOne·Cortex XDR 등 벤더별 XDR 텔레메트리를
+                <b>실시간 수집 → 자동 분석 파이프라인</b>: CrowdStrike · SentinelOne · Cortex XDR 등 벤더별 XDR 텔레메트리를
                 <b>OCSF</b> 표준 스키마로 정규화해 Kafka로 받고 OpenSearch에 적재, 적재되는 즉시 Redis 큐가 분석 작업을 집어
                 아래 멀티 에이전트 분석으로 넘기는 구조 → 수집·정규화와 분석을 분리해, 벤더가 늘어도 분석 계층은 건드리지 않고
                 유입량이 늘면 워커만 늘리는 방식으로 대응
               </li>
               <li>
                 <b>멀티 에이전트 오케스트레이터(역할별 에이전트 8종)</b> 설계: 큐에서 꺼낸 인시던트를 Triage가 분류·우선순위
-                산정해 실행 범위부터 정하고(낮은 우선순위는 가지치기), 코드 기반 에이전트(IOC·MITRE·Network)를 병렬 실행해
+                산정해 실행 범위부터 정하고(낮은 우선순위는 가지치기), 코드 기반 에이전트(IOC · MITRE · Network)를 병렬 실행해
                 분석 근거를 먼저 확보한 뒤, 판정이 서지 않을 때만 LLM 에이전트(SecurityIntel)를 투입하고 마지막에
                 Correlation이 종합
               </li>
               <li>
                 Correlation <b>구조화 출력</b>: kill-chain 그래프·위협 점수(0–100)·신뢰도(generateObject/zod),
-                컴플라이언스(ISMS-P·ISO 27001·GDPR) 백그라운드 처리
+                컴플라이언스(ISMS-P · ISO 27001 · GDPR) 백그라운드 처리
               </li>
               <li>분석 <b>SSE 실시간 스트리밍</b> + 진행률 추적, 수동 재분석 API</li>
               <li><b>운영 관측</b>: Grafana 대시보드를 구성해 AI 서버·웹 플랫폼의 오류와 트래픽을 상시 관제</li>
@@ -410,7 +410,7 @@
                 백오프·토큰 budget을 게이트웨이 계층으로 이전, provider 헬스 10s 캐시
               </li>
               <li>
-                <b>멀티테넌트 모델·BYOK</b>: LiteLLM Admin API 모델 CRUD·virtual key 허용목록 격리·저장 직후
+                <b>멀티테넌트 모델·BYOK</b>: LiteLLM Admin API 모델 CRUD · virtual key 허용목록 격리·저장 직후
                 검증, BullMQ 비동기 리포트, 헬스 엔드포인트 live/readiness 분리
               </li>
             </ul>
@@ -435,21 +435,21 @@
                 멀티스키마(PostgreSQL)
               </li>
               <li>
-                <b>SIEM 대시보드·인시던트/경고 관리</b>: severity·MITRE ATT&CK 분석 뷰, 엔드포인트 스캔·네트워크
+                <b>SIEM 대시보드·인시던트/경고 관리</b>: severity · MITRE ATT&CK 분석 뷰, 엔드포인트 스캔·네트워크
                 격리, 위협 인텔리전스
               </li>
               <li>
                 <b>AI 리포트 에디터(BlockNote)</b>: 커스텀 블록 + 블록/표/문자 단위 diff 하이라이팅·미리보기,
-                다국어(한/영/일) 리포트, PDF(Puppeteer)·DOCX·CSV/XLSX 익스포트
+                다국어(한/영/일) 리포트, PDF(Puppeteer) · DOCX · CSV/XLSX 익스포트
               </li>
               <li>
-                <b>데이터 시각화</b>: Recharts 대시보드 차트 + XY Flow·dagre 킬체인(MITRE ATT&CK) 토폴로지 그래프
+                <b>데이터 시각화</b>: Recharts 대시보드 차트 + XY Flow · dagre 킬체인(MITRE ATT&CK) 토폴로지 그래프
               </li>
               <li>
-                <b>백그라운드 잡·스케줄링</b>: BullMQ·Redis 워커·크론 — 데이터 보존·알림·정기 리포트 자동화
+                <b>백그라운드 잡·스케줄링</b>: BullMQ · Redis 워커·크론 — 데이터 보존·알림·정기 리포트 자동화
               </li>
               <li>
-                <b>OpenSearch SIEM 검색</b>·실시간 모니터링(SSE), AI 서버(REST·SSE) 연동
+                <b>OpenSearch SIEM 검색</b>·실시간 모니터링(SSE), AI 서버(REST · SSE) 연동
               </li>
             </ul>
             <div class="item__stack">
@@ -469,7 +469,7 @@
 
         <div class="item">
           <div class="item__head">
-            <span class="item__title">eSIM 플랫폼 — 서비스 · 키오스크 · 어드민</span>
+            <span class="item__title">eSIM 플랫폼 — 서비스·키오스크·어드민</span>
             <span class="item__period">2023.11 – 2025.09</span>
           </div>
           <p class="item__desc">
@@ -478,18 +478,18 @@
           </p>
           <ul class="item__bullets">
             <li>
-              글로벌 eSIM 커머스(프론트 설계 주도): 다중 PG 결제 — Paygent 카드(USD) + Google Pay·Apple
+              글로벌 eSIM 커머스(프론트 설계 주도): 다중 PG 결제 — Paygent 카드(USD) + Google Pay · Apple
               Pay(JPY), 웹·키오스크 겸용 결제 플로우, 결제 후 eSIM QR 발급·메일 전송
             </li>
             <li>
-              백엔드 미들웨어(Koa·TypeORM·PostgreSQL) 개발 주도: 역할 계층 권한(RBAC), 광고·유입업체 정산,
+              백엔드 미들웨어(Koa · TypeORM · PostgreSQL) 개발 주도: 역할 계층 권한(RBAC), 광고·유입업체 정산,
               국내외 eSIM 공급사(중국 현지 업체 포함) API 연동 — 상품 조회·소싱부터
               주문까지 처리, 규격 차이·인증·문자 인코딩 이슈 직접 대응
             </li>
             <li>
               무인 키오스크(일본 매장 전용·JPY, 판매 eSIM 상품 30개국+): 키오스크
               웹(Vue PWA) 개발 주도 + Android WebView 앱의 프린터 이중 드라이버 자동 감지(SII↔Epson)·
-              Shift-JIS/UTF-8 다국어 인코딩·결제 단말(카드·QR·NFC 태그) 상태·오류 처리 개선, 개발 후 초기 운영·일본 현지
+              Shift-JIS/UTF-8 다국어 인코딩·결제 단말(카드 · QR · NFC 태그) 상태·오류 처리 개선, 개발 후 초기 운영·일본 현지
               실시간 이슈 대응까지 담당
             </li>
           </ul>
@@ -499,12 +499,12 @@
         <div class="item">
           <div class="item__head">
             <span class="item__title">자사 SaaS 저작도구 (apoc)</span>
-            <span class="item__period">2024.01 – 2025.08</span>
+            <span class="item__period">2023.07 – 2025.08</span>
           </div>
           <ul class="item__bullets">
             <li>플랫폼 리뉴얼: 인터페이스 전면 개선 및 컴포넌트 기반 리팩토링으로 유지보수성·확장성 향상</li>
             <li>
-              결제 시스템: Toss·PayPal 연동(단건/정기 구독), PayPal 결제 플로우 설계, 결제·구독·취소 이력을
+              결제 시스템: Toss · PayPal 연동(단건/정기 구독), PayPal 결제 플로우 설계, 결제·구독·취소 이력을
               관심사별 테이블로 분리(멀티 PG 통합 기록), 자동 갱신 배치·Jest 테스트
             </li>
             <li>
@@ -545,7 +545,7 @@
           <ul class="item__bullets">
             <li>극장 조회·예약, 관리자 콘텐츠(공연·공지·배너) 운영 기능 구현</li>
             <li>vite-ssg 기반 SSG + 동적 메타/JSON-LD·빌드타임 사이트맵으로 SEO 최적화 (조치 후 2개월(2026.07–09) 클릭 85·노출 330·평균 CTR 25.8%·게재순위 4.1위)</li>
-            <li>AWS EC2·S3, PM2·Nginx 배포 및 지속 운영 — 코드 리뷰 스프린트(버그 60여 건)·보안 하드닝·색인 회귀 복구</li>
+            <li>AWS EC2 · S3, PM2 · Nginx 배포 및 지속 운영 — 코드 리뷰 스프린트(버그 60여 건)·보안 하드닝·색인 회귀 복구</li>
           </ul>
           <div class="item__stack">Vue 3 · TypeScript · vite-ssg · Koa · PostgreSQL · AWS · Nginx</div>
         </div>
@@ -562,7 +562,7 @@
           </div>
           <p class="item__desc">블로그 자동 발행을 목표로 MCP(Model Context Protocol) 서버를 직접 만들며 배우는 학습 프로젝트.</p>
           <ul class="item__bullets">
-            <li>MCP 3대 primitive(Tool·Resource·Prompt)를 갖춘 stdio 서버 직접 구현</li>
+            <li>MCP 3대 primitive(Tool · Resource · Prompt)를 갖춘 stdio 서버 직접 구현</li>
             <li>LLM 미호출 순수 함수 원칙 — 트리거·오케스트레이터·MCP 서버로 책임 분리</li>
             <li>결정론적 발행 게이트 — follows/related·본문 내부 링크의 실존·형태 검증으로 링크 할루시네이션 차단</li>
             <li>무인 발행 파이프라인 가동 — 매일 cron이 오케스트레이터 래퍼 실행, PreToolUse 발행 관문으로 검증</li>
@@ -593,7 +593,7 @@
         <div class="item">
           <div class="item__head">
             <span class="item__title">RSAC 2026 참관</span>
-            <span class="item__period">2026</span>
+            <span class="item__period">2026.03</span>
           </div>
           <p class="item__desc">글로벌 보안 컨퍼런스(RSA Conference) 참관 — 최신 보안 트렌드·솔루션 리서치.</p>
         </div>

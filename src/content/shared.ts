@@ -174,7 +174,7 @@ const projectBase: ProjectBase[] = [
   },
   {
     slug: 'apoc-renewal',
-    period: '2024.01 – 2025.05',
+    period: '2023.07 – 2025.05',
     tags: ['Vue.js', 'Koa', 'PostgreSQL', 'SCSS'],
     link: 'https://www.apoc.day/',
     company: '',

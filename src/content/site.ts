@@ -1,4 +1,4 @@
-// 사이트 텍스트(프로젝트 외) — 프로필 태그라인 · About · About 상세. ko·en 나란히.
+// 사이트 텍스트(프로젝트 외) — 프로필 태그라인 · About · About 상세. ko · en 나란히.
 
 import type { AboutContent, AboutDetail } from './types'
 
@@ -51,12 +51,12 @@ export const siteKo: SiteText = {
       {
         period: '2023.11 – 2025.05',
         title: 'eSIM 판매 플랫폼 (서비스·키오스크·어드민)',
-        body: '온라인 서비스·키오스크·어드민·공유 미들웨어로 이뤄진 eSIM 플랫폼에 핵심 개발자로 참여(대부분 영역 최다 기여). 다중 PG 결제(Paygent·Google/Apple Pay), RBAC 권한·정산, eSIM 발급·SES 메일 발송, 키오스크 프린터·다국어 인코딩 등 하드웨어 연동까지 담당하고 일본 현지 실운영을 대응했습니다.',
+        body: '온라인 서비스·키오스크·어드민·공유 미들웨어로 이뤄진 eSIM 플랫폼에 핵심 개발자로 참여(대부분 영역 최다 기여). 다중 PG 결제(Paygent · Google/Apple Pay), RBAC 권한·정산, eSIM 발급·SES 메일 발송, 키오스크 프린터·다국어 인코딩 등 하드웨어 연동까지 담당하고 일본 현지 실운영을 대응했습니다.',
       },
       {
         period: '2024.01 – 2025.08',
         title: '자사 SaaS 저작도구 (apoc)',
-        body: '플랫폼 리뉴얼, 결제 시스템(Toss·PayPal), 3D·인터랙티브 저작도구 고도화를 담당. 컴포넌트 기반 리팩토링으로 유지보수성과 확장성을 높였습니다.',
+        body: '플랫폼 리뉴얼, 결제 시스템(Toss · PayPal), 3D·인터랙티브 저작도구 고도화를 담당. 컴포넌트 기반 리팩토링으로 유지보수성과 확장성을 높였습니다.',
       },
       {
         period: '2025.07 – 2025.08',
@@ -66,7 +66,7 @@ export const siteKo: SiteText = {
       {
         period: '2025.09 –',
         title: '외주 · 보광 극장 홍보·대관 사이트',
-        body: '보광 극장 홍보·대관 사이트를 기획·설계·개발·인프라까지 1인으로 완성했습니다. vite-ssg 기반 SSG와 동적 메타/JSON-LD로 SEO를 최적화하고 AWS·PM2·Nginx로 배포·운영하며, 오픈 후에도 전면 코드 리뷰·보안 하드닝 스프린트로 정비를 이어가고 있습니다.',
+        body: '보광 극장 홍보·대관 사이트를 기획·설계·개발·인프라까지 1인으로 완성했습니다. vite-ssg 기반 SSG와 동적 메타/JSON-LD로 SEO를 최적화하고 AWS · PM2 · Nginx로 배포·운영하며, 오픈 후에도 전면 코드 리뷰·보안 하드닝 스프린트로 정비를 이어가고 있습니다.',
       },
     ],
     activities: [
@@ -144,7 +144,7 @@ export const siteEn: SiteText = {
       {
         period: '2024.01 – 2025.08',
         title: 'In-house SaaS Authoring Tool (apoc)',
-        body: 'Handled the platform renewal, the payment system (Toss·PayPal), and enhancements to the 3D/interactive authoring tool. Improved maintainability and scalability through component-based refactoring.',
+        body: 'Handled the platform renewal, the payment system (Toss · PayPal), and enhancements to the 3D/interactive authoring tool. Improved maintainability and scalability through component-based refactoring.',
       },
       {
         period: '2025.07 – 2025.08',

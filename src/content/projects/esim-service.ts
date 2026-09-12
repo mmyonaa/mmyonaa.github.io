@@ -9,13 +9,13 @@ export const ko: ProjectText = {
   description:
     'Vue 3 글로벌 eSIM 커머스. 프론트엔드 설계 전반을 주도하고 다중 PG 결제·다국어·웹/키오스크 겸용 결제 플로우를 직접 구현했습니다.',
   overview: [
-    '여행자가 국가·상품을 검색·비교하고 장바구니·결제 후 eSIM QR을 메일로 받아 바로 설치하는 글로벌 eSIM 커머스입니다. Vue 3·TypeScript 프론트엔드의 초기 아키텍처(라우팅·상태·API·스타일·다국어)를 설계하고, 프로젝트 최다 커밋(전체의 약 1/3)으로 개발을 이끌었습니다.',
-    '핵심은 결제입니다. Paygent 카드 결제(달러)에 Google Pay·Apple Pay(엔화)까지 묶은 다중 결제와, 상품 검증 → 결제 정보 생성 → 카드 토큰화 → 완료로 이어지는 다단계 결제 플로우를 구현했습니다. 같은 화면이 웹 고객과 키오스크(무로그인) 결제를 함께 처리하도록 orderId 기준으로 경로를 분기하고, 실패 시 롤백을 두어 상태 꼬임을 막았습니다.',
+    '여행자가 국가·상품을 검색·비교하고 장바구니·결제 후 eSIM QR을 메일로 받아 바로 설치하는 글로벌 eSIM 커머스입니다. 키오스크와 합쳐 월 100건 규모의 실결제 주문이 오갔습니다. Vue 3 · TypeScript 프론트엔드의 초기 아키텍처(라우팅·상태·API·스타일·다국어)를 설계하고, 프로젝트 최다 커밋(전체의 약 1/3)으로 개발을 이끌었습니다.',
+    '핵심은 결제입니다. Paygent 카드 결제(달러)에 Google Pay · Apple Pay(엔화)까지 묶은 다중 결제와, 상품 검증 → 결제 정보 생성 → 카드 토큰화 → 완료로 이어지는 다단계 결제 플로우를 구현했습니다. 같은 화면이 웹 고객과 키오스크(무로그인) 결제를 함께 처리하도록 orderId 기준으로 경로를 분기하고, 실패 시 롤백을 두어 상태 꼬임을 막았습니다.',
     '해외 사용자를 위해 vue-i18n 3개 언어(한/영/일) 사전을 직접 구축하고 국가·언어별 통화(USD/JPY)를 전환했으며, PC~모바일 반응형과 PWA(Workbox)를 적용했습니다. lz-string 로컬 저장소 압축 같은 클라이언트 최적화도 담당했습니다. 이 서비스는 어드민·키오스크·공유 백엔드(미들웨어)와 함께 하나의 eSIM 플랫폼을 이룹니다.',
   ],
   highlights: [
     'Vue 3 프론트엔드 아키텍처 설계·개발 주도 (프로젝트 최다 커밋)',
-    '다중 PG 결제 구현 — Paygent 카드(USD) + Google Pay·Apple Pay(JPY)',
+    '다중 PG 결제 구현 — Paygent 카드(USD) + Google Pay · Apple Pay(JPY)',
     '웹·키오스크 겸용 다단계 결제 플로우 (경로 분기·실패 롤백)',
     'vue-i18n 3개 언어 사전 구축 + 국가·언어별 통화 전환',
     '반응형·PWA + lz-string 저장소 압축 등 클라이언트 최적화',
@@ -24,7 +24,7 @@ export const ko: ProjectText = {
   techNotes: [
     {
       title: '다중 게이트웨이 글로벌 결제',
-      body: 'Paygent 카드 결제(달러)에 Google Pay·Apple Pay(엔화)를 더해 결제 수단을 통합하고, 카드 브랜드별(VISA·Master·AMEX) 정규식 검증과 Paygent 토큰화, 국가·언어별 통화 코드 전환을 구현했습니다.',
+      body: 'Paygent 카드 결제(달러)에 Google Pay · Apple Pay(엔화)를 더해 결제 수단을 통합하고, 카드 브랜드별(VISA · Master · AMEX) 정규식 검증과 Paygent 토큰화, 국가·언어별 통화 코드 전환을 구현했습니다.',
     },
     {
       title: '웹 · 키오스크 겸용 결제 플로우',
@@ -36,7 +36,7 @@ export const ko: ProjectText = {
     },
     {
       title: '반응형·PWA & 플랫폼 연동',
-      body: 'PC~모바일 반응형과 VitePWA(Workbox 캐싱)로 해외 모바일 사용성을 확보하고, 프로덕션 한정으로 Sentry 에러 추적과 Google Analytics를 적용했습니다. 어드민·키오스크와 공유하는 Koa·PostgreSQL 미들웨어 개발에도 참여해 eSIM 공급사 외부 연동과 결제 후 eSIM 발급·AWS SES 다국어 메일 발송(활성 QR·영수증 첨부)을 담당했습니다.',
+      body: 'PC~모바일 반응형과 VitePWA(Workbox 캐싱)로 해외 모바일 사용성을 확보하고, 프로덕션 한정으로 Sentry 에러 추적과 Google Analytics를 적용했습니다. 어드민·키오스크와 공유하는 Koa · PostgreSQL 미들웨어 개발에도 참여해 eSIM 공급사 외부 연동과 결제 후 eSIM 발급·AWS SES 다국어 메일 발송(활성 QR·영수증 첨부)을 담당했습니다.',
     },
   ],
 }
@@ -50,7 +50,7 @@ export const en: ProjectText = {
   description:
     'A Vue 3 global eSIM commerce. I led the frontend architecture and built the multi-gateway payments, i18n, and a web/kiosk-shared checkout flow.',
   overview: [
-    'A global eSIM commerce where travelers search and compare plans by country, check out, and receive an eSIM QR by email to install instantly. I designed the initial Vue 3 / TypeScript frontend architecture (routing, state, API layer, styling, i18n) and led development as the top committer (about a third of the project).',
+    'A global eSIM commerce where travelers search and compare plans by country, check out, and receive an eSIM QR by email to install instantly. Together with the kiosks it handled roughly 100 real paid orders a month. I designed the initial Vue 3 / TypeScript frontend architecture (routing, state, API layer, styling, i18n) and led development as the top committer (about a third of the project).',
     'Payments are the core. I integrated Paygent card payments (USD) plus Google Pay and Apple Pay (JPY), and built a multi-step checkout — validate cart → create payment info → tokenize card → complete. The same screens serve both web customers and (login-free) kiosk checkout, branching by orderId, with rollback on failure to avoid stuck states.',
     'For international users I built the vue-i18n dictionaries for three languages (KO/EN/JP) and switched currency (USD/JPY) by country and language, with a responsive UI and PWA (Workbox). I also handled client optimizations such as compressing local storage with lz-string. This service forms one eSIM platform together with the admin, kiosk, and a shared backend (middleware).',
   ],

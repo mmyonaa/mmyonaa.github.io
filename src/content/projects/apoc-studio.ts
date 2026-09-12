@@ -43,7 +43,7 @@ export const ko: ProjectText = {
         body: '값·화면효과 팝업이 캔버스 위치에 따라 잘리던 문제를 가용 여백 기준으로 열림 방향이 전환되도록 개선하고, 재생구간·볼륨 드래그 값 미저장 등 입력 결함을 수정했습니다.',
       },
     ],
-    note: '갤럭시 탭 S9 FE·S6·A8, iPad Air 3·4, Xiaomi Pad 4에서 Chrome·Safari·Whale·Firefox·Edge·삼성인터넷, 터치·터치펜 입력으로 검증 — 원본 테스트 시트는 사내 문서로 비공개입니다.',
+    note: '갤럭시 탭 S9 FE · S6 · A8, iPad Air 3 · 4, Xiaomi Pad 4에서 Chrome · Safari · Whale · Firefox · Edge · 삼성인터넷, 터치·터치펜 입력으로 검증 — 원본 테스트 시트는 사내 문서로 비공개입니다.',
   },
 }
 

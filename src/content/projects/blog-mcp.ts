@@ -5,24 +5,24 @@ export const ko: ProjectText = {
   description:
     '블로그 글을 자동으로 쓰고 발행하는 것을 목표로, MCP(Model Context Protocol) 서버를 직접 만들며 배우는 학습 프로젝트. stdio MCP 서버(도구·리소스·프롬프트)와 Astro 블로그로 구성했고, 현재는 cron 오케스트레이터가 6개 섹션을 돌며 매일 무인으로 글을 발행합니다(누적 100편 이상).',
   overview: [
-    '“매일 블로그 글을 자동 발행한다”를 목표로 잡되, 진짜 목적은 결과물이 아니라 MCP를 제대로 익히는 데 뒀습니다. 그래서 발행 파이프라인은 최대한 단순하게 두고 MCP 서버 설계에 집중했고, server(MCP 서버)·site(Astro 블로그)를 pnpm 워크스페이스로 묶은 모노레포로 만들었습니다.',
-    '핵심 학습 포인트는 “MCP 서버는 스스로 글을 쓰지 않는다”는 원칙입니다. 서버는 LLM을 호출하지 않고 순수 함수로 도구·리소스·프롬프트만 노출하며, 실제 동작은 트리거(cron)·오케스트레이터(LLM 루프)·MCP 서버 세 조각의 협업으로 나눴습니다. 모델 호출은 오케스트레이터에서만 일어나고, 서버는 그냥 함수를 실행합니다 — 이 경계를 직접 그어 보는 것이 목표였습니다.',
+    '“매일 블로그 글을 자동 발행한다”를 목표로 잡되, 진짜 목적은 결과물이 아니라 MCP를 제대로 익히는 데 뒀습니다. 그래서 발행 파이프라인은 최대한 단순하게 두고 MCP 서버 설계에 집중했고, server(MCP 서버) · site(Astro 블로그)를 pnpm 워크스페이스로 묶은 모노레포로 만들었습니다.',
+    '핵심 학습 포인트는 “MCP 서버는 스스로 글을 쓰지 않는다”는 원칙입니다. 서버는 LLM을 호출하지 않고 순수 함수로 도구·리소스·프롬프트만 노출하며, 실제 동작은 트리거(cron)·오케스트레이터(LLM 루프) · MCP 서버 세 조각의 협업으로 나눴습니다. 모델 호출은 오케스트레이터에서만 일어나고, 서버는 그냥 함수를 실행합니다 — 이 경계를 직접 그어 보는 것이 목표였습니다.',
     'Phase 1에서 MCP의 3대 primitive를 한 서버에 모두 구현했고, Phase 3에서 무인 발행 파이프라인을 가동했습니다 — 매일 KST 14:23 cron이 오케스트레이터를 돌려 섹션 로테이션(5슬롯) 차례대로 글을 쓰고, 발행 관문(hook)이 통과시킨 글만 자동 배포됩니다. 주제 축은 MCP·에이전트 만들기 / 블로그·웹 만들기 / 정처기 / 정보보안기사 / 알고리즘 / 보안 6개 섹션이며, 리서치가 필요한 보안 이슈·MCP 생태계 동향 글은 웹 검색 도구로 근거를 수집하는 Mode R로 발행합니다. 지금까지 100편 이상이 사람 손 없이 발행됐습니다. 발행된 글은 Astro SSG 블로그로 렌더되며, 목차·스크롤스파이, Shiki 듀얼테마 코드 하이라이팅, 클라이언트 검색(⌘K), 태그·섹션·관련 글, RSS·사이트맵·글별 JSON-LD, 주제 그래프·발행 히트맵 같은 고유 비주얼을 갖췄습니다. GitHub Actions로 main 푸시 시 GitHub Pages에 자동 배포됩니다.',
   ],
   highlights: [
-    'MCP 3대 primitive 전부 직접 구현 — Tool·Resource·Prompt를 갖춘 stdio 서버',
+    'MCP 3대 primitive 전부 직접 구현 — Tool · Resource · Prompt를 갖춘 stdio 서버',
     'LLM 미호출 순수 함수 원칙 — 트리거·오케스트레이터·MCP 서버 3조각으로 책임 분리',
     '무인 발행 파이프라인 가동 — cron + 오케스트레이터 래퍼 + PreToolUse 발행 관문, 누적 100편 이상 자동 발행',
     '결정론적 구조 검증으로 발행 게이트 — follows/related·본문 내부 링크의 실존·형태 검증으로 링크 할루시네이션 차단',
     '성과 신호 되먹임으로 콘텐츠 루프 닫음 — 조회수를 주제 선정 정렬에 가중(cold-start 관문·graceful degradation)',
-    'Mode R 리서치 발행 — search_web·read_url 도구로 근거 수집, 출처 메타를 글과 함께 렌더',
+    'Mode R 리서치 발행 — search_web · read_url 도구로 근거 수집, 출처 메타를 글과 함께 렌더',
     '섹션 레지스트리(topics.ts) 한 줄로 주제 축 확장 — 6개 섹션까지 하드코딩 없이 증설',
-    'Astro SSG 블로그 — 검색(⌘K)·태그/섹션·관련 글·RSS·JSON-LD·Shiki 듀얼테마',
+    'Astro SSG 블로그 — 검색(⌘K)·태그/섹션·관련 글 · RSS · JSON-LD · Shiki 듀얼테마',
   ],
   techNotes: [
     {
       title: 'MCP 3대 primitive 직접 구현',
-      body: '@modelcontextprotocol/sdk(stdio transport, zod 스키마)로 tool·resource·prompt를 한 서버에 모두 노출했습니다. Tool은 글을 프론트매터와 함께 발행하는 publish_post와 미발행 주제를 결정론적으로 제안하는 suggest_topic, Resource는 발행 글 목록·본문(blog://posts, blog://posts/{slug}), Prompt는 “오늘의 글쓰기” 워크플로 전체(주제 선정→집필→자기 검토→발행)를 재사용 가능하게 패키징한 write_daily_post입니다.',
+      body: '@modelcontextprotocol/sdk(stdio transport, zod 스키마)로 tool · resource · prompt를 한 서버에 모두 노출했습니다. Tool은 글을 프론트매터와 함께 발행하는 publish_post와 미발행 주제를 결정론적으로 제안하는 suggest_topic, Resource는 발행 글 목록·본문(blog://posts, blog://posts/{slug}), Prompt는 “오늘의 글쓰기” 워크플로 전체(주제 선정→집필→자기 검토→발행)를 재사용 가능하게 패키징한 write_daily_post입니다.',
     },
     {
       title: 'LLM 없는 서버 · 3조각 아키텍처',
@@ -34,7 +34,7 @@ export const ko: ProjectText = {
     },
     {
       title: 'Mode R · 리서치 발행',
-      body: '개념 정리만으로는 쓸 수 없는 보안 이슈·생태계 동향 글을 위한 리서치 모드입니다. 서버에 search_web·read_url 도구를 추가하되 Tavily 백엔드를 어댑터 뒤에 두어 교체 가능하게 했고, read_url은 절단 상한(maxChars)과 잘림 안내로 컨텍스트 낭비를 막습니다. write_research_post 프롬프트가 근거 수집→집필을 이끌고, 참고한 출처는 sources 메타로 글과 함께 발행돼 본문 하단에 참고 자료로 렌더됩니다. 로테이션에서 보안·동향 차례가 오면 오케스트레이터가 자동으로 이 모드로 분기합니다.',
+      body: '개념 정리만으로는 쓸 수 없는 보안 이슈·생태계 동향 글을 위한 리서치 모드입니다. 서버에 search_web · read_url 도구를 추가하되 Tavily 백엔드를 어댑터 뒤에 두어 교체 가능하게 했고, read_url은 절단 상한(maxChars)과 잘림 안내로 컨텍스트 낭비를 막습니다. write_research_post 프롬프트가 근거 수집→집필을 이끌고, 참고한 출처는 sources 메타로 글과 함께 발행돼 본문 하단에 참고 자료로 렌더됩니다. 로테이션에서 보안·동향 차례가 오면 오케스트레이터가 자동으로 이 모드로 분기합니다.',
     },
     {
       title: '할루시네이션 방지 · 품질 게이트',

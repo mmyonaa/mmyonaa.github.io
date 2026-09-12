@@ -8,16 +8,16 @@ export const ko: ProjectText = {
     '프론트엔드 모듈 의존 (뷰 → 컴포저블 → API 래퍼 → HTTP)',
   ],
   architectureNotes: [
-    '브라우저 요청은 Nginx 리버스 프록시가 받아 정적 페이지는 vite preview 프론트엔드로, /api 요청은 Koa 백엔드(:3000)로 분기합니다. 두 프로세스는 PM2로 관리되고 백엔드는 PostgreSQL·AWS S3에 연결되며, 지도 스크립트와 업로드 이미지는 브라우저가 카카오·S3에서 직접 로드합니다.',
+    '브라우저 요청은 Nginx 리버스 프록시가 받아 정적 페이지는 vite preview 프론트엔드로, /api 요청은 Koa 백엔드(:3000)로 분기합니다. 두 프로세스는 PM2로 관리되고 백엔드는 PostgreSQL · AWS S3에 연결되며, 지도 스크립트와 업로드 이미지는 브라우저가 카카오·S3에서 직접 로드합니다.',
     'index.ts가 서버를 부트스트랩하고 요청은 routes → controller → service → repository 순으로 흐르며 계층별 책임을 분리했습니다. 저장소 계층은 postgres.js 커넥션 풀로 PostgreSQL에 접근하고, 이미지·파일 업로드는 s3.util로, DB 오류는 CustomError로 감싸 일관되게 처리합니다.',
-    '뷰는 API 래퍼(banner·board·perfo)로 데이터를 요청하고, 래퍼는 request.util → axios 인스턴스로 HTTP 호출을 단일화합니다. 목록 화면의 검색·페이지네이션은 useAdminList 컴포저블로 공통화하고, main.ts(ViteSSG)가 라우터 가드에서 페이지별 SEO 설정을 주입합니다.',
+    '뷰는 API 래퍼(banner · board · perfo)로 데이터를 요청하고, 래퍼는 request.util → axios 인스턴스로 HTTP 호출을 단일화합니다. 목록 화면의 검색·페이지네이션은 useAdminList 컴포저블로 공통화하고, main.ts(ViteSSG)가 라우터 가드에서 페이지별 SEO 설정을 주입합니다.',
   ],
   description:
     '기획부터 설계·개발·인프라까지 1인으로 만든 극장 홍보·대관 사이트. 극장 조회와 예약, 관리자 콘텐츠 운영, 지도 연동을 구현했습니다.',
   overview: [
     '보광극장의 공연·대관 정보를 알리고 온라인 문의·예약 흐름을 만들기 위한 홍보 사이트입니다. 기획·디자인·프론트엔드·백엔드·인프라까지 전 과정을 단독으로 맡아 구축하고 운영했습니다.',
     '검색 유입이 중요한 홍보 사이트 특성을 고려해, 일반적인 SPA 대신 vite-ssg 기반 정적 사이트 생성(SSG)을 선택했습니다. 페이지를 미리 렌더링하고 글·공연별 동적 메타태그와 JSON-LD 구조화 데이터, 빌드 타임 사이트맵까지 갖춰 검색 노출을 최적화했습니다.',
-    '관리자가 공연·공지·보도자료·배너를 직접 운영할 수 있도록 Quill 에디터 기반 CRUD와 이미지/파일 업로드(S3)를 제공하고, AWS EC2에 PM2·Nginx로 배포해 안정적으로 운영 중입니다.',
+    '관리자가 공연·공지·보도자료·배너를 직접 운영할 수 있도록 Quill 에디터 기반 CRUD와 이미지/파일 업로드(S3)를 제공하고, AWS EC2에 PM2 · Nginx로 배포해 안정적으로 운영 중입니다.',
   ],
   highlights: [
     '기획·설계·개발·인프라 구성까지 1인 개발',
@@ -29,11 +29,11 @@ export const ko: ProjectText = {
   techNotes: [
     {
       title: '1인 풀스택 + 직접 운영',
-      body: 'Vue 3·TypeScript 프론트, Koa·PostgreSQL(postgres.js) 백엔드, AWS S3 업로드, EC2·PM2·Nginx 배포까지 직접 구성했습니다. 컬럼 snake_case ↔ camelCase 자동 변환 등 데이터 접근 계층도 직접 설계했고, 오픈 후에는 HTTPS 전환과 OpenAPI(Swagger) 문서·ERD 정비까지 운영자로서 이어가고 있습니다.',
+      body: 'Vue 3 · TypeScript 프론트, Koa · PostgreSQL(postgres.js) 백엔드, AWS S3 업로드, EC2 · PM2 · Nginx 배포까지 직접 구성했습니다. 컬럼 snake_case ↔ camelCase 자동 변환 등 데이터 접근 계층도 직접 설계했고, 오픈 후에는 HTTPS 전환과 OpenAPI(Swagger) 문서·ERD 정비까지 운영자로서 이어가고 있습니다.',
     },
     {
       title: 'SSG 기반 SEO 최적화',
-      body: 'vite-ssg로 정적 빌드해 초기 렌더링과 색인을 개선하고, 상세 페이지마다 데이터 로드 후 메타·OG·JSON-LD(NewsArticle·TheaterEvent)를 주입했습니다. 빌드 시 API에서 전체 글·공연을 수집해 개별 URL까지 포함한 sitemap.xml을 자동 생성합니다. 운영 중 상세 페이지가 색인되지 않던 회귀는 라우터 가드가 SSR에서 next() 없이 반환해 프리렌더 전체가 조용히 스킵되던 것이 원인이었는데, 이를 근본 원인까지 추적해 복구하고 옛 URL(?id= 쿼리) → 새 경로 301 리디렉션으로 중복 색인까지 정리했습니다. 그 결과 조치 후 2개월(2026년 7~9월) Google Search Console 기준 클릭 85·노출 330, 평균 CTR 25.8%, 평균 게재순위 4.1위를 기록했습니다 — 지역 극장 사이트라 노출 규모 자체는 크지 않지만, 4위권 게재순위에서 CTR이 25%대라 검색 결과에 노출된 사람 넷 중 하나가 실제로 사이트에 들어옵니다.',
+      body: 'vite-ssg로 정적 빌드해 초기 렌더링과 색인을 개선하고, 상세 페이지마다 데이터 로드 후 메타 · OG · JSON-LD(NewsArticle · TheaterEvent)를 주입했습니다. 빌드 시 API에서 전체 글·공연을 수집해 개별 URL까지 포함한 sitemap.xml을 자동 생성합니다. 운영 중 상세 페이지가 색인되지 않던 회귀는 라우터 가드가 SSR에서 next() 없이 반환해 프리렌더 전체가 조용히 스킵되던 것이 원인이었는데, 이를 근본 원인까지 추적해 복구하고 옛 URL(?id= 쿼리) → 새 경로 301 리디렉션으로 중복 색인까지 정리했습니다. 그 결과 조치 후 2개월(2026년 7~9월) Google Search Console 기준 클릭 85·노출 330, 평균 CTR 25.8%, 평균 게재순위 4.1위를 기록했습니다 — 지역 극장 사이트라 노출 규모 자체는 크지 않지만, 4위권 게재순위에서 CTR이 25%대라 검색 결과에 노출된 사람 넷 중 하나가 실제로 사이트에 들어옵니다.',
     },
     {
       title: '전면 코드 리뷰 스프린트',
@@ -41,7 +41,7 @@ export const ko: ProjectText = {
     },
     {
       title: '보안 하드닝',
-      body: '조회수를 전체 엔티티 update로 보내던 구조(임의 값 조작·본문 덮어쓰기 위험)를 폐기하고 서버가 원자적으로 +1 하는 조회수 전용 엔드포인트로 교체했으며, update에서는 views·삭제 플래그 수정을 차단했습니다. 업로드는 확장자 화이트리스트(html·svg·실행파일 차단)와 이미지 MIME 이중 검증으로 잠갔고, 에러 응답의 내부 메시지 노출 차단, 페이지네이션 상한, 검색어 와일드카드 이스케이프, DDL 제약(NOT NULL·CHECK) 보강도 함께 처리했습니다.',
+      body: '조회수를 전체 엔티티 update로 보내던 구조(임의 값 조작·본문 덮어쓰기 위험)를 폐기하고 서버가 원자적으로 +1 하는 조회수 전용 엔드포인트로 교체했으며, update에서는 views·삭제 플래그 수정을 차단했습니다. 업로드는 확장자 화이트리스트(html · svg · 실행파일 차단)와 이미지 MIME 이중 검증으로 잠갔고, 에러 응답의 내부 메시지 노출 차단, 페이지네이션 상한, 검색어 와일드카드 이스케이프, DDL 제약(NOT NULL · CHECK) 보강도 함께 처리했습니다.',
     },
     {
       title: '관리자 콘텐츠 운영',

@@ -20,7 +20,7 @@ export const ko: ProjectText = {
   techNotes: [
     {
       title: '콘텐츠를 코드로 관리',
-      body: '프로젝트 텍스트를 projects/<slug>.ts 파일에 ko·en 나란히 두고, 언어 무관 공통 필드(기간·태그·이미지)는 shared.ts 에서 slug 기준으로 병합합니다. 콘텐츠 스키마가 TypeScript 타입으로 강제되어 필드 누락·오타가 빌드에서 잡히고, 번역 누락도 구조적으로 방지됩니다.',
+      body: '프로젝트 텍스트를 projects/<slug>.ts 파일에 ko · en 나란히 두고, 언어 무관 공통 필드(기간·태그·이미지)는 shared.ts 에서 slug 기준으로 병합합니다. 콘텐츠 스키마가 TypeScript 타입으로 강제되어 필드 누락·오타가 빌드에서 잡히고, 번역 누락도 구조적으로 방지됩니다.',
     },
     {
       title: '의존성 최소화 — 직접 구현',

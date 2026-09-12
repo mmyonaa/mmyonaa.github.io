@@ -9,27 +9,27 @@ export const ko: ProjectText = {
     '고객사를 대상으로 SentiveX 솔루션을 소개한 발표 자료입니다. 제품 개요와 핵심 기능, 도입 효과를 중심으로 구성했고, 국내 고객에게는 한국어로 해외 고객에게는 영문으로 직접 발표와 데모·질의응답까지 진행했습니다. 위협 탐지 → AI 자동 분석 → 호스트 격리 대응 → 다국어 리포트 생성으로 이어지는 end-to-end 데모 시나리오를 직접 구성해 제품의 실제 운영 흐름을 보여줬습니다.',
   overview: [
     'SentiveX 플랫폼의 AI 축으로, 보안 인시던트를 실시간 자동 분석하는 Fastify 서버입니다. 저는 이 서버의 핵심인 멀티 에이전트 오케스트레이터와 LiteLLM 게이트웨이, 멀티테넌트 모델 관리의 설계·개발을 주도했습니다(레포 최다 커밋 기여).',
-    '입력은 CrowdStrike·SentinelOne·Cortex XDR 등 벤더별 XDR 텔레메트리입니다. 벤더마다 다른 스키마를 OCSF 표준으로 정규화해 Kafka로 받고 OpenSearch에 적재하며, 적재되는 즉시 Redis 큐가 분석 작업을 집어 분석 파이프라인으로 넘깁니다. 수집·정규화와 분석을 분리해, 벤더가 늘어도 분석 계층은 건드리지 않고 유입량이 늘면 워커만 늘리는 구조로 만들었습니다.',
-    '큐에서 꺼낸 인시던트는 역할별 에이전트 8종이 정해진 순서로 처리합니다. Triage 에이전트가 인시던트를 분류·우선순위 산정해 이후 실행을 게이팅하고, IOC·MITRE·Network 에이전트 병렬 실행 → 조건부 외부 위협 인텔(SecurityIntel) → Correlation 종합으로 이어집니다. 종합 결과는 kill-chain 그래프·위협 점수(0–100)·신뢰도로 구조화 출력(generateObject)하고, 컴플라이언스(ISMS-P·ISO 27001·GDPR) 분석은 백그라운드로 분리했으며, 우선순위에 따라 실행 에이전트를 가지쳐 LLM 비용을 조절하도록 만들었습니다.',
-    '흩어져 있던 provider별 LLM 호출은 LiteLLM(OpenAI 호환) 게이트웨이 단일 경로로 통합해 폴백·동시성·토큰 제어를 한 계층으로 모았고, LiteLLM Admin API 기반 테넌트별 모델 CRUD와 BYOK(가상 키 허용목록) 격리를 구현했습니다. 분석 결과는 SSE로 실시간 스트리밍하고, 리포트는 BullMQ·Redis 비동기 잡으로 생성하도록 구성했습니다.',
+    '입력은 CrowdStrike · SentinelOne · Cortex XDR 등 벤더별 XDR 텔레메트리입니다. 벤더마다 다른 스키마를 OCSF 표준으로 정규화해 Kafka로 받고 OpenSearch에 적재하며, 적재되는 즉시 Redis 큐가 분석 작업을 집어 분석 파이프라인으로 넘깁니다. 수집·정규화와 분석을 분리해, 벤더가 늘어도 분석 계층은 건드리지 않고 유입량이 늘면 워커만 늘리는 구조로 만들었습니다.',
+    '큐에서 꺼낸 인시던트는 역할별 에이전트 8종이 정해진 순서로 처리합니다. Triage 에이전트가 인시던트를 분류·우선순위 산정해 이후 실행을 게이팅하고, IOC · MITRE · Network 에이전트 병렬 실행 → 조건부 외부 위협 인텔(SecurityIntel) → Correlation 종합으로 이어집니다. 종합 결과는 kill-chain 그래프·위협 점수(0–100)·신뢰도로 구조화 출력(generateObject)하고, 컴플라이언스(ISMS-P · ISO 27001 · GDPR) 분석은 백그라운드로 분리했으며, 우선순위에 따라 실행 에이전트를 가지쳐 LLM 비용을 조절하도록 만들었습니다.',
+    '흩어져 있던 provider별 LLM 호출은 LiteLLM(OpenAI 호환) 게이트웨이 단일 경로로 통합해 폴백·동시성·토큰 제어를 한 계층으로 모았고, LiteLLM Admin API 기반 테넌트별 모델 CRUD와 BYOK(가상 키 허용목록) 격리를 구현했습니다. 분석 결과는 SSE로 실시간 스트리밍하고, 리포트는 BullMQ · Redis 비동기 잡으로 생성하도록 구성했습니다.',
   ],
   highlights: [
-    '실시간 수집 → 자동 분석 파이프라인 — 벤더별 XDR 텔레메트리(CrowdStrike·SentinelOne·Cortex XDR)를 OCSF로 정규화, Kafka 수집 → OpenSearch 적재 → Redis 큐가 분석으로 인계',
-    '멀티 에이전트 인시던트 분석 오케스트레이터(역할별 에이전트 8종) 설계 — Triage(분류·우선순위) → 병렬 grounding(IOC·MITRE·Network) → 조건부 LLM(SecurityIntel) → Correlation 종합, 우선순위 기반 가지치기',
-    'Correlation 구조화 출력 — kill-chain 그래프·위협 점수(0–100)·신뢰도 (generateObject·zod)',
+    '실시간 수집 → 자동 분석 파이프라인 — 벤더별 XDR 텔레메트리(CrowdStrike · SentinelOne · Cortex XDR)를 OCSF로 정규화, Kafka 수집 → OpenSearch 적재 → Redis 큐가 분석으로 인계',
+    '멀티 에이전트 인시던트 분석 오케스트레이터(역할별 에이전트 8종) 설계 — Triage(분류·우선순위) → 병렬 grounding(IOC · MITRE · Network) → 조건부 LLM(SecurityIntel) → Correlation 종합, 우선순위 기반 가지치기',
+    'Correlation 구조화 출력 — kill-chain 그래프·위협 점수(0–100)·신뢰도 (generateObject · zod)',
     'SSE 실시간 진행률·부분결과 스트리밍 + 수동 재분석 API',
     'LiteLLM 게이트웨이 통합 — provider SDK 분기 제거, 폴백·provider 동시성·429/5xx 백오프·토큰 budget을 게이트웨이 계층으로 이전',
-    'LiteLLM Admin API 기반 테넌트별 모델 CRUD·BYOK(가상 키 격리)·저장 직후 검증 + BullMQ 리포트',
+    'LiteLLM Admin API 기반 테넌트별 모델 CRUD · BYOK(가상 키 격리)·저장 직후 검증 + BullMQ 리포트',
     'Grafana 대시보드 구성 — AI 서버·웹 플랫폼의 오류·트래픽 상시 관제',
   ],
   techNotes: [
     {
       title: '실시간 수집 → 자동 분석 파이프라인',
-      body: '분석보다 먼저 풀어야 했던 문제는 “벤더마다 다른 데이터를 어떻게 같은 모양으로 받나”였습니다. CrowdStrike·SentinelOne·Cortex XDR 등 XDR 텔레메트리를 OCSF 표준 스키마로 정규화해 Kafka로 받고 OpenSearch에 적재하며, 적재되는 즉시 Redis 큐가 분석 작업을 집어 멀티 에이전트 분석으로 넘깁니다. 정규화 계층을 따로 둔 덕에 새 벤더는 매핑만 추가하면 되고 분석 계층은 그대로입니다. 수집과 분석이 큐로 끊겨 있어 유입이 몰려도 분석 워커만 늘리면 되고, 대량 인시던트·알림 검색·집계는 OpenSearch가 받습니다.',
+      body: '분석보다 먼저 풀어야 했던 문제는 “벤더마다 다른 데이터를 어떻게 같은 모양으로 받나”였습니다. CrowdStrike · SentinelOne · Cortex XDR 등 XDR 텔레메트리를 OCSF 표준 스키마로 정규화해 Kafka로 받고 OpenSearch에 적재하며, 적재되는 즉시 Redis 큐가 분석 작업을 집어 멀티 에이전트 분석으로 넘깁니다. 정규화 계층을 따로 둔 덕에 새 벤더는 매핑만 추가하면 되고 분석 계층은 그대로입니다. 수집과 분석이 큐로 끊겨 있어 유입이 몰려도 분석 워커만 늘리면 되고, 대량 인시던트·알림 검색·집계는 OpenSearch가 받습니다.',
     },
     {
       title: '멀티 에이전트 분석 파이프라인 (역할별 에이전트 8종)',
-      body: '파이프라인을 역할별 에이전트로 나눈 것은 LLM 호출을 꼭 필요한 곳에만 쓰기 위해서입니다. Triage가 인시던트를 분류·우선순위 산정해 이후 실행 범위를 게이팅하고, 1단계는 코드 기반 에이전트(IOC·MITRE·Network)를 병렬 실행(Promise.allSettled)해 LLM 비용 없이 분석 근거를 먼저 확보합니다. LLM을 쓰는 SecurityIntel은 판정이 서지 않을 때만 조건부로 실행하고(IOC 매칭·화이트리스트·낮은 우선순위면 건너뜀), Correlation 종합은 마지막에 한 번만 수행합니다. 결과를 generateObject(zod) 구조화 출력으로 만든 것도 후속 화면·리포트가 파싱 없이 바로 소비하게 하려는 선택입니다.',
+      body: '파이프라인을 역할별 에이전트로 나눈 것은 LLM 호출을 꼭 필요한 곳에만 쓰기 위해서입니다. Triage가 인시던트를 분류·우선순위 산정해 이후 실행 범위를 게이팅하고, 1단계는 코드 기반 에이전트(IOC · MITRE · Network)를 병렬 실행(Promise.allSettled)해 LLM 비용 없이 분석 근거를 먼저 확보합니다. LLM을 쓰는 SecurityIntel은 판정이 서지 않을 때만 조건부로 실행하고(IOC 매칭·화이트리스트·낮은 우선순위면 건너뜀), Correlation 종합은 마지막에 한 번만 수행합니다. 결과를 generateObject(zod) 구조화 출력으로 만든 것도 후속 화면·리포트가 파싱 없이 바로 소비하게 하려는 선택입니다.',
     },
     {
       title: 'SSE 스트리밍 · 수동 재분석',
