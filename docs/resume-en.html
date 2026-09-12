@@ -319,7 +319,7 @@
           <div class="head__name">Hyonah Lim</div>
           <div class="head__name-en">임현아</div>
           <div class="head__role">Full-stack Developer · Seoul, Korea</div>
-          <div class="head__tagline">A full-stack developer building security AI, payments, global commerce, and kiosks end to end</div>
+          <div class="head__tagline">A full-stack developer building security AI, commerce, payments, SaaS, and kiosks — web services of many shapes — end to end</div>
           <div class="head__contact">
             <a href="https://mmyonaa.github.io">mmyonaa.github.io</a>
             <a href="mailto:apddfhsajrwk@gmail.com">apddfhsajrwk@gmail.com</a>
@@ -352,10 +352,10 @@
             Vue 3 · React · Next.js · TypeScript · JavaScript · Pinia · vue-i18n · Tailwind CSS · SCSS · PWA
           </div>
           <div class="skills__cat">Backend</div>
-          <div class="skills__items">Node.js · Koa · Fastify · TypeORM · Prisma · PostgreSQL · Redis · BullMQ · OpenSearch</div>
+          <div class="skills__items">Node.js · Koa · Fastify · TypeORM · Prisma · PostgreSQL · OpenSearch · Kafka · OCSF · Redis · BullMQ</div>
           <div class="skills__cat">Infra · Tooling</div>
           <div class="skills__items">
-            AWS EC2 · S3 · SES · Nginx · Docker · PM2 · Jest · vite-ssg
+            AWS EC2 · S3 · SES · Nginx · Docker · PM2 · Grafana · Jest · vite-ssg
           </div>
           <div class="skills__cat">AI</div>
           <div class="skills__items">LiteLLM · AI SDK · Multi-provider LLM</div>
@@ -388,9 +388,19 @@
             </p>
             <ul class="item__bullets">
               <li>
-                Designed the <b>multi-agent orchestrator (8 role-specific agents)</b>: Triage
-                (classify/priority) → 3 stages (IOC/MITRE/Network in parallel → conditional
-                SecurityIntel → Correlation synthesis) with priority-based pruning
+                <b>Real-time ingestion → automated analysis pipeline</b>: per-vendor XDR telemetry
+                (CrowdStrike, SentinelOne, Cortex XDR) normalized into the <b>OCSF</b> standard schema,
+                received over Kafka and indexed into OpenSearch; the moment a record lands a Redis queue
+                picks up the job and hands it to the multi-agent analysis below → ingestion/normalization
+                is decoupled from analysis, so adding a vendor never touches the analysis layer and rising
+                volume is absorbed by adding workers
+              </li>
+              <li>
+                Designed the <b>multi-agent orchestrator (8 role-specific agents)</b>: incidents pulled off
+                the queue are classified and prioritized by Triage, which sets the execution scope first
+                (low priority is pruned); code-based agents (IOC/MITRE/Network) run in parallel to secure
+                grounding evidence, an LLM agent (SecurityIntel) is invoked only when the verdict is still
+                open, and Correlation synthesizes at the end
               </li>
               <li>
                 Correlation <b>structured output</b>: kill-chain graph, threat score (0–100), and
@@ -398,6 +408,7 @@
                 the background
               </li>
               <li>Real-time <b>SSE streaming</b> of analysis with progress tracking, plus a manual re-analysis API</li>
+              <li><b>Operational observability</b>: built Grafana dashboards for continuous monitoring of errors and traffic across the AI server and web platform</li>
               <li>
                 <b>LiteLLM gateway consolidation</b>: removed per-provider SDK branches; moved fallback,
                 per-provider semaphore concurrency, 429/5xx backoff, and token budgets into the gateway
@@ -468,7 +479,7 @@
         <div class="item">
           <div class="item__head">
             <span class="item__title">eSIM Platform — Service · Kiosk · Admin</span>
-            <span class="item__period">2023.11 – 2025.05</span>
+            <span class="item__period">2023.11 – 2025.09</span>
           </div>
           <p class="item__desc">
             A key developer across an eSIM platform made up of the online service, kiosk, admin, and
@@ -548,7 +559,7 @@
           <p class="item__desc">A theater promotion and booking site completed solo — planning, design, development, and infrastructure.</p>
           <ul class="item__bullets">
             <li>Theater browsing/reservations and admin content operations (performances, notices, banners)</li>
-            <li>SEO optimization via vite-ssg SSG with dynamic meta/JSON-LD and a build-time sitemap (254 clicks, 28.2% avg CTR, 3.9 avg position over trailing 12 months as of Jul 2026)</li>
+            <li>SEO optimization via vite-ssg SSG with dynamic meta/JSON-LD and a build-time sitemap (85 clicks, 330 impressions, 25.8% avg CTR, 4.1 avg position in the two months after the fix, Jul–Sep 2026)</li>
             <li>Deployed on AWS EC2/S3 with PM2/Nginx; ongoing sprints — 60+ fixes, security hardening, indexing recovery</li>
           </ul>
           <div class="item__stack">Vue 3 · TypeScript · vite-ssg · Koa · PostgreSQL · AWS · Nginx</div>
@@ -568,8 +579,9 @@
           <ul class="item__bullets">
             <li>Hand-built stdio server implementing all three MCP primitives (Tool · Resource · Prompt)</li>
             <li>No-LLM pure-function principle — responsibilities split across trigger, orchestrator, and MCP server</li>
-            <li>Deterministic publish gate (follows/related existence checks) blocks link hallucination</li>
-            <li>Unattended publishing pipeline in production — a daily cron drives a claude -p orchestrator, gated by a PreToolUse hook</li>
+            <li>Deterministic publish gate — existence and shape checks on follows/related and in-body links block link hallucination</li>
+            <li>Unattended publishing pipeline in production — a daily cron drives the orchestrator wrapper, gated by a PreToolUse hook</li>
+            <li>Performance-signal feedback closes the content loop — view counts weight topic selection (cold-start gate, graceful degradation)</li>
           </ul>
           <div class="item__stack">TypeScript · MCP · @modelcontextprotocol/sdk · zod · Astro · GitHub Actions</div>
         </div>

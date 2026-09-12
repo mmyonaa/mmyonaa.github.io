@@ -323,7 +323,7 @@
           <div class="head__name">임현아</div>
           <div class="head__name-en">Hyonah Lim</div>
           <div class="head__role">Full-stack Developer · Seoul, Korea</div>
-          <div class="head__tagline">보안 AI · 결제 · 글로벌 커머스 · 키오스크까지 end-to-end로 구축하는 풀스택 개발자</div>
+          <div class="head__tagline">보안 AI · 커머스 · 결제 · SaaS · 키오스크까지 여러 형태의 웹 서비스를 end-to-end로 구축하는 풀스택 개발자</div>
           <div class="head__contact">
             <a href="https://mmyonaa.github.io">mmyonaa.github.io</a>
             <a href="mailto:apddfhsajrwk@gmail.com">apddfhsajrwk@gmail.com</a>
@@ -338,8 +338,7 @@
         <h2 class="section__title">About</h2>
         <p class="summary">
           기획 단계의 요구사항부터 배포·운영까지 서비스의 한 사이클 전체를 책임지는 풀스택 개발자입니다.
-          프론트엔드·백엔드·인프라를 폭넓게 다루며, 작은 디테일이 만드는 사용성의 차이를 중요하게
-          생각합니다. 여러 프로젝트를 1인 또는 소수 인원으로 주도해 설계·개발·배포·현장 대응까지 직접
+          여러 프로젝트를 1인 또는 소수 인원으로 주도해 설계·개발·배포·현장 대응까지 직접
           담당했습니다. 요구사항의 본질을 파악해 기술 부채를 줄이는 구조를 제안하고, 기획·디자인·운영 등
           다양한 직군과 협업하며 반복되던 시스템 문제를 개선해왔습니다.
         </p>
@@ -354,10 +353,10 @@
             Vue 3 · React · Next.js · TypeScript · JavaScript · Pinia · vue-i18n · Tailwind CSS · SCSS · PWA
           </div>
           <div class="skills__cat">Backend</div>
-          <div class="skills__items">Node.js · Koa · Fastify · TypeORM · Prisma · PostgreSQL · Redis · BullMQ · OpenSearch</div>
+          <div class="skills__items">Node.js · Koa · Fastify · TypeORM · Prisma · PostgreSQL · OpenSearch · Kafka · OCSF · Redis · BullMQ</div>
           <div class="skills__cat">Infra · Tooling</div>
           <div class="skills__items">
-            AWS EC2 · S3 · SES · Nginx · Docker · PM2 · Jest · vite-ssg
+            AWS EC2 · S3 · SES · Nginx · Docker · PM2 · Grafana · Jest · vite-ssg
           </div>
           <div class="skills__cat">AI</div>
           <div class="skills__items">LiteLLM · AI SDK · Multi-provider LLM</div>
@@ -389,14 +388,23 @@
             </p>
             <ul class="item__bullets">
               <li>
-                <b>멀티 에이전트 오케스트레이터(역할별 에이전트 8종)</b> 설계: Triage(분류·우선순위) → 3-스테이지(IOC·MITRE·Network
-                병렬 → 조건부 SecurityIntel → Correlation 종합), 우선순위 기반 가지치기
+                <b>실시간 수집 → 자동 분석 파이프라인</b>: CrowdStrike·SentinelOne·Cortex XDR 등 벤더별 XDR 텔레메트리를
+                <b>OCSF</b> 표준 스키마로 정규화해 Kafka로 받고 OpenSearch에 적재, 적재되는 즉시 Redis 큐가 분석 작업을 집어
+                아래 멀티 에이전트 분석으로 넘기는 구조 → 수집·정규화와 분석을 분리해, 벤더가 늘어도 분석 계층은 건드리지 않고
+                유입량이 늘면 워커만 늘리는 방식으로 대응
+              </li>
+              <li>
+                <b>멀티 에이전트 오케스트레이터(역할별 에이전트 8종)</b> 설계: 큐에서 꺼낸 인시던트를 Triage가 분류·우선순위
+                산정해 실행 범위부터 정하고(낮은 우선순위는 가지치기), 코드 기반 에이전트(IOC·MITRE·Network)를 병렬 실행해
+                분석 근거를 먼저 확보한 뒤, 판정이 서지 않을 때만 LLM 에이전트(SecurityIntel)를 투입하고 마지막에
+                Correlation이 종합
               </li>
               <li>
                 Correlation <b>구조화 출력</b>: kill-chain 그래프·위협 점수(0–100)·신뢰도(generateObject/zod),
                 컴플라이언스(ISMS-P·ISO 27001·GDPR) 백그라운드 처리
               </li>
               <li>분석 <b>SSE 실시간 스트리밍</b> + 진행률 추적, 수동 재분석 API</li>
+              <li><b>운영 관측</b>: Grafana 대시보드를 구성해 AI 서버·웹 플랫폼의 오류와 트래픽을 상시 관제</li>
               <li>
                 <b>LiteLLM 게이트웨이 통합</b>: provider SDK 분기 제거, 폴백·provider 세마포어 동시성·429/5xx
                 백오프·토큰 budget을 게이트웨이 계층으로 이전, provider 헬스 10s 캐시
@@ -462,7 +470,7 @@
         <div class="item">
           <div class="item__head">
             <span class="item__title">eSIM 플랫폼 — 서비스 · 키오스크 · 어드민</span>
-            <span class="item__period">2023.11 – 2025.05</span>
+            <span class="item__period">2023.11 – 2025.09</span>
           </div>
           <p class="item__desc">
             온라인 서비스·키오스크·관리자·공유 미들웨어로 이뤄진 eSIM 플랫폼 전반에 핵심 개발자로 참여
@@ -536,7 +544,7 @@
           <p class="item__desc">기획·설계·개발·인프라까지 1인으로 완성한 극장 홍보·대관 사이트.</p>
           <ul class="item__bullets">
             <li>극장 조회·예약, 관리자 콘텐츠(공연·공지·배너) 운영 기능 구현</li>
-            <li>vite-ssg 기반 SSG + 동적 메타/JSON-LD·빌드타임 사이트맵으로 SEO 최적화 (2026.07 기준 12개월 누적 클릭 254·평균 CTR 28.2%·게재순위 3.9위)</li>
+            <li>vite-ssg 기반 SSG + 동적 메타/JSON-LD·빌드타임 사이트맵으로 SEO 최적화 (조치 후 2개월(2026.07–09) 클릭 85·노출 330·평균 CTR 25.8%·게재순위 4.1위)</li>
             <li>AWS EC2·S3, PM2·Nginx 배포 및 지속 운영 — 코드 리뷰 스프린트(버그 60여 건)·보안 하드닝·색인 회귀 복구</li>
           </ul>
           <div class="item__stack">Vue 3 · TypeScript · vite-ssg · Koa · PostgreSQL · AWS · Nginx</div>
@@ -556,8 +564,9 @@
           <ul class="item__bullets">
             <li>MCP 3대 primitive(Tool·Resource·Prompt)를 갖춘 stdio 서버 직접 구현</li>
             <li>LLM 미호출 순수 함수 원칙 — 트리거·오케스트레이터·MCP 서버로 책임 분리</li>
-            <li>결정론적 발행 게이트(follows/related 실존 검증)로 링크 할루시네이션 차단</li>
-            <li>무인 발행 파이프라인 가동 — 매일 cron이 claude -p 오케스트레이터 실행, PreToolUse 발행 관문으로 검증</li>
+            <li>결정론적 발행 게이트 — follows/related·본문 내부 링크의 실존·형태 검증으로 링크 할루시네이션 차단</li>
+            <li>무인 발행 파이프라인 가동 — 매일 cron이 오케스트레이터 래퍼 실행, PreToolUse 발행 관문으로 검증</li>
+            <li>성과 신호 되먹임 — 조회수를 주제 선정에 가중해 콘텐츠 루프를 닫음(cold-start 관문·graceful degradation)</li>
           </ul>
           <div class="item__stack">TypeScript · MCP · @modelcontextprotocol/sdk · zod · Astro · GitHub Actions</div>
         </div>

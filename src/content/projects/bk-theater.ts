@@ -28,16 +28,12 @@ export const ko: ProjectText = {
   ],
   techNotes: [
     {
-      title: 'SSG 기반 SEO 최적화',
-      body: 'vite-ssg로 정적 빌드해 초기 렌더링과 색인을 개선하고, 상세 페이지마다 데이터 로드 후 메타·OG·JSON-LD(NewsArticle·TheaterEvent)를 주입했습니다. 빌드 시 API에서 전체 글·공연을 수집해 개별 URL까지 포함한 sitemap.xml을 자동 생성합니다. 운영 중 상세 페이지가 색인되지 않던 회귀는 라우터 가드가 SSR에서 next() 없이 반환해 프리렌더 전체가 조용히 스킵되던 것이 원인이었는데, 이를 근본 원인까지 추적해 복구하고 옛 URL(?id= 쿼리) → 새 경로 301 리디렉션으로 중복 색인까지 정리했습니다. 그 결과 2026년 7월 기준 Google Search Console 최근 12개월간 누적 클릭 254·노출 902, 평균 CTR 28.2%, 평균 게재순위 3.9위로 검색 결과 상단 노출과 높은 유입을 확보했습니다.',
-    },
-    {
       title: '1인 풀스택 + 직접 운영',
       body: 'Vue 3·TypeScript 프론트, Koa·PostgreSQL(postgres.js) 백엔드, AWS S3 업로드, EC2·PM2·Nginx 배포까지 직접 구성했습니다. 컬럼 snake_case ↔ camelCase 자동 변환 등 데이터 접근 계층도 직접 설계했고, 오픈 후에는 HTTPS 전환과 OpenAPI(Swagger) 문서·ERD 정비까지 운영자로서 이어가고 있습니다.',
     },
     {
-      title: '관리자 콘텐츠 운영',
-      body: '공연(역대/예정)·공지·보도자료·배너를 Quill 에디터로 등록·수정하고, 배너는 노출 순서·전환 시간·활성 상태까지 관리할 수 있습니다. 목록 공통 로직은 useAdminList 컴포저블로 추출해 재사용성을 높였습니다.',
+      title: 'SSG 기반 SEO 최적화',
+      body: 'vite-ssg로 정적 빌드해 초기 렌더링과 색인을 개선하고, 상세 페이지마다 데이터 로드 후 메타·OG·JSON-LD(NewsArticle·TheaterEvent)를 주입했습니다. 빌드 시 API에서 전체 글·공연을 수집해 개별 URL까지 포함한 sitemap.xml을 자동 생성합니다. 운영 중 상세 페이지가 색인되지 않던 회귀는 라우터 가드가 SSR에서 next() 없이 반환해 프리렌더 전체가 조용히 스킵되던 것이 원인이었는데, 이를 근본 원인까지 추적해 복구하고 옛 URL(?id= 쿼리) → 새 경로 301 리디렉션으로 중복 색인까지 정리했습니다. 그 결과 조치 후 2개월(2026년 7~9월) Google Search Console 기준 클릭 85·노출 330, 평균 CTR 25.8%, 평균 게재순위 4.1위를 기록했습니다 — 지역 극장 사이트라 노출 규모 자체는 크지 않지만, 4위권 게재순위에서 CTR이 25%대라 검색 결과에 노출된 사람 넷 중 하나가 실제로 사이트에 들어옵니다.',
     },
     {
       title: '전면 코드 리뷰 스프린트',
@@ -45,7 +41,11 @@ export const ko: ProjectText = {
     },
     {
       title: '보안 하드닝',
-      body: '조회수를 전체 엔티티 update로 보내던 구조(임의 값 조작·본문 덮어쓰기 위험)를 폐기하고 서버가 원자적으로 +1 하는 조회수 전용 엔드포인트로 교체했으며, update에서는 views·삭제 플래그 수정을 차단했습니다. 업로드는 확장자 화이트리스트(html·svg·실행파일 차단)와 이미지 MIME 이중 검증으로 잠갔고, 에러 응답의 내부 메시지 노출 차단, 페이지네이션 상한, 검색어 와일드카드 이스케이프, DDL 제약(NOT NULL·CHECK) 보강에 더해 git 히스토리에 남아 있던 시크릿도 filter-repo로 완전히 제거했습니다.',
+      body: '조회수를 전체 엔티티 update로 보내던 구조(임의 값 조작·본문 덮어쓰기 위험)를 폐기하고 서버가 원자적으로 +1 하는 조회수 전용 엔드포인트로 교체했으며, update에서는 views·삭제 플래그 수정을 차단했습니다. 업로드는 확장자 화이트리스트(html·svg·실행파일 차단)와 이미지 MIME 이중 검증으로 잠갔고, 에러 응답의 내부 메시지 노출 차단, 페이지네이션 상한, 검색어 와일드카드 이스케이프, DDL 제약(NOT NULL·CHECK) 보강도 함께 처리했습니다.',
+    },
+    {
+      title: '관리자 콘텐츠 운영',
+      body: '공연(역대/예정)·공지·보도자료·배너를 Quill 에디터로 등록·수정하고, 배너는 노출 순서·전환 시간·활성 상태까지 관리할 수 있습니다. 목록 공통 로직은 useAdminList 컴포저블로 추출해 재사용성을 높였습니다.',
     },
   ],
 }
@@ -78,16 +78,12 @@ export const en: ProjectText = {
   ],
   techNotes: [
     {
-      title: 'SEO via static site generation',
-      body: 'Built statically with vite-ssg to improve initial render and indexing, injecting per-page meta/OG/JSON-LD (NewsArticle, TheaterEvent) after data load. The build collects all articles and performances from the API to auto-generate a sitemap.xml that includes individual URLs. When detail pages stopped being indexed in production, I traced the regression to its root cause — a router guard returning without next() during SSR, which silently skipped prerendering entirely — restored it, and added 301 redirects from legacy ?id= URLs to the new path format to clean up duplicate indexing. As of July 2026, this translated into 254 clicks and 902 impressions with a 28.2% average CTR and a 3.9 average position over the trailing twelve months in Google Search Console — strong top-of-results visibility and click-through.',
-    },
-    {
       title: 'Solo full-stack + operations',
       body: 'I set up everything myself: a Vue 3 / TypeScript frontend, a Koa / PostgreSQL (postgres.js) backend, AWS S3 uploads, and EC2 / PM2 / Nginx deployment — including the data-access layer with automatic snake_case ↔ camelCase conversion. Since launch I have kept operating it hands-on, migrating to HTTPS and maintaining OpenAPI (Swagger) docs and an ERD.',
     },
     {
-      title: 'Admin content operations',
-      body: 'Performances (past/upcoming), notices, press releases, and banners are created and edited through a Quill editor; banners also expose display order, transition time, and active state. Shared list logic was extracted into a useAdminList composable for reuse.',
+      title: 'SEO via static site generation',
+      body: 'Built statically with vite-ssg to improve initial render and indexing, injecting per-page meta/OG/JSON-LD (NewsArticle, TheaterEvent) after data load. The build collects all articles and performances from the API to auto-generate a sitemap.xml that includes individual URLs. When detail pages stopped being indexed in production, I traced the regression to its root cause — a router guard returning without next() during SSR, which silently skipped prerendering entirely — restored it, and added 301 redirects from legacy ?id= URLs to the new path format to clean up duplicate indexing. In the two months after the fix (July–September 2026), Google Search Console recorded 85 clicks and 330 impressions with a 25.8% average CTR and a 4.1 average position. Impression volume is modest for a local theater site, but at an average position of 4 a CTR in the mid-20s means roughly one in four people who see the result actually visits.',
     },
     {
       title: 'Full-stack code-review sprint',
@@ -95,7 +91,11 @@ export const en: ProjectText = {
     },
     {
       title: 'Security hardening',
-      body: 'Replaced the view-count mechanism — previously a full-entity update from the client (open to arbitrary value tampering and body overwrites) — with a dedicated endpoint that increments atomically on the server, and blocked views/delete-flag changes in update. Uploads are locked down with an extension whitelist (blocking html/svg/executables) and double MIME validation for images; on top of hiding internal error messages, capping pagination, escaping search wildcards, and strengthening DDL constraints (NOT NULL, CHECK), I also purged leaked secrets from the git history with filter-repo.',
+      body: 'Replaced the view-count mechanism — previously a full-entity update from the client (open to arbitrary value tampering and body overwrites) — with a dedicated endpoint that increments atomically on the server, and blocked views/delete-flag changes in update. Uploads are locked down with an extension whitelist (blocking html/svg/executables) and double MIME validation for images; internal error messages are hidden, pagination is capped, search wildcards are escaped, and DDL constraints (NOT NULL, CHECK) were strengthened.',
+    },
+    {
+      title: 'Admin content operations',
+      body: 'Performances (past/upcoming), notices, press releases, and banners are created and edited through a Quill editor; banners also expose display order, transition time, and active state. Shared list logic was extracted into a useAdminList composable for reuse.',
     },
   ],
 }

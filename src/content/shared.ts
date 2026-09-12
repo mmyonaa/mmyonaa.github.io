@@ -62,7 +62,7 @@ const projectBase: ProjectBase[] = [
   {
     slug: 'sentivex-ai',
     period: '2025.09 –',
-    tags: ['Fastify', 'TypeScript', 'AI SDK', 'LiteLLM', 'Multi-provider LLM', 'BullMQ', 'Redis', 'Prisma', 'PostgreSQL'],
+    tags: ['Fastify', 'TypeScript', 'AI SDK', 'LiteLLM', 'Multi-provider LLM', 'Kafka', 'OpenSearch', 'OCSF', 'Redis', 'BullMQ', 'Prisma', 'PostgreSQL', 'Grafana'],
     link: '',
     company: '',
     repo: '',
@@ -206,7 +206,7 @@ const projectBase: ProjectBase[] = [
   {
     slug: 'blog-mcp',
     period: '2026.07 –',
-    tags: ['TypeScript', 'MCP', '@modelcontextprotocol/sdk', 'zod', 'Astro', 'pnpm', 'Shiki', 'GitHub Actions', 'GitHub Pages'],
+    tags: ['TypeScript', 'MCP', '@modelcontextprotocol/sdk', 'zod', 'Astro', 'pnpm', 'Shiki', 'Supabase', 'Tavily', 'GitHub Actions', 'GitHub Pages'],
     link: 'https://mmyonaa.github.io/blog/',
     company: '',
     repo: 'https://github.com/mmyonaa/blog',
@@ -222,7 +222,7 @@ const projectBase: ProjectBase[] = [
   },
   {
     slug: 'portfolio',
-    period: '2026.07 –',
+    period: '2026.07 – 2026.09',
     tags: ['Vue 3', 'TypeScript', 'Vite', 'GitHub Actions', 'CSS'],
     link: '',
     company: '',
