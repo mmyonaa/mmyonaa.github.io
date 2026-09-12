@@ -221,6 +221,22 @@ const projectBase: ProjectBase[] = [
     themedImages: true,
   },
   {
+    slug: 'daily-quiz',
+    period: '2026.08 –',
+    tags: ['Astro', 'TypeScript', 'zod', 'Supabase', 'RLS', 'GitHub Actions', 'GitHub Pages'],
+    link: 'https://mmyonaa.github.io/quiz/',
+    company: '',
+    repo: 'https://github.com/mmyonaa/quiz',
+    // 라이브 사이트 캡처 (필기 연습 · 개념 노트 · 실기 필답 · 정보보안기사) — 다크 기본 + '-light' 쌍
+    images: [
+      '/projects/daily-quiz/daily-quiz-home.png',
+      '/projects/daily-quiz/daily-quiz-notes.png',
+      '/projects/daily-quiz/daily-quiz-practical.png',
+      '/projects/daily-quiz/daily-quiz-sec.png',
+    ],
+    themedImages: true,
+  },
+  {
     slug: 'portfolio',
     period: '2026.07 – 2026.09',
     tags: ['Vue 3', 'TypeScript', 'Vite', 'GitHub Actions', 'CSS'],
