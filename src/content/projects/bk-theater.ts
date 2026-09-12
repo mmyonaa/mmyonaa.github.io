@@ -36,8 +36,8 @@ export const ko: ProjectText = {
       body: 'vite-ssg로 정적 빌드해 초기 렌더링과 색인을 개선하고, 상세 페이지마다 데이터 로드 후 메타 · OG · JSON-LD(NewsArticle · TheaterEvent)를 주입했습니다. 빌드 시 API에서 전체 글·공연을 수집해 개별 URL까지 포함한 sitemap.xml을 자동 생성합니다. 운영 중 상세 페이지가 색인되지 않던 회귀는 라우터 가드가 SSR에서 next() 없이 반환해 프리렌더 전체가 조용히 스킵되던 것이 원인이었는데, 이를 근본 원인까지 추적해 복구하고 옛 URL(?id= 쿼리) → 새 경로 301 리디렉션으로 중복 색인까지 정리했습니다. 그 결과 조치 후 2개월(2026년 7~9월) Google Search Console 기준 클릭 85·노출 330, 평균 CTR 25.8%, 평균 게재순위 4.1위를 기록했습니다 — 지역 극장 사이트라 노출 규모 자체는 크지 않지만, 4위권 게재순위에서 CTR이 25%대라 검색 결과에 노출된 사람 넷 중 하나가 실제로 사이트에 들어옵니다.',
     },
     {
-      title: '전면 코드 리뷰 스프린트',
-      body: '오픈 후에도 정기적으로 정비 스프린트를 돌립니다. 최근에는 백엔드·프론트 전 계층을 코드 리뷰해 버그 60여 건을 수정했습니다 — 부분 수정 시 미전송 필드가 NULL로 덮여 본문이 유실되던 update 버그, 검색 시 같은 요청이 두 번 나가 응답 순서에 따라 엉뚱한 페이지가 표시되던 레이스, 삭제된 글 진입 시 크래시 등 데이터가 실제로 깨지는 문제들입니다. 동일률 88~99%로 복붙돼 있던 공개·관리자 뷰 20개는 공용 페이지 10개로 통합해 약 4,000줄을 순감소시키고, “한 파일만 고쳐지는” 드리프트 버그의 재발을 구조적으로 차단했습니다.',
+      title: '정기 정비 스프린트 운영',
+      body: '오픈 후에도 전 계층을 훑는 코드 리뷰 스프린트를 주기적으로 돌립니다. 최근 회차에서는 백엔드·프론트를 함께 점검해 결함 60여 건을 찾아 처리했고, 데이터가 실제로 깨지는 것부터 우선순위를 잡았습니다 — 부분 수정 시 미전송 필드가 NULL로 덮여 본문이 유실되던 update 버그, 검색 시 같은 요청이 두 번 나가 응답 순서에 따라 엉뚱한 페이지가 표시되던 레이스, 삭제된 글 진입 시 크래시 같은 것들입니다. 개별 수정만으로는 같은 결함이 계속 돌아와, 원인을 한 번 고쳐도 다른 화면에 반영되지 않는 중복 구조로 진단했습니다. 공개·관리자 뷰 20개(동일률 88~99%)를 공용 페이지 10개로 통합해 약 4,000줄을 순감소시키고, “한 파일만 고쳐지는” 드리프트 버그의 재발 경로 자체를 없앴습니다.',
     },
     {
       title: '보안 하드닝',
@@ -74,7 +74,7 @@ export const en: ProjectText = {
     'SEO optimization via vite-ssg static generation, dynamic meta/JSON-LD, and a sitemap',
     'Theater browsing/reservation features with an optimized booking flow',
     'Admin registration of performances and notices for easier content operations',
-    'Ongoing post-launch operation — full code-review sprint (60+ bug fixes), security hardening, indexing-regression recovery',
+    'Ongoing post-launch operation — full recurring maintenance sprints (60+ defects resolved), security hardening, indexing-regression recovery',
   ],
   techNotes: [
     {
@@ -86,8 +86,8 @@ export const en: ProjectText = {
       body: 'Built statically with vite-ssg to improve initial render and indexing, injecting per-page meta/OG/JSON-LD (NewsArticle, TheaterEvent) after data load. The build collects all articles and performances from the API to auto-generate a sitemap.xml that includes individual URLs. When detail pages stopped being indexed in production, I traced the regression to its root cause — a router guard returning without next() during SSR, which silently skipped prerendering entirely — restored it, and added 301 redirects from legacy ?id= URLs to the new path format to clean up duplicate indexing. In the two months after the fix (July–September 2026), Google Search Console recorded 85 clicks and 330 impressions with a 25.8% average CTR and a 4.1 average position. Impression volume is modest for a local theater site, but at an average position of 4 a CTR in the mid-20s means roughly one in four people who see the result actually visits.',
     },
     {
-      title: 'Full-stack code-review sprint',
-      body: 'I run regular maintenance sprints post-launch. Most recently, a full review across the backend and frontend fixed 60+ bugs — including a data-destroying update bug where omitted fields were overwritten with NULL and article bodies were lost, a search race that fired the same request twice and showed the wrong page depending on response order, and crashes when entering deleted posts. Twenty copy-pasted public/admin views (measured 88–99% identical) were consolidated into ten shared pages, a net reduction of about 4,000 lines that structurally prevents the "only one copy got fixed" class of drift bugs.',
+      title: 'Recurring maintenance sprints',
+      body: 'I run recurring code-review sprints across the whole stack after launch. The most recent round swept backend and frontend together, surfacing and resolving 60+ defects, prioritized by what actually corrupts data — an update bug where omitted fields were overwritten with NULL and article bodies were lost, a search race that fired the same request twice and showed the wrong page depending on response order, and crashes when entering deleted posts. Fixing them one at a time kept letting the same defects return, so I diagnosed the cause as a duplicated structure where fixing one place never reached the others. Twenty public/admin views (measured 88–99% identical) were consolidated into ten shared pages — a net reduction of about 4,000 lines that removes the path by which "only one copy got fixed" drift bugs recur.',
     },
     {
       title: 'Security hardening',
