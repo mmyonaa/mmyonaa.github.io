@@ -1,12 +1,12 @@
 import type { ProjectText } from '../shared'
 
 export const ko: ProjectText = {
-  title: 'SentiveX 웹 플랫폼',
+  title: 'Sentivex 웹 플랫폼',
   description:
     '멀티테넌트 SIEM 보안 플랫폼의 Next.js 15 풀스택 웹. SIEM 대시보드·인시던트 관리·AI 리포트 에디터를 팀과 협업으로 개발했습니다.',
   mediaNote: '실제 운영 데이터가 포함되어 화면은 비공개합니다.',
   overview: [
-    'SentiveX 플랫폼의 웹 축인 Next.js 15(App Router) 풀스택 앱입니다. 팀 협업 프로젝트에서 주요 기여자로 참여해, UI·서버 컴포넌트부터 API 라우트·DB 레이어(Prisma/PostgreSQL 멀티스키마)까지 인시던트·리포트·엔드포인트 등 여러 도메인의 화면과 API를 개발했습니다.',
+    'Sentivex 플랫폼의 웹 축인 Next.js 15(App Router) 풀스택 앱입니다. 팀 협업 프로젝트에서 주요 기여자로 참여해, UI·서버 컴포넌트부터 API 라우트·DB 레이어(Prisma/PostgreSQL 멀티스키마)까지 인시던트·리포트·엔드포인트 등 여러 도메인의 화면과 API를 개발했습니다.',
     '가장 공들인 부분은 BlockNote 기반 AI 보안 리포트 에디터입니다. 차트·상태카드 등 커스텀 블록을 만들고, AI 편집 제안을 블록/표/문자 단위 diff 하이라이팅으로 미리보고 커밋하는 흐름과 한/영/일 다국어 리포트 저장, PDF · DOCX · CSV/XLSX 익스포트를 구현했습니다. 이 외에 SIEM 대시보드 차트(Recharts)와 MITRE ATT&CK 킬체인 토폴로지 그래프(XY Flow · dagre), BullMQ 워커·크론 자동화를 담당했고, 무거운 분석·생성은 AI 서버(REST · SSE)에 위임하도록 연동 흐름을 구성했습니다.',
   ],
   highlights: [
@@ -42,12 +42,12 @@ export const ko: ProjectText = {
 }
 
 export const en: ProjectText = {
-  title: 'SentiveX Web Platform',
+  title: 'Sentivex Web Platform',
   description:
     'The Next.js 15 full-stack web of a multi-tenant SIEM security platform. I co-developed the SIEM dashboard, incident management, and AI report editor with the team.',
   mediaNote: 'Screens are withheld as they contain live operational data.',
   overview: [
-    'The web surface of the SentiveX platform — a Next.js 15 (App Router) full-stack app. As one of the main contributors on this team project, I built screens and APIs across the incident, report, and endpoint domains — from UI/server components to API routes and the DB layer (Prisma/PostgreSQL, multi-schema).',
+    'The web surface of the Sentivex platform — a Next.js 15 (App Router) full-stack app. As one of the main contributors on this team project, I built screens and APIs across the incident, report, and endpoint domains — from UI/server components to API routes and the DB layer (Prisma/PostgreSQL, multi-schema).',
     'The part I invested in most is the BlockNote-based AI security report editor: I built custom blocks (charts, status cards), the preview-before-commit flow that highlights AI edit suggestions with block/table/character-level diffs, multilingual (ko/en/ja) report storage, and PDF/DOCX/CSV · XLSX export. I also owned the SIEM dashboard charts (Recharts), the MITRE ATT&CK kill-chain topology graph (XY Flow/dagre), and BullMQ worker/cron automation, and wired heavy analysis and generation to be delegated to the AI server (REST/SSE).',
   ],
   highlights: [

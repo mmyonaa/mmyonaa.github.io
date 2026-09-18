@@ -1,14 +1,14 @@
 import type { ProjectText } from '../shared'
 
 export const ko: ProjectText = {
-  title: 'SentiveX AI 서버',
+  title: 'Sentivex AI 서버',
   description:
     'SIEM 보안 인시던트를 자동 분석하는 Fastify AI 서버. 벤더별 XDR 텔레메트리를 OCSF로 정규화해 받는 실시간 수집 파이프라인부터 멀티 에이전트 분석, 모든 LLM 호출을 통합하는 LiteLLM 게이트웨이까지 설계·개발을 주도했습니다.',
   mediaNote: '실제 운영 데이터가 포함되어 화면은 비공개합니다.',
   presentationNote:
-    '고객사를 대상으로 SentiveX 솔루션을 소개한 발표 자료입니다. 제품 개요와 핵심 기능, 도입 효과를 중심으로 구성했고, 국내 고객에게는 한국어로 해외 고객에게는 영문으로 직접 발표와 데모·질의응답까지 진행했습니다. 위협 탐지 → AI 자동 분석 → 호스트 격리 대응 → 다국어 리포트 생성으로 이어지는 end-to-end 데모 시나리오를 직접 구성해 제품의 실제 운영 흐름을 보여줬습니다.',
+    '고객사를 대상으로 Sentivex 솔루션을 소개한 발표 자료입니다. 제품 개요와 핵심 기능, 도입 효과를 중심으로 구성했고, 국내 고객에게는 한국어로 해외 고객에게는 영문으로 직접 발표와 데모·질의응답까지 진행했습니다. 위협 탐지 → AI 자동 분석 → 호스트 격리 대응 → 다국어 리포트 생성으로 이어지는 end-to-end 데모 시나리오를 직접 구성해 제품의 실제 운영 흐름을 보여줬습니다.',
   overview: [
-    'SentiveX 플랫폼의 AI 축으로, 보안 인시던트를 실시간 자동 분석하는 Fastify 서버입니다. 저는 이 서버의 핵심인 멀티 에이전트 오케스트레이터와 LiteLLM 게이트웨이, 멀티테넌트 모델 관리의 설계·개발을 주도했습니다(레포 최다 커밋 기여).',
+    'Sentivex 플랫폼의 AI 축으로, 보안 인시던트를 실시간 자동 분석하는 Fastify 서버입니다. 저는 이 서버의 핵심인 멀티 에이전트 오케스트레이터와 LiteLLM 게이트웨이, 멀티테넌트 모델 관리의 설계·개발을 주도했습니다(레포 최다 커밋 기여).',
     '입력은 CrowdStrike · SentinelOne · Cortex XDR 등 벤더별 XDR 텔레메트리입니다. 벤더마다 다른 스키마를 OCSF 표준으로 정규화해 Kafka로 받고 OpenSearch에 적재하며, 적재되는 즉시 Redis 큐가 분석 작업을 집어 분석 파이프라인으로 넘깁니다. 수집·정규화와 분석을 분리해, 벤더가 늘어도 분석 계층은 건드리지 않고 유입량이 늘면 워커만 늘리는 구조로 만들었습니다.',
     '큐에서 꺼낸 인시던트는 역할별 에이전트 8종이 정해진 순서로 처리합니다. Triage 에이전트가 인시던트를 분류·우선순위 산정해 이후 실행을 게이팅하고, IOC · MITRE · Network 에이전트 병렬 실행 → 조건부 외부 위협 인텔(SecurityIntel) → Correlation 종합으로 이어집니다. 종합 결과는 kill-chain 그래프·위협 점수(0–100)·신뢰도로 구조화 출력(generateObject)하고, 컴플라이언스(ISMS-P · ISO 27001 · GDPR) 분석은 백그라운드로 분리했으며, 우선순위에 따라 실행 에이전트를 가지쳐 LLM 비용을 조절하도록 만들었습니다.',
     '흩어져 있던 provider별 LLM 호출은 LiteLLM(OpenAI 호환) 게이트웨이 단일 경로로 통합해 폴백·동시성·토큰 제어를 한 계층으로 모았고, LiteLLM Admin API 기반 테넌트별 모델 CRUD와 BYOK(가상 키 허용목록) 격리를 구현했습니다. 분석 결과는 SSE로 실시간 스트리밍하고, 리포트는 BullMQ · Redis 비동기 잡으로 생성하도록 구성했습니다.',
@@ -51,14 +51,14 @@ export const ko: ProjectText = {
 }
 
 export const en: ProjectText = {
-  title: 'SentiveX AI Server',
+  title: 'Sentivex AI Server',
   description:
     'A Fastify AI server that automatically analyzes SIEM security incidents. I led the design and development end to end — from the real-time ingestion pipeline that normalizes per-vendor XDR telemetry into OCSF, through the multi-agent analysis, to the LiteLLM gateway that unifies all LLM calls.',
   mediaNote: 'Screens are withheld as they contain live operational data.',
   presentationNote:
-    'Slides from presentations introducing the SentiveX solution to enterprise clients. Structured around the product overview, core capabilities, and business value, I delivered the presentations, demos, and Q&A myself — in Korean for domestic clients and in English for overseas clients. I designed an end-to-end demo scenario — threat detection → automated AI analysis → host isolation response → multilingual report generation — to show the product’s real operational flow.',
+    'Slides from presentations introducing the Sentivex solution to enterprise clients. Structured around the product overview, core capabilities, and business value, I delivered the presentations, demos, and Q&A myself — in Korean for domestic clients and in English for overseas clients. I designed an end-to-end demo scenario — threat detection → automated AI analysis → host isolation response → multilingual report generation — to show the product’s real operational flow.',
   overview: [
-    'The AI backbone of the SentiveX platform — a Fastify server that analyzes security incidents in real time. I led the design and development of its core: the multi-agent orchestrator, the LiteLLM gateway, and multi-tenant model management (top committer on the repo).',
+    'The AI backbone of the Sentivex platform — a Fastify server that analyzes security incidents in real time. I led the design and development of its core: the multi-agent orchestrator, the LiteLLM gateway, and multi-tenant model management (top committer on the repo).',
     'The input is per-vendor XDR telemetry — CrowdStrike, SentinelOne, Cortex XDR and others. Each vendor\'s schema is normalized into the OCSF standard, received over Kafka and indexed into OpenSearch; the moment a record lands, a Redis queue picks up the analysis job and hands it to the pipeline. Separating ingestion/normalization from analysis means adding a vendor never touches the analysis layer, and rising volume is handled by adding workers.',
     'Incidents pulled off the queue are processed by eight role-specific agents in a fixed order: a Triage agent classifies each incident and assigns a priority that gates execution, followed by IOC/MITRE/Network agents running in parallel, a conditional external threat-intel (SecurityIntel) agent, and a Correlation agent that synthesizes the results. I structured that synthesis as a kill-chain graph, threat score (0–100), and confidence via structured output (generateObject), moved compliance (ISMS-P, ISO 27001, GDPR) analysis to the background, and pruned agents by priority to control LLM cost.',
     'I consolidated scattered per-provider LLM calls onto a single LiteLLM (OpenAI-compatible) gateway path — fallback, concurrency, and token control in one layer — and implemented per-tenant model CRUD and BYOK (virtual-key allow-list) isolation via the LiteLLM Admin API. Analysis results stream in real time over SSE, and reports are generated via async BullMQ/Redis jobs.',

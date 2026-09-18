@@ -102,7 +102,7 @@ onUnmounted(() => {
   <div class="apl" :class="{ 'apl--static': reduced }">
     <div class="apl__bar">
       <span class="apl__live"><i class="apl__dot" />LIVE / MULTI_AGENT_ANALYSIS</span>
-      <span class="apl__tag">SentiveX · AI server</span>
+      <span class="apl__tag">Sentivex · AI server</span>
     </div>
 
     <div class="apl__canvas">
