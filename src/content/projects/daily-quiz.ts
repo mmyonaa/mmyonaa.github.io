@@ -32,6 +32,10 @@ export const ko: ProjectText = {
       body: '오답은 자동으로 쌓이고, 맞혔다고 바로 지우지 않습니다. 1일 → 3일 → 7일로 다시 볼 시점을 미루며 마지막 단계를 통과해야 졸업합니다. 홈이 "쌓인 오답 N개"가 아니라 "오늘 복습할 오답 N개"를 먼저 말하도록 만든 것도 같은 의도입니다 — 쌓인 양은 부담이지만 오늘 할 양은 실행 가능한 목표라서요.',
     },
     {
+      title: '블로그와의 결합 — API 없이 공개 산출물로',
+      body: '두 사이트는 서로 API 를 열지 않습니다. daily.quiz 가 블로그의 RSS 와 GitHub 트리만 읽어 연결을 맞춥니다. 빌드 전에는 RSS 로 문항의 relatedPost 가 실제로 존재하는 글인지 검증하고(없으면 빌드 실패), 글 제목은 post-titles.json 으로 자동 생성해 제목이 바뀌어도 링크 텍스트가 어긋나지 않게 합니다. 네트워크가 죽으면 경고만 남기고 통과시켜 오프라인 빌드를 막지 않습니다. 매주 월요일에는 블로그 레포 트리의 blob sha 를 이전 상태와 비교해 죽은 링크·개정된 글(해설 재검토 필요)·커버리지 갭(글은 있는데 문항이 없는 주제)을 찾아 GitHub 이슈로 올립니다. 같은 변경은 한 번만 보고하도록 상태를 커밋해 두어, 매주 같은 내용이 반복되지 않습니다.',
+    },
+    {
       title: '빌드가 막는 콘텐츠 품질',
       body: '문항·주제를 Astro 콘텐츠 컬렉션 + zod 스키마로 묶어 발행 게이트를 만들었습니다. 스키마를 어긴 문항, 존재하지 않는 주제를 가리키는 문항은 빌드가 실패합니다. 코드 출력 문항은 실제로 실행해 정답을 검산했습니다. blog-sync 스크립트가 prebuild에서 블로그 링크를 검증하고, 주간 리포트로 죽은 링크·글 개정·문항 커버리지 갭을 알려줍니다.',
     },
@@ -72,6 +76,10 @@ export const en: ProjectText = {
     {
       title: 'Spaced-repetition wrong-answer notebook',
       body: 'Wrong answers accumulate automatically and are not cleared the moment you get one right. Review is deferred 1 → 3 → 7 days, and only clearing the last stage graduates an item. The home screen leads with "N wrong answers to review today" rather than "N accumulated" for the same reason — the accumulated pile is a burden, while today\'s list is an achievable target.',
+    },
+    {
+      title: 'Coupling with the blog — public artifacts, no API',
+      body: 'Neither site exposes an API to the other. daily.quiz reads only the blog\'s RSS feed and GitHub tree to keep the links aligned. Before each build it verifies through RSS that every question\'s relatedPost actually exists (a missing post fails the build) and regenerates post titles into post-titles.json so link text never drifts when a title changes; if the network is down it warns and passes rather than blocking an offline build. Every Monday it compares blob SHAs in the blog repo tree against the previous state to surface dead links, revised posts (explanations worth re-reading), and coverage gaps — topics with a post but no questions — and opens a GitHub issue. The state is committed back so the same change is reported once, not every week.',
     },
     {
       title: 'Content quality enforced by the build',

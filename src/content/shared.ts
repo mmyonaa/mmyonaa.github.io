@@ -205,6 +205,7 @@ const projectBase: ProjectBase[] = [
   },
   {
     slug: 'blog-mcp',
+    systemId: 'dailymcp',
     period: '2026.07 –',
     tags: ['TypeScript', 'MCP', '@modelcontextprotocol/sdk', 'zod', 'Astro', 'pnpm', 'Shiki', 'Supabase', 'Tavily', 'GitHub Actions', 'GitHub Pages'],
     link: 'https://mmyonaa.github.io/blog/',
@@ -222,6 +223,7 @@ const projectBase: ProjectBase[] = [
   },
   {
     slug: 'daily-quiz',
+    systemId: 'dailymcp',
     period: '2026.08 –',
     tags: ['Astro', 'TypeScript', 'zod', 'Supabase', 'RLS', 'GitHub Actions', 'GitHub Pages'],
     link: 'https://mmyonaa.github.io/quiz/',
@@ -313,6 +315,24 @@ export const systemMaps: Record<string, SystemMap> = {
       { from: 'payweb', to: 'payment', label: 'REST' },
       { from: 'mw', to: 'pg' },
       { from: 'payment', to: 'pg' },
+    ],
+  },
+  // 블로그가 매일 발행한 글을 문제 은행이 개념 주제·문항에 연결 — 서로 API 를 열지 않고
+  // RSS·git tree 같은 공개 산출물만으로 묶이며, 정합성은 빌드 게이트와 주간 리포트가 지킨다
+  dailymcp: {
+    layers: ['Publish', 'Link', 'Verify'],
+    nodes: [
+      { id: 'blog', label: 'daily.mcp', sub: 'MCP server · daily publish', slug: 'blog-mcp', layer: 0, x: 50 },
+      { id: 'quiz', label: 'daily.quiz', sub: 'topic notes · question bank', slug: 'daily-quiz', layer: 1, x: 50 },
+      { id: 'gate', label: 'Prebuild gate', sub: 'relatedPost · build fail', layer: 2, x: 20 },
+      { id: 'report', label: 'Weekly sync report', sub: 'cron · GitHub issue', layer: 2, x: 80 },
+    ],
+    edges: [
+      { from: 'blog', to: 'quiz', label: 'RSS · git tree' },
+      { from: 'quiz', to: 'gate' },
+      { from: 'quiz', to: 'report' },
+      // 커버리지 갭(글은 있는데 문항이 없는 주제)을 찾아 블로그로 되돌아가는 되먹임 — 라벨은 노드와 겹쳐 생략
+      { from: 'report', to: 'blog' },
     ],
   },
 }
