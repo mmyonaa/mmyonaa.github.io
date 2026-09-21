@@ -165,8 +165,9 @@
   align-items: start;
 }
 
-/* 스크롤 시 이미지가 따라오도록 sticky */
-.detail__media {
+/* 좌측 레일(이미지 + 스펙) 전체가 스크롤을 따라오도록 sticky.
+   Stack·Links 를 레일에 두면 우측 본문을 읽는 내내 스펙이 화면에 남는다. */
+.detail__rail {
   position: sticky;
   top: 100px;
 }
@@ -223,10 +224,14 @@
   padding-top: 3px;
 }
 
+/* 레일 하단 스펙 시트 — 이미지와 구분선으로 분리하고 세로로 쌓는다 */
 .detail__meta {
   display: flex;
-  flex-wrap: wrap;
-  gap: 26px 40px;
+  flex-direction: column;
+  gap: 22px;
+  margin-top: 26px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
 }
 
 .meta__block {
@@ -543,8 +548,23 @@
     gap: 30px;
   }
 
+  /* display:contents 로 레일을 풀어 한 칼럼에서 순서를 재배치한다
+     (모바일에서는 스펙보다 설명·하이라이트가 먼저 와야 함) */
+  .detail__rail {
+    display: contents;
+  }
+
   .detail__media {
-    position: static;
+    order: 1;
+  }
+
+  .detail__info {
+    order: 2;
+  }
+
+  .detail__meta {
+    order: 3;
+    margin-top: 0;
   }
 
   .detail__section {

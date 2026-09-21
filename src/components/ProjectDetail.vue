@@ -72,44 +72,35 @@ const systemMap = computed(() =>
       </header>
 
       <div class="detail__layout">
-        <div class="detail__media reveal">
-          <ImageSlider
-            v-if="images.length"
-            :images="images"
-            :alt="project.title"
-            :frame="project.imageFrame"
-            :tall="!!project.imageFrame"
-            :themed="project.themedImages"
-            zoomable
-          />
-          <p v-if="images.length && project.imageNote" class="detail__media-note reveal">
-            {{ project.imageNote }}
-          </p>
-          <div
-            v-if="!images.length"
-            class="detail__hero"
-            :class="{ 'detail__hero--locked': project.mediaNote }"
-            :style="{ background: tint }"
-          >
-            <span class="panel__dots" aria-hidden="true"><i /><i /><i /></span>
-            <template v-if="project.mediaNote">
-              <span class="lockcard__icon" aria-hidden="true">🔒</span>
-              <span class="lockcard__label">Confidential</span>
-              <p class="lockcard__note">{{ project.mediaNote }}</p>
-            </template>
-            <span v-else class="detail__hero-ghost">{{ project.title }}</span>
+        <div class="detail__rail">
+          <div class="detail__media reveal">
+            <ImageSlider
+              v-if="images.length"
+              :images="images"
+              :alt="project.title"
+              :frame="project.imageFrame"
+              :tall="!!project.imageFrame"
+              :themed="project.themedImages"
+              zoomable
+            />
+            <p v-if="images.length && project.imageNote" class="detail__media-note reveal">
+              {{ project.imageNote }}
+            </p>
+            <div
+              v-if="!images.length"
+              class="detail__hero"
+              :class="{ 'detail__hero--locked': project.mediaNote }"
+              :style="{ background: tint }"
+            >
+              <span class="panel__dots" aria-hidden="true"><i /><i /><i /></span>
+              <template v-if="project.mediaNote">
+                <span class="lockcard__icon" aria-hidden="true">🔒</span>
+                <span class="lockcard__label">Confidential</span>
+                <p class="lockcard__note">{{ project.mediaNote }}</p>
+              </template>
+              <span v-else class="detail__hero-ghost">{{ project.title }}</span>
+            </div>
           </div>
-        </div>
-
-        <div class="detail__info">
-          <p class="detail__desc reveal">{{ project.description }}</p>
-
-          <ul class="detail__points reveal">
-            <li v-for="(h, i) in project.highlights" :key="i">
-              <span class="detail__points-num">{{ String(i + 1).padStart(2, '0') }}</span>
-              {{ h }}
-            </li>
-          </ul>
 
           <div class="detail__meta reveal">
             <div class="meta__block">
@@ -128,6 +119,18 @@ const systemMap = computed(() =>
               </div>
             </div>
           </div>
+        </div>
+
+        <div class="detail__info">
+          <p class="detail__desc reveal">{{ project.description }}</p>
+
+          <ul class="detail__points reveal">
+            <li v-for="(h, i) in project.highlights" :key="i">
+              <span class="detail__points-num">{{ String(i + 1).padStart(2, '0') }}</span>
+              {{ h }}
+            </li>
+          </ul>
+
         </div>
       </div>
 
