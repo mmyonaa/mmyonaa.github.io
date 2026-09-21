@@ -117,7 +117,7 @@ export interface Project {
   architectureCaptions?: string[] // 각 다이어그램 캡션 (images 와 같은 순서)
   architectureNotes?: string[] // 각 다이어그램 아래 설명 문단 (images 와 같은 순서)
   systemId?: string // 소속 시스템 (shared.ts systemMaps 키) — 'Part of the same system' 레이어 다이어그램 표시
-  analysisPipeline?: boolean // 'Analysis pipeline' 라이브 다이어그램 섹션 표시 (sentivex-ai 전용)
+  analysisPipeline?: boolean // 'Analysis pipeline' 라이브 다이어그램 섹션 표시 (siem-ai 전용)
   paymentFlow?: boolean // 'Subscription flow' 업/다운그레이드 플로우 다이어그램 표시 (apoc-payment 전용)
 }
 

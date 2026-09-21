@@ -60,28 +60,24 @@ type ProjectBase = Omit<Project, 'title' | 'description' | 'highlights'>
 
 const projectBase: ProjectBase[] = [
   {
-    slug: 'sentivex-ai',
+    slug: 'siem-ai',
     period: '2025.09 –',
     tags: ['Fastify', 'TypeScript', 'AI SDK', 'LiteLLM', 'Multi-provider LLM', 'Kafka', 'OpenSearch', 'OCSF', 'Redis', 'BullMQ', 'Prisma', 'PostgreSQL', 'Grafana'],
     link: '',
     company: '',
     repo: '',
-    systemId: 'sentivex',
+    systemId: 'siem',
     analysisPipeline: true,
-    // 실제 브랜드·도메인(sentivexsystems.com)이 이미지에 렌더링돼 있어 노출 검토 중 — 일단 비활성화
-    // presentationImages: [
-    //   '/projects/sentivex/sentivex-slide-01.jpg',
-    //   '/projects/sentivex/sentivex-slide-02.jpg',
-    // ],
+    // 출시 전 제품의 발표 이미지는 배포 자산에 포함하지 않습니다.
   },
   {
-    slug: 'sentivex-web',
+    slug: 'siem-web',
     period: '2025.09 –',
     tags: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'shadcn/ui', 'Prisma', 'PostgreSQL', 'BlockNote', 'Recharts', 'XY Flow', 'BullMQ', 'Redis', 'OpenSearch'],
     link: '',
     company: '',
     repo: '',
-    systemId: 'sentivex',
+    systemId: 'siem',
   },
   {
     slug: 'bk-theater',
@@ -278,11 +274,11 @@ export const systemMaps: Record<string, SystemMap> = {
     ],
   },
   // 웹(Next.js 풀스택) ↔ AI 서버(Fastify)가 PostgreSQL 을 공유 (AI 서버는 read-only 동기화)
-  sentivex: {
+  siem: {
     layers: ['Services', 'Infra'],
     nodes: [
-      { id: 'web', label: 'Web', sub: 'Next.js · full-stack', slug: 'sentivex-web', layer: 0, x: 28 },
-      { id: 'ai', label: 'AI Server', sub: 'Fastify · BullMQ', slug: 'sentivex-ai', layer: 0, x: 72 },
+      { id: 'web', label: 'Web', sub: 'Next.js · full-stack', slug: 'siem-web', layer: 0, x: 28 },
+      { id: 'ai', label: 'AI Server', sub: 'Fastify · BullMQ', slug: 'siem-ai', layer: 0, x: 72 },
       { id: 'os', label: 'OpenSearch', sub: 'SIEM logs', layer: 1 },
       { id: 'pg', label: 'PostgreSQL', sub: 'shared', layer: 1 },
       { id: 'redis', label: 'Redis', sub: 'queue', layer: 1 },

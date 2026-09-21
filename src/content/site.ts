@@ -45,7 +45,7 @@ export const siteKo: SiteText = {
     timeline: [
       {
         period: '2025.09 – 현재',
-        title: 'InBridge · Sentivex 보안 플랫폼 (AI 서버·웹)',
+        title: 'InBridge · SIEM 보안 플랫폼 (AI 서버·웹)',
         body: 'InBridge의 멀티테넌트 SIEM 보안 플랫폼. Fastify AI 서버의 멀티 에이전트 인시던트 분석 파이프라인과 LiteLLM 게이트웨이·멀티테넌트 BYOK 설계·개발을 주도하고, Next.js 15 풀스택 웹(대시보드·리포트 에디터)에도 협업으로 참여했습니다.',
       },
       {
@@ -73,7 +73,7 @@ export const siteKo: SiteText = {
       {
         period: '2026.05 – 07',
         title: '고객사 대상 제품 프리젠테이션',
-        body: 'Sentivex 제품을 고객사 대상으로 한국어·영문 발표 (글로벌 IT 기업, 대기업 계열사, 국내 대기업).',
+        body: 'SIEM 제품을 고객사 대상으로 한국어·영문 발표 (글로벌 IT 기업, 대기업 계열사, 국내 대기업).',
       },
       {
         period: '2026',
@@ -133,7 +133,7 @@ export const siteEn: SiteText = {
     timeline: [
       {
         period: '2025.09 – Present',
-        title: 'InBridge · Sentivex Security Platform (AI server & web)',
+        title: 'InBridge · SIEM Security Platform (AI server & web)',
         body: 'A multi-tenant SIEM security platform at InBridge. I led the design and development of the Fastify AI server’s multi-agent incident-analysis pipeline, LiteLLM gateway, and multi-tenant BYOK, and also contributed to the Next.js 15 full-stack web (dashboard, report editor).',
       },
       {
@@ -161,7 +161,7 @@ export const siteEn: SiteText = {
       {
         period: '2026.05 – 07',
         title: 'Client Product Presentations',
-        body: 'Presented and demoed Sentivex to enterprise clients in both Korean and English (a global IT firm, a large-enterprise affiliate, and a major Korean conglomerate).',
+        body: 'Presented and demoed SIEM to enterprise clients in both Korean and English (a global IT firm, a large-enterprise affiliate, and a major Korean conglomerate).',
       },
       {
         period: '2026',

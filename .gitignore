@@ -46,8 +46,7 @@ public/projects/nie/**
 !public/projects/nie/nie-content-detail.png
 !public/projects/nie/nie-code-entry.png
 
-# sentivex 발표 슬라이드: 실제 브랜드·도메인(sentivexsystems.com) 렌더링 — 비배포(로컬 보관)
-public/projects/sentivex/*.jpg
+# 출시 전 제품 발표 자료는 apply/ 내부에만 보관합니다.
 
 # 지원서 제출용 묶음(이력서·포트폴리오 PDF) — 개인 보관, 저장소/배포 제외
 apply/

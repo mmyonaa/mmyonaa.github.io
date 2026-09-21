@@ -2,8 +2,8 @@
 // 여기서 slug 기준 Record 로 모아 buildProjects 에 전달합니다.
 
 import type { ProjectText } from '../shared'
-import * as sentivexAi from './sentivex-ai'
-import * as sentivexWeb from './sentivex-web'
+import * as siemAi from './siem-ai'
+import * as siemWeb from './siem-web'
 import * as bkTheater from './bk-theater'
 import * as ecologyContent from './ecology-content'
 import * as apocStudio from './apoc-studio'
@@ -18,8 +18,8 @@ import * as portfolio from './portfolio'
 
 // slug → 프로젝트 모듈 (표시 순서와 무관 — buildProjects 가 shared 의 순서를 따름)
 const modules: Record<string, { ko: ProjectText; en: ProjectText }> = {
-  'sentivex-ai': sentivexAi,
-  'sentivex-web': sentivexWeb,
+  'siem-ai': siemAi,
+  'siem-web': siemWeb,
   'bk-theater': bkTheater,
   'ecology-content': ecologyContent,
   'apoc-studio': apocStudio,

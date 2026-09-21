@@ -22,7 +22,11 @@ type Route =
 function getRoute(): Route {
   const hash = window.location.hash.replace(/^#/, '')
   const m = hash.match(/^\/project\/(.+)$/)
-  if (m) return { name: 'project', slug: m[1] }
+  if (m) {
+    if (projects.value.some((p) => p.slug === m[1])) return { name: 'project', slug: m[1] }
+    window.history.replaceState(null, '', `${window.location.pathname}${window.location.search}#works`)
+    return { name: 'home', anchor: 'works' }
+  }
   if (hash === '/about') return { name: 'about' }
   const anchor = hash && !hash.startsWith('/') ? hash : ''
   return { name: 'home', anchor }
