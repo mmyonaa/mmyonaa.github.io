@@ -10,14 +10,11 @@ export const ko: ProjectText = {
     'Phase 1에서 MCP의 3대 primitive를 한 서버에 모두 구현했고, Phase 3에서 무인 발행 파이프라인을 가동했습니다 — 매일 KST 14:23 cron이 오케스트레이터를 돌려 섹션 로테이션(5슬롯) 차례대로 글을 쓰고, 발행 관문(hook)이 통과시킨 글만 자동 배포됩니다. 주제 축은 MCP·에이전트 만들기 / 블로그·웹 만들기 / 정처기 / 정보보안기사 / 알고리즘 / 보안 6개 섹션이며, 리서치가 필요한 보안 이슈·MCP 생태계 동향 글은 웹 검색 도구로 근거를 수집하는 Mode R로 발행합니다. 글은 LLM 에이전트가 쓰고 서버는 도구만 노출하며, 발행 직전 관문이 결정론으로 검문합니다 — 지금까지 100편 이상이 사람 손 없이 발행됐습니다. 발행된 글은 Astro SSG 블로그로 렌더되며, 목차·스크롤스파이, Shiki 듀얼테마 코드 하이라이팅, 클라이언트 검색(⌘K), 태그·섹션·관련 글, RSS·사이트맵·글별 JSON-LD, 주제 그래프·발행 히트맵 같은 고유 비주얼을 갖췄습니다. GitHub Actions로 main 푸시 시 GitHub Pages에 자동 배포됩니다.',
   ],
   highlights: [
-    'MCP 3대 primitive 전부 직접 구현 — Tool · Resource · Prompt를 갖춘 stdio 서버',
-    'LLM 미호출 순수 함수 원칙 — 트리거·오케스트레이터·MCP 서버 3조각으로 책임 분리',
-    '무인 발행 파이프라인 가동 — cron + 오케스트레이터 래퍼 + PreToolUse 발행 관문, 누적 100편 이상 자동 발행',
-    '결정론적 구조 검증으로 발행 게이트 — follows/related·본문 내부 링크의 실존·형태 검증으로 링크 할루시네이션 차단',
-    '성과 신호 되먹임으로 콘텐츠 루프 닫음 — 조회수를 주제 선정 정렬에 가중(cold-start 관문·graceful degradation)',
-    'Mode R 리서치 발행 — search_web · read_url 도구로 근거 수집, 출처 메타를 글과 함께 렌더',
-    '섹션 레지스트리(topics.ts) 한 줄로 주제 축 확장 — 6개 섹션까지 하드코딩 없이 증설',
-    'Astro SSG 블로그 — 검색(⌘K)·태그/섹션·관련 글 · RSS · JSON-LD · Shiki 듀얼테마',
+    'MCP 3대 primitive 전부 직접 구현 — Tool · Resource · Prompt stdio 서버',
+    'LLM 미호출 순수 함수 원칙 — 트리거 · 오케스트레이터 · MCP 서버 3조각 분리',
+    '무인 발행 파이프라인 가동 — 누적 100편 이상 자동 발행',
+    '결정론적 구조 검증 발행 게이트로 링크 할루시네이션 차단',
+    '조회수 되먹임으로 주제 선정 가중 — 콘텐츠 루프 완결',
   ],
   techNotes: [
     {
@@ -61,14 +58,11 @@ export const en: ProjectText = {
     'In Phase 1 I implemented all three MCP primitives in one server, and in Phase 3 the unattended publishing pipeline went live — a daily cron (14:23 KST) drives the orchestrator to write a post in the order set by a five-slot section rotation, and only posts that pass the publish gate (hook) get deployed. The topic axis spans six sections — Building MCP & agents, Building blogs & web, Engineer Information Processing, Information Security Engineer, Algorithms, and Security — and posts that need research (security incidents, MCP ecosystem news) are published through Mode R, which gathers evidence with web-search tools. An LLM agent writes the posts while the server only exposes tools, and a gate inspects each publish deterministically just before it lands — over 100 posts have shipped without a human in the loop. Published posts render through an Astro SSG blog with a table of contents + scrollspy, Shiki dual-theme code highlighting, client-side search (⌘K), tag/section pages, related posts, RSS, sitemap, per-post JSON-LD, and custom visuals like a topic graph and a publish heatmap. GitHub Actions deploys to GitHub Pages on push to main.',
   ],
   highlights: [
-    'Implemented all three MCP primitives by hand — a stdio server with Tools, Resources, and Prompts',
-    'No-LLM pure-function principle — responsibilities split across trigger, orchestrator, and MCP server',
-    'Unattended publishing pipeline in production — cron + orchestrator wrapper + PreToolUse publish gate, 100+ posts published automatically',
-    'Deterministic structural validation as a publish gate — checks existence and shape of follows/related and in-body links to block link hallucination',
-    'Closed the content loop with a performance-signal feedback — view counts weight topic-selection ordering (cold-start gate, graceful degradation)',
-    'Mode R research publishing — evidence gathered via search_web/read_url tools, sources rendered with the post',
-    'Extensible topic axis from a one-line section registry (topics.ts) — grown to six sections with no hardcoding',
-    'Astro SSG blog — search (⌘K), tags/sections, related posts, RSS, JSON-LD, Shiki dual theme',
+    'Implemented all three MCP primitives by hand — a stdio server with Tools, Resources, Prompts',
+    'No-LLM pure-function principle — trigger, orchestrator, and MCP server as three separate pieces',
+    'Unattended publishing pipeline in production — 100+ posts published automatically',
+    'Deterministic structural validation as a publish gate, blocking link hallucination',
+    'Closed the content loop — view counts weight topic selection',
   ],
   techNotes: [
     {

@@ -20,11 +20,11 @@ export const ko: ProjectText = {
     '관리자가 공연·공지·보도자료·배너를 직접 운영할 수 있도록 Quill 에디터 기반 CRUD와 이미지/파일 업로드(S3)를 제공하고, AWS EC2에 PM2 · Nginx로 배포해 안정적으로 운영 중입니다.',
   ],
   highlights: [
-    '기획·설계·개발·인프라 구성까지 1인 개발',
-    'vite-ssg 정적 사이트 생성(SSG) + 동적 메타·JSON-LD·사이트맵으로 SEO 최적화',
-    '극장 조회·예약 기능과 예약 흐름 최적화',
-    '관리자 공연·공지 등록으로 콘텐츠 운영 편의 향상',
-    '오픈 후 지속 운영 — 전면 코드 리뷰 스프린트(버그 60여 건)·보안 하드닝·색인 회귀 복구',
+    '기획 · 설계 · 개발 · 인프라 구성까지 1인 개발',
+    'vite-ssg 정적 사이트 생성 + 동적 메타 · JSON-LD · 사이트맵으로 SEO 최적화',
+    '극장 조회 · 예약 기능과 예약 흐름 최적화',
+    '관리자 공연 · 공지 등록으로 콘텐츠 운영',
+    '오픈 후 지속 운영 — 코드 리뷰 스프린트(버그 60여 건) · 보안 하드닝',
   ],
   techNotes: [
     {
@@ -72,9 +72,9 @@ export const en: ProjectText = {
   highlights: [
     'Solo development covering planning, design, development, and infrastructure',
     'SEO optimization via vite-ssg static generation, dynamic meta/JSON-LD, and a sitemap',
-    'Theater browsing/reservation features with an optimized booking flow',
-    'Admin registration of performances and notices for easier content operations',
-    'Ongoing post-launch operation — full recurring maintenance sprints (60+ defects resolved), security hardening, indexing-regression recovery',
+    'Theater browsing and reservation with an optimized booking flow',
+    'Admin registration of performances and notices for content operations',
+    'Ongoing post-launch operation — review sprints (60+ defects), security hardening',
   ],
   techNotes: [
     {

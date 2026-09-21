@@ -10,12 +10,11 @@ export const ko: ProjectText = {
     '이력서도 같은 레포에서 관리합니다. HTML로 작성한 국/영문 이력서를 headless Chrome으로 PDF 변환해 사이트 언어에 맞는 파일이 다운로드되고, GitHub Actions로 main 푸시 시 자동 배포되도록 구성했습니다. 작업은 GitHub 이슈·프로젝트 보드로 관리해 과정까지 공개되어 있습니다.',
   ],
   highlights: [
-    '기획·디자인·개발·배포 1인 진행 — 코드·작업 이력 전체 공개',
-    '콘텐츠를 코드로 — 타입 기반 콘텐츠 모듈, 한/영 병렬 구조(slug 병합)',
-    '런타임 의존성 Vue 하나 — 라우팅·i18n·테마·커맨드 팔레트(⌘K) 직접 구현',
-    '레이어형 시스템 다이어그램·라이브 파이프라인 등 인터랙티브 컴포넌트',
-    '국/영문 이력서 HTML→PDF 파이프라인 — 사이트 언어별 다운로드',
-    'GitHub Actions 자동 배포 구성 + 이슈·프로젝트 보드 기반 작업 관리',
+    '기획 · 디자인 · 개발 · 배포 1인 진행 — 코드 · 작업 이력 전체 공개',
+    '콘텐츠를 코드로 — 타입 기반 콘텐츠 모듈, 한/영 병렬 구조',
+    '런타임 의존성 Vue 하나 — 라우팅 · i18n · 테마 · 커맨드 팔레트(⌘K) 직접 구현',
+    '레이어형 시스템 다이어그램 · 라이브 파이프라인 등 인터랙티브 컴포넌트',
+    '국/영문 이력서 HTML→PDF 파이프라인 + GitHub Actions 자동 배포',
   ],
   techNotes: [
     {
@@ -43,12 +42,11 @@ export const en: ProjectText = {
     'The resume lives in the same repo: KO/EN resumes written as print-ready HTML are converted to PDF with headless Chrome, and the download matches the site language. A GitHub Actions workflow deploys on push to main, and the work itself is tracked on a public GitHub issue/project board.',
   ],
   highlights: [
-    'Solo work across planning, design, development, and deployment — code and work history fully public',
-    'Content as code — typed content modules with parallel KO/EN structure (merged by slug)',
-    'Single runtime dependency (Vue) — hand-rolled routing, i18n, theming, and command palette (⌘K)',
-    'Interactive components: layered system diagrams, live pipeline diagram, device mockups',
-    'KO/EN resume HTML→PDF pipeline — downloads follow the site language',
-    'GitHub Actions deployment + issue/project-board-driven workflow',
+    'Solo work across planning, design, development, and deployment — fully public',
+    'Content as code — typed content modules with parallel KO/EN structure',
+    'Single runtime dependency (Vue) — hand-rolled routing, i18n, theming, ⌘K palette',
+    'Interactive components — layered system diagrams and a live pipeline diagram',
+    'KO/EN resume HTML→PDF pipeline + GitHub Actions deployment',
   ],
   techNotes: [
     {

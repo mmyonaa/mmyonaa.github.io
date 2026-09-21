@@ -10,12 +10,11 @@ export const ko: ProjectText = {
     'BlockNote 기반 AI 보안 리포트 에디터는 단독으로 개발했습니다. 차트·상태카드 등 커스텀 블록을 만들고, AI 편집 제안을 블록/표/문자 단위 diff 하이라이팅으로 미리보고 커밋하는 흐름과 한/영/일 다국어 리포트 저장, PDF · DOCX · CSV/XLSX 익스포트를 구현했습니다. 이 외에 SIEM 대시보드 차트(Recharts)와 MITRE ATT&CK 킬체인 토폴로지 그래프(XY Flow · dagre), BullMQ 워커·크론 자동화를 담당했고, 무거운 분석·생성은 AI 서버(REST · SSE)에 위임하도록 연동 흐름을 구성했습니다.',
   ],
   highlights: [
-    'Next.js 15 App Router 풀스택(UI + API 라우트 + Prisma/PostgreSQL) 협업 개발',
-    'SIEM 대시보드·인시던트/경고 관리(severity · MITRE ATT&CK)·엔드포인트 격리·위협 인텔리전스',
-    'BlockNote 기반 AI 리포트 에디터 — 블록 단위 AI 편집·diff 하이라이팅 · 미리보기 · 다국어(한/영/일) · PDF/DOCX/CSV · XLSX 익스포트',
-    'Recharts 대시보드 차트 + XY Flow · dagre 킬체인(MITRE ATT&CK) 토폴로지 그래프',
-    'BullMQ · Redis 워커·크론 스케줄링 — 데이터 보존·알림·정기 리포트 자동화',
-    'OpenSearch SIEM 검색·실시간 모니터링(SSE) + AI 서버(REST · SSE) 연동',
+    'Next.js 15 App Router 풀스택 협업 개발 (UI · API 라우트 · Prisma)',
+    'SIEM 대시보드 · 인시던트/경고 관리 · 엔드포인트 격리',
+    'BlockNote 기반 AI 리포트 에디터 — 블록 단위 AI 편집 · 다국어 · 다형식 익스포트',
+    '킬체인(MITRE ATT&CK) 토폴로지 그래프 · 대시보드 차트',
+    'OpenSearch 검색 · SSE 실시간 모니터링 · AI 서버 연동',
   ],
   techNotes: [
     {
@@ -51,12 +50,11 @@ export const en: ProjectText = {
     'I independently developed the BlockNote-based AI security report editor: I built custom blocks (charts, status cards), the preview-before-commit flow that highlights AI edit suggestions with block/table/character-level diffs, multilingual (ko/en/ja) report storage, and PDF/DOCX/CSV · XLSX export. I also owned the SIEM dashboard charts (Recharts), the MITRE ATT&CK kill-chain topology graph (XY Flow/dagre), and BullMQ worker/cron automation, and wired heavy analysis and generation to be delegated to the AI server (REST/SSE).',
   ],
   highlights: [
-    'Next.js 15 App Router full-stack (UI + API routes + Prisma/PostgreSQL) — collaborative development',
-    'SIEM dashboard, incident/alert management (severity, MITRE ATT&CK), endpoint isolation, threat intelligence',
-    'BlockNote-based AI report editor — block-level AI editing, diff highlighting, preview, multilingual (ko/en/ja), PDF/DOCX/CSV · XLSX export',
-    'Recharts dashboard charts + XY Flow/dagre kill-chain (MITRE ATT&CK) topology graph',
-    'BullMQ/Redis workers & cron scheduling — data retention, notifications, recurring reports',
-    'OpenSearch SIEM search & real-time monitoring (SSE) + AI-server (REST/SSE) integration',
+    'Next.js 15 App Router full-stack collaboration (UI, API routes, Prisma)',
+    'SIEM dashboard, incident/alert management, endpoint isolation',
+    'BlockNote-based AI report editor — block-level AI editing, multilingual, multi-format export',
+    'Kill-chain (MITRE ATT&CK) topology graph and dashboard charts',
+    'OpenSearch search, real-time SSE monitoring, AI-server integration',
   ],
   techNotes: [
     {

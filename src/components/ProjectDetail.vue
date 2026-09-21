@@ -38,6 +38,10 @@ const num = computed(() => String(idx.value + 1).padStart(2, '0'))
 const totalLabel = computed(() => String(projects.value.length).padStart(2, '0'))
 const hasLinks = computed(() => !!(props.project.link || props.project.repo || props.project.apiDocs || props.project.board))
 
+// 세로로 긴 기기 목업(키오스크·폰)은 좌측 미디어만으로도 우측 본문만큼 길다.
+// 이 경우 Stack·Links 를 좌측에 더하면 반대로 좌측이 넘치므로 우측 본문 아래로 되돌린다.
+const tallFrame = computed(() => props.project.imageFrame === 'kiosk' || props.project.imageFrame === 'phone')
+
 // 함께 이루는 시스템의 레이어 다이어그램 (systemMaps 에 시스템 단위로 정의)
 const systemMap = computed(() =>
   props.project.systemId ? systemMaps[props.project.systemId] : undefined,
@@ -71,7 +75,7 @@ const systemMap = computed(() =>
         <p class="detail__period reveal">{{ project.period }}</p>
       </header>
 
-      <div class="detail__layout">
+      <div class="detail__layout" :class="{ 'detail__layout--tall': tallFrame }">
         <div class="detail__rail">
           <div class="detail__media reveal">
             <ImageSlider

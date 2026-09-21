@@ -20,11 +20,10 @@ export const ko: ProjectText = {
   ],
   highlights: [
     '키오스크 웹(Vue 3 PWA) 개발 주도',
-    '구형·신형 영수증 프린터 이중 드라이버 자동 감지·호환 (SII ↔ Epson)',
-    '일본어·한국어 다중 인코딩(Shift-JIS ↔ UTF-8) 자동 선택',
-    '결제 단말 카드 · QR · NFC 태그 결제 타입별 응답·오류 처리 및 웹 전달',
-    '용지 부족 실시간 모니터링·와이파이 자동 재연결 등 무인 운영 안정화',
-    '공항 2곳 · 4대 · 약 1년 무인 가동 — 현장 세팅부터 초기 운영·실시간 이슈 대응까지 담당 (판매 eSIM 상품 30개국+)',
+    '구형 · 신형 영수증 프린터 이중 드라이버 자동 감지 (SII ↔ Epson)',
+    '결제 단말 카드 · QR · NFC 결제 타입별 응답 · 오류 처리',
+    '용지 부족 실시간 모니터링 · 와이파이 자동 재연결 등 무인 운영 안정화',
+    '공항 2곳 · 4대 · 약 1년 무인 가동 — 현장 세팅부터 초기 운영까지 담당',
   ],
   techNotes: [
     {
@@ -67,10 +66,9 @@ export const en: ProjectText = {
   highlights: [
     'Led development of the kiosk web (Vue 3 PWA)',
     'Dual-driver auto-detection across legacy and new receipt printers (SII ↔ Epson)',
-    'Japanese/Korean multi-encoding (Shift-JIS ↔ UTF-8) with automatic selection',
-    'Payment-terminal card/QR/NFC-tag per-type response and error handling relayed back to the web',
-    'Unattended-ops hardening: real-time paper-low monitoring and Wi-Fi auto-reconnect',
-    'Owned unattended-store operation in Japan end to end — setup, initial operations, and real-time issue response (eSIM catalog covering 30+ countries)',
+    'Payment-terminal card/QR/NFC per-type response and error handling',
+    'Unattended-ops hardening — paper-low monitoring, Wi-Fi auto-reconnect',
+    'Owned unattended-store operation in Japan end to end — setup through initial operations',
   ],
   techNotes: [
     {

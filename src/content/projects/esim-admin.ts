@@ -15,10 +15,10 @@ export const ko: ProjectText = {
   ],
   highlights: [
     '관리자 권한 시스템(RBAC) 설계 — 역할 계층 기반 기능 제한',
-    '광고·유입업체 정산 화면·API 추가 및 정산 컬럼 확장',
-    '키오스크·사이트 주문관리 (주문번호·ICCID·판매업체 검색, 엑셀 내보내기)',
-    '다국어(한·영·일) + 상품 번역, 통화·타임존 다국가 대응',
-    '여러 eSIM 공급사 외부 연동 주문 처리 (프론트·백엔드 풀스택)',
+    '광고 · 유입업체 정산 화면 · API 개발',
+    '키오스크 · 사이트 주문관리 — 주문번호 · ICCID · 판매업체 검색, 엑셀 내보내기',
+    '다국어(한 · 영 · 일) + 상품 번역, 통화 · 타임존 다국가 대응',
+    '여러 eSIM 공급사 외부 연동 주문 처리 (풀스택)',
   ],
   techNotes: [
     {
@@ -60,10 +60,10 @@ export const en: ProjectText = {
   ],
   highlights: [
     'Designed the admin permission system (RBAC) — role-hierarchy-based access control',
-    'Added advertising/inflow-partner settlement screens & APIs and extended settlement columns',
-    'Kiosk/site order management (search by order no., ICCID, reseller; Excel export)',
-    'i18n (KO/EN/JP) + product translation, multi-currency/time-zone support',
-    'External order integration with multiple eSIM suppliers (full-stack, front & back)',
+    'Built advertising/inflow-partner settlement screens and APIs',
+    'Kiosk/site order management — search by order no., ICCID, reseller; Excel export',
+    'i18n (KO/EN/JP) with product translation, multi-currency and time-zone support',
+    'External order integration with multiple eSIM suppliers (full-stack)',
   ],
   techNotes: [
     {

@@ -14,12 +14,11 @@ export const ko: ProjectText = {
     '해외 사용자를 위해 vue-i18n 3개 언어(한/영/일) 사전을 직접 구축하고 국가·언어별 통화(USD/JPY)를 전환했으며, PC~모바일 반응형과 PWA(Workbox)를 적용했습니다. lz-string 로컬 저장소 압축 같은 클라이언트 최적화도 담당했습니다. 이 서비스는 어드민·키오스크·공유 백엔드(미들웨어)와 함께 하나의 eSIM 플랫폼을 이룹니다.',
   ],
   highlights: [
-    'Vue 3 프론트엔드 아키텍처 설계·개발 주도 (프로젝트 최다 커밋)',
-    '다중 PG 결제 구현 — Paygent 카드(USD) + Google Pay · Apple Pay(JPY)',
-    '웹·키오스크 겸용 다단계 결제 플로우 (경로 분기·실패 롤백)',
-    'vue-i18n 3개 언어 사전 구축 + 국가·언어별 통화 전환',
-    '반응형·PWA + lz-string 저장소 압축 등 클라이언트 최적화',
-    '공유 백엔드(미들웨어) 개발 주도 (최다 커밋) — eSIM 공급사 외부 연동, 결제 후 eSIM 발급·SES 메일 발송',
+    'Vue 3 프론트엔드 아키텍처 설계 · 개발 주도 (프로젝트 최다 커밋)',
+    '다중 PG 결제 — Paygent 카드(USD) + Google Pay · Apple Pay(JPY)',
+    '웹 · 키오스크 겸용 다단계 결제 플로우 (경로 분기 · 실패 롤백)',
+    'vue-i18n 3개 언어 사전 구축 + 국가 · 언어별 통화 전환',
+    '공유 백엔드 개발 주도 — eSIM 공급사 연동, 발급 · 메일 발송',
   ],
   techNotes: [
     {
@@ -58,9 +57,8 @@ export const en: ProjectText = {
     'Led the Vue 3 frontend architecture and development (top committer)',
     'Multi-gateway payments — Paygent card (USD) + Google Pay / Apple Pay (JPY)',
     'Web/kiosk-shared multi-step checkout (path branching, rollback on failure)',
-    'Built vue-i18n dictionaries for three languages + per-country/language currency',
-    'Responsive/PWA + client optimizations (lz-string storage compression)',
-    'Led development of the shared backend (middleware, top committer) — external eSIM-supplier integration, post-payment eSIM issuance & SES email delivery',
+    'Built vue-i18n dictionaries for three languages + per-country currency',
+    'Led the shared backend — eSIM-supplier integration, issuance and email delivery',
   ],
   techNotes: [
     {

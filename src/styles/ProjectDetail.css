@@ -224,6 +224,35 @@
   padding-top: 3px;
 }
 
+/* 세로 기기 목업(키오스크·폰)은 좌측이 이미 우측만큼 길다 — 레일을 풀고
+   스펙을 우측 본문 아래로 되돌려 좌우 균형을 맞춘다. */
+.detail__layout--tall {
+  grid-template-areas:
+    'media info'
+    'media meta';
+}
+
+.detail__layout--tall .detail__rail {
+  display: contents;
+}
+
+.detail__layout--tall .detail__media {
+  grid-area: media;
+  position: sticky;
+  top: 100px;
+}
+
+.detail__layout--tall .detail__info {
+  grid-area: info;
+}
+
+.detail__layout--tall .detail__meta {
+  grid-area: meta;
+  margin-top: 0;
+  padding-top: 0;
+  border-top: 0;
+}
+
 /* 레일 하단 스펙 시트 — 이미지와 구분선으로 분리하고 세로로 쌓는다 */
 .detail__meta {
   display: flex;
@@ -546,6 +575,16 @@
   .detail__layout {
     grid-template-columns: 1fr;
     gap: 30px;
+  }
+
+  .detail__layout--tall {
+    grid-template-areas: none;
+  }
+
+  .detail__layout--tall .detail__media,
+  .detail__layout--tall .detail__info,
+  .detail__layout--tall .detail__meta {
+    grid-area: auto;
   }
 
   /* display:contents 로 레일을 풀어 한 칼럼에서 순서를 재배치한다
