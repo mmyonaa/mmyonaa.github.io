@@ -235,6 +235,16 @@ const projectBase: ProjectBase[] = [
     themedImages: true,
   },
   {
+    slug: 'jb-front',
+    period: '2026.09.10 – 09.20',
+    tags: ['Vue 3', 'TypeScript', 'Pinia', 'Vue Router', 'Tailwind CSS v4', 'Vite', 'Kakao Maps SDK', 'Cloudflare Workers'],
+    link: '',
+    company: '',
+    repo: '',
+    // 해커톤 제출작 — 라이브·레포 공개 여부 확인 후 link·repo 를 채웁니다.
+    // 화면 캡처는 백엔드(팀 소유 EC2)가 떠 있어야 찍을 수 있어 아직 없습니다.
+  },
+  {
     slug: 'portfolio',
     period: '2026.07 – 2026.09',
     tags: ['Vue 3', 'TypeScript', 'Vite', 'GitHub Actions', 'CSS'],

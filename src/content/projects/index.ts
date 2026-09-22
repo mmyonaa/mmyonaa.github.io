@@ -14,6 +14,7 @@ import * as esimKiosk from './esim-kiosk'
 import * as esimService from './esim-service'
 import * as blogMcp from './blog-mcp'
 import * as dailyQuiz from './daily-quiz'
+import * as jbFront from './jb-front'
 import * as portfolio from './portfolio'
 
 // slug → 프로젝트 모듈 (표시 순서와 무관 — buildProjects 가 shared 의 순서를 따름)
@@ -30,6 +31,7 @@ const modules: Record<string, { ko: ProjectText; en: ProjectText }> = {
   'esim-service': esimService,
   'blog-mcp': blogMcp,
   'daily-quiz': dailyQuiz,
+  'jb-front': jbFront,
   portfolio,
 }
 
