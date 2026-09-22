@@ -117,19 +117,21 @@
   color: var(--faint);
 }
 
+/* 값은 sans — 한글이 mono 폴백으로 떨어지면 자간이 벌어져 읽기 나쁘다 */
 .fact__val {
   margin: 0;
   display: flex;
   align-items: center;
   gap: 7px;
-  font-family: var(--mono);
-  font-size: 0.85rem;
-  letter-spacing: 0.02em;
+  font-size: 0.9rem;
   color: var(--text);
   word-break: keep-all;
 }
 
+/* 기간은 숫자뿐이라 mono 가 맞고, 기존처럼 골드로 강조한다 */
 .fact__val--period {
+  font-family: var(--mono);
+  font-size: 0.85rem;
   letter-spacing: 0.06em;
   color: var(--gold);
 }
