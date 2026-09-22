@@ -8,7 +8,8 @@
     "build": "vue-tsc --noEmit && vite build",
     "typecheck": "vue-tsc --noEmit",
     "preview": "vite preview",
-    "portfolio:pdf": "node scripts/build-portfolio.mjs"
+    "portfolio:pdf": "node scripts/build-portfolio.mjs",
+    "resume:pdf": "node scripts/build-resume.mjs"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^6.0.7",

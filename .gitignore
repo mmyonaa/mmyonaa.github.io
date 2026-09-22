@@ -46,6 +46,10 @@ public/projects/nie/**
 !public/projects/nie/nie-content-detail.png
 !public/projects/nie/nie-code-entry.png
 
+# 포트폴리오 PDF 는 로컬 생성물(`pnpm portfolio:pdf`) — 사이트에서 링크하지 않으므로 제외.
+# (이력서 PDF 는 헤더 버튼이 링크하므로 public/resume-*.pdf 는 계속 추적합니다.)
+public/portfolio-*.pdf
+
 # 출시 전 제품 발표 자료는 apply/ 내부에만 보관합니다.
 
 # 지원서 제출용 묶음(이력서·포트폴리오 PDF) — 개인 보관, 저장소/배포 제외

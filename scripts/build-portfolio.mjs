@@ -1,6 +1,6 @@
 // 포트폴리오 PDF 생성 — src/content 의 프로젝트 데이터로 인쇄용 HTML(docs/portfolio.html)을
 // 만들고, 헤드리스 크롬으로 public/portfolio-ko.pdf 를 뽑습니다.
-// (이력서 PDF 는 손으로 조판한 docs/resume.html 을 사용 — 그쪽은 이 스크립트가 건드리지 않습니다.)
+// (이력서 PDF 는 손으로 조판한 docs/resume.html 을 사용 — 그쪽은 build-resume.mjs / `pnpm resume:pdf` 담당.)
 //
 //   pnpm portfolio:pdf            # ko
 //   pnpm portfolio:pdf -- --lang=en
@@ -10,10 +10,11 @@ import { existsSync, mkdirSync, statSync, writeFileSync } from 'node:fs'
 import { basename, dirname, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { createServer } from 'vite'
+import { CHROME_BIN, renderPdfs } from './lib/html-to-pdf.mjs'
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..')
 const lang = (process.argv.find((a) => a.startsWith('--lang=')) || '--lang=ko').slice(7)
-const CHROME = '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'
+const CHROME = CHROME_BIN
 
 const t =
   lang === 'en'
@@ -326,12 +327,6 @@ if (!existsSync(CHROME)) {
   console.log(`chrome 없음(${CHROME}) — HTML 만 생성했습니다.`)
   process.exit(0)
 }
-execFileSync(CHROME, [
-  '--headless=new',
-  '--disable-gpu',
-  '--no-pdf-header-footer',
-  '--virtual-time-budget=15000',
-  `--print-to-pdf=${pdfPath}`,
-  `file://${htmlPath}`,
-])
-console.log(`pdf   → ${pdfPath}`)
+await renderPdfs([{ label: `portfolio-${lang}`, html: htmlPath, pdf: pdfPath }], {
+  onDone: ({ pdf }) => console.log(`pdf   → ${pdf}`),
+})
