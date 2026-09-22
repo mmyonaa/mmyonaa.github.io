@@ -56,6 +56,7 @@ portfolio/
 │  ├─ tints.ts               # 프로젝트별 색조
 │  ├─ lightbox.ts            # 이미지 라이트박스 상태
 │  ├─ command.ts             # ⌘K 커맨드 팔레트 상태 + 플랫폼별 단축키 라벨
+│  ├─ title.ts              # 프로젝트 제목을 '이름 · 부제' 로 분해 (목록·상세 공용)
 │  ├─ data.ts                # ★ 콘텐츠 파사드 — 언어별 콘텐츠를 현재 로케일로 병합해 반응형 export
 │  ├─ content/               # 콘텐츠 소스
 │  │  ├─ types.ts            #   콘텐츠 타입 정의
@@ -75,6 +76,9 @@ portfolio/
 콘텐츠는 [`src/content/`](src/content)에서 관리하고, [`src/data.ts`](src/data.ts)가 현재 로케일에 맞춰 병합·제공합니다. 스키마가 [`types.ts`](src/content/types.ts)로 강제되어 필드·번역 누락이 빌드에서 잡힙니다.
 
 - **프로젝트 텍스트** → [`src/content/projects/<slug>.ts`](src/content/projects) — 한 파일에 `ko`·`en`을 나란히 (제목·설명·overview·techNotes·다이어그램 캡션 등). 새 프로젝트는 파일 추가 후 [`projects/index.ts`](src/content/projects/index.ts)에 등록
+  - 제목은 `이름 · 부제` 로 씁니다 — 목록·상세에서 이름은 크게, 부제는 한 줄 아래 작고 여리게 나뉩니다
+    ([`title.ts`](src/title.ts)). 구분자는 **앞뒤 공백이 있는** `' · '`·`' — '` 만 인정하므로,
+    `홍보·대관` 처럼 붙은 가운뎃점은 낱말로 남습니다. 이름은 한 줄을 넘지 않게 짧게 둡니다
 - **프로젝트 공통 필드** → [`src/content/shared.ts`](src/content/shared.ts) — `slug`·기간·태그·링크(`link`/`company`/`repo`)·이미지/다이어그램 경로, 프로필·스킬·연락처, 시스템 그래프. **배열 순서 = 랜딩 노출 순서**
 - **사이트 텍스트(소개·타임라인)** → [`src/content/site.ts`](src/content/site.ts) — `tagline`·`about`·`aboutDetail` (`siteKo`/`siteEn`)
 
@@ -105,6 +109,15 @@ portfolio/
 Conventional Commits를 따릅니다.
 
 ## 🗓 버전 기록
+
+### v1.5 — 2026-09-22
+자취방정식(jb-front) 프로젝트 추가 · 목업 화면 비율 정정 · 제목 체계 정리 · About 보강.
+
+- 자취방정식(2026 Wanted 해커톤 제출작) 추가 — 상세 페이지 본문(ko/en)과 실기기 캡처 6종을 모바일 목업으로 연결, 매물 사진·점수가 샘플 데이터임을 명시
+- 기기 목업 화면을 캡처의 실제 비율(`--screen-ar`)로 세워 상하·좌우가 깎이던 문제 해결. 비율 측정을 `<img>` load 에서 떼어내 캐시된 이미지에서도 동작하게 수정
+- 상세 목업 크기를 낮추고 상하 베젤을 키워 기기 비율을 0.603 → 0.576 으로 조정, 랜딩 카드의 3:5 하드코딩 제거
+- 프로젝트 제목을 `이름 · 부제` 로 재편(14개 ko/en) — 목록·상세에서 이름은 한 줄, 부제는 아래 작고 여리게. 분해 규칙은 `src/title.ts` 하나로 공용
+- About: 광교 코딩 학원 TEdI 조교·강사(Activities), 코드스테이츠 소프트웨어 엔지니어링 부트캠프(Education) 추가 — 수료증 공식 표기 사용
 
 ### v1.4 — 2026-08-19
 프로젝트 이미지 테마 스왑 · bk-theater/blog-mcp 콘텐츠 최신화 · 이력서 동기화.
