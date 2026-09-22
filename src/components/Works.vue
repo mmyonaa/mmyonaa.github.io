@@ -3,6 +3,7 @@ import { computed, onBeforeUnmount, onMounted, ref } from 'vue'
 import type { ComponentPublicInstance } from 'vue'
 import { projects } from '../data'
 import { tints } from '../tints'
+import { splitTitle } from '../title'
 import ImageSlider from './ImageSlider.vue'
 
 const active = ref(0)
@@ -32,6 +33,8 @@ onBeforeUnmount(() => observer?.disconnect())
 const total = computed(() => projects.value.length)
 const dotTop = computed(() => (total.value > 1 ? (active.value / (total.value - 1)) * 100 : 0))
 const activeProject = computed(() => projects.value[active.value])
+
+const activeTitle = computed(() => splitTitle(activeProject.value.title))
 </script>
 
 <template>
@@ -52,7 +55,8 @@ const activeProject = computed(() => projects.value[active.value])
           </span>
           <div :key="active" class="rail__active">
             <a class="rail__name" :href="`#/project/${activeProject.slug}`">
-              {{ activeProject.title }}
+              <span class="rail__name-main">{{ activeTitle.main }}</span>
+              <span v-if="activeTitle.sub" class="rail__name-sub">{{ activeTitle.sub }}</span>
             </a>
           </div>
         </div>

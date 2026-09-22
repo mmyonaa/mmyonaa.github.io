@@ -1,7 +1,7 @@
 import type { ProjectText } from '../shared'
 
 export const ko: ProjectText = {
-  title: '자사 서비스 저작도구 태블릿 대응',
+  title: '자사 저작도구 · 태블릿 대응',
   description:
     '3D·인터랙티브 저작도구의 태블릿(768~1023px) 대응 기준을 세우고, 터치 UX와 크로스브라우징을 고도화해 태블릿에서 안정적인 저작 경험을 확보했습니다.',
   overview: [
@@ -48,7 +48,7 @@ export const ko: ProjectText = {
 }
 
 export const en: ProjectText = {
-  title: 'In-house Authoring Tool Tablet Support',
+  title: 'In-house Authoring Tool · Tablet Support',
   description:
     'Established tablet support criteria (768–1023px) for the 3D/interactive authoring tool and refined touch UX and cross-browser behavior for a stable authoring experience on tablets.',
   overview: [

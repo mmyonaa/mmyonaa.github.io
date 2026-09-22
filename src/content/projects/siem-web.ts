@@ -1,7 +1,7 @@
 import type { ProjectText } from '../shared'
 
 export const ko: ProjectText = {
-  title: 'SIEM 보안 관제 웹 플랫폼',
+  title: 'SIEM 관제 웹 플랫폼 · 보안 이벤트 모니터링·대응',
   description:
     '멀티테넌트 SIEM 보안 플랫폼을 위한 Next.js 15 풀스택 웹. SIEM 대시보드·인시던트 관리는 팀과 협업으로, AI 리포트 에디터는 단독으로 개발했습니다.',
   mediaNote: '출시 전 제품으로 화면은 비공개합니다.',
@@ -41,7 +41,7 @@ export const ko: ProjectText = {
 }
 
 export const en: ProjectText = {
-  title: 'SIEM Security Operations Web Platform',
+  title: 'SIEM Operations Web Platform · Security Event Monitoring',
   description:
     'A Next.js 15 full-stack web application for a multi-tenant SIEM security platform. I co-developed the SIEM dashboard and incident management with the team, and independently developed the AI report editor.',
   mediaNote: 'Screens are withheld for this pre-release product.',

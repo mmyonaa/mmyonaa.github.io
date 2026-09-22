@@ -1,7 +1,7 @@
 import type { ProjectText } from '../shared'
 
 export const ko: ProjectText = {
-  title: '자사 서비스 결제 시스템',
+  title: '자사 결제 시스템 · Toss · PayPal 연동',
   description:
     'Toss · PayPal 결제 모듈을 연동하고 단건/정기 구독 결제와 요금제 업·다운그레이드, 자동 갱신 배치까지 설계·개발했습니다.',
   mediaNote: '실제 운영 데이터가 포함되어 화면은 비공개합니다.',
@@ -33,7 +33,7 @@ export const ko: ProjectText = {
 }
 
 export const en: ProjectText = {
-  title: 'In-house Service Payment System',
+  title: 'In-house Payment System · Toss & PayPal',
   description:
     'Integrated Toss and PayPal payment modules and designed/built one-time and recurring subscription payments, plan up/downgrades, and an auto-renewal batch.',
   mediaNote: 'Screens are withheld as they contain live operational data.',

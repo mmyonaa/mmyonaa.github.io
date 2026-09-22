@@ -1,7 +1,7 @@
 import type { ProjectText } from '../shared'
 
 export const ko: ProjectText = {
-  title: 'eSIM 판매 키오스크',
+  title: 'eSIM 키오스크 · 공항 무인 판매 단말',
   photosNote: [
     '일본 현지 매장에 실제 배포된 무인 eSIM 키오스크입니다. 여행자가 대륙·국가·상품 선택부터 결제, eSIM QR 발급, 영수증 출력·이메일 전송까지 직원 없이 스스로 완료합니다.',
     '결제 단말(카드 · QR · NFC) · 영수증 프린터 연동 기능을 개선·확장하고, 부팅 자동 실행·기기 잠금(Device Admin)으로 무인 운영을 구성했습니다.',
@@ -46,7 +46,7 @@ export const ko: ProjectText = {
 }
 
 export const en: ProjectText = {
-  title: 'eSIM Sales Kiosk',
+  title: 'eSIM Kiosk · Unattended Airport Terminal',
   photosNote: [
     'The unattended eSIM kiosk actually deployed at a store in Japan. Travelers complete everything themselves — choosing continent, country, and plan, paying, receiving the eSIM QR, and getting a printed/emailed receipt — with no staff.',
     'I improved and extended the app’s payment-terminal (card/QR/NFC) and receipt-printer integrations, and set up unattended operation with auto-boot and Device Admin lockdown.',

@@ -1,7 +1,7 @@
 import type { ProjectText } from '../shared'
 
 export const ko: ProjectText = {
-  title: '보광 극장 홍보·대관 사이트',
+  title: '보광극장 · 홍보·대관 안내 사이트',
   architectureCaptions: [
     '시스템 아키텍처 · 배포 구성 (Nginx · PM2 · PostgreSQL · S3)',
     '백엔드 레이어드 아키텍처 (routes → controller → service → repository)',
@@ -51,7 +51,7 @@ export const ko: ProjectText = {
 }
 
 export const en: ProjectText = {
-  title: 'Bogwang Theater Promotion & Booking Site',
+  title: 'Bogwang Theater · Promotion & Booking Site',
   architectureCaptions: [
     'System architecture & deployment (Nginx · PM2 · PostgreSQL · S3)',
     'Backend layered architecture (routes → controller → service → repository)',

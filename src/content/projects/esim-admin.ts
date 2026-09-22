@@ -1,7 +1,7 @@
 import type { ProjectText } from '../shared'
 
 export const ko: ProjectText = {
-  title: 'eSIM 판매 관리 사이트',
+  title: 'eSIM 어드민 · 판매·정산 관리 사이트',
   architectureCaptions: ['eSIM 플랫폼 구조 — 운영·관리 축'],
   architectureNotes: [
     '이 어드민이 상품·재고·업체·유저·정산을 관리하고, 온라인 커머스와 키오스크는 그 데이터를 공유 백엔드(Koa · PostgreSQL)로 받아 판매합니다. 즉 온·오프라인 판매가 하나의 운영·정산 체계로 묶입니다. 키오스크는 여러 공항·장소에 분산 배치되며, 어드민에서 각 기기의 주문·정산을 집계·관리합니다.',
@@ -45,7 +45,7 @@ export const ko: ProjectText = {
 }
 
 export const en: ProjectText = {
-  title: 'eSIM Sales Management Site',
+  title: 'eSIM Admin · Sales & Settlement Management',
   architectureCaptions: ['eSIM platform map — operations & management'],
   architectureNotes: [
     'This admin manages products, stock, partners, users, and settlement, while the online commerce and kiosk sell using that data through a shared backend (Koa/PostgreSQL). Online and offline sales run on one operations/settlement system. Kiosks are distributed across multiple airports/locations, and the admin aggregates each device’s orders and settlement.',

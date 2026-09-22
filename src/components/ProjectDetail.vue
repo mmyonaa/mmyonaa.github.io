@@ -10,6 +10,7 @@ import AnalysisPipeline from './AnalysisPipeline.vue'
 import PaymentFlow from './PaymentFlow.vue'
 import { tints } from '../tints'
 import { theme } from '../theme'
+import { splitTitle } from '../title'
 import { locale } from '../i18n'
 import { openLightbox } from '../lightbox'
 import { openCommand, cmdKLabel } from '../command'
@@ -40,6 +41,8 @@ const hasLinks = computed(() => !!(props.project.link || props.project.repo || p
 
 // 세로로 긴 기기 목업(키오스크·폰)은 좌측 미디어만으로도 우측 본문만큼 길다.
 // 이 경우 Stack·Links 를 좌측에 더하면 반대로 좌측이 넘치므로 우측 본문 아래로 되돌린다.
+const title = computed(() => splitTitle(props.project.title))
+
 const tallFrame = computed(() => props.project.imageFrame === 'kiosk' || props.project.imageFrame === 'phone')
 
 // 함께 이루는 시스템의 레이어 다이어그램 (systemMaps 에 시스템 단위로 정의)
@@ -71,7 +74,10 @@ const systemMap = computed(() =>
     <div class="detail__wrap">
       <header class="detail__head">
         <p class="eyebrow reveal">( Project {{ num }} / {{ totalLabel }} )</p>
-        <h1 class="detail__title reveal">{{ project.title }}</h1>
+        <h1 class="detail__title reveal">
+          <span class="detail__title-main">{{ title.main }}</span>
+          <span v-if="title.sub" class="detail__title-sub">{{ title.sub }}</span>
+        </h1>
         <p class="detail__period reveal">{{ project.period }}</p>
       </header>
 

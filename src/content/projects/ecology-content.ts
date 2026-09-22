@@ -1,7 +1,7 @@
 import type { ProjectText } from '../shared'
 
 export const ko: ProjectText = {
-  title: '국립 생태원 콘텐츠·관리 사이트',
+  title: '국립생태원 · 콘텐츠·관리 사이트',
   architectureCaptions: ['시스템 · 데이터 흐름', '카카오 기프티콘 발송 · 재시도/실패 처리 플로우'],
   architectureNotes: [
     '방문자는 회원가입·개인정보 동의 후 iframe 콘텐츠를 플레이하며 활동이 기록되고, 설문까지 참여해 발송 조건을 충족하면 Kakao API로 기프티콘이 자동 발송됩니다. 모든 활동·설문 데이터는 PostgreSQL에 적재되며, 관리자는 콘텐츠·설문·발송을 한 곳에서 운영합니다.',
@@ -43,7 +43,7 @@ export const ko: ProjectText = {
 }
 
 export const en: ProjectText = {
-  title: 'National Institute of Ecology Content & Admin Site',
+  title: 'National Institute of Ecology · Content & Admin Site',
   architectureCaptions: ['System & data flow', 'Kakao gifticon send · retry / failover flow'],
   architectureNotes: [
     'Visitors sign up (with privacy consent), play iframe content while their activity is logged, and completing the survey triggers an automatic gifticon send via the Kakao API once conditions are met. All activity and survey data is persisted to PostgreSQL, and admins run content, surveys, and sending from one place.',
