@@ -94,6 +94,9 @@ export interface Project {
   highlights: string[]
   link: string
   company: string
+  team?: string // '팀 · 내 역할' 한 줄 — 상세 헤드 meta. 확인된 사실만 쓴다
+  status?: string // 운영/참여 상태 한 줄 — 모르면 비운다(추측 금지)
+  live?: boolean // status 가 '현재 돌아가는 서비스' 를 뜻할 때만 true — 상태 점 색
   repo?: string
   apiDocs?: string // API 문서(Swagger 등) 링크 — 상세 페이지 Links 블록에 표시
   board?: string // GitHub Project 보드 링크 — 상세 페이지 Links 블록에 표시

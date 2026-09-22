@@ -1,6 +1,8 @@
 import type { ProjectText } from '../shared'
 
 export const ko: ProjectText = {
+  team: '팀 협업 · 프론트엔드 리뉴얼 담당',
+  status: '참여 종료 (2025.05)',
   title: '자사 서비스 리뉴얼 · 플랫폼 전면 개편',
   description:
     'APOC Play(3D·인터랙티브 콘텐츠 공유 플랫폼)의 리뉴얼을 맡아 홈·검색·콘텐츠 상세·마이페이지 등 주요 화면을 새 디자인에 맞춰 전면 개선하고, 컴포넌트 기반으로 재구성했습니다.',
@@ -27,6 +29,8 @@ export const ko: ProjectText = {
 }
 
 export const en: ProjectText = {
+  team: 'Team · owned the frontend renewal',
+  status: 'My involvement ended (May 2025)',
   title: 'In-house Service Renewal · Platform Overhaul',
   description:
     'Took on the renewal of APOC Play (a 3D/interactive content-sharing platform), overhauling the home, search, content detail, and my-page screens to match the new design and restructuring them around reusable components.',

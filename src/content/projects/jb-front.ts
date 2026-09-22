@@ -1,6 +1,8 @@
 import type { ProjectText } from '../shared'
 
 export const ko: ProjectText = {
+  team: '팀 3~4인 · 프론트엔드 단독 (11일)',
+  status: '해커톤 제출 후 종료',
   title: '자취방정식 · 라이프스타일 기반 주거 매물 추천',
   description:
     '통근 효율성과 생활 환경 가중치를 결합해 100점 만점 매칭 점수를 내는 주거 매물 추천 모바일 웹앱. 2026 Wanted 해커톤 제출작으로, 팀 기획에 함께 참여하고 11일 동안 프론트엔드를 단독으로 맡았습니다.',
@@ -43,6 +45,8 @@ export const ko: ProjectText = {
 }
 
 export const en: ProjectText = {
+  team: 'Team of 3–4 · sole frontend developer (11 days)',
+  status: 'Ended after the hackathon',
   title: 'Jachwi Bangjeongsik · Lifestyle-based Housing Recommendations',
   description:
     'A mobile web app that scores rental listings out of 100 by combining commute efficiency with weighted living-environment factors. Submitted to the 2026 Wanted hackathon; I helped shape the product with the team and owned the frontend for eleven days.',

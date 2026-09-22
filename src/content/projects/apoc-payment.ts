@@ -1,6 +1,8 @@
 import type { ProjectText } from '../shared'
 
 export const ko: ProjectText = {
+  team: '팀 협업 · 결제 시스템 담당',
+  status: '참여 종료 (2025.05)',
   title: '자사 결제 시스템 · Toss · PayPal 연동',
   description:
     'Toss · PayPal 결제 모듈을 연동하고 단건/정기 구독 결제와 요금제 업·다운그레이드, 자동 갱신 배치까지 설계·개발했습니다.',
@@ -33,6 +35,8 @@ export const ko: ProjectText = {
 }
 
 export const en: ProjectText = {
+  team: 'Team · owned the payment system',
+  status: 'My involvement ended (May 2025)',
   title: 'In-house Payment System · Toss & PayPal',
   description:
     'Integrated Toss and PayPal payment modules and designed/built one-time and recurring subscription payments, plan up/downgrades, and an auto-renewal batch.',

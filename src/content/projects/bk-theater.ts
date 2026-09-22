@@ -1,6 +1,8 @@
 import type { ProjectText } from '../shared'
 
 export const ko: ProjectText = {
+  team: '1인 · 기획부터 인프라까지',
+  status: '운영 중 (2025.11 오픈)',
   title: '보광극장 · 홍보·대관 안내 사이트',
   architectureCaptions: [
     '시스템 아키텍처 · 배포 구성 (Nginx · PM2 · PostgreSQL · S3)',
@@ -51,6 +53,8 @@ export const ko: ProjectText = {
 }
 
 export const en: ProjectText = {
+  team: 'Solo · from planning to infrastructure',
+  status: 'Live (opened Nov 2025)',
   title: 'Bogwang Theater · Promotion & Booking Site',
   architectureCaptions: [
     'System architecture & deployment (Nginx · PM2 · PostgreSQL · S3)',

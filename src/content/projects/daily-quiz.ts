@@ -1,6 +1,8 @@
 import type { ProjectText } from '../shared'
 
 export const ko: ProjectText = {
+  team: '1인',
+  status: '운영 중',
   title: 'daily.quiz · 자격증 문제 연습장',
   description:
     '정보처리기사·정보보안기사를 필기 4지선다와 실기 필답으로 풀고 즉시 채점·해설을 받는 정적 연습장. blog-mcp 블로그의 자매 프로젝트로, 문항의 해설이 블로그 개념 글로 이어집니다.',
@@ -45,6 +47,8 @@ export const ko: ProjectText = {
 }
 
 export const en: ProjectText = {
+  team: 'Solo',
+  status: 'Live',
   title: 'daily.quiz · Certification Practice',
   description:
     'A static practice ground for two Korean IT certifications — multiple-choice written exams and short-answer practical exams with instant grading and explanations. A sister project to the blog-mcp blog: each explanation links back to the concept post.',

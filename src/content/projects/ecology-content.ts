@@ -1,6 +1,8 @@
 import type { ProjectText } from '../shared'
 
 export const ko: ProjectText = {
+  team: '1인 설계·개발',
+  status: '참여 종료 (2025.08)',
   title: '국립생태원 · 콘텐츠·관리 사이트',
   architectureCaptions: ['시스템 · 데이터 흐름', '카카오 기프티콘 발송 · 재시도/실패 처리 플로우'],
   architectureNotes: [
@@ -43,6 +45,8 @@ export const ko: ProjectText = {
 }
 
 export const en: ProjectText = {
+  team: 'Solo design & build',
+  status: 'My involvement ended (Aug 2025)',
   title: 'National Institute of Ecology · Content & Admin Site',
   architectureCaptions: ['System & data flow', 'Kakao gifticon send · retry / failover flow'],
   architectureNotes: [

@@ -1,6 +1,8 @@
 import type { ProjectText } from '../shared'
 
 export const ko: ProjectText = {
+  team: '팀 협업 · 어드민·미들웨어 핵심 기여',
+  status: '참여 종료 (2025.05)',
   title: 'eSIM 어드민 · 판매·정산 관리 사이트',
   architectureCaptions: ['eSIM 플랫폼 구조 — 운영·관리 축'],
   architectureNotes: [
@@ -45,6 +47,8 @@ export const ko: ProjectText = {
 }
 
 export const en: ProjectText = {
+  team: 'Team · core contributor on admin & middleware',
+  status: 'My involvement ended (May 2025)',
   title: 'eSIM Admin · Sales & Settlement Management',
   architectureCaptions: ['eSIM platform map — operations & management'],
   architectureNotes: [

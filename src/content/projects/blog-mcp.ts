@@ -1,6 +1,8 @@
 import type { ProjectText } from '../shared'
 
 export const ko: ProjectText = {
+  team: '1인',
+  status: '운영 중 (무인 발행)',
   title: 'blog-mcp · 블로그 발행 MCP 서버',
   description:
     '블로그 글을 자동으로 쓰고 발행하는 것을 목표로, MCP(Model Context Protocol) 서버를 직접 만들며 배우는 학습 프로젝트. stdio MCP 서버(도구·리소스·프롬프트)와 Astro 블로그로 구성했고, 현재는 cron 오케스트레이터가 6개 섹션을 돌며 매일 무인으로 글을 발행합니다(누적 100편 이상).',
@@ -49,6 +51,8 @@ export const ko: ProjectText = {
 }
 
 export const en: ProjectText = {
+  team: 'Solo',
+  status: 'Live (unattended publishing)',
   title: 'blog-mcp · Blog Publishing MCP Server',
   description:
     'A learning project building an MCP (Model Context Protocol) server from scratch, aimed at automatically writing and publishing blog posts. It comprises a stdio MCP server (tools, resources, prompts) and an Astro blog, and a cron orchestrator now rotates through six sections to publish a post unattended every day (100+ posts so far).',

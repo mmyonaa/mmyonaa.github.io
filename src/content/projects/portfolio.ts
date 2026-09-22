@@ -1,6 +1,8 @@
 import type { ProjectText } from '../shared'
 
 export const ko: ProjectText = {
+  team: '1인',
+  status: '운영 중',
   title: '포트폴리오 사이트',
   description:
     '기획·디자인·개발·배포까지 직접 진행한 개인 포트폴리오 사이트. 코드와 작업 이력 전체가 공개되어 있습니다.',
@@ -33,6 +35,8 @@ export const ko: ProjectText = {
 }
 
 export const en: ProjectText = {
+  team: 'Solo',
+  status: 'Live',
   title: 'Portfolio Site',
   description:
     'My personal portfolio site — planned, designed, built, and deployed myself. The code and full work history are public.',

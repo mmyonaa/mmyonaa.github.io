@@ -95,12 +95,57 @@
   color: var(--dim);
 }
 
-.detail__period {
-  margin: 16px 0 0;
+/* 헤드 사실 행 — 기간 · 팀/역할 · 상태. 확인된 값만 채우고 없으면 항목째 생략한다 */
+.detail__facts {
+  margin: 18px 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 36px;
+}
+
+.fact {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.fact__key {
   font-family: var(--mono);
-  font-size: 0.9rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--faint);
+}
+
+.fact__val {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-family: var(--mono);
+  font-size: 0.85rem;
+  letter-spacing: 0.02em;
+  color: var(--text);
+  word-break: keep-all;
+}
+
+.fact__val--period {
   letter-spacing: 0.06em;
   color: var(--gold);
+}
+
+.fact__dot {
+  flex-shrink: 0;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--faint);
+}
+
+/* 지금 돌아가는 서비스만 골드 — 참여 종료·데모는 무채색 그대로 둔다 */
+.fact__dot--live {
+  background: var(--gold);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--gold) 18%, transparent);
 }
 
 .detail__hero {
@@ -585,6 +630,10 @@
 
   .detail__head {
     margin-bottom: 30px;
+  }
+
+  .detail__facts {
+    gap: 12px 22px;
   }
 
   .detail__layout {

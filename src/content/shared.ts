@@ -46,6 +46,8 @@ export type ProjectText = Pick<
   | 'title'
   | 'description'
   | 'highlights'
+  | 'team'
+  | 'status'
   | 'overview'
   | 'techNotes'
   | 'mediaNote'
@@ -81,6 +83,7 @@ const projectBase: ProjectBase[] = [
   },
   {
     slug: 'bk-theater',
+    live: true,
     period: '2025.04 –',
     tags: ['Vue 3', 'TypeScript', 'vite-ssg', 'Koa', 'PostgreSQL', 'AWS S3', 'EC2', 'PM2', 'Nginx', 'SCSS'],
     link: 'https://bktheater.com/',
@@ -201,6 +204,7 @@ const projectBase: ProjectBase[] = [
   },
   {
     slug: 'blog-mcp',
+    live: true,
     systemId: 'dailymcp',
     period: '2026.07 –',
     tags: ['TypeScript', 'MCP', '@modelcontextprotocol/sdk', 'zod', 'Astro', 'pnpm', 'Shiki', 'Supabase', 'Tavily', 'GitHub Actions', 'GitHub Pages'],
@@ -219,6 +223,7 @@ const projectBase: ProjectBase[] = [
   },
   {
     slug: 'daily-quiz',
+    live: true,
     systemId: 'dailymcp',
     period: '2026.08 –',
     tags: ['Astro', 'TypeScript', 'zod', 'Supabase', 'RLS', 'GitHub Actions', 'GitHub Pages'],
@@ -255,6 +260,7 @@ const projectBase: ProjectBase[] = [
   },
   {
     slug: 'portfolio',
+    live: true,
     period: '2026.07 – 2026.09',
     tags: ['Vue 3', 'TypeScript', 'Vite', 'GitHub Actions', 'CSS'],
     link: '',

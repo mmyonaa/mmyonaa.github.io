@@ -78,7 +78,23 @@ const systemMap = computed(() =>
           <span class="detail__title-main">{{ title.main }}</span>
           <span v-if="title.sub" class="detail__title-sub">{{ title.sub }}</span>
         </h1>
-        <p class="detail__period reveal">{{ project.period }}</p>
+        <dl class="detail__facts reveal">
+          <div class="fact">
+            <dt class="fact__key">Period</dt>
+            <dd class="fact__val fact__val--period">{{ project.period }}</dd>
+          </div>
+          <div v-if="project.team" class="fact">
+            <dt class="fact__key">Team</dt>
+            <dd class="fact__val">{{ project.team }}</dd>
+          </div>
+          <div v-if="project.status" class="fact">
+            <dt class="fact__key">Status</dt>
+            <dd class="fact__val">
+              <span class="fact__dot" :class="{ 'fact__dot--live': project.live }" aria-hidden="true" />
+              {{ project.status }}
+            </dd>
+          </div>
+        </dl>
       </header>
 
       <div class="detail__layout" :class="{ 'detail__layout--tall': tallFrame }">

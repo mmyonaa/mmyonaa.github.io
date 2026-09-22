@@ -1,6 +1,8 @@
 import type { ProjectText } from '../shared'
 
 export const ko: ProjectText = {
+  team: '10인 이하 팀 · 단독 설계·개발',
+  status: 'PoC · 데모 (진행 중)',
   title: 'SIEM AI 분석 서버 · 보안 인시던트 자동 분석',
   description:
     "SIEM 보안 인시던트 분석용 Fastify AI 서버. 별도 수집·정규화 계층의 데이터를 받아 분석 파이프라인을 개발하고, 오케스트레이터·LiteLLM 게이트웨이·테넌트별 모델 관리를 단독 설계·개발했습니다.",
@@ -49,6 +51,8 @@ export const ko: ProjectText = {
 }
 
 export const en: ProjectText = {
+  team: 'Team under 10 · sole design & build',
+  status: 'PoC · demo (in progress)',
   title: 'SIEM AI Analysis Server · Automated Incident Analysis',
   description:
     "A Fastify AI server for SIEM security incident analysis. I built the analysis pipeline on data from a separately developed ingestion and normalization layer, independently developing the orchestrator, LiteLLM gateway, and tenant model management.",
