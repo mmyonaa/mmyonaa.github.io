@@ -4,12 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Hyonah Lim · Resume</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap"
-      rel="stylesheet"
-    />
     <style>
       :root {
         --bg: #ffffff;
@@ -34,7 +28,7 @@
         background: #7a7a7a;
       }
 
-      /* A4 page */
+      /* A4 페이지 */
       .page {
         width: 210mm;
         min-height: 297mm;
@@ -44,7 +38,7 @@
         box-shadow: 0 4px 24px rgba(0, 0, 0, 0.25);
       }
 
-      /* ---------- Header ---------- */
+      /* ---------- 헤더 ---------- */
       .head {
         display: flex;
         align-items: center;
@@ -54,11 +48,10 @@
       }
 
       .head__photo {
-        width: 92px;
-        height: 92px;
+        width: 150px;
+        height: 150px;
         border-radius: 50%;
         object-fit: cover;
-        object-position: center 22%;
         flex-shrink: 0;
         border: 1px solid var(--line);
       }
@@ -95,8 +88,8 @@
 
       .head__tagline {
         margin-top: 4px;
-        font-size: 10.5px;
-        line-height: 1.4;
+        font-size: 11.5px;
+        line-height: 1.5;
         color: var(--faint);
         word-break: keep-all;
       }
@@ -107,7 +100,7 @@
         flex-wrap: wrap;
         gap: 4px 16px;
         font-family: var(--mono);
-        font-size: 10px;
+        font-size: 10.5px;
         letter-spacing: 0.02em;
         color: var(--dim);
       }
@@ -117,57 +110,98 @@
         text-decoration: none;
       }
 
-      /* ---------- Sections ---------- */
+      /* ---------- 섹션 ---------- */
       .section {
-        margin-top: 8px;
+        margin-top: 10px;
       }
 
       .section__title {
         font-family: var(--mono);
-        font-size: 10px;
+        font-size: 10.5px;
         font-weight: 700;
         letter-spacing: 0.16em;
         text-transform: uppercase;
         color: var(--gold);
-        padding-bottom: 5px;
-        margin-bottom: 6px;
+        padding-bottom: 6px;
+        margin-bottom: 9px;
         border-bottom: 1px solid var(--line);
+        /* 섹션 제목만 페이지 끝에 홀로 남지 않게 */
+        page-break-after: avoid;
+        break-after: avoid;
       }
 
       .summary {
-        font-size: 12px;
-        line-height: 1.5;
+        font-size: 12.5px;
+        line-height: 1.7;
         color: var(--text);
         word-break: keep-all;
       }
 
-      /* Skills */
+      /* 스킬 */
       .skills {
         display: grid;
-        grid-template-columns: 92px 1fr;
-        row-gap: 8px;
+        grid-template-columns: 108px 1fr;
+        row-gap: 10px;
         column-gap: 14px;
-        font-size: 10.5px;
+        font-size: 12px;
       }
 
       .skills__cat {
         font-family: var(--mono);
-        font-size: 10px;
+        font-size: 10.5px;
         color: var(--faint);
         padding-top: 2px;
       }
 
       .skills__items {
         color: var(--text);
-        line-height: 1.5;
+        line-height: 1.6;
       }
 
-      /* Company block — items keep break-avoid individually; the block itself may span pages */
+      /* 팀·단계 메타 — 역할 줄(회사) · 제목 줄(단독 항목)에 얹는다 */
+      .company__meta {
+        display: inline-flex;
+        flex-wrap: wrap;
+        gap: 2px 14px;
+      }
+
+      .company__role .company__meta {
+        margin-left: 14px;
+      }
+
+      .item__head .company__meta {
+        margin: 0 auto 0 10px;
+      }
+
+      .meta {
+        display: inline-flex;
+        align-items: baseline;
+        gap: 6px;
+        white-space: nowrap;
+        border-left: 2px solid var(--gold);
+        padding-left: 7px;
+      }
+
+      .meta__k {
+        font-family: var(--mono);
+        font-size: 9px;
+        letter-spacing: 0.02em;
+        color: var(--faint);
+      }
+
+      .meta__v {
+        font-size: 10.5px;
+        color: var(--dim);
+      }
+
+      /* 회사(재직) 블록 */
       .company {
-        margin-bottom: 12px;
+        margin-bottom: 16px;
       }
 
       .company__head {
+        page-break-after: avoid;
+        break-after: avoid;
         display: flex;
         justify-content: space-between;
         align-items: baseline;
@@ -175,7 +209,7 @@
       }
 
       .company__name {
-        font-size: 15px;
+        font-size: 16px;
         font-weight: 800;
         letter-spacing: -0.01em;
       }
@@ -191,7 +225,7 @@
 
       .company__period {
         font-family: var(--mono);
-        font-size: 10.5px;
+        font-size: 11px;
         font-weight: 700;
         color: var(--gold);
         white-space: nowrap;
@@ -199,21 +233,34 @@
       }
 
       .company__role {
-        margin: 2px 0 11px;
-        font-size: 10.5px;
+        margin: 3px 0 12px;
+        font-size: 12px;
         color: var(--dim);
       }
 
+      /* 회사 인트로 한 줄이 뒤따를 때는 역할 줄 간격을 좁힌다 */
+      .company__role--tight {
+        margin-bottom: 3px;
+      }
+
+      .company__desc {
+        margin: 0 0 12px;
+        font-size: 12px;
+        line-height: 1.6;
+        color: var(--dim);
+        word-break: keep-all;
+      }
+
+      /* 회사 아래 프로젝트 항목은 좌측 라인으로 그룹 표시 */
       .company .item {
         margin-left: 11px;
-        padding-left: 13px;
+        padding-left: 14px;
         border-left: 1px solid var(--line);
       }
 
-      /* Items */
+      /* 경력/프로젝트 항목 */
       .item {
-        margin-bottom: 5px;
-        page-break-inside: avoid;
+        margin-bottom: 7px;
       }
 
       .item:last-child {
@@ -221,6 +268,8 @@
       }
 
       .item__head {
+        page-break-after: avoid;
+        break-after: avoid;
         display: flex;
         justify-content: space-between;
         align-items: baseline;
@@ -228,38 +277,48 @@
       }
 
       .item__title {
-        font-size: 13px;
+        font-size: 14px;
         font-weight: 700;
       }
 
       .item__period {
         font-family: var(--mono);
-        font-size: 10px;
+        font-size: 10.5px;
         color: var(--faint);
         white-space: nowrap;
         flex-shrink: 0;
       }
 
       .item__desc {
-        margin-top: 3px;
-        font-size: 10.5px;
-        line-height: 1.5;
+        margin-top: 4px;
+        font-size: 12px;
+        line-height: 1.6;
         color: var(--dim);
+        word-break: keep-all;
       }
 
       .item__bullets {
-        margin: 6px 0 0;
+        margin: 7px 0 0;
         padding-left: 0;
         list-style: none;
       }
 
+      .item__bullets code {
+        font-family: var(--mono);
+        font-size: 0.88em;
+        color: var(--dim);
+      }
+
       .item__bullets li {
         position: relative;
-        padding-left: 13px;
-        font-size: 10.5px;
-        line-height: 1.5;
+        page-break-inside: avoid;
+        break-inside: avoid;
+        padding-left: 14px;
+        font-size: 12px;
+        line-height: 1.6;
         color: var(--text);
-        margin-bottom: 2px;
+        word-break: keep-all;
+        margin-bottom: 3px;
       }
 
       .item__bullets li::before {
@@ -270,11 +329,24 @@
       }
 
       .item__stack {
-        margin-top: 5px;
+        page-break-before: avoid;
+        break-before: avoid;
+        margin-top: 7px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 4px 5px;
+      }
+
+      .item__stack .tag {
         font-family: var(--mono);
         font-size: 9.5px;
         letter-spacing: 0.02em;
-        color: var(--faint);
+        line-height: 1;
+        color: var(--dim);
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        padding: 3px 8px 4px;
+        white-space: nowrap;
       }
 
       .edu__line {
@@ -285,12 +357,12 @@
       }
 
       .edu__note {
-        margin-top: 3px;
-        font-size: 10.5px;
+        margin-top: 4px;
+        font-size: 12px;
         color: var(--dim);
       }
 
-      /* ---------- Print ---------- */
+      /* ---------- 인쇄 ---------- */
       @media print {
         html {
           background: #fff;
@@ -308,18 +380,38 @@
         size: A4;
         margin: 12mm;
       }
+
+      /* 본문 글자 크기를 유지하며 AI 서버 항목을 첫 페이지에 배치합니다. */
+      @media print {
+        .head { padding-bottom: 12px; }
+        .skills { row-gap: 2px; }
+        .summary { line-height: 1.5; }
+        .section__title { padding-bottom: 4px; margin-bottom: 6px; }
+        .company__desc { margin-bottom: 6px; line-height: 1.45; }
+        .company:first-of-type .item__desc { line-height: 1.45; }
+        .company:first-of-type .item__bullets li { line-height: 1.45; margin-bottom: 2px; }
+        /* 영문은 같은 내용이 국문보다 길어 본문 여백만 소폭 조입니다. */
+        .section { margin-top: 6px; }
+        .item { margin-bottom: 4px; }
+        .item__desc { line-height: 1.4; }
+        .item__bullets { margin-top: 4px; }
+        .item__bullets li { line-height: 1.4; margin-bottom: 1px; }
+        .item__stack { margin-top: 4px; }
+      }
+      @page:first { margin: 10mm 12mm; }
     </style>
+  </head>
   </head>
   <body>
     <div class="page">
       <!-- Header -->
       <header class="head">
-        <img class="head__photo" src="../public/portfolio/profile.jpeg" alt="Hyonah Lim" />
+        <img class="head__photo" src="../public/portfolio/profile-circle.jpg" alt="Hyonah Lim" />
         <div class="head__main">
           <div class="head__name">Hyonah Lim</div>
           <div class="head__name-en">임현아</div>
           <div class="head__role">Full-stack Developer · Seoul, Korea</div>
-          <div class="head__tagline">A full-stack developer building security AI, commerce, payments, SaaS, and kiosks — web services of many shapes — end to end</div>
+          <div class="head__tagline">I build the AI analysis server and web platform for a SIEM security product.<br />3+ years building and operating web services · B.S. in Cyber Security</div>
           <div class="head__contact">
             <a href="https://mmyonaa.github.io">mmyonaa.github.io</a>
             <a href="mailto:apddfhsajrwk@gmail.com">apddfhsajrwk@gmail.com</a>
@@ -333,13 +425,12 @@
       <section class="section">
         <h2 class="section__title">About</h2>
         <p class="summary">
-          A full-stack developer who owns the entire service cycle — from requirements at the planning
-          stage to deployment and operations. I work broadly across frontend, backend, and
-          infrastructure, and care about the small details that shape usability. I have led many
-          projects solo or in small teams, handling design, development, deployment, and on-site
-          support myself. I dig into the essence of each requirement to propose structures that reduce
-          technical debt, and collaborate across planning, design, and operations to fix recurring
-          system problems.
+          A developer with a cyber security degree and 3+ years of building and operating web services.
+          I work primarily in TypeScript/JavaScript and Node.js, building REST APIs and the integration
+          between servers and web clients. I currently develop a Fastify AI analysis server and a Next.js
+          web platform for a SIEM security product at the PoC/demo stage, owning the multi-agent analysis
+          pipeline, the LLM gateway, and the REST/SSE integration between them. Before that I built and
+          operated a global eSIM payment and provisioning service and its airport kiosks.
         </p>
       </section>
 
@@ -347,18 +438,15 @@
       <section class="section">
         <h2 class="section__title">Skills</h2>
         <div class="skills">
-          <div class="skills__cat">Frontend</div>
-          <div class="skills__items">
-            Vue 3 · React · Next.js · TypeScript · JavaScript · Pinia · vue-i18n · Tailwind CSS · SCSS · PWA
-          </div>
-          <div class="skills__cat">Backend</div>
-          <div class="skills__items">Node.js · Koa · Fastify · TypeORM · Prisma · PostgreSQL · OpenSearch · Kafka · OCSF · Redis · BullMQ</div>
-          <div class="skills__cat">Infra · Tooling</div>
-          <div class="skills__items">
-            AWS EC2 · S3 · SES · Nginx · Docker · PM2 · Grafana · Jest · vite-ssg
-          </div>
+          <div class="skills__cat">Backend · Data</div>
+          <div class="skills__items">TypeScript · JavaScript · Node.js · Koa · Fastify · TypeORM · Prisma · PostgreSQL · OpenSearch · Kafka · OCSF · Redis · BullMQ</div>
           <div class="skills__cat">AI</div>
           <div class="skills__items">LiteLLM · AI SDK · Multi-provider LLM</div>
+          <div class="skills__cat">Infra · Collaboration</div>
+          <div class="skills__items">AWS EC2 · S3 · SES · Nginx · Docker · PM2 · Grafana · Jest · vite-ssg · Git · GitHub Actions (CI/CD) · Jira ·
+            Confluence</div>
+          <div class="skills__cat">Frontend</div>
+          <div class="skills__items">Vue 3 · React · Next.js · Pinia · vue-i18n · Tailwind CSS · SCSS · PWA</div>
         </div>
       </section>
 
@@ -370,98 +458,143 @@
         <div class="company">
           <div class="company__head">
             <span class="company__name">Inbridge <em>인브릿지</em></span>
-            <span class="company__period">2025.09 – Present</span>
+            <span class="company__period">Sep 2025 – Present</span>
           </div>
-          <div class="company__role">Full-stack Developer</div>
+          <div class="company__role company__role--tight">Full-stack Developer<span class="company__meta"><span class="meta"><span class="meta__k">Team</span><span class="meta__v">Under 10</span></span><span class="meta"><span class="meta__k">Stage</span><span class="meta__v">PoC · Demo</span></span></span></div>
+          <div class="company__desc">
+            I own both the AI analysis server and the web platform of a <b>SIEM security product</b>.
+            I defined the analysis output schema and the SSE streaming contract myself and implemented
+            both sides, connecting AI analysis results through to the SOC console and its reports.
+          </div>
+          <p class="company__desc">Development tickets, sprints and long-range schedules are managed in Jira and Confluence, with progress and discussion recorded on each ticket. Ticket IDs are tied to Git branch names so code changes stay traceable to the work that caused them.</p>
 
           <div class="item">
             <div class="item__head">
               <span class="item__title">SIEM Security AI Analysis Server</span>
-              <span class="item__period">2025.09 – Present</span>
+              <span class="item__period">Sep 2025 –</span>
             </div>
             <p class="item__desc">
-              A Fastify AI server that automatically analyzes SIEM security incidents. Led the design
-              and development of the <b>multi-agent analysis pipeline</b> and the <b>LiteLLM gateway</b>
-              (top committer on the repo).
+              A Fastify AI server that analyzes SIEM security incidents in real time — automating the SOC
+              analysis workflow from triage and prioritization through IOC · MITRE ATT&amp;CK analysis, threat
+              scoring, and compliance (ISMS-P · ISO 27001 · GDPR) and report generation. I solely designed and
+              built the <b>multi-agent analysis pipeline</b> and the <b>LiteLLM gateway with per-tenant model
+              management</b> that funnels every LLM call through a single layer. Using
+              <b>real data collected from security vendor XDRs such as SentinelOne · CrowdStrike · Cortex</b>,
+              I put together an end-to-end demo running detection → AI analysis → response → report, and
+              delivered three product presentations to prospective customers in Korean and English.
             </p>
             <ul class="item__bullets">
               <li>
-                <b>Real-time ingestion → automated analysis pipeline</b>: per-vendor XDR telemetry
-                (CrowdStrike, SentinelOne, Cortex XDR) normalized into the <b>OCSF</b> standard schema,
-                received over Kafka and indexed into OpenSearch; the moment a record lands a Redis queue
-                picks up the job and hands it to the multi-agent analysis below → ingestion/normalization
-                is decoupled from analysis, so adding a vendor never touches the analysis layer and rising
-                volume is absorbed by adding workers
+                <b>Collected data → automated analysis pipeline</b> — integrated <b>OCSF</b> data from
+                CrowdStrike · SentinelOne · Cortex XDR with the Kafka/OpenSearch ingestion layer, and built the
+                multi-agent analysis pipeline that runs downstream of the Redis queue.
               </li>
               <li>
-                Designed the <b>multi-agent orchestrator (8 role-specific agents)</b>: incidents pulled off
-                the queue are classified and prioritized by Triage, which sets the execution scope first
-                (low priority is pruned); code-based agents (IOC/MITRE/Network) run in parallel to secure
-                grounding evidence, an LLM agent (SecurityIntel) is invoked only when the verdict is still
-                open, and Correlation synthesizes at the end
+                <b>Multi-agent orchestrator (8 role-specific agents)</b> — Triage classifies and prioritizes each
+                incident pulled off the queue and decides the execution scope up front (low-priority incidents are
+                pruned); code-based agents (IOC · MITRE · Network) then run in parallel to gather evidence first,
+                the LLM agent (SecurityIntel) is invoked only when the verdict is still unclear, and Correlation
+                consolidates at the end → separating evidence collection from inference keeps the reasoning
+                auditable while structurally containing per-incident cost by spending LLM calls only where needed
               </li>
               <li>
-                Correlation <b>structured output</b>: kill-chain graph, threat score (0–100), and
-                confidence (generateObject/zod), with compliance (ISMS-P, ISO 27001, GDPR) analysis in
-                the background
-              </li>
-              <li>Real-time <b>SSE streaming</b> of analysis with progress tracking, plus a manual re-analysis API</li>
-              <li><b>Operational observability</b>: built Grafana dashboards for continuous monitoring of errors and traffic across the AI server and web platform</li>
-              <li>
-                <b>LiteLLM gateway consolidation</b>: removed per-provider SDK branches; moved fallback,
-                per-provider semaphore concurrency, 429/5xx backoff, and token budgets into the gateway
-                layer, with 10s-cached provider health
+                <b>Structured output (zod schemas)</b> — analysis results are schema-locked into a kill-chain graph,
+                a threat score (0–100), and a confidence value → the kill-chain graph and reports in the
+                <b>SIEM SOC web platform</b> below consume them directly with no post-processing, and output
+                schema validation reduces the chance of format mismatches
               </li>
               <li>
-                <b>Multi-tenant models & BYOK</b>: model CRUD via the LiteLLM Admin API, virtual-key
-                allow-list isolation, post-save verification, async BullMQ reports, and live/readiness
-                health-endpoint split
+                <b>SSE real-time streaming</b> — progress and partial results are streamed so analysts can follow
+                an analysis instead of waiting for it to finish (a manual re-analysis API carries the prior
+                analysis context). Compliance and multilingual translation are split out into background
+                enrichment agents so they never delay the core analysis response
               </li>
-            </ul>
+              <li>
+                <b>LiteLLM gateway consolidation</b> — introduced a single proxy layer that every LLM call passes
+                through, collapsing per-provider SDK branches into an OpenAI-compatible path and controlling
+                fallback models, concurrency and token budgets in one place → automatic fallback is configured for
+                provider outages, and adding supported models or providers became a configuration change. Per-tenant
+                model management and <b>BYOK</b> (a customer's own LLM key) are isolated by virtual key allowlists
+                that block cross-tenant access
+              </li>
+              <li>
+                <b>PoC/demo environment observability</b> — set up Grafana dashboards to watch errors and traffic
+                across the AI server and web platform, and to check the health of deployed PoC/demo environments
+                against metrics
+              </li>
+</ul>
             <div class="item__stack">
-              Fastify · TypeScript · AI SDK · LiteLLM · Multi-provider LLM · BullMQ · Redis · Prisma ·
-              PostgreSQL
+              <span class="tag">Fastify</span>
+              <span class="tag">TypeScript</span>
+              <span class="tag">AI SDK</span>
+              <span class="tag">LiteLLM</span>
+              <span class="tag">Multi-provider LLM</span>
+              <span class="tag">Kafka</span>
+              <span class="tag">OpenSearch</span>
+              <span class="tag">OCSF</span>
+              <span class="tag">Redis</span>
+              <span class="tag">BullMQ</span>
+              <span class="tag">Prisma</span>
+              <span class="tag">PostgreSQL</span>
+              <span class="tag">Grafana</span>
             </div>
           </div>
 
-          <div class="item">
+          <div class="item item--siem-web">
             <div class="item__head">
               <span class="item__title">SIEM Security Operations Web Platform</span>
-              <span class="item__period">2025.09 – Present</span>
+              <span class="item__period">Sep 2025 –</span>
             </div>
             <p class="item__desc">
-              The <b>Next.js 15 full-stack web</b> of a multi-tenant SIEM platform, co-developed with
-              the team — contributing across the full stack as one of the main contributors.
+              The <b>user-facing surface</b> that turns the AI server's analysis results into an actual SOC
+              console — a Next.js 15 full-stack web app for a multi-tenant SIEM security platform, covering
+              security operations end to end: per-tenant event monitoring, incident response, and AI analysis
+              report authoring and export. It is an App Router setup that keeps UI and server components, API
+              routes, and the Prisma multi-schema (PostgreSQL) data layer in one app. I participated as a major
+              contributor on a team-built codebase, developing several domains — incidents, reports, endpoints —
+              from the screen down to the API. Of these, <b>I built the BlockNote-based AI report editor on my own.</b>
             </p>
             <ul class="item__bullets">
               <li>
-                <b>Next.js 15 App Router full-stack</b>: UI/server components + many API routes + Prisma
-                multi-schema DB layer (PostgreSQL)
+                <b>AI report editor, built solo (BlockNote)</b> — implemented a flow where AI edit suggestions are
+                reviewed as block/table/character-level diff highlights before being applied, so analysts verify
+                rather than trust an AI draft while finishing a customer-facing report. Multilingual (KO/EN/JA)
+                reports and PDF · DOCX · CSV/XLSX export are all completed inside the editor
               </li>
               <li>
-                <b>SIEM dashboard & incident/alert management</b>: severity and MITRE ATT&CK views,
-                endpoint scan & network isolation, threat intelligence
+                <b>SIEM dashboard · incident and alert management</b> — severity and MITRE ATT&amp;CK analysis views,
+                endpoint scanning and network isolation, and threat intelligence, so an analyst's
+                detect → decide → respond path stays in the web app
               </li>
               <li>
-                <b>AI report editor (BlockNote)</b>: custom blocks + block/table/character-level diff
-                highlighting with preview, multilingual (KO/EN/JA) reports, and PDF (Puppeteer), DOCX,
-                CSV/XLSX export
+                <b>Kill-chain visualization</b> — renders the AI server's structured output directly as an
+                XY Flow · dagre topology graph (MITRE ATT&amp;CK) so a textual analysis reads as an attack flow at a
+                glance, with Recharts dashboard charts summarizing the metrics
               </li>
               <li>
-                <b>Data visualization</b>: Recharts dashboard charts + XY Flow/dagre kill-chain (MITRE
-                ATT&CK) topology graph
+                <b>AI server integration</b> — heavy AI analysis and report generation are delegated to the AI
+                server (REST · SSE) while the web app stays light, receiving only progress through an SSE live
+                dashboard; event search and aggregation run on OpenSearch
               </li>
               <li>
-                <b>Background jobs & scheduling</b>: BullMQ/Redis workers and cron — data retention,
-                notifications, recurring-report automation
-              </li>
-              <li>
-                <b>OpenSearch SIEM search</b> and real-time monitoring (SSE), AI-server (REST/SSE) integration
+                <b>Background jobs · scheduling</b> — BullMQ · Redis workers and crons automate data retention,
+                notifications and recurring reports, keeping long-running work off the request path
               </li>
             </ul>
             <div class="item__stack">
-              Next.js 15 · React · TypeScript · Tailwind · shadcn/ui · Prisma · PostgreSQL ·
-              BlockNote · Recharts · XY Flow · BullMQ · Redis · OpenSearch
+              <span class="tag">Next.js</span>
+              <span class="tag">React</span>
+              <span class="tag">TypeScript</span>
+              <span class="tag">Tailwind CSS</span>
+              <span class="tag">shadcn/ui</span>
+              <span class="tag">Prisma</span>
+              <span class="tag">PostgreSQL</span>
+              <span class="tag">BlockNote</span>
+              <span class="tag">Recharts</span>
+              <span class="tag">XY Flow</span>
+              <span class="tag">BullMQ</span>
+              <span class="tag">Redis</span>
+              <span class="tag">OpenSearch</span>
             </div>
           </div>
         </div>
@@ -470,97 +603,132 @@
         <div class="company">
           <div class="company__head">
             <span class="company__name">Famppy Inc. <em>팜피 주식회사</em></span>
-            <span class="company__period">2023.07 – 2025.09</span>
+            <span class="company__period">Jul 2023 – Sep 2025</span>
           </div>
-          <div class="company__role">Full-stack Developer</div>
+          <div class="company__role">Full-stack Developer<span class="company__meta"><span class="meta"><span class="meta__k">Team</span><span class="meta__v">With design &amp; dev teams</span></span><span class="meta"><span class="meta__k">Stage</span><span class="meta__v">In production</span></span></span></div>
+          <p class="company__desc">I handled frontend and backend development for the eSIM commerce and kiosk products and the APOC SaaS platform. I worked with the design team to build and refine service screens, and ran several projects jointly with other developers. Tickets and schedules were managed per project in monday, with Git as the shared version control across the dev team.</p>
 
         <div class="item">
           <div class="item__head">
             <span class="item__title">eSIM Platform — Service · Kiosk · Admin</span>
-            <span class="item__period">2023.11 – 2025.09</span>
+            <span class="item__period">Nov 2023 – Sep 2025</span>
           </div>
           <p class="item__desc">
-            A key developer across an eSIM platform made up of the online service, kiosk, admin, and
-            shared middleware (top committer in most areas).
+            I was a core developer across the whole eSIM platform — the online service, the kiosks, the admin
+            console, and the shared middleware behind them. I took the service from development through
+            on-site operation, handling roughly 100 real paid orders a month across web and kiosk combined.
           </p>
           <ul class="item__bullets">
             <li>
-              Global eSIM commerce (led the frontend architecture): multi-gateway payments — Paygent
-              card (USD) + Google Pay / Apple Pay (JPY), a web/kiosk-shared checkout flow, and
-              post-payment eSIM QR issuance with email delivery
+              <b>Global eSIM commerce</b> — led the frontend design for multi-PG payments (Paygent card in USD
+              plus Google Pay · Apple Pay in JPY) and a checkout flow shared by web and kiosk, through to the
+              flow that provisions an eSIM from the supplier immediately after payment and delivers the
+              activation QR and receipt as a multilingual email (the email is the delivery channel)
             </li>
             <li>
-              Led development of the backend middleware (Koa · TypeORM · PostgreSQL): role-hierarchy
-              permissions (RBAC), advertising/inflow-partner settlement, and API integration with
-              domestic and international eSIM suppliers (including a local supplier in China) —
-              from product sourcing to orders, handling spec differences, auth, and character encoding
+              <b>Shared backend middleware</b> — led the Koa · TypeORM · PostgreSQL development: hierarchical
+              role permissions (RBAC), settlement for advertising and referral partners, and API integration
+              with two eSIM suppliers (a domestic carrier and an overseas eSIM provider) covering catalog
+              lookup and sourcing through order placement, dealing directly with spec differences,
+              authentication, and character-encoding issues
             </li>
             <li>
-              Unattended kiosk (Japan-only stores, JPY; catalog covering 30+ countries): led the kiosk
-              web (Vue PWA) and improved and extended the Android WebView app’s
-              hardware features — dual printer-driver auto-detection (SII ↔ Epson), Shift-JIS/UTF-8
-              multilingual encoding, and payment-terminal (card/QR/NFC) status/error handling — plus initial
-              operations and real-time on-site support in Japan
+              <b>Unattended kiosks</b> — built the kiosk UI selling eSIM products for 30+ countries as a Vue 3
+              PWA, wrapped in an Android (Kotlin) WebView app to run on the terminals.
+              <b>Four units were deployed across two airports, Narita and Haneda, and ran unattended for about
+              a year.</b> I led the web development and improved the WebView app's hardware integration
+              (receipt printer, payment terminal) and multilingual encoding issues, then covered early
+              operations and real-time on-site issue response in Japan after launch
             </li>
           </ul>
-          <div class="item__stack">Vue 3 · TypeScript · Pinia · vue-i18n · PWA · Koa · TypeORM · PostgreSQL · Kotlin · AWS</div>
+          <div class="item__stack">
+              <span class="tag">Vue 3</span>
+              <span class="tag">TypeScript</span>
+              <span class="tag">Pinia</span>
+              <span class="tag">vue-i18n</span>
+              <span class="tag">PWA</span>
+              <span class="tag">Koa</span>
+              <span class="tag">TypeORM</span>
+              <span class="tag">PostgreSQL</span>
+              <span class="tag">Kotlin</span>
+              <span class="tag">AWS</span>
+            </div>
         </div>
 
         <div class="item">
           <div class="item__head">
-            <span class="item__title">In-house SaaS Authoring Tool (apoc)</span>
-            <span class="item__period">2023.07 – 2025.08</span>
+            <span class="item__title">APOC Platform — Play · Studio</span>
+            <span class="item__period">Jul 2023 – Aug 2025</span>
           </div>
           <ul class="item__bullets">
-            <li>Platform renewal: full interface overhaul and component-based refactoring for maintainability and extensibility</li>
+            <li><b>Platform renewal</b> — a full interface overhaul and component-based refactor that improved maintainability and extensibility</li>
             <li>
-              Payment system: Toss/PayPal integration (one-time and recurring subscriptions), PayPal
-              checkout-flow design, concern-separated payment/subscription/cancellation history tables
-              (a unified multi-gateway ledger), auto-renewal batch, and Jest tests
+              <b>Payment system</b> — Toss · PayPal integration (one-off and recurring subscriptions) and the PayPal
+              checkout flow design; worked through the existing payment/subscription/cancellation history table
+              structure to implement the payment features (a unified record across multiple PGs), plus auto-renewal
+              batches and Jest tests
             </li>
             <li>
-              Authoring-tool tablet support (established the 768–1023px criteria): touch-UX fixes for
-              screen zoom, layer scrolling, and canvas positioning — designing and running 61 test
-              cases across 6 devices × 6 browsers, identifying and tracking 39 issues
+              <b>Tablet support for the authoring tool</b> — improved touch UX (establishing the 768–1023px baseline)
+              and designed 61 test cases across 6 devices × 6 browsers, surfacing and tracking 39 issues
             </li>
           </ul>
-          <div class="item__stack">Vue.js · Koa · PostgreSQL · Jest · SCSS</div>
+          <div class="item__stack">
+              <span class="tag">Vue.js</span>
+              <span class="tag">Koa</span>
+              <span class="tag">PostgreSQL</span>
+              <span class="tag">Jest</span>
+              <span class="tag">SCSS</span>
+            </div>
         </div>
 
-        <div class="item">
-          <div class="item__head">
-            <span class="item__title">Client Content Service — National Institute of Ecology</span>
-            <span class="item__period">2025.07 – 2025.08</span>
-          </div>
-          <ul class="item__bullets">
-            <li>
-              Participation-certification service: on-site talks verified by image recognition (staff
-              code-entry fallback), cumulative tiers (3 talks = Sprout, 5 = Tree) with per-tier
-              certificates, iframe content play, activity logging, and survey collection
-            </li>
-          </ul>
-          <div class="item__stack">Vue.js · Koa · PostgreSQL · Kakao API · Batch · SCSS</div>
-        </div>
         </div>
         <!-- /Famppy -->
       </section>
 
-      <!-- Freelance -->
+<!-- Freelance -->
       <section class="section">
         <h2 class="section__title">Freelance</h2>
 
-        <div class="item">
+        <div class="item" style="break-inside: avoid; page-break-inside: avoid;">
           <div class="item__head">
-            <span class="item__title">Bogwang Theater Promotion & Booking Site</span>
-            <span class="item__period">2025.04 –</span>
+            <span class="item__title">BK Theater — Promotion &amp; Venue Rental Site</span>
+            <span class="company__meta"><span class="meta"><span class="meta__k">Team</span><span class="meta__v">Solo</span></span><span class="meta"><span class="meta__k">Stage</span><span class="meta__v">Live (launched Nov 2025)</span></span></span>
+            <span class="item__period">Apr 2025 –</span>
           </div>
-          <p class="item__desc">A theater promotion and booking site completed solo — planning, design, development, and infrastructure.</p>
+          <p class="item__desc">
+            A site covering performances, notices and press releases, venue rental information, and admin
+            content management (bktheater.com, launched Nov 2025), which I built solo from planning and
+            design through development, deployment and ongoing operation.
+          </p>
           <ul class="item__bullets">
-            <li>Theater browsing/reservations and admin content operations (performances, notices, banners)</li>
-            <li>SEO optimization via vite-ssg SSG with dynamic meta/JSON-LD and a build-time sitemap (85 clicks, 330 impressions, 25.8% avg CTR, 4.1 avg position in the two months after the fix, Jul–Sep 2026)</li>
-            <li>Deployed on AWS EC2/S3 with PM2/Nginx; ongoing sprints — 60+ fixes, security hardening, indexing recovery</li>
+            <li>
+              <b>Service &amp; API</b> — built the public site and admin features with Vue 3 · TypeScript and
+              Koa · PostgreSQL, implementing CRUD for performances, notices, press releases and banners,
+              a Quill editor, and S3 file uploads.
+            </li>
+            <li>
+              <b>Architecture &amp; deployment</b> — separated backend responsibilities into
+              routes–controller–service–repository, and set up vite-ssg-based SSG with dynamic meta tags and a
+              sitemap for search visibility. Deployed on AWS EC2 with Nginx and PM2.
+            </li>
+            <li>
+              <b>Operational improvements</b> — fixed data loss on partial edits and a view-count refresh issue,
+              and consolidated 20 public and admin views into 10 shared pages, cutting roughly 4,000 lines of code.
+            </li>
           </ul>
-          <div class="item__stack">Vue 3 · TypeScript · vite-ssg · Koa · PostgreSQL · AWS · Nginx</div>
+          <div class="item__stack">
+              <span class="tag">Vue 3</span>
+              <span class="tag">TypeScript</span>
+              <span class="tag">vite-ssg</span>
+              <span class="tag">Pinia</span>
+              <span class="tag">Koa</span>
+              <span class="tag">PostgreSQL</span>
+              <span class="tag">AWS EC2</span>
+              <span class="tag">S3</span>
+              <span class="tag">PM2</span>
+              <span class="tag">Nginx</span>
+            </div>
         </div>
       </section>
 
@@ -571,17 +739,72 @@
         <div class="item">
           <div class="item__head">
             <span class="item__title">blog-mcp · Blog Publishing MCP Server</span>
-            <span class="item__period">2026.07 –</span>
+            <span class="company__meta"><span class="meta"><span class="meta__k">Team</span><span class="meta__v">Solo</span></span><span class="meta"><span class="meta__k">Stage</span><span class="meta__v">Live (unattended publishing)</span></span></span>
+            <span class="item__period">Jul 2026 –</span>
           </div>
-          <p class="item__desc">A learning project building an MCP (Model Context Protocol) server from scratch, aimed at auto-publishing blog posts.</p>
+          <p class="item__desc">
+            A personal project where I learned the Model Context Protocol by building an unattended
+            publishing pipeline. The stdio MCP server and an Astro blog live in a pnpm workspace monorepo,
+            and it has published 100+ posts across 6 sections without human intervention.
+          </p>
           <ul class="item__bullets">
-            <li>Hand-built stdio server implementing all three MCP primitives (Tool · Resource · Prompt)</li>
-            <li>No-LLM pure-function principle — responsibilities split across trigger, orchestrator, and MCP server</li>
-            <li>Deterministic publish gate — existence and shape checks on follows/related and in-body links block link hallucination</li>
-            <li>Unattended publishing pipeline in production — a daily cron drives the orchestrator wrapper, gated by a PreToolUse hook</li>
-            <li>Performance-signal feedback closes the content loop — view counts weight topic selection (cold-start gate, graceful degradation)</li>
+            <li><b>Hand-built stdio MCP server</b> — exposes all three primitives (Tool · Resource · Prompt) from a single server</li>
+            <li><b>Separation of model calls from tool execution</b> — responsibilities split across the trigger, the orchestrator, and the MCP server</li>
+            <li><b>Deterministic publishing gate</b> — validates that follows/related entries and in-body internal links actually exist and are well-formed, blocking link hallucination</li>
+            <li><b>Unattended publishing pipeline</b> — a daily cron runs the orchestrator so an LLM agent picks a topic, writes, and self-reviews, with a PreToolUse hook validating the publishing rules before anything ships</li><li><b>View-count-driven topic selection</b> — page views feed back as a weight on the next topic choice (with a cold-start gate and graceful degradation)</li>
           </ul>
-          <div class="item__stack">TypeScript · MCP · @modelcontextprotocol/sdk · zod · Astro · GitHub Actions</div>
+          <div class="item__stack">
+              <span class="tag">TypeScript</span>
+              <span class="tag">MCP</span>
+              <span class="tag">@modelcontextprotocol/sdk</span>
+              <span class="tag">zod</span>
+              <span class="tag">Astro</span>
+              <span class="tag">Supabase</span>
+              <span class="tag">GitHub Actions</span>
+            </div>
+        </div>
+
+        <div class="item">
+          <div class="item__head">
+            <span class="item__title">daily.quiz · Certification Practice Site</span>
+            <span class="company__meta"><span class="meta"><span class="meta__k">Team</span><span class="meta__v">Solo</span></span><span class="meta"><span class="meta__k">Stage</span><span class="meta__v">Live</span></span></span>
+            <span class="item__period">Aug 2026 –</span>
+          </div>
+          <p class="item__desc">
+            A static practice site for two Korean national IT certifications, with multiple-choice written
+            questions and short-answer practical questions graded instantly. A sibling project to the
+            blog-mcp blog: each explanation links through to the corresponding concept post.
+          </p>
+          <ul class="item__bullets">
+            <li>
+              <b>Auto-grading short answers</b> — absorbs the hard-to-judge cases that come from having no answer
+              choices, by normalizing notation variance (case, spacing, full-width characters, hyphens) and keeping
+              a per-question list of accepted spellings. Only descriptive answers, which cannot be automated, are
+              explicitly drawn out as self-graded
+            </li>
+            <li>
+              <b>Two exams on one set of screens</b> — questions inherit their exam through their topic, so routes are
+              shared via rest parameters and only the grader, the subject areas, and the storage key branch per exam
+            </li>
+            <li>
+              <b>Content quality enforced by the build</b> — 875 written questions, 67 practical questions and 137
+              concept topics are LLM-generated from the blog's concept posts, while a zod publishing gate fails the
+              build on schema violations or references to non-existent topics
+            </li>
+            <li>
+              <b>Continuous sync with the blog (weekly cron)</b> — coupled to the sibling blog through RSS and the
+              GitHub tree alone, with no API; a missing linked post fails the build. A weekly cron compares blob
+              SHAs and files issues for dead links, revised posts, and topics not yet covered by a question
+            </li>
+          </ul>
+          <div class="item__stack">
+              <span class="tag">Astro</span>
+              <span class="tag">TypeScript</span>
+              <span class="tag">zod</span>
+              <span class="tag">Supabase</span>
+              <span class="tag">RLS</span>
+              <span class="tag">GitHub Actions</span>
+            </div>
         </div>
       </section>
 
@@ -591,24 +814,28 @@
 
         <div class="item">
           <div class="item__head">
-            <span class="item__title">Client-facing Product Presentations</span>
-            <span class="item__period">2026.05 – 07</span>
+            <span class="item__title">Product Presentations to Prospective Customers</span>
+            <span class="item__period">May – Jul 2026</span>
           </div>
-          <p class="item__desc">
-            Covered the product overview, core capabilities, and business value, personally delivering
-            an end-to-end demo — detection → AI analysis → response → report — with Q&A.
-          </p>
           <ul class="item__bullets">
-            <li>Three SIEM demos & presentations — a global IT company (Korean, 2026.05) · a major-conglomerate subsidiary (English, 2026.06) · a major Korean conglomerate (Korean, 2026.07)</li>
+            <li><b>Three SIEM product demos and presentations</b> — a global IT company (Korean, May 2026) · an enterprise affiliate (English, Jun 2026) · a major Korean enterprise (Korean, Jul 2026)</li>
           </ul>
         </div>
 
         <div class="item">
           <div class="item__head">
-            <span class="item__title">RSAC 2026 Attendance</span>
-            <span class="item__period">2026.03</span>
+            <span class="item__title">RSAC 2026</span>
+            <span class="item__period">Mar 2026</span>
           </div>
-          <p class="item__desc">Attended the global security conference (RSA Conference) — researching the latest security trends and solutions.</p>
+          <p class="item__desc">Attended the RSA Conference — research on current security trends and solutions</p>
+        </div>
+
+        <div class="item">
+          <div class="item__head">
+            <span class="item__title">TEdI Coding Academy, Gwanggyo · Teaching Assistant and Instructor</span>
+            <span class="item__period">Aug 2022 – Jun 2023</span>
+          </div>
+          <p class="item__desc">Taught C/C++ algorithms and data structures, and introductory Python programming</p>
         </div>
       </section>
 
@@ -618,16 +845,16 @@
         <div class="item">
           <div class="edu__line">
             <span class="item__title">Ajou University · B.S. in Cyber Security</span>
-            <span class="item__period">2020.03 – 2025.02</span>
+            <span class="item__period">Mar 2020 – Feb 2025</span>
           </div>
-          <p class="edu__note">Completed the Cloud/Bigdata security track</p>
+          <p class="edu__note">Cloud/Bigdata security track · GPA 3.96 / 4.5</p>
         </div>
       </section>
 
       <!-- Languages -->
       <section class="section">
         <h2 class="section__title">Languages</h2>
-        <p class="edu__note">Korean (native) · English — working proficiency; product demos & presentations in English</p>
+        <p class="edu__note">Korean (native) · English — professional working proficiency, including product demos and presentations in English</p>
       </section>
     </div>
   </body>
