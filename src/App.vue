@@ -11,6 +11,7 @@ import About from './components/About.vue'
 import AboutDetail from './components/AboutDetail.vue'
 import Works from './components/Works.vue'
 import Contact from './components/Contact.vue'
+import BackToTop from './components/BackToTop.vue'
 import ProjectDetail from './components/ProjectDetail.vue'
 import { projects } from './data'
 
@@ -97,5 +98,6 @@ onUnmounted(() => {
       <Works />
       <Contact />
     </main>
+    <BackToTop />
   </template>
 </template>
