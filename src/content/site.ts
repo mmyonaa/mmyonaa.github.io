@@ -80,6 +80,11 @@ export const siteKo: SiteText = {
         title: 'RSAC 2026 참관',
         body: '글로벌 보안 컨퍼런스(RSA Conference) 참관 — 최신 보안 트렌드·솔루션 리서치.',
       },
+      {
+        period: '2022.08 – 2023.06',
+        title: '광교 코딩 학원 TEdI · 조교 및 강사',
+        body: '초·중·고 대상 강의 — 중학생 Python 기초반, 대회준비반·내신반 C/C++ 알고리즘·자료구조.',
+      },
     ],
     education: [
       {
@@ -87,6 +92,15 @@ export const siteKo: SiteText = {
         school: '아주대학교',
         degree: '사이버보안학과 학사',
         notes: ['Cloud/Bigdata 보안 트랙 이수'],
+      },
+      {
+        period: '2022.08 – 2023.02',
+        school: '코드스테이츠',
+        degree: '소프트웨어 엔지니어링 부트캠프 (프론트엔드)',
+        notes: [
+          '국비지원 직업능력개발훈련 · 960시간 (응용SW엔지니어링)',
+          '최종 프로젝트: 프론트·백엔드 팀을 나눠 챌린지 인증 서비스를 기획부터 배포까지',
+        ],
       },
     ],
     languages: [
@@ -168,6 +182,11 @@ export const siteEn: SiteText = {
         title: 'RSAC 2026 (attended)',
         body: 'Attended the RSA Conference to research the latest security trends and solutions.',
       },
+      {
+        period: '2022.08 – 2023.06',
+        title: 'TEdI Coding Academy · Teaching Assistant & Instructor',
+        body: 'Taught elementary through high school students — Python fundamentals for middle schoolers, and C/C++ algorithms and data structures for the competition-prep and school-exam classes.',
+      },
     ],
     education: [
       {
@@ -175,6 +194,15 @@ export const siteEn: SiteText = {
         school: 'Ajou University',
         degree: 'B.S. in Cyber Security',
         notes: ['Completed the Cloud/Big Data Security track'],
+      },
+      {
+        period: '2022.08 – 2023.02',
+        school: 'Code States',
+        degree: 'Software Engineering Bootcamp (Frontend)',
+        notes: [
+          'Government-funded vocational training · 960 hours',
+          'Final team project: a challenge-verification service taken from planning through deployment, split across frontend and backend teams',
+        ],
       },
     ],
     languages: [
