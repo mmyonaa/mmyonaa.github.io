@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, onBeforeUnmount, ref, watch } from 'vue'
+import { computed, onBeforeUnmount, ref, watch, watchEffect } from 'vue'
 import { openLightbox } from '../lightbox'
 import { theme } from '../theme'
 
@@ -29,6 +29,27 @@ const shownImages = computed(() =>
 const frameLabel = computed(
   () => props.frame && { kiosk: 'Kiosk', tablet: 'Tablet', phone: 'Mobile' }[props.frame],
 )
+
+// 목업 화면 비율 — 캡처의 실제 비율을 그대로 쓴다. 기기 틀에 맞춰 잘라내면
+// 화면 가장자리(상단 바·하단 버튼)가 깎이므로, 첫 이미지를 따로 재서 그 비율로 화면을 세운다.
+// <img> 의 load 에 기대지 않는 이유: 캐시된 이미지는 load 가 발화하지 않아 비율이
+// 기본값으로 남고, 그 차이만큼 화면이 잘린다.
+const screenAr = ref('')
+watchEffect((onCleanup) => {
+  const src = props.frame ? shownImages.value[0] : ''
+  screenAr.value = ''
+  if (!src) return
+  const probe = new Image()
+  const apply = () => {
+    if (probe.naturalWidth && probe.naturalHeight) {
+      screenAr.value = `${probe.naturalWidth} / ${probe.naturalHeight}`
+    }
+  }
+  probe.addEventListener('load', apply)
+  probe.src = src
+  if (probe.complete) apply() // 캐시 적중 — load 없이 이미 크기를 안다
+  onCleanup(() => probe.removeEventListener('load', apply))
+})
 
 const canZoom = computed(() => props.zoomable && !props.href)
 function onImgClick(src: string) {
@@ -78,6 +99,7 @@ const hasMany = computed(() => props.images.length > 1)
   <div
     class="slider"
     :class="[frame && `slider--${frame}`, { 'is-tall': tall, 'slider--wide': wide, 'is-zoomable': canZoom }]"
+    :style="screenAr ? { '--screen-ar': screenAr } : undefined"
     @mouseenter="stopAuto"
     @mouseleave="startAuto"
   >
@@ -86,7 +108,13 @@ const hasMany = computed(() => props.images.length > 1)
       <span :class="`slider__${frame}-screen`">
         <div class="slider__track" :style="{ transform: `translateX(-${slide * 100}%)` }">
           <figure v-for="(src, i) in shownImages" :key="src" class="slider__slide">
-            <img :src="src" :alt="`${alt} 스크린샷 ${i + 1}`" loading="lazy" draggable="false" @click="onImgClick(src)" />
+            <img
+              :src="src"
+              :alt="`${alt} 스크린샷 ${i + 1}`"
+              loading="lazy"
+              draggable="false"
+              @click="onImgClick(src)"
+            />
           </figure>
         </div>
       </span>
