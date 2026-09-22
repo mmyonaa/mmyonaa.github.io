@@ -4,6 +4,8 @@ export const ko: ProjectText = {
   title: '자취방정식 · 라이프스타일 기반 주거 매물 추천',
   description:
     '통근 효율성과 생활 환경 가중치를 결합해 100점 만점 매칭 점수를 내는 주거 매물 추천 모바일 웹앱. 2026 Wanted 해커톤 제출작으로, 팀 기획에 함께 참여하고 11일 동안 프론트엔드를 단독으로 맡았습니다.',
+  imageNote:
+    '화면의 매물 사진·가격·점수는 해커톤 기간에 쓴 샘플 데이터입니다. 실기기 캡처에서 브라우저 주소창과 하단 툴바만 잘라냈습니다.',
   overview: [
     '거점까지의 이동 효율성으로 1차 거르고, 채광·치안·소음·편의 인프라에 사용자가 직접 매긴 가중치로 2차 정렬해 개인화된 매칭 점수를 보여주는 서비스입니다. 기획은 팀 3~4인이 함께 했고, 거기서 나온 피그마 디자인을 기반으로 화면을 개발했습니다.',
     '프론트엔드 구현을 단독으로 맡으면서 백엔드 ERD·API 명세 설계에도 참여했고, 개발 중에는 백엔드·디자이너와 회의하며 디자인을 함께 조정했습니다. 도메인 모델과 매칭 점수 계산은 백엔드(Spring Boot · MySQL)에 두고 프론트는 입력 UI·요청·결과 표시를 맡는 경계를 먼저 합의했습니다.',
@@ -44,6 +46,8 @@ export const en: ProjectText = {
   title: 'Jachwi Bangjeongsik · Lifestyle-based Housing Recommendations',
   description:
     'A mobile web app that scores rental listings out of 100 by combining commute efficiency with weighted living-environment factors. Submitted to the 2026 Wanted hackathon; I helped shape the product with the team and owned the frontend for eleven days.',
+  imageNote:
+    'Listing photos, prices, and scores on screen are sample data used during the hackathon. The captures come from a real device, with only the browser address bar and bottom toolbar cropped away.',
   overview: [
     'The service filters first by travel efficiency to the places you actually go, then ranks by living-environment factors — daylight, safety, noise, nearby amenities — using weights the user sets, and shows a personalized match score. All three to four of us shaped the product together, and the screens were built from the Figma designs that came out of it.',
     'I owned the frontend implementation, took part in designing the backend ERD and the API specification, and adjusted the designs with the backend developer and the designer in meetings as we went. The boundary was agreed up front: the domain model and the match-score calculation live in the backend (Spring Boot, MySQL), while the frontend owns input UI, requests, and presenting results.',

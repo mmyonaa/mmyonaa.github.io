@@ -242,7 +242,16 @@ const projectBase: ProjectBase[] = [
     company: '',
     repo: '',
     // 해커톤 제출작 — 라이브·레포 공개 여부 확인 후 link·repo 를 채웁니다.
-    // 화면 캡처는 백엔드(팀 소유 EC2)가 떠 있어야 찍을 수 있어 아직 없습니다.
+    imageFrame: 'phone', // 모바일 전용 웹앱 → 스마트폰 목업
+    // 실기기 캡처에서 브라우저 크롬(상단 주소창·하단 툴바)을 잘라낸 화면
+    images: [
+      '/projects/jb-front/jb-front-recommend-list.png',
+      '/projects/jb-front/jb-front-filter.png',
+      '/projects/jb-front/jb-front-detail-score.png',
+      '/projects/jb-front/jb-front-anchor.png',
+      '/projects/jb-front/jb-front-async-done.png',
+      '/projects/jb-front/jb-front-history.png',
+    ],
   },
   {
     slug: 'portfolio',
