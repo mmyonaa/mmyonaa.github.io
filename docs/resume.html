@@ -391,6 +391,11 @@
         .company:first-of-type .item__desc { line-height: 1.45; }
         .company:first-of-type .item__bullets li { line-height: 1.45; margin-bottom: 2px; }
         .item--siem-web { break-before: page; }
+        /* 활동 항목이 한 줄 늘어 어학이 4쪽으로 밀리던 것을 간격으로 되돌립니다.
+           본문 글자 크기는 그대로 두고 행간·여백만 조입니다. */
+        .section { margin-top: 8px; }
+        .item__bullets { margin-top: 5px; }
+        .item__bullets li { line-height: 1.45; margin-bottom: 2px; }
       }
       @page:first { margin: 10mm 12mm; }
     </style>
@@ -787,6 +792,7 @@
           </div>
           <ul class="item__bullets">
             <li><b>SIEM 제품 데모·발표 3회</b> — 글로벌 IT 기업(한국어, 2026.05)·대기업 계열사(영문, 2026.06)·국내 대기업(한국어, 2026.07)</li>
+            <li><b>국·영문 발표 자료 직접 제작</b> — 발표 자료와 제품 데모 시나리오를 직접 구성</li>
           </ul>
         </div>
 
