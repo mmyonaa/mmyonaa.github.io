@@ -52,6 +52,10 @@ const CACHE = resolve(root, 'docs/.print-cache')
 mkdirSync(CACHE, { recursive: true })
 
 function asset(p) {
+  // 인쇄물은 흰 바탕이므로 라이트 변형(-light)이 있으면 그쪽을 씁니다.
+  // 다이어그램 기본 파일은 다크 테마용이라 종이에서 검게 찍힙니다.
+  const light = p.replace(/(\.\w+)$/, '-light$1')
+  if (existsSync(resolve(root, 'public', light.replace(/^\//, '')))) p = light
   const src = resolve(root, 'public', p.replace(/^\//, ''))
   if (!existsSync(src)) return null
   const name = p.replace(/^\//, '').replace(/\//g, '_').replace(/\.\w+$/, '.jpg')
