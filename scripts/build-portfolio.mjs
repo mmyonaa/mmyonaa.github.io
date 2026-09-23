@@ -75,6 +75,33 @@ function asset(p) {
   return `.print-cache/${basename(out)}`
 }
 
+// 캡처의 가로/세로 비를 재서 세로형(스마트폰·키오스크 화면)인지 판단합니다.
+// 세로형은 한 줄에 둘만 놓으면 좌우가 비어 쪽수만 늘어나므로 네 개씩 채웁니다.
+const arCache = new Map()
+function aspect(p) {
+  if (arCache.has(p)) return arCache.get(p)
+  const src = resolve(root, 'public', p.replace(/^\//, ''))
+  let ar = null
+  try {
+    const out = execFileSync('sips', ['-g', 'pixelWidth', '-g', 'pixelHeight', src], {
+      encoding: 'utf8',
+    })
+    const w = +(out.match(/pixelWidth: (\d+)/) || [])[1]
+    const h = +(out.match(/pixelHeight: (\d+)/) || [])[1]
+    if (w && h) ar = w / h
+  } catch {
+    /* sips 없으면 판단 포기 — 기본(2열) 레이아웃 */
+  }
+  arCache.set(p, ar)
+  return ar
+}
+
+function isTall(images) {
+  const ars = (images || []).map(aspect).filter((a) => a)
+  if (!ars.length) return false
+  return ars.reduce((a, b) => a + b, 0) / ars.length < 0.8
+}
+
 function figure(src, caption, cls = '') {
   return `<figure class="shot ${cls}">
             <img src="${src}" alt="" />
@@ -147,7 +174,9 @@ function projectSection(p, i) {
       ${block(
         t.screens,
         shots.length
-          ? `<div class="shots">${shots.map((s) => figure(s)).join('')}</div>` +
+          ? `<div class="shots${isTall(p.images) ? ' shots--tall' : ''}">${shots
+              .map((s) => figure(s))
+              .join('')}</div>` +
               (p.imageNote ? `<p class="muted">${esc(p.imageNote)}</p>` : '')
           : p.mediaNote
             ? `<p class="muted">${esc(p.mediaNote)}</p>`
@@ -263,6 +292,7 @@ function html(content) {
       .shots { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; }
       .shot { break-inside: avoid; }
       .shot img { display: block; margin: 0 auto; width: auto; max-width: 100%; max-height: 66mm; border: 1px solid var(--line); border-radius: 4px; }
+      .shots--tall { grid-template-columns: repeat(4, 1fr); }
       .shot--wide { grid-column: 1 / -1; margin-bottom: 8px; }
       .shot--wide img { max-height: 105mm; }
       .arch { margin-bottom: 10px; }
