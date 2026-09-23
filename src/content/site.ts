@@ -72,8 +72,8 @@ export const siteKo: SiteText = {
     activities: [
       {
         period: '2026.05 – 07',
-        title: '고객사 대상 제품 프리젠테이션',
-        body: 'SIEM 제품을 고객사 대상으로 한국어·영문 발표 (글로벌 IT 기업, 대기업 계열사, 국내 대기업).',
+        title: '고객사 대상 제품 프레젠테이션',
+        body: '고객사 3개사를 대상으로 SIEM 제품을 한국어·영문으로 발표 (글로벌 IT 기업, 대기업 계열사, 국내 대기업). 국·영문 발표 자료와 데모 시나리오를 직접 제작했습니다.',
       },
       {
         period: '2026',
@@ -175,7 +175,7 @@ export const siteEn: SiteText = {
       {
         period: '2026.05 – 07',
         title: 'Client Product Presentations',
-        body: 'Presented and demoed SIEM to enterprise clients in both Korean and English (a global IT firm, a large-enterprise affiliate, and a major Korean conglomerate).',
+        body: 'Presented and demoed the SIEM product to three enterprise clients in Korean and English (a global IT firm, a large-enterprise affiliate, and a major Korean conglomerate). I authored the decks in both languages and built the demo scenario.',
       },
       {
         period: '2026',
