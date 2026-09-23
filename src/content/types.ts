@@ -29,6 +29,7 @@ export interface AboutTimelineItem {
   period: string
   title: string
   body: string
+  shortLabel?: string // 레인 차트 막대 이름 — 생략하면 title 을 쓴다
 }
 
 export interface AboutEducationItem {
@@ -36,6 +37,7 @@ export interface AboutEducationItem {
   school: string
   degree: string
   notes: string[]
+  shortLabel?: string // 레인 차트 막대 이름 — 생략하면 school 을 쓴다
 }
 
 export interface AboutLanguageItem {
@@ -45,6 +47,7 @@ export interface AboutLanguageItem {
 
 export interface AboutDetail {
   intro: string
+  timelineNote: string // 레인 차트 캡션
   paragraphs: string[]
   principles: AboutPrinciple[]
   timeline: AboutTimelineItem[]

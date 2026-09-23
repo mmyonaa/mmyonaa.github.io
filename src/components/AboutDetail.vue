@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { profile, about, aboutDetail, skills, contacts } from '../data'
+import CareerTimeline from './CareerTimeline.vue'
 import ThemeToggle from './ThemeToggle.vue'
 import LanguageToggle from './LanguageToggle.vue'
 
@@ -76,11 +77,18 @@ const languages = computed(() => aboutDetail.value.languages)
         </ul>
       </section>
 
+      <section class="about-detail__section reveal">
+        <h2 class="about-detail__heading">Timeline</h2>
+        <p class="about-detail__note">{{ aboutDetail.timelineNote }}</p>
+        <CareerTimeline />
+      </section>
+
       <section class="about-detail__section">
         <h2 class="about-detail__heading reveal">Experience</h2>
         <ul class="about-detail__timeline">
           <li
-            v-for="t in aboutDetail.timeline"
+            v-for="(t, ti) in aboutDetail.timeline"
+            :id="`tl-work-${ti}`"
             :key="t.period + t.title"
             class="tl reveal"
           >
@@ -97,7 +105,8 @@ const languages = computed(() => aboutDetail.value.languages)
         <h2 class="about-detail__heading reveal">Activities</h2>
         <ul class="about-detail__timeline">
           <li
-            v-for="a in aboutDetail.activities"
+            v-for="(a, ai) in aboutDetail.activities"
+            :id="`tl-activity-${ai}`"
             :key="a.period + a.title"
             class="tl reveal"
           >
@@ -114,7 +123,8 @@ const languages = computed(() => aboutDetail.value.languages)
         <h2 class="about-detail__heading reveal">Education</h2>
         <ul class="about-detail__timeline">
           <li
-            v-for="e in education"
+            v-for="(e, ei) in education"
+            :id="`tl-edu-${ei}`"
             :key="e.period + e.school"
             class="tl reveal"
           >

@@ -19,6 +19,7 @@ export const siteKo: SiteText = {
   aboutDetail: {
     intro:
       '기획 단계의 요구사항부터 배포 후 운영까지, 서비스의 한 사이클 전체를 책임지는 풀스택 개발자입니다.',
+    timelineNote: '막대를 누르면 아래 해당 항목으로 이동합니다.',
     paragraphs: [
       '프론트엔드부터 백엔드, 그리고 인프라 구성까지 폭넓게 다룹니다. 한 영역에 머무르지 않고 서비스 전반을 보면서, 어디에 병목이 있고 어떤 결정이 사용자 경험과 유지보수성에 영향을 주는지 판단하는 것을 좋아합니다.',
       '여러 프로젝트를 1인 또는 소수 인원으로 주도하며, 설계·개발·테스트·배포·현장 대응까지 직접 챙겼습니다. 그 과정에서 “끝까지 동작하게 만드는 것”과 “다음 사람이 이어받기 좋게 만드는 것”을 모두 중요하게 생각하게 됐습니다.',
@@ -46,26 +47,31 @@ export const siteKo: SiteText = {
       {
         period: '2025.09 – 현재',
         title: 'InBridge · SIEM 보안 플랫폼 (AI 서버·웹)',
+        shortLabel: 'InBridge · SIEM',
         body: 'InBridge의 멀티테넌트 SIEM 보안 플랫폼. Fastify AI 서버의 멀티 에이전트 인시던트 분석 파이프라인과 LiteLLM 게이트웨이·멀티테넌트 BYOK 설계·개발을 주도하고, Next.js 15 풀스택 웹(대시보드·리포트 에디터)에도 협업으로 참여했습니다.',
       },
       {
         period: '2023.11 – 2025.05',
         title: 'eSIM 판매 플랫폼 (서비스·키오스크·어드민)',
+        shortLabel: 'eSIM 플랫폼',
         body: '온라인 서비스·키오스크·어드민·공유 미들웨어로 이뤄진 eSIM 플랫폼에 핵심 개발자로 참여(대부분 영역 최다 기여). 다중 PG 결제(Paygent · Google/Apple Pay), RBAC 권한·정산, eSIM 발급·SES 메일 발송, 키오스크 프린터·다국어 인코딩 등 하드웨어 연동까지 담당하고 일본 현지 실운영을 대응했습니다.',
       },
       {
         period: '2024.01 – 2025.08',
         title: '자사 SaaS 저작도구 (apoc)',
+        shortLabel: 'apoc 저작도구',
         body: '플랫폼 리뉴얼, 결제 시스템(Toss · PayPal), 3D·인터랙티브 저작도구 고도화를 담당. 컴포넌트 기반 리팩토링으로 유지보수성과 확장성을 높였습니다.',
       },
       {
         period: '2025.07 – 2025.08',
         title: '팜피 · 국립 생태원 콘텐츠 서비스',
+        shortLabel: '국립생태원 콘텐츠',
         body: '팜피 재직 중 회사 프로젝트로 진행. 국립생태원 해설 프로그램 참여 인증제(현장 이미지 인식 인증·단계별 인증서·카카오 기프티콘 자동/일괄 발송·관리자 통계)의 콘텐츠 서비스와 관리자 시스템을 1인으로 개발했습니다.',
       },
       {
         period: '2025.09 –',
         title: '외주 · 보광 극장 홍보·대관 사이트',
+        shortLabel: '외주 · 보광극장',
         body: '보광 극장 홍보·대관 사이트를 기획·설계·개발·인프라까지 1인으로 완성했습니다. vite-ssg 기반 SSG와 동적 메타/JSON-LD로 SEO를 최적화하고 AWS · PM2 · Nginx로 배포·운영하며, 오픈 후에도 전면 코드 리뷰·보안 하드닝 스프린트로 정비를 이어가고 있습니다.',
       },
     ],
@@ -73,6 +79,7 @@ export const siteKo: SiteText = {
       {
         period: '2026.05 – 07',
         title: '고객사 대상 제품 프레젠테이션',
+        shortLabel: '고객사 제품 발표',
         body: '고객사 3개사를 대상으로 SIEM 제품을 한국어·영문으로 발표 (글로벌 IT 기업, 대기업 계열사, 국내 대기업). 국·영문 발표 자료와 데모 시나리오를 직접 제작했습니다.',
       },
       {
@@ -83,6 +90,7 @@ export const siteKo: SiteText = {
       {
         period: '2022.08 – 2023.06',
         title: '광교 코딩 학원 TEdI · 조교 및 강사',
+        shortLabel: 'TEdI 조교·강사',
         body: '초·중·고 대상 강의 — 중학생 Python 기초반, 대회준비반·내신반 C/C++ 알고리즘·자료구조.',
       },
     ],
@@ -97,6 +105,7 @@ export const siteKo: SiteText = {
         period: '2022.08 – 2023.02',
         school: '코드스테이츠',
         degree: '소프트웨어 엔지니어링 부트캠프 (프론트엔드)',
+        shortLabel: '코드스테이츠 부트캠프 (국비지원)',
         notes: [
           '국비지원 직업능력개발훈련 · 960시간 (응용SW엔지니어링)',
           '최종 프로젝트: 프론트·백엔드 팀을 나눠 챌린지 인증 서비스를 기획부터 배포까지',
@@ -121,6 +130,7 @@ export const siteEn: SiteText = {
   aboutDetail: {
     intro:
       'A full-stack developer who owns the entire service cycle — from gathering requirements to post-launch operations.',
+    timelineNote: 'Select a bar to jump to its entry below.',
     paragraphs: [
       'I work broadly across frontend, backend, and infrastructure. Rather than staying in one area, I like to see the whole service — spotting where the bottlenecks are and how each decision affects user experience and maintainability.',
       'I have led many projects solo or in small teams, handling design, development, testing, deployment, and on-site support myself. Along the way I came to value both “making it actually work end to end” and “making it easy for the next person to take over.”',
@@ -148,26 +158,31 @@ export const siteEn: SiteText = {
       {
         period: '2025.09 – Present',
         title: 'InBridge · SIEM Security Platform (AI server & web)',
+        shortLabel: 'InBridge · SIEM',
         body: 'A multi-tenant SIEM security platform at InBridge. I led the design and development of the Fastify AI server’s multi-agent incident-analysis pipeline, LiteLLM gateway, and multi-tenant BYOK, and also contributed to the Next.js 15 full-stack web (dashboard, report editor).',
       },
       {
         period: '2023.11 – 2025.05',
         title: 'eSIM Sales Platform (service · kiosk · admin)',
+        shortLabel: 'eSIM platform',
         body: 'A key developer (top contributor in most areas) across an eSIM platform of the online service, kiosk, admin, and shared middleware. Owned multi-gateway payments (Paygent, Google/Apple Pay), RBAC and settlement, eSIM issuance with SES email delivery, and kiosk hardware integration (printers, multilingual encoding), and handled live operations on-site in Japan.',
       },
       {
         period: '2024.01 – 2025.08',
         title: 'In-house SaaS Authoring Tool (apoc)',
+        shortLabel: 'apoc authoring',
         body: 'Handled the platform renewal, the payment system (Toss · PayPal), and enhancements to the 3D/interactive authoring tool. Improved maintainability and scalability through component-based refactoring.',
       },
       {
         period: '2025.07 – 2025.08',
         title: 'Famppy · National Institute of Ecology',
+        shortLabel: 'NIE content',
         body: 'A company project at Famppy. Solo-built the content service and admin for the National Institute of Ecology participation-certification program — on-site image-recognition certification, tiered certificates, automatic/bulk KakaoTalk gifticons, and admin stats.',
       },
       {
         period: '2025.09 –',
         title: 'Freelance · Bogwang Theater Promotion & Booking Site',
+        shortLabel: 'Bogwang Theater',
         body: 'Single-handedly delivered the Bogwang Theater promotion/booking site from planning and design to development and infrastructure. Optimized SEO with vite-ssg SSG and dynamic meta/JSON-LD, deployed and operated on AWS with PM2 and Nginx — with ongoing post-launch code-review and security-hardening sprints.',
       },
     ],
@@ -175,6 +190,7 @@ export const siteEn: SiteText = {
       {
         period: '2026.05 – 07',
         title: 'Client Product Presentations',
+        shortLabel: 'Client demos',
         body: 'Presented and demoed the SIEM product to three enterprise clients in Korean and English (a global IT firm, a large-enterprise affiliate, and a major Korean conglomerate). I authored the decks in both languages and built the demo scenario.',
       },
       {
@@ -185,6 +201,7 @@ export const siteEn: SiteText = {
       {
         period: '2022.08 – 2023.06',
         title: 'TEdI Coding Academy · Teaching Assistant & Instructor',
+        shortLabel: 'TEdI · teaching',
         body: 'Taught elementary through high school students — Python fundamentals for middle schoolers, and C/C++ algorithms and data structures for the competition-prep and school-exam classes.',
       },
     ],
@@ -199,6 +216,7 @@ export const siteEn: SiteText = {
         period: '2022.08 – 2023.02',
         school: 'Code States',
         degree: 'Software Engineering Bootcamp (Frontend)',
+        shortLabel: 'Code States Bootcamp (state-funded)',
         notes: [
           'Government-funded vocational training · 960 hours',
           'Final team project: a challenge-verification service taken from planning through deployment, split across frontend and backend teams',

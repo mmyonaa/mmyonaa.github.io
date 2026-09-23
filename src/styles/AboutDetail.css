@@ -373,3 +373,12 @@
     gap: 28px;
   }
 }
+
+/* 레인 차트 캡션 */
+.about-detail__note {
+  margin: -2px 0 0;
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--faint);
+  word-break: keep-all;
+}
