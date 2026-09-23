@@ -13,7 +13,7 @@ export const ko: ProjectText = {
     '태블릿 대응 기준(768~1023px) 수립 · QA 기반 UI/기능 개선 — 이슈 39건',
     '화면 줌 · 레이어 스크롤 · 캔버스 위치 등 태블릿 터치 UX 전면 개선',
     '기기 6종 × 브라우저 6종 크로스브라우징 검증 · 대응',
-    '터치 · 터치펜 입력 기준 테스트 케이스 61항목 설계 · 수행',
+    '터치 · 터치펜 입력 기준 테스트 케이스 61항목 설계 — 누적 1,400회 이상 실행',
   ],
   qa: {
     stats: [
@@ -62,7 +62,7 @@ export const en: ProjectText = {
     'Set tablet support criteria (768–1023px) and improved UI/features from QA — 39 issues tracked',
     'Overhauled tablet touch UX — screen zoom, layer scrolling, canvas positioning',
     'Verified and fixed cross-browser behavior across 6 devices × 6 browsers',
-    'Designed and ran 61 test cases covering touch and stylus input',
+    'Designed 61 touch and stylus test cases — executed 1,400+ times in total',
   ],
   qa: {
     stats: [

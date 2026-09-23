@@ -16,6 +16,7 @@ export const ko: ProjectText = {
     '다국가 운영을 위해 vue-i18n 3개 언어(한/영/일)와 상품명·설명 번역 기능, moment-timezone 기반 현지 타임존 처리, 여러 eSIM 공급사와의 외부 연동 주문을 구현했습니다. 온라인 서비스·키오스크와 백엔드를 공유해 온·오프라인 판매가 하나의 운영·정산 체계에서 관리됩니다.',
   ],
   highlights: [
+    '프론트 80여 개 화면 · 미들웨어 30여 개 컨트롤러 — 상품 · 주문 · 정산 · 회원 등 핵심 도메인 담당',
     '관리자 권한 시스템(RBAC) 설계 — 역할 계층 기반 기능 제한',
     '광고 · 유입업체 정산 화면 · API 개발',
     '키오스크 · 사이트 주문관리 — 주문번호 · ICCID · 판매업체 검색, 엑셀 내보내기',
@@ -63,6 +64,7 @@ export const en: ProjectText = {
     'For multi-country operations I implemented vue-i18n in three languages (KO/EN/JP) with product name/description translation, local time-zone handling via moment-timezone, and external order integration with several eSIM suppliers. Sharing the backend with the online service and kiosks keeps online and offline sales in one operations/settlement system.',
   ],
   highlights: [
+    'Across ~80 frontend screens and ~30 middleware controllers — owned products, orders, settlement, and members',
     'Designed the admin permission system (RBAC) — role-hierarchy-based access control',
     'Built advertising/inflow-partner settlement screens and APIs',
     'Kiosk/site order management — search by order no., ICCID, reseller; Excel export',

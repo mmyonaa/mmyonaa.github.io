@@ -26,7 +26,9 @@ export const ko: ProjectText = {
     'vite-ssg 정적 사이트 생성 + 동적 메타 · JSON-LD · 사이트맵으로 SEO 최적화',
     '극장 조회 · 예약 기능과 예약 흐름 최적화',
     '관리자 공연 · 공지 등록으로 콘텐츠 운영',
-    '오픈 후 지속 운영 — 코드 리뷰 스프린트(버그 60여 건) · 보안 하드닝',
+    '오픈 후 지속 운영 — 코드 리뷰 스프린트(결함 60여 건) · 보안 하드닝',
+    '중복 뷰 20개(동일률 88~99%)를 공용 10개로 통합 — 약 4,000줄 순감소',
+    'SEO 회귀 복구 후 페이지 20개 색인 — 상호 검색 평균 1.7위 · CTR 52% (Search Console)',
   ],
   techNotes: [
     {
@@ -35,7 +37,7 @@ export const ko: ProjectText = {
     },
     {
       title: 'SSG 기반 SEO 최적화',
-      body: 'vite-ssg로 정적 빌드해 초기 렌더링과 색인을 개선하고, 상세 페이지마다 데이터 로드 후 메타 · OG · JSON-LD(NewsArticle · TheaterEvent)를 주입했습니다. 빌드 시 API에서 전체 글·공연을 수집해 개별 URL까지 포함한 sitemap.xml을 자동 생성합니다. 운영 중 상세 페이지가 색인되지 않던 회귀는 라우터 가드가 SSR에서 next() 없이 반환해 프리렌더 전체가 조용히 스킵되던 것이 원인이었는데, 이를 근본 원인까지 추적해 복구하고 옛 URL(?id= 쿼리) → 새 경로 301 리디렉션으로 중복 색인까지 정리했습니다. 그 결과 조치 후 2개월(2026년 7~9월) Google Search Console 기준 클릭 85·노출 330, 평균 CTR 25.8%, 평균 게재순위 4.1위를 기록했습니다 — 지역 극장 사이트라 노출 규모 자체는 크지 않지만, 4위권 게재순위에서 CTR이 25%대라 검색 결과에 노출된 사람 넷 중 하나가 실제로 사이트에 들어옵니다.',
+      body: 'vite-ssg로 정적 빌드해 초기 렌더링과 색인을 개선하고, 상세 페이지마다 데이터 로드 후 메타 · OG · JSON-LD(NewsArticle · TheaterEvent)를 주입했습니다. 빌드 시 API에서 전체 글·공연을 수집해 개별 URL까지 포함한 sitemap.xml을 자동 생성합니다. 운영 중 상세 페이지가 색인되지 않던 회귀는 라우터 가드가 SSR에서 next() 없이 반환해 프리렌더 전체가 조용히 스킵되던 것이 원인이었는데, 이를 근본 원인까지 추적해 복구하고 옛 URL(?id= 쿼리) → 새 경로 301 리디렉션으로 중복 색인까지 정리했습니다. 그 결과 조치 후 77일(2026.07.06~09.20) Google Search Console 기준 20개 페이지가 색인돼 노출 376·클릭 95(CTR 25.3%)를 기록했습니다. 이 중 상호 검색(‘보광극장’)이 평균 1.7위·CTR 52.2%로 클릭의 75%를 가져오고, 나머지 24클릭은 상호가 아닌 검색에서 들어왔습니다.',
     },
     {
       title: '정기 정비 스프린트 운영',
@@ -79,6 +81,8 @@ export const en: ProjectText = {
     'Theater browsing and reservation with an optimized booking flow',
     'Admin registration of performances and notices for content operations',
     'Ongoing post-launch operation — review sprints (60+ defects), security hardening',
+    'Merged 20 near-duplicate views (88–99% identical) into 10 shared pages — ~4,000 lines net removed',
+    '20 pages indexed after the SEO regression fix — brand query at avg. position 1.7, 52% CTR (Search Console)',
   ],
   techNotes: [
     {
@@ -87,7 +91,7 @@ export const en: ProjectText = {
     },
     {
       title: 'SEO via static site generation',
-      body: 'Built statically with vite-ssg to improve initial render and indexing, injecting per-page meta/OG/JSON-LD (NewsArticle, TheaterEvent) after data load. The build collects all articles and performances from the API to auto-generate a sitemap.xml that includes individual URLs. When detail pages stopped being indexed in production, I traced the regression to its root cause — a router guard returning without next() during SSR, which silently skipped prerendering entirely — restored it, and added 301 redirects from legacy ?id= URLs to the new path format to clean up duplicate indexing. In the two months after the fix (July–September 2026), Google Search Console recorded 85 clicks and 330 impressions with a 25.8% average CTR and a 4.1 average position. Impression volume is modest for a local theater site, but at an average position of 4 a CTR in the mid-20s means roughly one in four people who see the result actually visits.',
+      body: 'Built statically with vite-ssg to improve initial render and indexing, injecting per-page meta/OG/JSON-LD (NewsArticle, TheaterEvent) after data load. The build collects all articles and performances from the API to auto-generate a sitemap.xml that includes individual URLs. When detail pages stopped being indexed in production, I traced the regression to its root cause — a router guard returning without next() during SSR, which silently skipped prerendering entirely — restored it, and added 301 redirects from legacy ?id= URLs to the new path format to clean up duplicate indexing. In the 77 days after the fix (6 Jul – 20 Sep 2026), Google Search Console shows 20 indexed pages drawing 376 impressions and 95 clicks (25.3% CTR). The brand query itself sits at an average position of 1.7 with a 52.2% CTR and accounts for 75% of those clicks; the remaining 24 came from non-brand searches.',
     },
     {
       title: 'Recurring maintenance sprints',

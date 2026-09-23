@@ -1,7 +1,7 @@
 import type { ProjectText } from '../shared'
 
 export const ko: ProjectText = {
-  team: '팀 3~4인 · 프론트엔드 단독 (11일)',
+  team: '팀 4인 (백엔드 2 · 디자이너 1) · 프론트엔드 단독 (11일)',
   status: '해커톤 제출 후 종료',
   title: '자취방정식 · 라이프스타일 기반 주거 매물 추천',
   description:
@@ -9,7 +9,7 @@ export const ko: ProjectText = {
   imageNote:
     '화면의 매물 사진·가격·점수는 해커톤 기간에 쓴 샘플 데이터입니다.',
   overview: [
-    '거점까지의 이동 효율성으로 1차 거르고, 채광·치안·소음·편의 인프라에 사용자가 직접 매긴 가중치로 2차 정렬해 개인화된 매칭 점수를 보여주는 서비스입니다. 기획은 팀 3~4인이 함께 했고, 거기서 나온 피그마 디자인을 기반으로 화면을 개발했습니다.',
+    '거점까지의 이동 효율성으로 1차 거르고, 채광·치안·소음·편의 인프라에 사용자가 직접 매긴 가중치로 2차 정렬해 개인화된 매칭 점수를 보여주는 서비스입니다. 기획은 팀 4인이 함께 했고, 거기서 나온 피그마 디자인을 기반으로 화면을 개발했습니다.',
     '프론트엔드 구현을 단독으로 맡으면서 백엔드 ERD·API 명세 설계에도 참여했고, 개발 중에는 백엔드·디자이너와 회의하며 디자인을 함께 조정했습니다. 도메인 모델과 매칭 점수 계산은 백엔드(Spring Boot · MySQL)에 두고 프론트는 입력 UI·요청·결과 표시를 맡는 경계를 먼저 합의했습니다.',
     '작업 시작 시점의 백엔드에는 인증 컨트롤러 하나뿐이어서, 화면·상태·흐름을 목(mock)으로 먼저 세우고 계약이 생길 때마다 데이터 출처만 갈아끼웠습니다. 11일 동안 179커밋 · src 11,205줄로 마감했고, 배포는 Cloudflare Workers에 정적 에셋과 API 프록시를 함께 올렸습니다.',
   ],
@@ -45,7 +45,7 @@ export const ko: ProjectText = {
 }
 
 export const en: ProjectText = {
-  team: 'Team of 3–4 · sole frontend developer (11 days)',
+  team: 'Team of 4 (2 backend, 1 designer) · sole frontend developer (11 days)',
   status: 'Ended after the hackathon',
   title: 'Jachwi Bangjeongsik · Lifestyle-based Housing Recommendations',
   description:
@@ -53,7 +53,7 @@ export const en: ProjectText = {
   imageNote:
     'Listing photos, prices, and scores on screen are sample data used during the hackathon.',
   overview: [
-    'The service filters first by travel efficiency to the places you actually go, then ranks by living-environment factors — daylight, safety, noise, nearby amenities — using weights the user sets, and shows a personalized match score. All three to four of us shaped the product together, and the screens were built from the Figma designs that came out of it.',
+    'The service filters first by travel efficiency to the places you actually go, then ranks by living-environment factors — daylight, safety, noise, nearby amenities — using weights the user sets, and shows a personalized match score. All four of us shaped the product together, and the screens were built from the Figma designs that came out of it.',
     'I owned the frontend implementation, took part in designing the backend ERD and the API specification, and adjusted the designs with the backend developer and the designer in meetings as we went. The boundary was agreed up front: the domain model and the match-score calculation live in the backend (Spring Boot, MySQL), while the frontend owns input UI, requests, and presenting results.',
     'When work started the backend had exactly one controller — authentication — so the screens, state, and flows were built against mocks, swapping only the data source as each contract landed. It closed at 179 commits and 11,205 lines of src over eleven days, deployed to Cloudflare Workers with the static assets and an API proxy together.',
   ],

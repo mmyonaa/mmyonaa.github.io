@@ -1,7 +1,7 @@
 import type { ProjectText } from '../shared'
 
 export const ko: ProjectText = {
-  team: '1인 설계·개발',
+  team: '팀 2인 (기획·디자인 1) · 개발 단독',
   status: '참여 종료 (2025.08)',
   title: '국립생태원 · 콘텐츠·관리 사이트',
   architectureCaptions: ['시스템 · 데이터 흐름', '카카오 기프티콘 발송 · 재시도/실패 처리 플로우'],
@@ -21,7 +21,7 @@ export const ko: ProjectText = {
     '콘텐츠 서비스부터 관리자 시스템까지 1인 구축',
     '이미지 인식 기반 해설 완료 인증 — 미인식 시 직원 코드 입력 폴백',
     '누적 인증 단계 · 스탬프 말판 · 단계별 인증서 발급',
-    '카카오 API 기프티콘 — 조건 충족 자동 발송 · 관리자 일괄 발송',
+    '카카오 API 기프티콘 — 조건 충족 자동 발송 · 관리자 일괄 발송 · 1초 폴링 · 최대 10회 재시도',
     '관리자 월별 통계 대시보드 + 만족도 엑셀 다운로드',
   ],
   techNotes: [
@@ -45,7 +45,7 @@ export const ko: ProjectText = {
 }
 
 export const en: ProjectText = {
-  team: 'Solo design & build',
+  team: 'Team of 2 (1 planner/designer) · sole developer',
   status: 'My involvement ended (Aug 2025)',
   title: 'National Institute of Ecology · Content & Admin Site',
   architectureCaptions: ['System & data flow', 'Kakao gifticon send · retry / failover flow'],
@@ -65,7 +65,7 @@ export const en: ProjectText = {
     'Built both the content service and the admin system solo',
     'Image-recognition certification of program completion — staff code-entry fallback',
     'Cumulative tiers, a stamp board, and per-tier certificate issuance',
-    'Kakao gifticons — automatic send on conditions met, plus admin bulk send',
+    'Kakao gifticons — automatic send on conditions met, admin bulk send, 1s polling with up to 10 retries',
     'Admin monthly stats dashboard + satisfaction Excel export',
   ],
   techNotes: [

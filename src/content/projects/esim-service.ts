@@ -16,7 +16,8 @@ export const ko: ProjectText = {
     '해외 사용자를 위해 vue-i18n 3개 언어(한/영/일) 사전을 직접 구축하고 국가·언어별 통화(USD/JPY)를 전환했으며, PC~모바일 반응형과 PWA(Workbox)를 적용했습니다. lz-string 로컬 저장소 압축 같은 클라이언트 최적화도 담당했습니다. 이 서비스는 어드민·키오스크·공유 백엔드(미들웨어)와 함께 하나의 eSIM 플랫폼을 이룹니다.',
   ],
   highlights: [
-    'Vue 3 프론트엔드 아키텍처 설계 · 개발 주도 (프로젝트 최다 커밋)',
+    'Vue 3 프론트엔드 아키텍처 설계 · 개발 주도 (전체 커밋의 약 1/3 · 프로젝트 최다)',
+    '웹 · 키오스크 합산 월 100건 규모 실결제 주문 운영',
     '다중 PG 결제 — Paygent 카드(USD) + Google Pay · Apple Pay(JPY)',
     '웹 · 키오스크 겸용 다단계 결제 플로우 (경로 분기 · 실패 롤백)',
     'vue-i18n 3개 언어 사전 구축 + 국가 · 언어별 통화 전환',
@@ -58,7 +59,8 @@ export const en: ProjectText = {
     'For international users I built the vue-i18n dictionaries for three languages (KO/EN/JP) and switched currency (USD/JPY) by country and language, with a responsive UI and PWA (Workbox). I also handled client optimizations such as compressing local storage with lz-string. This service forms one eSIM platform together with the admin, kiosk, and a shared backend (middleware).',
   ],
   highlights: [
-    'Led the Vue 3 frontend architecture and development (top committer)',
+    'Led the Vue 3 frontend architecture and development (top committer — about a third of all commits)',
+    'Roughly 100 real payment orders a month across web and kiosk',
     'Multi-gateway payments — Paygent card (USD) + Google Pay / Apple Pay (JPY)',
     'Web/kiosk-shared multi-step checkout (path branching, rollback on failure)',
     'Built vue-i18n dictionaries for three languages + per-country currency',

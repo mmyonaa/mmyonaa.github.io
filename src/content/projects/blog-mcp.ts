@@ -17,6 +17,7 @@ export const ko: ProjectText = {
     '무인 발행 파이프라인 가동 — 누적 100편 이상 자동 발행',
     '결정론적 구조 검증 발행 게이트로 링크 할루시네이션 차단',
     '조회수 되먹임으로 주제 선정 가중 — 콘텐츠 루프 완결',
+    '레포명 변경으로 깨진 색인 주소 109건 — 리다이렉트 페이지 자동 생성으로 이관',
   ],
   techNotes: [
     {
@@ -67,6 +68,7 @@ export const en: ProjectText = {
     'Unattended publishing pipeline in production — 100+ posts published automatically',
     'Deterministic structural validation as a publish gate, blocking link hallucination',
     'Closed the content loop — view counts weight topic selection',
+    'Migrated 109 already-indexed URLs broken by a repo rename — redirect pages generated automatically',
   ],
   techNotes: [
     {
