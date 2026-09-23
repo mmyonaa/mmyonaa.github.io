@@ -40,7 +40,7 @@ export const ko: ProjectText = {
 }
 
 export const en: ProjectText = {
-  team: 'Team · led the frontend (top committer)',
+  team: 'Team · led the frontend',
   status: 'My involvement ended (Aug 2024)',
   title: 'eSIM Sales Service',
   architectureCaptions: ['eSIM platform map — online sales channel'],
@@ -50,12 +50,12 @@ export const en: ProjectText = {
   description:
     'A Vue 3 global eSIM commerce. I led the frontend architecture and built the multi-gateway payments, i18n, and a web/kiosk-shared checkout flow.',
   overview: [
-    'A global eSIM commerce where travelers search and compare plans by country, check out, and receive an eSIM QR by email to install instantly. Together with the kiosks it handled roughly 100 real paid orders a month. I designed the initial Vue 3 / TypeScript frontend architecture (routing, state, API layer, styling, i18n) and led development as the top committer (about a third of the project).',
+    'A global eSIM commerce where travelers search and compare plans by country, check out, and receive an eSIM QR by email to install instantly. Together with the kiosks it handled roughly 100 real paid orders a month. I designed the initial Vue 3 / TypeScript frontend architecture (routing, state, API layer, styling, i18n) and led frontend development.',
     'Payments are the core. I integrated Paygent card payments (USD) plus Google Pay and Apple Pay (JPY), and built a multi-step checkout — validate cart → create payment info → tokenize card → complete. The same screens serve both web customers and (login-free) kiosk checkout, branching by orderId, with rollback on failure to avoid stuck states.',
     'For international users I built the vue-i18n dictionaries for three languages (KO/EN/JP) and switched currency (USD/JPY) by country and language, with a responsive UI and PWA (Workbox). I also handled client optimizations such as compressing local storage with lz-string. This service forms one eSIM platform together with the admin, kiosk, and a shared backend (middleware).',
   ],
   highlights: [
-    'Led the Vue 3 frontend architecture and development (top committer — about a third of all commits)',
+    'Led the Vue 3 frontend architecture and development',
     'Roughly 100 real payment orders a month across web and kiosk',
     'Multi-gateway payments — Paygent card (USD) + Google Pay / Apple Pay (JPY)',
     'Web/kiosk-shared multi-step checkout (path branching, rollback on failure)',

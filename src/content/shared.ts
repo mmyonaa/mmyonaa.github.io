@@ -46,6 +46,8 @@ export type ProjectText = Pick<
   | 'title'
   | 'description'
   | 'highlights'
+  | 'stats'
+  | 'statsNote'
   | 'team'
   | 'status'
   | 'overview'

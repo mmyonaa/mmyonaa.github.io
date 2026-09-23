@@ -1,6 +1,20 @@
 import type { ProjectText } from '../shared'
 
 export const ko: ProjectText = {
+  stats: [
+    {
+      "value": "875문항",
+      "label": "필기 문제"
+    },
+    {
+      "value": "67문항",
+      "label": "실기 문제"
+    },
+    {
+      "value": "137개",
+      "label": "개념 주제"
+    }
+  ],
   "team": "1인",
   "status": "운영 중",
   "title": "daily.quiz · 자격증 문제 연습장",
@@ -38,6 +52,20 @@ export const ko: ProjectText = {
 }
 
 export const en: ProjectText = {
+  stats: [
+    {
+      "value": "875",
+      "label": "Written questions"
+    },
+    {
+      "value": "67",
+      "label": "Practical questions"
+    },
+    {
+      "value": "137",
+      "label": "Concept topics"
+    }
+  ],
   team: 'Solo',
   status: 'Live',
   title: 'daily.quiz · Certification Practice',

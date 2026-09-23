@@ -1,6 +1,28 @@
 import type { ProjectText } from '../shared'
 
 export const ko: ProjectText = {
+  stats: [
+    {
+      "value": "2곳",
+      "label": "설치 공항"
+    },
+    {
+      "value": "4대",
+      "label": "배치 단말"
+    },
+    {
+      "value": "약 1년",
+      "label": "단말 무인 가동"
+    },
+    {
+      "value": "3개 언어",
+      "label": "한·영·일 지원"
+    },
+    {
+      "value": "30개국+",
+      "label": "eSIM 이용 가능 국가"
+    }
+  ],
   "team": "팀 협업 · 키오스크 웹 주도 · 하드웨어 연동 담당",
   "status": "참여 종료 (2025.04)",
   "title": "eSIM 키오스크 · 공항 무인 판매 단말",
@@ -17,7 +39,7 @@ export const ko: ProjectText = {
   ],
   "description": "무인 eSIM 판매 키오스크. Vue 키오스크 웹을 주도적으로 개발하고, Android 앱의 프린터·결제·다국어 인코딩 등 하드웨어 연동 기능을 담당했습니다.",
   "overview": [
-    "나리타·하네다 공항 2곳에서 4대가 약 1년간 무인 가동한 eSIM 판매 단말입니다. 30개국 이상의 상품을 일본 엔화로 판매하며 카드·QR·NFC 결제를 지원했습니다. Vue 3 PWA 웹 개발을 주도하고, 팀이 만든 Android WebView 앱의 하드웨어 연동을 개선했습니다. 일본 현지 설치와 초기 운영 대응도 맡았습니다."
+    "나리타·하네다 공항 2곳에서 4대가 약 1년간 무인 가동한 eSIM 판매 단말입니다. 한국어·영어·일본어 화면을 제공하고, 30개국 이상의 상품을 일본 엔화로 판매하며 카드·QR·NFC 결제를 지원했습니다. Vue 3 PWA 웹 개발을 주도하고, 팀이 만든 Android WebView 앱의 하드웨어 연동을 개선했습니다. 일본 현지 설치와 초기 운영 대응도 맡았습니다."
   ],
   "highlights": [
     "구형·신형 프린터 자동 감지와 일본어·한국어 출력 문제 해결",
@@ -45,6 +67,28 @@ export const ko: ProjectText = {
 }
 
 export const en: ProjectText = {
+  stats: [
+    {
+      "value": "2",
+      "label": "Airports"
+    },
+    {
+      "value": "4",
+      "label": "Kiosks deployed"
+    },
+    {
+      "value": "~1 year",
+      "label": "Unattended operation"
+    },
+    {
+      "value": "3",
+      "label": "Languages · KO / EN / JA"
+    },
+    {
+      "value": "30+",
+      "label": "Countries covered by eSIM plans"
+    }
+  ],
   team: 'Team · led the kiosk web app, owned hardware integration',
   status: 'My involvement ended (Apr 2025)',
   title: 'eSIM Kiosk · Unattended Airport Terminal',

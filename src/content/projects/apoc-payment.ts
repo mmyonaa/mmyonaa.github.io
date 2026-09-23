@@ -26,40 +26,47 @@ export const ko: ProjectText = {
     {
       "title": "멀티 PG 추상화 (Toss · PayPal)",
       "body": "Toss는 요금제(plan) 개념 없이 billing key(결제수단)–사용자 매칭으로 청구되는 구조라, 금액 계산을 서비스가 직접 수행해 billing key로 과금하도록 구현했습니다. plan 기반으로 동작하는 PayPal과는 결제·갱신 로직을 분리해 각 PG 모델에 맞게 추상화했고, 정기 구독은 자동 갱신 배치로 결제 주기마다 청구되도록 구성했습니다."
+    },
+    {
+      "title": "결제·취소 오류 수정과 API 문서화",
+      "body": "단건 결제·취소에서 PG 코드가 고정값으로 전달되던 오류를 수정해 결제수단에 따라 처리하도록 했습니다. 구독 취소 API의 반환값 누락 문제를 수정하고, 결과 코드와 설명을 API 문서에 정리했습니다. 어드민에서도 구독 취소·요금제 변경 API를 호출하도록 연결했습니다."
     }
   ]
 }
 
 export const en: ProjectText = {
-  team: 'Team · owned the payment system',
-  status: 'My involvement ended (May 2025)',
-  title: 'In-house Payment System · Toss & PayPal',
-  description:
-    'Integrated Toss and PayPal payment modules and designed/built one-time and recurring subscription payments, plan up/downgrades, and an auto-renewal batch.',
-  mediaNote: 'Screens are withheld as they contain live operational data.',
-  overview: [
-    'The payment system of the apoc platform — integrating Toss and PayPal for everything from one-time payments to recurring subscriptions. Subscriptions support upgrades, downgrades, and auto-renewal; subscription and payment states are managed as status values, while every change is appended to separate history tables so settlement and audit trails are preserved.',
-    'For plan changes I designed the settlement rules — an immediate prorated charge on upgrade, next-cycle application on downgrade — and abstracted two very different billing models per gateway: Toss, which bills through a billing key with no plan concept, and plan-based PayPal.',
+  "team": "Team · owned the payment system",
+  "status": "My involvement ended (May 2025)",
+  "title": "In-house Payment System · Toss & PayPal",
+  "description": "Integrated Toss and PayPal payment modules and designed/built one-time and recurring subscription payments, plan up/downgrades, and an auto-renewal batch.",
+  "mediaNote": "Screens are withheld as they contain live operational data.",
+  "overview": [
+    "The payment system of the apoc platform — integrating Toss and PayPal for everything from one-time payments to recurring subscriptions. Subscriptions support upgrades, downgrades, and auto-renewal; subscription and payment states are managed as status values, while every change is appended to separate history tables so settlement and audit trails are preserved.",
+    "For plan changes I designed the settlement rules — an immediate prorated charge on upgrade, next-cycle application on downgrade — and abstracted two very different billing models per gateway: Toss, which bills through a billing key with no plan concept, and plan-based PayPal."
   ],
-  highlights: [
-    'Integrated Toss and PayPal — one-time, multi-item, and recurring subscription payments',
-    'Plan upgrade/downgrade settlement — immediate proration on upgrade, next-cycle on downgrade',
-    'Unified multi-gateway ledger — payment, subscription, and cancellation history split by concern',
-    'Designed and built a batch system for automatic subscription renewal',
-    'Set up payment scenarios and a test environment with Jest',
+  "highlights": [
+    "Integrated Toss and PayPal — one-time, multi-item, and recurring subscription payments",
+    "Plan upgrade/downgrade settlement — immediate proration on upgrade, next-cycle on downgrade",
+    "Unified multi-gateway ledger — payment, subscription, and cancellation history split by concern",
+    "Designed and built a batch system for automatic subscription renewal",
+    "Set up payment scenarios and a test environment with Jest"
   ],
-  techNotes: [
+  "techNotes": [
     {
-      title: 'Payment data model · PayPal flow',
-      body: 'The payment system separates concerns across tables: an all-payments ledger (unifying Toss, PayPal, and other gateways), subscription info (stored independently of payments), and a cancellation/refund history. I picked up the existing schema through handover and built payment features on top of it, and designed the PayPal flow — order creation → saving payment info → post-completion reconciliation — split into one-time and recurring subscription paths.',
+      "title": "Payment data model · PayPal flow",
+      "body": "The payment system separates concerns across tables: an all-payments ledger (unifying Toss, PayPal, and other gateways), subscription info (stored independently of payments), and a cancellation/refund history. I picked up the existing schema through handover and built payment features on top of it, and designed the PayPal flow — order creation → saving payment info → post-completion reconciliation — split into one-time and recurring subscription paths."
     },
     {
-      title: 'Subscription up/downgrade & proration',
-      body: 'Plan changes are split into upgrades and downgrades. An upgrade charges the prorated difference for the remaining period immediately via the billing key and bills the higher amount from the next cycle; a downgrade applies the lower amount from the next billing cycle (no immediate refund) and records the pre-change plan as history. A separate endpoint computes the prorated difference before charging so users can confirm the amount first, and a subscription-cancellation API is provided as well.',
+      "title": "Subscription up/downgrade & proration",
+      "body": "Plan changes are split into upgrades and downgrades. An upgrade charges the prorated difference for the remaining period immediately via the billing key and bills the higher amount from the next cycle; a downgrade applies the lower amount from the next billing cycle (no immediate refund) and records the pre-change plan as history. A separate endpoint computes the prorated difference before charging so users can confirm the amount first, and a subscription-cancellation API is provided as well."
     },
     {
-      title: 'Multi-gateway abstraction (Toss · PayPal)',
-      body: 'Because Toss bills via a billing-key (payment method)–user match with no plan concept, the service computes amounts itself and charges through the billing key. Payment and renewal logic is kept separate from PayPal, which operates on plans, and abstracted per gateway; recurring subscriptions are billed each cycle by an auto-renewal batch.',
+      "title": "Multi-gateway abstraction (Toss · PayPal)",
+      "body": "Because Toss bills via a billing-key (payment method)–user match with no plan concept, the service computes amounts itself and charges through the billing key. Payment and renewal logic is kept separate from PayPal, which operates on plans, and abstracted per gateway; recurring subscriptions are billed each cycle by an auto-renewal batch."
     },
-  ],
+    {
+      "title": "Payment and cancellation fixes",
+      "body": "Fixed a hard-coded gateway value in one-time payment and cancellation requests so processing follows the selected gateway. Corrected a missing return value in the subscription-cancellation API and documented result codes. Connected cancellation and plan-change APIs to the admin interface."
+    }
+  ]
 }

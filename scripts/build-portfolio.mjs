@@ -11,6 +11,7 @@ import { basename, dirname, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { createServer } from 'vite'
 import { CHROME_BIN, renderPdfs } from './lib/html-to-pdf.mjs'
+import { portfolioExplainers, explainerStyles } from './lib/portfolio-explainers.mjs'
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..')
 const lang = (process.argv.find((a) => a.startsWith('--lang=')) || '--lang=ko').slice(7)
@@ -22,6 +23,7 @@ const t =
         docTitle: 'Portfolio',
         contents: 'Contents',
         overview: 'Overview',
+        metrics: 'Key metrics',
         highlights: 'Highlights',
         techNotes: 'Technical notes',
         qa: 'QA & Testing',
@@ -34,6 +36,7 @@ const t =
         docTitle: '포트폴리오',
         contents: '목차',
         overview: '개요',
+        metrics: '주요 지표',
         highlights: '핵심 기여',
         techNotes: '구현과 문제 해결',
         qa: 'QA · 테스트',
@@ -121,8 +124,8 @@ function projectSection(p, i) {
     p.board && { label: 'Board', url: p.board },
   ].filter(Boolean)
 
-  const block = (title, inner) =>
-    inner ? `<div class="block"><h3 class="block__title">${title}</h3>${inner}</div>` : ''
+  const block = (title, inner, cls = '') =>
+    inner ? `<div class="block ${cls}"><h3 class="block__title">${title}</h3>${inner}</div>` : ''
 
   return `
     <section class="proj" id="project-${esc(p.slug)}" data-title="${esc(p.title)}" data-number="${String(i + 1).padStart(2, '0')}">
@@ -134,7 +137,7 @@ function projectSection(p, i) {
           <div class="proj__meta">${[p.team, p.status].filter(Boolean).map(esc).join(' · ')}</div>
           <p class="proj__desc">${esc(p.description)}</p>
           <ul class="tags">${(p.tags || []).map((tg) => `<li>${esc(tg)}</li>`).join('')}</ul>
-          ${links.length ? `<ul class="project-links">${links.map(l => `<li><a href="${esc(l.url)}">${esc(l.label)}</a></li>`).join('')}</ul>` : ''}
+          ${links.length ? `<ul class="project-links">${links.map(l => `<li><span>${esc(l.label)}</span> <a href="${esc(l.url)}">${esc(l.url)}</a></li>`).join('')}</ul>` : ''}
           ${p.mediaNote ? `<p class="muted">${esc(p.mediaNote)}</p>` : ''}
         </div>
       </header>
@@ -142,10 +145,19 @@ function projectSection(p, i) {
       ${block(t.overview, (p.overview || []).length ? (p.overview || []).map((x) => `<p class="para">${esc(x)}</p>`).join('') : '')}
 
       ${block(
+        t.metrics,
+        p.stats?.length
+          ? `<ul class="stats">${p.stats.map(s => `<li><b>${esc(s.value)}</b><span>${esc(s.label)}</span></li>`).join('')}</ul>` +
+            (p.statsNote ? `<p class="stats-note">${esc(p.statsNote)}</p>` : '')
+          : '',
+        'metrics',
+      )}
+
+      ${block(
         t.screens,
         shots.length
           ? `<div class="shots${isTall(p.images) ? ' shots--tall' : ''}">${shots
-              .map((s) => figure(s))
+              .map((s) => figure(s, '', p.slug === 'bk-theater' ? 'shot--overview' : ''))
               .join('')}</div>` +
               (p.imageNote ? `<p class="muted">${esc(p.imageNote)}</p>` : '')
           : '',
@@ -186,6 +198,8 @@ function projectSection(p, i) {
           : '',
       )}
 
+      ${portfolioExplainers(p.slug, lang, esc)}
+
       ${block(
         t.architecture,
         archs.length
@@ -216,6 +230,7 @@ function html(content) {
     <meta charset="UTF-8" />
     <title>${esc(profile.name)} · ${t.docTitle}</title>
     <style>
+      ${explainerStyles}
       :root {
         --bg: #ffffff;
         --text: #1a1a1e;
@@ -279,12 +294,18 @@ function html(content) {
       .stats li { border: 1px solid var(--line); border-radius: 4px; padding: 6px 10px; text-align: center; }
       .stats b { display: block; font-size: 14px; font-weight: 800; }
       .stats span { display: block; margin-top: 2px; font-size: 9px; color: var(--faint); }
+      .stats-note { margin: -4px 0 8px; font-size: 9px; line-height: 1.5; color: var(--dim); }
+      .metrics { margin-top: 8px; }
+      .metrics .block__title { border: 0; padding-bottom: 0; margin-bottom: 4px; }
+      .metrics .stats { margin-bottom: 0; }
+      .metrics .stats-note { margin: 4px 0 0; }
 
       .shots { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; }
       .shot { break-inside: avoid; }
       .shot img { display: block; margin: 0 auto; width: auto; max-width: 100%; max-height: 54mm; border: 1px solid var(--line); border-radius: 4px; }
       .shots--tall { grid-template-columns: repeat(4, 1fr); }
       .shots--tall .shot img { max-height: 48mm; }
+      .shot--overview img { max-height: 48mm; }
       .shot--wide { grid-column: 1 / -1; margin-bottom: 8px; }
       .shot--wide img { max-height: 76mm; }
       .shot--compact img { max-height: 60mm; }
@@ -298,7 +319,10 @@ function html(content) {
 
       a { color: inherit; text-decoration: none; }
       .proj__meta { margin-top: 6px; font-size: 10.5px; color: var(--gold); line-height: 1.5; }
-      .project-links { display: flex; flex-wrap: wrap; gap: 14px; list-style: none; margin-top: 8px; font-size: 10px; }
+      .project-links { display: flex; flex-wrap: wrap; gap: 3px 16px; list-style: none; margin-top: 8px; font-size: 10px; line-height: 1.5; }
+      .project-links li { display: flex; gap: 6px; max-width: 100%; }
+      .project-links li > span { flex-shrink: 0; color: var(--gold); }
+      .project-links a { min-width: 0; overflow-wrap: anywhere; }
       .project-links a { text-decoration: underline; text-underline-offset: 3px; }
       .toc__page { margin-left: auto; font-family: var(--mono); color: var(--gold); white-space: nowrap; }
       .print-page { width: 184mm; height: 268mm; position: relative; break-before: page; background: white; margin: 0 auto 12mm; }
@@ -308,6 +332,7 @@ function html(content) {
       .continuation { font-size: 14px; font-weight: 700; border-bottom: 2px solid var(--text); padding: 5px 0 10px; margin-bottom: 10px; }
       .continuation span { color: var(--gold); font-size: 10px; font-weight: 400; }
       .page-content > .block { display: flow-root; }
+      .page-content > .block:has(> .note) { margin-top: 8px; }
       .page-content > .note { margin-top: 8px; }
       .arch { break-inside: avoid; }
       .cover { min-height: 0; }
@@ -327,7 +352,7 @@ function html(content) {
         <div class="cover__role">${esc(profile.role)} · ${esc(profile.location)}</div>
         <p class="cover__tagline">${lang === 'ko' ? '보안 AI 분석 서버와 웹 플랫폼을 개발하며, 결제 서비스와 공항 키오스크 운영을 경험했습니다.' : esc(profile.tagline)}</p>
         <div class="cover__contact">${contacts
-          .map((c) => `<span>${esc(c.label)} · ${esc(c.value)}</span>`)
+          .map((c) => `<a href="${esc(c.href)}">${esc(c.label)} · ${esc(c.href.replace(/^https?:\/\//, '').replace(/^mailto:/, ''))}</a>`)
           .join('')}</div>
 
         <div class="cover__skills">${skills

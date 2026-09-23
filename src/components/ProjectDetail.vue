@@ -167,6 +167,17 @@ const systemMap = computed(() =>
         </div>
       </section>
 
+      <section v-if="project.stats?.length" class="detail__section">
+        <h2 class="detail__section-title reveal">{{ locale === 'ko' ? '주요 지표' : 'Key metrics' }}</h2>
+        <div class="detail__qa-stats reveal">
+          <div v-for="s in project.stats" :key="s.label" class="qa-stat">
+            <span class="qa-stat__value">{{ s.value }}</span>
+            <span class="qa-stat__label">{{ s.label }}</span>
+          </div>
+        </div>
+        <p v-if="project.statsNote" class="detail__qa-note reveal">{{ project.statsNote }}</p>
+      </section>
+
       <section v-if="project.techNotes?.length" class="detail__section">
         <h2 class="detail__section-title reveal">Technical notes</h2>
         <ul class="detail__notes">

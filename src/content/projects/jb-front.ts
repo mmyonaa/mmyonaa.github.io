@@ -49,10 +49,10 @@ export const en: ProjectText = {
   overview: [
     'The service filters first by travel efficiency to the places you actually go, then ranks by living-environment factors — daylight, safety, noise, nearby amenities — using weights the user sets, and shows a personalized match score. All four of us shaped the product together, and the screens were built from the Figma designs that came out of it.',
     'I owned the frontend implementation, took part in designing the backend ERD and the API specification, and adjusted the designs with the backend developer and the designer in meetings as we went. The boundary was agreed up front: the domain model and the match-score calculation live in the backend (Spring Boot, MySQL), while the frontend owns input UI, requests, and presenting results.',
-    'When work started the backend had exactly one controller — authentication — so the screens, state, and flows were built against mocks, swapping only the data source as each contract landed. It closed at 179 commits and 11,205 lines of src over eleven days, deployed to Cloudflare Workers with the static assets and an API proxy together.',
+    'When work started the backend had exactly one controller — authentication — so the screens, state, and flows were built against mocks, swapping only the data source as each contract landed. I developed the frontend over eleven days and deployed the static assets and an API proxy together on Cloudflare Workers.',
   ],
   highlights: [
-    '11 days, 179 commits, 11,205 lines of src — sole frontend, plus product, ERD, and API-spec design',
+    '11 days — sole frontend developer, plus product, ERD, and API-spec design',
     'Build on mocks, cut them out when the contract lands — components always go through a store',
     'A 480px app shell with zero breakpoints — no width branches, designed inside a 320px budget',
     'Recommendations without sign-in — the recommendation ID itself is the capability token',

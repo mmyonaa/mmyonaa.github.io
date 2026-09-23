@@ -25,40 +25,47 @@ export const ko: ProjectText = {
     {
       "title": "이력서 PDF 파이프라인 · 배포",
       "body": "국·영문 이력서는 인쇄용 HTML로, 포트폴리오는 콘텐츠 모듈에서 생성한 HTML로 관리합니다. headless Chrome으로 PDF를 만들고 사이트에서 내려받도록 연결했습니다. GitHub Actions는 main 푸시 시 타입 검사와 빌드를 실행한 뒤 GitHub Pages에 배포합니다."
+    },
+    {
+      "title": "PDF 페이지 분할과 누락 검사",
+      "body": "폰트와 이미지가 로드된 뒤 콘텐츠 높이를 측정해 페이지를 나누도록 구현했습니다. 마지막 장에 짧은 항목만 남으면 앞 장과 내용을 재배치하고, 목차의 페이지 번호와 이동 링크를 생성합니다. 분할 전후 본문 순서·이미지 수를 대조하고 페이지 넘침을 검사해 누락과 잘림을 확인합니다."
     }
   ]
 }
 
 export const en: ProjectText = {
-  team: 'Solo',
-  status: 'Live',
-  title: 'Portfolio Site',
-  description:
-    'My personal portfolio site — planned, designed, built, and deployed myself. The code and full work history are public.',
-  overview: [
-    'Since this site exists to present projects, I treated content management as the core problem. Instead of a CMS, project copy and career data live in typed TypeScript modules — Korean and English side by side in each project file, merged by slug — so language switching and content edits happen through code review alone.',
-    'The runtime dependency is Vue, and only Vue. Hash routing, KO/EN i18n, dark/light theming, and the command palette (⌘K) are hand-rolled reactive modules rather than libraries, and I also built the interactive components — the layered system diagrams showing how projects actually connect, the live analysis-pipeline diagram, and the device-mockup sliders.',
-    'The resume lives in the same repo: KO/EN resumes written as print-ready HTML are converted to PDF with headless Chrome, and the download matches the site language. A GitHub Actions workflow deploys on push to main, and the work itself is tracked on a public GitHub issue/project board.',
+  "team": "Solo",
+  "status": "Live",
+  "title": "Portfolio Site",
+  "description": "My personal portfolio site — planned, designed, built, and deployed myself. The code and full work history are public.",
+  "overview": [
+    "Since this site exists to present projects, I treated content management as the core problem. Instead of a CMS, project copy and career data live in typed TypeScript modules — Korean and English side by side in each project file, merged by slug — so language switching and content edits happen through code review alone.",
+    "The runtime dependency is Vue, and only Vue. Hash routing, KO/EN i18n, dark/light theming, and the command palette (⌘K) are hand-rolled reactive modules rather than libraries, and I also built the interactive components — the layered system diagrams showing how projects actually connect, the live analysis-pipeline diagram, and the device-mockup sliders.",
+    "The resume lives in the same repo: KO/EN resumes written as print-ready HTML are converted to PDF with headless Chrome, and the download matches the site language. A GitHub Actions workflow deploys on push to main, and the work itself is tracked on a public GitHub issue/project board."
   ],
-  highlights: [
-    'Solo work across planning, design, development, and deployment — fully public',
-    'Content as code — typed content modules with parallel KO/EN structure',
-    'Single runtime dependency (Vue) — hand-rolled routing, i18n, theming, ⌘K palette',
-    'Interactive components — layered system diagrams and a live pipeline diagram',
-    'KO/EN resume HTML→PDF pipeline + GitHub Actions deployment',
+  "highlights": [
+    "Solo work across planning, design, development, and deployment — fully public",
+    "Content as code — typed content modules with parallel KO/EN structure",
+    "Single runtime dependency (Vue) — hand-rolled routing, i18n, theming, ⌘K palette",
+    "Interactive components — layered system diagrams and a live pipeline diagram",
+    "KO/EN resume HTML→PDF pipeline + GitHub Actions deployment"
   ],
-  techNotes: [
+  "techNotes": [
     {
-      title: 'Content as code',
-      body: 'Project text lives in projects/<slug>.ts with ko and en side by side, while language-agnostic fields (period, tags, images) merge in from shared.ts by slug. The content schema is enforced by TypeScript types, so missing fields, typos, and missing translations are caught at build time.',
+      "title": "Content as code",
+      "body": "Project text lives in projects/<slug>.ts with ko and en side by side, while language-agnostic fields (period, tags, images) merge in from shared.ts by slug. The content schema is enforced by TypeScript types, so missing fields, typos, and missing translations are caught at build time."
     },
     {
-      title: 'Minimal dependencies — built by hand',
-      body: 'With Vue as the only runtime dependency, hash routing, localStorage-backed i18n and theming, and the command palette (⌘K) are each small hand-written reactive modules. The system diagrams compute layer-based coordinates with SVG edges, rendering each system’s real architecture (clients → API → infra) from per-system data definitions.',
+      "title": "Minimal dependencies — built by hand",
+      "body": "With Vue as the only runtime dependency, hash routing, localStorage-backed i18n and theming, and the command palette (⌘K) are each small hand-written reactive modules. The system diagrams compute layer-based coordinates with SVG edges, rendering each system’s real architecture (clients → API → infra) from per-system data definitions."
     },
     {
-      title: 'Resume PDF pipeline & deployment',
-      body: 'KO/EN resumes are authored as print-ready A4 HTML and converted to PDF with headless Chrome, and the header button downloads the PDF matching the site language. A GitHub Actions workflow builds (type-check included) and deploys to GitHub Pages on push to main.',
+      "title": "Resume PDF pipeline & deployment",
+      "body": "KO/EN resumes are authored as print-ready A4 HTML and converted to PDF with headless Chrome, and the header button downloads the PDF matching the site language. A GitHub Actions workflow builds (type-check included) and deploys to GitHub Pages on push to main."
     },
-  ],
+    {
+      "title": "PDF pagination and content checks",
+      "body": "Waits for fonts and images, then measures content to paginate it. Rebalances short final pages, generates page numbers and contents links, and compares text order and image counts before and after pagination. An overflow check prevents content from extending beyond the printable area."
+    }
+  ]
 }

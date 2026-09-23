@@ -1,6 +1,16 @@
 import type { ProjectText } from '../shared'
 
 export const ko: ProjectText = {
+  stats: [
+    {
+      "value": "100편+",
+      "label": "누적 자동 발행"
+    },
+    {
+      "value": "109건",
+      "label": "기존 글 주소 이관"
+    }
+  ],
   "team": "1인",
   "status": "운영 중 (무인 발행)",
   "title": "blog-mcp · 블로그 발행 MCP 서버",
@@ -42,6 +52,16 @@ export const ko: ProjectText = {
 }
 
 export const en: ProjectText = {
+  stats: [
+    {
+      "value": "100+",
+      "label": "Posts auto-published"
+    },
+    {
+      "value": "109",
+      "label": "Legacy URLs redirected"
+    }
+  ],
   team: 'Solo',
   status: 'Live (unattended publishing)',
   title: 'blog-mcp · Blog Publishing MCP Server',

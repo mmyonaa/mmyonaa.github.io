@@ -1,6 +1,21 @@
 import type { ProjectText } from '../shared'
 
 export const ko: ProjectText = {
+  stats: [
+    {
+      "value": "376회",
+      "label": "검색 노출"
+    },
+    {
+      "value": "95회",
+      "label": "검색 클릭"
+    },
+    {
+      "value": "25.3%",
+      "label": "클릭률"
+    }
+  ],
+  statsNote: "Google Search Console · 2026.07.06~09.20, 77일간 · 전체 검색 기준",
   "team": "1인 · 기획부터 인프라까지",
   "status": "운영 중 (2025.11 오픈)",
   "title": "보광극장 · 홍보·대관 안내 사이트",
@@ -20,8 +35,7 @@ export const ko: ProjectText = {
   ],
   "highlights": [
     "공개 사이트·관리자·API·배포 환경을 단독 구축",
-    "중복 뷰 20개를 공용 10개로 통합 — 코드 약 4,000줄 감소",
-    "검색 노출 복구 후 77일간 20개 페이지 색인 · 노출 376회 · 클릭 95회"
+    "SSR 색인 오류 수정 · 기존 URL 301 리디렉션"
   ],
   "techNotes": [
     {
@@ -48,6 +62,21 @@ export const ko: ProjectText = {
 }
 
 export const en: ProjectText = {
+  stats: [
+    {
+      "value": "376",
+      "label": "Search impressions"
+    },
+    {
+      "value": "95",
+      "label": "Search clicks"
+    },
+    {
+      "value": "25.3%",
+      "label": "Click-through rate"
+    }
+  ],
+  statsNote: "Google Search Console · Jul 6–Sep 20, 2026 (77 days) · All search queries",
   team: 'Solo · from planning to infrastructure',
   status: 'Live (opened Nov 2025)',
   title: 'Bogwang Theater · Promotion & Booking Site',

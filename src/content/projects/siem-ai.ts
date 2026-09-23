@@ -39,56 +39,62 @@ export const ko: ProjectText = {
     {
       "title": "오류·트래픽 관측",
       "body": "Grafana 대시보드에서 AI 서버와 웹 플랫폼의 오류·트래픽을 확인하도록 구성했습니다. 배포 후 오류율·트래픽 변화를 통해 서버와 웹 플랫폼의 동작 상태를 점검했습니다."
+    },
+    {
+      "title": "실제 데이터 기반 고객사 데모",
+      "body": "실제 XDR 데이터를 활용해 탐지 → AI 분석 → 대응 → 리포트 생성으로 이어지는 데모를 구성했습니다. 고객사 대상 제품 발표를 한국어 2회·영문 1회 진행하며 기능 설명과 시연·질의응답을 맡았습니다."
     }
   ]
 }
 
 export const en: ProjectText = {
-  team: 'Team under 10 · sole design & build',
-  status: 'PoC · demo (in progress)',
-  title: 'SIEM AI Analysis Server · Automated Incident Analysis',
-  description:
-    "A Fastify AI server for SIEM security incident analysis. I built the analysis pipeline on data from a separately developed ingestion and normalization layer, independently developing the orchestrator, LiteLLM gateway, and tenant model management.",
-  mediaNote: 'Screens are withheld for this pre-release product.',
-  presentationNote:
-    'Slides from presentations introducing the SIEM solution to enterprise clients. Structured around the product overview, core capabilities, and business value, I delivered the presentations, demos, and Q&A myself — in Korean for domestic clients and in English for overseas clients. I designed an end-to-end demo scenario — threat detection → automated AI analysis → host isolation response → multilingual report generation — to show the product’s real operational flow.',
-  overview: [
+  "team": "Team under 10 · sole design & build",
+  "status": "PoC · demo (in progress)",
+  "title": "SIEM AI Analysis Server · Automated Incident Analysis",
+  "description": "A Fastify AI server for SIEM security incident analysis. I built the analysis pipeline on data from a separately developed ingestion and normalization layer, independently developing the orchestrator, LiteLLM gateway, and tenant model management.",
+  "mediaNote": "Screens are withheld for this pre-release product.",
+  "presentationNote": "Slides from presentations introducing the SIEM solution to enterprise clients. Structured around the product overview, core capabilities, and business value, I delivered the presentations, demos, and Q&A myself — in Korean for domestic clients and in English for overseas clients. I designed an end-to-end demo scenario — threat detection → automated AI analysis → host isolation response → multilingual report generation — to show the product’s real operational flow.",
+  "overview": [
     "The AI server of a SIEM platform developed by a team of no more than ten people. I independently designed and developed the multi-agent orchestrator, LiteLLM gateway, and multi-tenant model management.",
     "Input consists of actual XDR data collected from CrowdStrike, SentinelOne, Cortex, and other vendors. Other team members developed OCSF normalization, Kafka ingestion, and OpenSearch indexing. I built the analysis pipeline consuming that data via Redis jobs and conducted client demonstrations using actual XDR data.",
-    'Incidents pulled off the queue are processed by eight role-specific agents in a fixed order. Triage sets the execution scope, IOC/MITRE/Network analysis runs in parallel, and Correlation synthesizes the result as a kill-chain graph, threat score (0–100), and confidence. Compliance analysis (ISMS-P, ISO 27001, GDPR) runs in the background.',
-    'I consolidated scattered per-provider LLM calls onto a single LiteLLM (OpenAI-compatible) gateway path, with per-tenant model management and BYOK isolation on top. Analysis results stream in real time over SSE, and reports are generated via async BullMQ/Redis jobs.',
+    "Incidents pulled off the queue are processed by eight role-specific agents in a fixed order. Triage sets the execution scope, IOC/MITRE/Network analysis runs in parallel, and Correlation synthesizes the result as a kill-chain graph, threat score (0–100), and confidence. Compliance analysis (ISMS-P, ISO 27001, GDPR) runs in the background.",
+    "I consolidated scattered per-provider LLM calls onto a single LiteLLM (OpenAI-compatible) gateway path, with per-tenant model management and BYOK isolation on top. Analysis results stream in real time over SSE, and reports are generated via async BullMQ/Redis jobs."
   ],
-  highlights: [
-    'Designed the multi-agent incident-analysis orchestrator — 8 role-specific agents',
-    'Built the automated analysis pipeline downstream of the Redis queue, on the OCSF ingestion layer',
-    'Correlation structured output — kill-chain graph, threat score, confidence',
-    'LiteLLM gateway consolidation — unified multi-provider calls, fallback, token control',
-    'Per-tenant model management and BYOK virtual-key isolation',
+  "highlights": [
+    "Designed the multi-agent incident-analysis orchestrator — 8 role-specific agents",
+    "Built the automated analysis pipeline downstream of the Redis queue, on the OCSF ingestion layer",
+    "Correlation structured output — kill-chain graph, threat score, confidence",
+    "LiteLLM gateway consolidation — unified multi-provider calls, fallback, token control",
+    "Per-tenant model management and BYOK virtual-key isolation"
   ],
-  techNotes: [
+  "techNotes": [
     {
-      title: 'Collected data integration → automated analysis pipeline',
-      body: "A separately developed layer normalizes XDR telemetry into OCSF, ingests it over Kafka, and indexes it in OpenSearch. I built the downstream pipeline that takes this data and sends Redis jobs through multi-agent analysis, separating analysis workers from ingestion.",
+      "title": "Collected data integration → automated analysis pipeline",
+      "body": "A separately developed layer normalizes XDR telemetry into OCSF, ingests it over Kafka, and indexes it in OpenSearch. I built the downstream pipeline that takes this data and sends Redis jobs through multi-agent analysis, separating analysis workers from ingestion."
     },
     {
-      title: 'Multi-agent analysis pipeline (8 role-specific agents)',
-      body: 'The pipeline is split across role-specific agents to spend LLM calls only where they matter. Triage classifies each incident and assigns a priority that gates what runs next; stage 1 runs code-based agents (IOC, MITRE, Network) in parallel (Promise.allSettled) to gather grounding evidence at zero LLM cost. The LLM-backed SecurityIntel agent runs conditionally only when the verdict is still open (skipped on an IOC match, a trusted allow-list hit, or low priority), and Correlation synthesis runs once at the end. Structured output via generateObject (zod) is likewise a deliberate choice — downstream screens and reports consume results without parsing.',
+      "title": "Multi-agent analysis pipeline (8 role-specific agents)",
+      "body": "The pipeline is split across role-specific agents to spend LLM calls only where they matter. Triage classifies each incident and assigns a priority that gates what runs next; stage 1 runs code-based agents (IOC, MITRE, Network) in parallel (Promise.allSettled) to gather grounding evidence at zero LLM cost. The LLM-backed SecurityIntel agent runs conditionally only when the verdict is still open (skipped on an IOC match, a trusted allow-list hit, or low priority), and Correlation synthesis runs once at the end. Structured output via generateObject (zod) is likewise a deliberate choice — downstream screens and reports consume results without parsing."
     },
     {
-      title: 'SSE streaming & manual re-analysis',
-      body: 'The pipeline is exposed over SSE, delivering progress, partial results, complete, and error events in real time, tracking completed-agent counts per run. A manual re-analysis path re-runs a specific incident with prior analysis context, sharing the same code as the automatic (queue) path.',
+      "title": "SSE streaming & manual re-analysis",
+      "body": "The pipeline is exposed over SSE, delivering progress, partial results, complete, and error events in real time, tracking completed-agent counts per run. A manual re-analysis path re-runs a specific incident with prior analysis context, sharing the same code as the automatic (queue) path."
     },
     {
-      title: 'LiteLLM gateway consolidation',
-      body: 'Per-provider SDK branches were consolidated behind an OpenAI-compatible client so every call goes through the LiteLLM gateway. Fallback models, per-provider semaphore concurrency, 429/5xx exponential backoff (Retry-After first), and token budgets moved into the gateway/middleware layer, and provider status is health-checked with a 10s TTL cache. Chat Completions API is used for multi-step tool calls.',
+      "title": "LiteLLM gateway consolidation",
+      "body": "Per-provider SDK branches were consolidated behind an OpenAI-compatible client so every call goes through the LiteLLM gateway. Fallback models, per-provider semaphore concurrency, 429/5xx exponential backoff (Retry-After first), and token budgets moved into the gateway/middleware layer, and provider status is health-checked with a 10s TTL cache. Chat Completions API is used for multi-step tool calls."
     },
     {
-      title: 'Multi-tenant AI models & BYOK',
-      body: 'Per-tenant model deployments are created, verified (virtual key + alias ping), and deleted (with rollback on allow-list sync failure) via the LiteLLM Admin API. Tenant isolation uses a virtual key + team-level allow-list to block cross-tenant access. Translation is delegated to a separate endpoint, and health endpoints are split into live/readiness.',
+      "title": "Multi-tenant AI models & BYOK",
+      "body": "Per-tenant model deployments are created, verified (virtual key + alias ping), and deleted (with rollback on allow-list sync failure) via the LiteLLM Admin API. Tenant isolation uses a virtual key + team-level allow-list to block cross-tenant access. Translation is delegated to a separate endpoint, and health endpoints are split into live/readiness."
     },
     {
-      title: 'Operational observability',
-      body: 'I built Grafana dashboards that show errors and traffic across the AI server and the web platform on one screen. Because the pipeline runs unattended, there had to be a separate path for a human to notice "did an analysis fail?" — and comparing error-rate and traffic shifts after a deploy is how outages and performance regressions get caught.',
+      "title": "Operational observability",
+      "body": "I built Grafana dashboards that show errors and traffic across the AI server and the web platform on one screen. Because the pipeline runs unattended, there had to be a separate path for a human to notice \"did an analysis fail?\" — and comparing error-rate and traffic shifts after a deploy is how outages and performance regressions get caught."
     },
-  ],
+    {
+      "title": "Client demonstrations with actual XDR data",
+      "body": "Designed a demonstration from threat detection through AI analysis and response to report generation using actual XDR data. Delivered three client presentations—two in Korean and one in English—including live demos and Q&A."
+    }
+  ]
 }

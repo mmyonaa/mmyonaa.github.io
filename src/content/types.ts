@@ -92,6 +92,8 @@ export interface Project {
   description: string
   tags: string[]
   highlights: string[]
+  stats?: { value: string; label: string }[] // 확인된 운영 규모·개발 범위·개선 결과
+  statsNote?: string // 수치의 출처·집계 기간·범위
   link: string
   company: string
   team?: string // '팀 · 내 역할' 한 줄 — 상세 헤드 meta. 확인된 사실만 쓴다
