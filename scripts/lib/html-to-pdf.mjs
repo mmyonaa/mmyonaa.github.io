@@ -121,7 +121,9 @@ export async function renderPdfs(jobs, opts = {}) {
         expression: `(async () => {
           await document.fonts.ready
           await Promise.all([...document.images].map(image => image.decode().catch(() => {})))
+          if (window.printReady) await window.printReady
           return {
+            printAudit: window.printAudit || null,
             missingImages: [...document.images]
               .filter(image => !image.complete || !image.naturalWidth)
               .map(image => image.src),
@@ -130,6 +132,9 @@ export async function renderPdfs(jobs, opts = {}) {
         awaitPromise: true,
         returnByValue: true,
       })
+      if (probe.exceptionDetails) {
+        throw new Error(`${label}: ${probe.exceptionDetails.exception?.description || probe.exceptionDetails.text}`)
+      }
       const { missingImages } = probe.result.value
       if (missingImages.length) {
         throw new Error(`${label}: 이미지 ${missingImages.length}개 누락 — ${missingImages[0]}`)
@@ -157,7 +162,7 @@ export async function renderPdfs(jobs, opts = {}) {
       }
       await writeFile(job.pdf, Buffer.concat(chunks))
 
-      const result = { label, pdf: job.pdf, missingImages }
+      const result = { label, pdf: job.pdf, missingImages, printAudit: probe.result.value.printAudit }
       results.push(result)
       opts.onDone?.(result)
     }
