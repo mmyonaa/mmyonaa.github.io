@@ -381,22 +381,20 @@
         margin: 12mm;
       }
 
-      /* 본문 글자 크기를 유지하며 AI 서버 항목을 첫 페이지에 배치합니다. */
+      /* 글자 크기를 유지하고 본문 행간과 항목 사이 여백을 확보합니다. */
       @media print {
         .head { padding-bottom: 12px; }
-        .skills { row-gap: 2px; }
-        .summary { line-height: 1.5; }
-        .section__title { padding-bottom: 4px; margin-bottom: 6px; }
-        .company__desc { margin-bottom: 6px; line-height: 1.45; }
-        .company:first-of-type .item__desc { line-height: 1.45; }
-        .company:first-of-type .item__bullets li { line-height: 1.45; margin-bottom: 2px; }
-        /* 영문은 같은 내용이 국문보다 길어 본문 여백만 소폭 조입니다. */
+        .skills { row-gap: 3px; }
+        .summary { line-height: 1.45; }
+        .section__title { padding-bottom: 4px; margin-bottom: 7px; }
+        .company__desc { margin-bottom: 7px; line-height: 1.45; }
+        .item__desc { line-height: 1.45; }
         .section { margin-top: 6px; }
         .item { margin-bottom: 4px; }
-        .item__desc { line-height: 1.4; }
-        .item__bullets { margin-top: 4px; }
-        .item__bullets li { line-height: 1.4; margin-bottom: 1px; }
-        .item__stack { margin-top: 4px; }
+        .item__bullets { margin-top: 5px; }
+        .item__bullets li { line-height: 1.45; margin-bottom: 1px; }
+        .item__stack { margin-top: 5px; }
+        .item--siem-web { break-before: page; }
       }
       @page:first { margin: 10mm 12mm; }
     </style>
