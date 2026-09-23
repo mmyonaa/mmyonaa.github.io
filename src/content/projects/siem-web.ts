@@ -16,8 +16,16 @@ export const ko: ProjectText = {
   ],
   "techNotes": [
     {
-      "title": "AI 리포트 에디터 (BlockNote)",
-      "body": "BlockNote에 차트·상태카드·진행률 블록을 추가했습니다. AI 편집 제안은 블록·표·문자 단위의 변경 내용을 보여주고 사용자가 검토한 뒤 반영하도록 했습니다. 한·영·일 리포트 저장과 PDF·DOCX·CSV/XLSX 내보내기를 구현했으며, PDF에서는 차트 이미지화·웹폰트 로딩·다국어 파일명을 처리했습니다."
+      "title": "보안 리포트용 커스텀 블록과 문서 저장",
+      "body": "텍스트와 함께 분석 차트·상태 요약·대응 내용을 편집할 수 있도록 BlockNote에 차트·진행률·상태카드·섹션·인시던트 대응 블록을 추가했습니다. 사용자가 인시던트와 언어를 선택하면 AI 서버에서 생성한 결과를 BlockNote JSON으로 저장하고, 에디터에서 이어서 편집하도록 연결했습니다. 분석 내용·판단 근거·컴플라이언스 결과는 한·영·일 언어별로 저장했습니다."
+    },
+    {
+      "title": "AI 편집 제안의 변경 내용 비교",
+      "body": "AI가 제안한 재작성·확장·설명 보완을 사용자가 검토한 뒤 반영하도록 구현했습니다. 블록 단위 변경뿐 아니라 표의 셀과 문장 안의 문자 단위 차이도 비교해 강조했습니다. 변경 전후를 미리보기에서 확인하고 반영하거나 거절할 수 있도록 해, AI 편집 결과의 적용 여부를 사용자가 결정하게 했습니다."
+    },
+    {
+      "title": "리포트 형식별 내보내기",
+      "body": "리포트를 PDF·DOCX·CSV/XLSX로 내보내도록 구현했습니다. PDF는 Puppeteer로 서버에서 렌더링하면서 차트를 이미지로 변환하고 웹폰트 로딩과 다국어 파일명을 처리했습니다. DOCX에는 표지·머리말·꼬리말과 표 스타일을 반영하고, CSV/XLSX로는 표 데이터를 내보내도록 구성했습니다."
     },
     {
       "title": "분석 출력·SSE 규격 설계와 서버·웹 연동",
@@ -61,8 +69,16 @@ export const en: ProjectText = {
       "body": "Built in one app with the App Router — UI/server components, many API routes, and a Prisma multi-schema (PostgreSQL) DB layer. On a collaborative team repo I was among the top contributors, building screens and APIs across the incident, report, and endpoint domains."
     },
     {
-      "title": "AI report editor (BlockNote)",
-      "body": "Added custom blocks (charts, status cards, progress bars) to BlockNote and highlighted AI edits with block/table/character-level diffing for preview-before-commit. Reports are stored and previewed per language (ko/en/ja), and the finished report exports to PDF (server-side Puppeteer render — charts rasterized, web-font loading, multilingual filenames), DOCX (cover page, headers/footers, table-style preservation), and CSV/XLSX."
+      "title": "Custom report blocks and document storage",
+      "body": "Added chart, progress, status-card, section, and incident-action blocks to BlockNote so reports can combine editable text with analysis visuals and response details. After the user selects incidents and a language, the AI-server output is stored as BlockNote JSON for further editing. Analysis, reasoning, and compliance content are stored per language: Korean, English, and Japanese."
+    },
+    {
+      "title": "Comparing AI editing suggestions",
+      "body": "Implemented review before applying AI rewrites, expansions, and clarifications. Differences are highlighted at block, table-cell, and inline-character levels. Users preview the changes and accept or reject the suggestion, retaining control over whether AI edits are applied."
+    },
+    {
+      "title": "Format-specific report export",
+      "body": "Implemented PDF, DOCX, and CSV/XLSX export. PDF generation uses server-side Puppeteer rendering with chart-to-image conversion, webfont loading, and multilingual filenames. DOCX includes a cover, headers, footers, and table styling; tabular data can also be exported as CSV/XLSX."
     },
     {
       "title": "Shared analysis schema and SSE contract",

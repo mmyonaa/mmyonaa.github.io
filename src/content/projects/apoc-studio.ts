@@ -5,14 +5,14 @@ export const ko: ProjectText = {
   status: '참여 종료 (2025.08)',
   title: '자사 저작도구 · 태블릿 대응',
   description:
-    '3D·인터랙티브 저작도구의 태블릿(768~1023px) 대응 기준을 세우고, 터치 UX와 크로스브라우징을 고도화해 태블릿에서 안정적인 저작 경험을 확보했습니다.',
+    '3D·인터랙티브 저작도구의 태블릿 대응 기준(768~1023px)을 세우고, 확대·스크롤·드래그 등 터치 조작 문제를 수정했습니다.',
   overview: [
-    'APOC Studio(studio.apoc.day)는 APOC Play에 올릴 3D·인터랙티브 콘텐츠를 만드는 블록형 저작도구입니다. 데스크톱 위주로 설계돼 태블릿에서는 저작 흐름이 끊기던 이 도구의 태블릿 대응을 맡아, 사용 기준(768~1023px)을 세우고 화면 줌·레이어 스크롤·캔버스 위치·팝업 위치 등 터치 환경 특유의 문제를 기기 6종 × 브라우저 6종으로 검증·개선했습니다.',
+    'APOC Studio(studio.apoc.day)는 APOC Play에 올릴 3D·인터랙티브 콘텐츠를 만드는 블록형 저작도구입니다. 데스크톱 위주로 설계돼 태블릿에서는 저작 흐름이 끊기던 이 도구의 태블릿 대응을 맡아, 사용 기준(768~1023px)을 세우고 화면 줌·레이어 스크롤·캔버스 위치·팝업 위치 등 터치 환경 특유의 문제를 기기 6종·브라우저 6종으로 검증·개선했습니다.',
   ],
   highlights: [
     '태블릿 대응 기준(768~1023px) 수립 · QA 기반 UI/기능 개선 — 이슈 39건',
     '화면 줌 · 레이어 스크롤 · 캔버스 위치 등 태블릿 터치 UX 전면 개선',
-    '기기 6종 × 브라우저 6종 크로스브라우징 검증 · 대응',
+    '기기 6종·브라우저 6종 크로스브라우징 검증 · 대응',
     '터치 · 터치펜 입력 기준 테스트 케이스 61항목 설계 — 누적 1,400회 이상 실행',
   ],
   qa: {
@@ -56,12 +56,12 @@ export const en: ProjectText = {
   description:
     'Established tablet support criteria (768–1023px) for the 3D/interactive authoring tool and refined touch UX and cross-browser behavior for a stable authoring experience on tablets.',
   overview: [
-    'APOC Studio (studio.apoc.day) is a block-based authoring tool for creating the 3D/interactive content published on APOC Play. Designed desktop-first, its authoring flow broke down on tablets; I took on its tablet support — setting usage criteria (768–1023px) and verifying and fixing touch-specific issues (screen zoom, layer scrolling, canvas position, popup position) across 6 devices × 6 browsers.',
+    'APOC Studio (studio.apoc.day) is a block-based authoring tool for creating the 3D/interactive content published on APOC Play. Designed desktop-first, its authoring flow broke down on tablets; I took on its tablet support — setting usage criteria (768–1023px) and verifying and fixing touch-specific issues (screen zoom, layer scrolling, canvas position, popup position) across 6 device models and 6 browsers.',
   ],
   highlights: [
     'Set tablet support criteria (768–1023px) and improved UI/features from QA — 39 issues tracked',
     'Overhauled tablet touch UX — screen zoom, layer scrolling, canvas positioning',
-    'Verified and fixed cross-browser behavior across 6 devices × 6 browsers',
+    'Verified and fixed cross-browser behavior across 6 device models and 6 browsers',
     'Designed 61 touch and stylus test cases — executed 1,400+ times in total',
   ],
   qa: {

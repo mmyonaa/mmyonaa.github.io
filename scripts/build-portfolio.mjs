@@ -142,7 +142,10 @@ function projectSection(p, i) {
         </div>
       </header>
 
-      ${block(t.overview, (p.overview || []).length ? (p.overview || []).map((x) => `<p class="para">${esc(x)}</p>`).join('') : '')}
+      ${block(t.overview,
+        (p.overview || []).map((x) => `<p class="para">${esc(x)}</p>`).join('') +
+        (sharedArchitecture ? `<p class="page-reference">${lang === 'en' ? 'Shared eSIM platform architecture: page ' : 'eSIM 플랫폼 공통 구조도: '}<span data-page-target="architecture-esim-service">00</span>${lang === 'en' ? '.' : '쪽 참고.'}</p>` : ''),
+      )}
 
       ${block(
         t.metrics,
@@ -205,10 +208,16 @@ function projectSection(p, i) {
         archs.length
           ? archs
               .map((s, ai) => {
-                const note = (p.architectureNotes || [])[ai]
+                const commonEsim = p.slug === 'esim-service' && ai === 0
+                const caption = commonEsim
+                  ? (lang === 'en' ? 'Shared eSIM architecture — sales service, kiosk, and admin' : 'eSIM 판매 서비스·키오스크·어드민 공통 구조')
+                  : (p.architectureCaptions || [])[ai]
+                const note = commonEsim
+                  ? (lang === 'en' ? 'The online service and kiosks sell products supplied through a shared backend. The admin manages products, inventory, orders, and settlement for both channels.' : '온라인 판매 서비스와 키오스크가 공유 백엔드를 통해 상품을 판매하고, 어드민에서 두 채널의 상품·재고·주문·정산을 관리합니다.')
+                  : (p.architectureNotes || [])[ai]
                 return (
-                  `<div class="arch">` +
-                  figure(s, (p.architectureCaptions || [])[ai], p.slug === 'bk-theater' ? 'shot--wide shot--compact' : 'shot--wide') +
+                  `<div class="arch"${ai === 0 ? ` id="architecture-${esc(p.slug)}"` : ''}>` +
+                  figure(s, caption, p.slug === 'bk-theater' ? 'shot--wide shot--compact' : 'shot--wide') +
                   (note ? `<p class="para">${esc(note)}</p>` : '') +
                   `</div>`
                 )
@@ -216,8 +225,6 @@ function projectSection(p, i) {
               .join('')
           : '',
       )}
-
-      ${sharedArchitecture ? `<div class="block"><p class="muted">${lang === 'en' ? 'Shared platform architecture: ' : '공통 플랫폼 구조도: '}<a href="#project-esim-service">${lang === 'en' ? 'eSIM Service' : 'eSIM 판매 서비스'}</a></p></div>` : ''}
 
     </section>`
 }
@@ -324,6 +331,8 @@ function html(content) {
       .project-links li > span { flex-shrink: 0; color: var(--gold); }
       .project-links a { min-width: 0; overflow-wrap: anywhere; }
       .project-links a { text-decoration: underline; text-underline-offset: 3px; }
+      .page-reference { font-size: 10px; line-height: 1.5; margin-top: 4px; }
+      [data-page-target] { display: inline-block; min-width: 2ch; text-align: center; }
       .toc__page { margin-left: auto; font-family: var(--mono); color: var(--gold); white-space: nowrap; }
       .print-page { width: 184mm; height: 268mm; position: relative; break-before: page; background: white; margin: 0 auto 12mm; }
       .print-page:first-child { break-before: auto; }

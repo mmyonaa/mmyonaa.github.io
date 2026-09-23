@@ -123,6 +123,12 @@ window.printReady = (async () => {
     if (index < 0) throw new Error('Missing project: ' + reference.dataset.project)
     reference.textContent = String(index + 1).padStart(2, '0')
   }
+  for (const reference of document.querySelectorAll('[data-page-target]')) {
+    const target = document.getElementById(reference.dataset.pageTarget)
+    const index = pages.findIndex(item => target && item.page.contains(target))
+    if (index < 0) throw new Error('Missing page reference: ' + reference.dataset.pageTarget)
+    reference.textContent = String(index + 1)
+  }
   const audit = pages.map((item, i) => ({
     page: i + 1,
     title: item.title,

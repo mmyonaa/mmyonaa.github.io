@@ -20,18 +20,6 @@ export function portfolioExplainers(slug, lang, esc) {
     ['Background work', 'Compliance and translation'],
   ]), pick('개념도입니다. 우선순위에 따라 분석 범위를 조절하며, 외부 정보 보강이 필요하지 않으면 해당 단계를 건너뜁니다.', 'Conceptual flow. Priority controls the analysis scope; external enrichment is skipped when unnecessary.')))
 
-  if (slug === 'siem-web') return block(pick('AI 편집 제안의 검토·반영', 'Reviewing AI editing suggestions'), flow(pick([
-    ['편집 제안', 'AI가 리포트 변경안 생성'],
-    ['변경 내용 표시', '블록·표·문자 단위 비교'],
-    ['사용자 검토', '미리보기 후 변경 반영'],
-    ['저장·내보내기', '다국어 저장 · PDF·DOCX 등'],
-  ], [
-    ['AI suggestion', 'Generate a report edit'],
-    ['Show differences', 'Block, table, and text diffs'],
-    ['User review', 'Preview before applying'],
-    ['Save & export', 'Multilingual · PDF / DOCX etc.'],
-  ])))
-
   if (slug === 'apoc-payment') return block(pick('요금제 전환 정책', 'Plan-change policy'), table(pick(['구분', '전환 시점', '다음 결제 주기'], ['Change', 'At the time of change', 'Next billing cycle']), pick([
     ['업그레이드', '남은 기간의 차액 즉시 결제', '상향 요금 적용'],
     ['다운그레이드', '즉시 결제·환불 없이 변경 이력 기록', '하향 요금 적용'],

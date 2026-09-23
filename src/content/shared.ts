@@ -13,7 +13,7 @@ export const profileBase = {
 export const contacts: ContactItem[] = [
   { icon: '✉️', label: 'Email', value: 'apddfhsajrwk@gmail.com', href: 'mailto:apddfhsajrwk@gmail.com' },
   { icon: '👩🏻‍💻', label: 'GitHub', value: 'github.com/mmyonaa', href: 'https://github.com/mmyonaa' },
-  { icon: '🫴', label: 'LinkedIn', value: 'linkedin.com/in/hyona-lim', href: 'https://www.linkedin.com/in/hyona-lim-a3a626319/' },
+  { icon: '🫴', label: 'LinkedIn', value: 'linkedin.com/in/hyona-lim-a3a626319/', href: 'https://www.linkedin.com/in/hyona-lim-a3a626319/' },
 ]
 
 export const skills: SkillGroup[] = [
@@ -23,11 +23,11 @@ export const skills: SkillGroup[] = [
   },
   {
     category: 'Backend',
-    items: ['Node.js', 'Koa', 'PostgreSQL', 'Prisma', 'Redis', 'BullMQ'],
+    items: ['Node.js', 'Fastify', 'Koa', 'PostgreSQL', 'TypeORM', 'Prisma', 'Redis', 'BullMQ'],
   },
   {
     category: 'Infra · Tooling',
-    items: ['AWS EC2', 'Nginx', 'PM2', 'Vite'],
+    items: ['AWS EC2', 'Nginx', 'PM2', 'Vite', 'GitHub Actions', 'Grafana'],
   },
   {
     category: 'AI',

@@ -416,7 +416,7 @@
             <a href="https://mmyonaa.github.io">mmyonaa.github.io</a>
             <a href="mailto:apddfhsajrwk@gmail.com">apddfhsajrwk@gmail.com</a>
             <a href="https://github.com/mmyonaa">github.com/mmyonaa</a>
-            <a href="https://www.linkedin.com/in/hyona-lim-a3a626319/">linkedin.com/in/hyona-lim</a>
+            <a href="https://www.linkedin.com/in/hyona-lim-a3a626319/">linkedin.com/in/hyona-lim-a3a626319/</a>
           </div>
         </div>
       </header>
@@ -485,42 +485,31 @@
             </p>
             <ul class="item__bullets">
               <li>
-                <b>Collected data → automated analysis pipeline</b> — integrated <b>OCSF</b> data from
-                CrowdStrike · SentinelOne · Cortex XDR with the Kafka/OpenSearch ingestion layer, and built the
-                multi-agent analysis pipeline that runs downstream of the Redis queue.
+                <b>Collected data integration · automated analysis</b> — built the multi-agent analysis pipeline
+                downstream of the Redis queue, consuming XDR data collected and normalized by other team members
+                using OCSF, Kafka, and OpenSearch.
               </li>
               <li>
-                <b>Multi-agent orchestrator (8 role-specific agents)</b> — Triage classifies and prioritizes each
-                incident pulled off the queue and decides the execution scope up front (low-priority incidents are
-                pruned); code-based agents (IOC · MITRE · Network) then run in parallel to gather evidence first,
-                the LLM agent (SecurityIntel) is invoked only when the verdict is still unclear, and Correlation
-                consolidates at the end → separating evidence collection from inference keeps the reasoning
-                auditable while structurally containing per-incident cost by spending LLM calls only where needed
+                <b>Multi-agent orchestrator (8 role-specific agents)</b> — Triage sets priority and execution scope;
+                code-based IOC, MITRE, and Network agents collect evidence in parallel. SecurityIntel runs when
+                further analysis is needed, and Correlation synthesizes the results.
               </li>
               <li>
-                <b>Structured output (zod schemas)</b> — analysis results are schema-locked into a kill-chain graph,
-                a threat score (0–100), and a confidence value → the kill-chain graph and reports in the
-                <b>SIEM SOC web platform</b> below consume them directly with no post-processing, and output
-                schema validation reduces the chance of format mismatches
+                <b>Structured output (zod schema)</b> — defined and validated the kill-chain graph, threat score (0–100),
+                and confidence format shared by the analysis server, monitoring UI, and reports.
               </li>
               <li>
-                <b>SSE real-time streaming</b> — progress and partial results are streamed so analysts can follow
-                an analysis instead of waiting for it to finish (a manual re-analysis API carries the prior
-                analysis context). Compliance and multilingual translation are split out into background
-                enrichment agents so they never delay the core analysis response
+                <b>SSE streaming</b> — streams progress, partial results, completion, and errors. Manual re-analysis
+                reuses prior context. Compliance, translation, and report generation run as background jobs.
               </li>
               <li>
-                <b>LiteLLM gateway consolidation</b> — introduced a single proxy layer that every LLM call passes
-                through, collapsing per-provider SDK branches into an OpenAI-compatible path and controlling
-                fallback models, concurrency and token budgets in one place → automatic fallback is configured for
-                provider outages, and adding supported models or providers became a configuration change. Per-tenant
-                model management and <b>BYOK</b> (a customer's own LLM key) are isolated by virtual key allowlists
-                that block cross-tenant access
+                <b>LiteLLM gateway</b> — unified provider SDK calls behind an OpenAI-compatible interface, with
+                shared fallback, concurrency, and token controls. Per-tenant models and BYOK use virtual keys
+                and allowlists to restrict access.
               </li>
               <li>
-                <b>PoC/demo environment observability</b> — set up Grafana dashboards to watch errors and traffic
-                across the AI server and web platform, and to check the health of deployed PoC/demo environments
-                against metrics
+                <b>Error and traffic monitoring</b> — set up Grafana dashboards to monitor the AI server and web platform,
+                checking error rates and traffic changes after deployment
               </li>
 </ul>
             <div class="item__stack">
@@ -633,8 +622,8 @@
               authentication, and character-encoding issues
             </li>
             <li>
-              <b>Unattended kiosks</b> — built the kiosk UI selling eSIM products for 30+ countries as a Vue 3
-              PWA, wrapped in an Android (Kotlin) WebView app to run on the terminals.
+              <b>Unattended kiosks</b> — led the Vue 3 PWA UI supporting Korean, English, and Japanese and eSIM plans
+              for 30+ countries. Improved hardware integration in the team's Android (Kotlin) WebView app.
               <b>Four units were deployed across two airports, Narita and Haneda, and ran unattended for about
               a year.</b> I led the web development and improved the WebView app's hardware integration
               (receipt printer, payment terminal) and multilingual encoding issues, then covered early
@@ -670,7 +659,7 @@
             </li>
             <li>
               <b>Tablet support for the authoring tool</b> — improved touch UX (establishing the 768–1023px baseline)
-              and designed 61 test cases across 6 devices × 6 browsers, surfacing and tracking 39 issues
+              and designed 61 test cases across 6 device models and 6 browsers, surfacing and tracking 39 issues
             </li>
           </ul>
           <div class="item__stack">
@@ -713,8 +702,8 @@
               sitemap for search visibility. Deployed on AWS EC2 with Nginx and PM2.
             </li>
             <li>
-              <b>Operational improvements</b> — fixed data loss on partial edits and a view-count refresh issue,
-              and consolidated 20 public and admin views into 10 shared pages, cutting roughly 4,000 lines of code.
+              <b>Search visibility</b> — fixed an SSR route guard that skipped prerendering and added 301 redirects for old URLs.
+              Search Console subsequently recorded 376 impressions, 95 clicks, and a 25.3% CTR over 77 days (Jul 6–Sep 20, 2026).
             </li>
           </ul>
           <div class="item__stack">
@@ -750,7 +739,7 @@
           <ul class="item__bullets">
             <li><b>Hand-built stdio MCP server</b> — exposes all three primitives (Tool · Resource · Prompt) from a single server</li>
             <li><b>Separation of model calls from tool execution</b> — responsibilities split across the trigger, the orchestrator, and the MCP server</li>
-            <li><b>Deterministic publishing gate</b> — validates that follows/related entries and in-body internal links actually exist and are well-formed, blocking link hallucination</li>
+            <li><b>Pre-publication validation</b> — checks document structure and internal-link format and targets, rejecting invalid links before publication</li>
             <li><b>Unattended publishing pipeline</b> — a daily cron runs the orchestrator so an LLM agent picks a topic, writes, and self-reviews, with a PreToolUse hook validating the publishing rules before anything ships</li><li><b>View-count-driven topic selection</b> — page views feed back as a weight on the next topic choice (with a cold-start gate and graceful degradation)</li>
           </ul>
           <div class="item__stack">
@@ -792,9 +781,9 @@
               build on schema violations or references to non-existent topics
             </li>
             <li>
-              <b>Continuous sync with the blog (weekly cron)</b> — coupled to the sibling blog through RSS and the
-              GitHub tree alone, with no API; a missing linked post fails the build. A weekly cron compares blob
-              SHAs and files issues for dead links, revised posts, and topics not yet covered by a question
+              <b>Linked-post checks and weekly sync</b> — checks linked posts via RSS before building; missing targets fail the build,
+              while network failures produce a warning and allow it to proceed. A weekly job compares GitHub tree changes and files issues for
+              deleted or revised posts and topics not yet covered by a question
             </li>
           </ul>
           <div class="item__stack">
