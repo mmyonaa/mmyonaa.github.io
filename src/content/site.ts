@@ -46,33 +46,21 @@ export const siteKo: SiteText = {
     timeline: [
       {
         period: '2025.09 – 현재',
-        title: 'InBridge · SIEM 보안 플랫폼 (AI 서버·웹)',
-        shortLabel: 'InBridge · SIEM',
-        body: 'InBridge의 멀티테넌트 SIEM 보안 플랫폼. Fastify AI 서버의 멀티 에이전트 인시던트 분석 파이프라인과 LiteLLM 게이트웨이·멀티테넌트 BYOK 설계·개발을 주도하고, Next.js 15 풀스택 웹(대시보드·리포트 에디터)에도 협업으로 참여했습니다.',
-      },
-      {
-        period: '2023.11 – 2025.05',
-        title: 'eSIM 판매 플랫폼 (서비스·키오스크·어드민)',
-        shortLabel: 'eSIM 플랫폼',
-        body: '온라인 서비스·키오스크·어드민·공유 미들웨어로 이뤄진 eSIM 플랫폼에 핵심 개발자로 참여(대부분 영역 최다 기여). 다중 PG 결제(Paygent · Google/Apple Pay), RBAC 권한·정산, eSIM 발급·SES 메일 발송, 키오스크 프린터·다국어 인코딩 등 하드웨어 연동까지 담당하고 일본 현지 실운영을 대응했습니다.',
-      },
-      {
-        period: '2024.01 – 2025.08',
-        title: '자사 SaaS 저작도구 (apoc)',
-        shortLabel: 'apoc 저작도구',
-        body: '플랫폼 리뉴얼, 결제 시스템(Toss · PayPal), 3D·인터랙티브 저작도구 고도화를 담당. 컴포넌트 기반 리팩토링으로 유지보수성과 확장성을 높였습니다.',
-      },
-      {
-        period: '2025.07 – 2025.08',
-        title: '팜피 · 국립 생태원 콘텐츠 서비스',
-        shortLabel: '국립생태원 콘텐츠',
-        body: '팜피 재직 중 회사 프로젝트로 진행. 국립생태원 해설 프로그램 참여 인증제(현장 이미지 인식 인증·단계별 인증서·카카오 기프티콘 자동/일괄 발송·관리자 통계)의 콘텐츠 서비스와 관리자 시스템을 1인으로 개발했습니다.',
+        title: '인브릿지 · 풀스택 개발자',
+        shortLabel: '인브릿지',
+        body: '멀티테넌트 SIEM 보안 플랫폼을 만듭니다. Fastify AI 서버의 멀티 에이전트 인시던트 분석 파이프라인과 LiteLLM 게이트웨이·멀티테넌트 BYOK 설계·개발을 주도하고, Next.js 15 풀스택 웹(대시보드·리포트 에디터)에도 협업으로 참여하고 있습니다.',
       },
       {
         period: '2025.09 –',
         title: '외주 · 보광 극장 홍보·대관 사이트',
         shortLabel: '외주 · 보광극장',
-        body: '보광 극장 홍보·대관 사이트를 기획·설계·개발·인프라까지 1인으로 완성했습니다. vite-ssg 기반 SSG와 동적 메타/JSON-LD로 SEO를 최적화하고 AWS · PM2 · Nginx로 배포·운영하며, 오픈 후에도 전면 코드 리뷰·보안 하드닝 스프린트로 정비를 이어가고 있습니다.',
+        body: '재직과 병행하는 외주 작업입니다. 기획·설계·개발·인프라까지 1인으로 완성했고, vite-ssg 기반 SSG와 동적 메타/JSON-LD로 SEO를 최적화하고 AWS · PM2 · Nginx로 배포·운영하며, 오픈 후에도 전면 코드 리뷰·보안 하드닝 스프린트로 정비를 이어가고 있습니다.',
+      },
+      {
+        period: '2023.07 – 2025.09',
+        title: '팜피 주식회사 · 프론트엔드 · 풀스택 개발자',
+        shortLabel: '팜피',
+        body: 'eSIM 판매 플랫폼(서비스·키오스크·어드민·공유 미들웨어)에 핵심 개발자로 참여해 다중 PG 결제·RBAC 정산·eSIM 발급과 키오스크 하드웨어 연동까지 맡고 일본 현지 운영을 대응했습니다. 자사 SaaS 저작도구 apoc의 플랫폼 리뉴얼·결제 시스템·태블릿 대응을 담당했고, 국립생태원 참여 인증제 콘텐츠·관리 시스템은 1인으로 개발했습니다.',
       },
     ],
     activities: [
@@ -157,33 +145,21 @@ export const siteEn: SiteText = {
     timeline: [
       {
         period: '2025.09 – Present',
-        title: 'InBridge · SIEM Security Platform (AI server & web)',
-        shortLabel: 'InBridge · SIEM',
-        body: 'A multi-tenant SIEM security platform at InBridge. I led the design and development of the Fastify AI server’s multi-agent incident-analysis pipeline, LiteLLM gateway, and multi-tenant BYOK, and also contributed to the Next.js 15 full-stack web (dashboard, report editor).',
-      },
-      {
-        period: '2023.11 – 2025.05',
-        title: 'eSIM Sales Platform (service · kiosk · admin)',
-        shortLabel: 'eSIM platform',
-        body: 'A key developer (top contributor in most areas) across an eSIM platform of the online service, kiosk, admin, and shared middleware. Owned multi-gateway payments (Paygent, Google/Apple Pay), RBAC and settlement, eSIM issuance with SES email delivery, and kiosk hardware integration (printers, multilingual encoding), and handled live operations on-site in Japan.',
-      },
-      {
-        period: '2024.01 – 2025.08',
-        title: 'In-house SaaS Authoring Tool (apoc)',
-        shortLabel: 'apoc authoring',
-        body: 'Handled the platform renewal, the payment system (Toss · PayPal), and enhancements to the 3D/interactive authoring tool. Improved maintainability and scalability through component-based refactoring.',
-      },
-      {
-        period: '2025.07 – 2025.08',
-        title: 'Famppy · National Institute of Ecology',
-        shortLabel: 'NIE content',
-        body: 'A company project at Famppy. Solo-built the content service and admin for the National Institute of Ecology participation-certification program — on-site image-recognition certification, tiered certificates, automatic/bulk KakaoTalk gifticons, and admin stats.',
+        title: 'InBridge · Full-stack Developer',
+        shortLabel: 'InBridge',
+        body: 'Building a multi-tenant SIEM security platform. I lead the design and development of the Fastify AI server’s multi-agent incident-analysis pipeline, LiteLLM gateway, and multi-tenant BYOK, and also contribute to the Next.js 15 full-stack web (dashboard, report editor).',
       },
       {
         period: '2025.09 –',
         title: 'Freelance · Bogwang Theater Promotion & Booking Site',
         shortLabel: 'Bogwang Theater',
-        body: 'Single-handedly delivered the Bogwang Theater promotion/booking site from planning and design to development and infrastructure. Optimized SEO with vite-ssg SSG and dynamic meta/JSON-LD, deployed and operated on AWS with PM2 and Nginx — with ongoing post-launch code-review and security-hardening sprints.',
+        body: 'Freelance work running alongside my day job. I delivered the site single-handedly — planning, design, development, and infrastructure — optimized SEO with vite-ssg SSG and dynamic meta/JSON-LD, deployed and operated it on AWS with PM2 and Nginx, and keep it in shape with post-launch code-review and security-hardening sprints.',
+      },
+      {
+        period: '2023.07 – 2025.09',
+        title: 'Famppy Inc. · Frontend & Full-stack Developer',
+        shortLabel: 'Famppy',
+        body: 'A key developer on the eSIM sales platform (service, kiosk, admin, shared middleware) — multi-gateway payments, RBAC and settlement, eSIM issuance, kiosk hardware integration, and live operations on-site in Japan. I also owned the platform renewal, payment system, and tablet support for apoc, our in-house SaaS authoring tool, and solo-built the National Institute of Ecology participation-certification service and its admin.',
       },
     ],
     activities: [

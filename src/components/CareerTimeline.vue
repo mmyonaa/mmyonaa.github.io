@@ -72,6 +72,16 @@ function toSpans(
     .filter((s): s is Span => !!s)
 }
 
+// 이직 월은 앞 회사의 마지막 달이자 다음 회사의 첫 달이라 막대가 한 칸 겹친다.
+// 설명이 필요한 겹침이 아니므로 앞 막대를 한 달 줄여 맞닿게 그린다.
+// (목록에 적히는 기간 문자열은 콘텐츠 그대로다 — 그림만 조정한다)
+function abut(spans: Span[]): Span[] {
+  return spans.map((s) => {
+    const next = spans.find((o) => o !== s && o.from === s.to && o.from > s.from)
+    return next && s.to > s.from ? { ...s, to: s.to - 1 } : s
+  })
+}
+
 // 같은 레인에서 겹치는 항목은 아래 줄로 내린다(그리디 배치).
 // 막대 밖으로 빠진 라벨도 자리를 차지하므로 그만큼을 구간에 더해 겹침을 판정한다 —
 // 안 그러면 짧은 막대의 이름이 옆 막대 위에 겹쳐 찍힌다.
@@ -104,17 +114,15 @@ const occupies = (endMonth: number) => (s: Span): [number, number] =>
 
 const lanes = computed(() => {
   const d = aboutDetail.value
-  const all = [
-    ...toSpans(d.timeline, 'work'),
-    ...toSpans(d.activities, 'activity'),
-    ...toSpans(d.education, 'edu'),
-  ]
-  const endMonth = Math.max(...all.map((s) => s.to), nowIdx)
+  const work = abut(toSpans(d.timeline, 'work'))
+  const activity = abut(toSpans(d.activities, 'activity'))
+  const edu = abut(toSpans(d.education, 'edu'))
+  const endMonth = Math.max(...[...work, ...activity, ...edu].map((s) => s.to), nowIdx)
   const room = occupies(endMonth)
   return [
-    { id: 'work', label: 'Experience', rows: pack(toSpans(d.timeline, 'work'), room) },
-    { id: 'activity', label: 'Activities', rows: pack(toSpans(d.activities, 'activity'), room) },
-    { id: 'edu', label: 'Education', rows: pack(toSpans(d.education, 'edu'), room) },
+    { id: 'work', label: 'Experience', rows: pack(work, room) },
+    { id: 'activity', label: 'Activities', rows: pack(activity, room) },
+    { id: 'edu', label: 'Education', rows: pack(edu, room) },
   ].filter((l) => l.rows.length)
 })
 
