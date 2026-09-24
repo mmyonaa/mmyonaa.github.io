@@ -502,7 +502,8 @@
               </li>
               <li>
                 <b>LiteLLM gateway</b> — unified provider SDK calls behind an OpenAI-compatible interface, with
-                shared fallback, concurrency, and token controls. Per-tenant models and BYOK use virtual keys
+                shared retry (exponential backoff on 429/5xx), per-provider
+              concurrency caps, and token limits. Per-tenant models and BYOK use virtual keys
                 and allowlists to restrict access.
               </li>
               <li>
