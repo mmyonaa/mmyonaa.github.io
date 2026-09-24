@@ -475,8 +475,8 @@
               A Fastify AI server that analyzes SIEM security incidents in real time — automating the SOC
               analysis workflow from triage and prioritization through IOC · MITRE ATT&amp;CK analysis, threat
               scoring, and compliance (ISMS-P · ISO 27001 · GDPR) and report generation. I solely designed and
-              built the <b>multi-agent analysis pipeline</b> and the <b>LiteLLM gateway with per-tenant model
-              management</b> that funnels every LLM call through a single layer. Using
+              built the <b>multi-agent analysis pipeline</b> and the <b>LiteLLM gateway</b> that funnels every
+              LLM call through a single layer; per-tenant model management I built with the team on the admin API. Using
               <b>real data collected from security vendor XDRs such as SentinelOne · CrowdStrike · Cortex</b>,
               I put together an end-to-end demo running detection → AI analysis → response → report, and
               delivered three product presentations to prospective customers in Korean and English.
@@ -539,12 +539,12 @@
               report authoring and export. It is an App Router setup that keeps UI and server components, API
               routes, and the Prisma multi-schema (PostgreSQL) data layer in one app. I participated as a major
               contributor on a team-built codebase, developing several domains — incidents, reports, endpoints —
-              from the screen down to the API. Of these, <b>I built the BlockNote-based AI report editor on my own.</b>
+              from the screen down to the API. Of these, <b>I built the report editor's AI editing features on my own.</b>
             </p>
             <ul class="item__bullets">
               <li>
-                <b>AI report editor, built solo (BlockNote)</b> — implemented a flow where AI edit suggestions are
-                reviewed as block/table/character-level diff highlights before being applied, so analysts verify
+                <b>AI editing features, built solo (BlockNote)</b> — generated the AI edit suggestions and wired them
+                into the team's block/table/character-level diff viewer for review before applying, so analysts verify
                 rather than trust an AI draft while finishing a customer-facing report. Multilingual (KO/EN/JA)
                 reports and PDF · DOCX · CSV/XLSX export are all completed inside the editor
               </li>
