@@ -105,6 +105,7 @@ export interface Project {
   repo?: string
   apiDocs?: string // API 문서(Swagger 등) 링크 — 상세 페이지 Links 블록에 표시
   board?: string // GitHub Project 보드 링크 — 상세 페이지 Links 블록에 표시
+  releases?: string // GitHub Releases 링크 — 상세 페이지 Links 블록에 표시. 버전은 여기서 늘 최신으로 보인다
   images?: string[] // 상세 페이지 히어로에 슬라이드로 표시되는 스크린샷 경로
   themedImages?: boolean // images 가 다크 기본 + '-light' 변형 쌍으로 존재 — 사이트 테마에 맞춰 스왑
   imageFrame?: 'kiosk' | 'tablet' | 'phone' // 스크린샷을 기기 목업 프레임으로 표시 (kiosk: 세로 9:16, tablet: 가로 16:9, phone: 세로 3:5)

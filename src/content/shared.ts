@@ -91,6 +91,7 @@ const projectBase: ProjectBase[] = [
     link: 'https://bktheater.com/',
     company: '',
     repo: 'https://github.com/mmyonaa/outsourcing',
+    releases: 'https://github.com/mmyonaa/outsourcing/releases',
     apiDocs: 'https://bktheater.com/api/docs',
     // 앞 3장은 사용자 화면(랜딩 카드 슬라이더용), 이후는 관리자 화면(상세 페이지용)
     images: [
@@ -213,6 +214,7 @@ const projectBase: ProjectBase[] = [
     link: 'https://mmyonaa.github.io/blog/',
     company: '',
     repo: 'https://github.com/mmyonaa/blog',
+    releases: 'https://github.com/mmyonaa/blog/releases',
     board: 'https://github.com/users/mmyonaa/projects/5',
     // 라이브 사이트 캡처 (홈 3D 히어로 · About 발행 히트맵 · 글 읽기 화면 · 토픽/태그) — 첫 장이 랜딩 카드 썸네일
     images: [
@@ -232,6 +234,7 @@ const projectBase: ProjectBase[] = [
     link: 'https://mmyonaa.github.io/quiz/',
     company: '',
     repo: 'https://github.com/mmyonaa/quiz',
+    releases: 'https://github.com/mmyonaa/quiz/releases',
     // 라이브 사이트 캡처 (필기 연습 · 개념 노트 · 실기 필답 · 정보보안기사) — 다크 기본 + '-light' 쌍
     images: [
       '/projects/daily-quiz/daily-quiz-home.png',

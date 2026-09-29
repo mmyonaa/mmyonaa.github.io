@@ -122,6 +122,7 @@ function projectSection(p, i) {
     p.repo && { label: 'Repository', url: p.repo },
     p.apiDocs && { label: 'API Docs', url: p.apiDocs },
     p.board && { label: 'Board', url: p.board },
+    p.releases && { label: 'Releases', url: p.releases },
   ].filter(Boolean)
 
   const block = (title, inner, cls = '') =>

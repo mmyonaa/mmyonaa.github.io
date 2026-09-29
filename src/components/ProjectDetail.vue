@@ -37,7 +37,10 @@ const next = computed(() => projects.value[(idx.value + 1) % projects.value.leng
 const tint = computed(() => tints.value[idx.value % tints.value.length])
 const num = computed(() => String(idx.value + 1).padStart(2, '0'))
 const totalLabel = computed(() => String(projects.value.length).padStart(2, '0'))
-const hasLinks = computed(() => !!(props.project.link || props.project.repo || props.project.apiDocs || props.project.board))
+const hasLinks = computed(
+  () =>
+    !!(props.project.link || props.project.repo || props.project.apiDocs || props.project.board || props.project.releases),
+)
 
 // 세로로 긴 기기 목업(키오스크·폰)은 좌측 미디어만으로도 우측 본문만큼 길다.
 // 이 경우 Stack·Links 를 좌측에 더하면 반대로 좌측이 넘치므로 우측 본문 아래로 되돌린다.
@@ -142,6 +145,7 @@ const systemMap = computed(() =>
                 <a v-if="project.repo" :href="project.repo" target="_blank" rel="noreferrer">GitHub ↗</a>
                 <a v-if="project.apiDocs" :href="project.apiDocs" target="_blank" rel="noreferrer">API Docs ↗</a>
                 <a v-if="project.board" :href="project.board" target="_blank" rel="noreferrer">Project board ↗</a>
+                <a v-if="project.releases" :href="project.releases" target="_blank" rel="noreferrer">Releases ↗</a>
               </div>
             </div>
           </div>
