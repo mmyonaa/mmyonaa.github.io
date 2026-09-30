@@ -100,8 +100,8 @@ portfolio/
 **GitHub Pages(사용자 사이트)** 로 배포됩니다 — <https://mmyonaa.github.io/>
 
 - [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml)가 `pnpm build` 후 `dist/`를 Pages에 업로드합니다.
-- 현재는 수동 트리거(`workflow_dispatch`): **Actions 탭 → Deploy to GitHub Pages → Run workflow**.
-  `deploy.yml`의 `push:` 트리거 주석을 해제하면 `main` push마다 자동 배포됩니다.
+- `main` push 마다 자동 배포됩니다(v1.3 에서 활성화). 수동 실행도 가능합니다:
+  **Actions 탭 → Deploy to GitHub Pages → Run workflow**.
 - 사용자 사이트(루트)라 [`vite.config.ts`](vite.config.ts)의 `base`는 `'/'`. 프로젝트 페이지(`/<repo>/`)로 옮기면 `base`를 그에 맞게 변경하세요.
 
 ## 📝 커밋 규칙
