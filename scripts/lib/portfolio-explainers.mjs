@@ -56,14 +56,20 @@ export function portfolioExplainers(slug, lang, esc) {
     ['단답·계산·코드 출력·SQL', '표기를 정규화한 뒤 문항별 허용 답안과 비교'],
     ['약술형', '모범답안·핵심어를 보고 사용자가 직접 채점'],
     ['문항 형식·주제 참조', '빌드에서 스키마 위반·미존재 주제 참조를 차단'],
+    ['본문 강조 표기', '강조가 없거나 과한 도입부·길이 초과·홀수 백틱은 빌드 실패'],
+    ['보기에서 답이 유도되는 것', '실기는 병합 도구가 차단 · 필기는 은행 치우침을 리포트로 표시'],
     ['연결 글', '빌드 전 존재 여부 검사 · 네트워크 실패 시 경고 후 진행'],
     ['블로그 삭제·개정·미출제 주제', '주간 작업으로 변경을 확인하고 이슈 등록'],
+    ['개념 주제와 글의 연결', '번역표로 결정적 연결 · 미등록 글은 유사도 기준을 넘을 때만'],
   ], [
     ['Short answers, calculations, code output, SQL', 'Normalize notation and compare with accepted answers'],
     ['Descriptive answers', 'Self-grade against model answers and key points'],
     ['Question format and topic references', 'Reject schema violations and missing topics at build time'],
+    ['Emphasis notation in body text', 'Fail the build on missing or excessive emphasis, over-long highlights, unbalanced backticks'],
+    ['Answers inferable from the question', 'Blocked at merge time for practical; reported as bank-level skew for written'],
     ['Linked articles', 'Check existence before build; warn and continue on network failure'],
     ['Deleted / revised articles and uncovered topics', 'Check weekly and create issues for changes'],
+    ['Linking topics to blog posts', 'Deterministic via a translation table; otherwise only above a similarity threshold'],
   ])))
   return ''
 }

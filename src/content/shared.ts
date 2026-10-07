@@ -235,10 +235,11 @@ const projectBase: ProjectBase[] = [
     company: '',
     repo: 'https://github.com/mmyonaa/quiz',
     releases: 'https://github.com/mmyonaa/quiz/releases',
-    // 라이브 사이트 캡처 (필기 연습 · 개념 노트 · 실기 필답 · 정보보안기사) — 다크 기본 + '-light' 쌍
+    // 라이브 사이트 캡처 (필기 연습 · 개념 노트 · 암기 노트 · 실기 필답 · 정보보안기사) — 다크 기본 + '-light' 쌍
     images: [
       '/projects/daily-quiz/daily-quiz-home.png',
       '/projects/daily-quiz/daily-quiz-notes.png',
+      '/projects/daily-quiz/daily-quiz-memo.png',
       '/projects/daily-quiz/daily-quiz-practical.png',
       '/projects/daily-quiz/daily-quiz-sec.png',
     ],
