@@ -249,10 +249,10 @@ const projectBase: ProjectBase[] = [
     slug: 'jb-front',
     period: '2026.09.10 – 09.20',
     tags: ['Vue 3', 'TypeScript', 'Pinia', 'Vue Router', 'Tailwind CSS v4', 'Vite', 'Kakao Maps SDK', 'Cloudflare Workers'],
-    link: '',
+    link: 'https://jb-front.kaameo12.workers.dev/',
     company: '',
-    repo: '',
-    // 해커톤 제출작 — 라이브·레포 공개 여부 확인 후 link·repo 를 채웁니다.
+    repo: 'https://github.com/wanted-hackathon-2026/jb-front',
+    // 해커톤 제출작 — 라이브는 Cloudflare Workers 배포본(샘플 데이터).
     imageFrame: 'phone', // 모바일 전용 웹앱 → 스마트폰 목업
     // 실기기 캡처에서 브라우저 크롬(상단 주소창·하단 툴바)을 잘라낸 화면
     images: [
