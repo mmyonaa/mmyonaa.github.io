@@ -51,13 +51,58 @@
   color: var(--faint);
 }
 
-.cinfo__value {
+.cinfo__row {
   justify-self: start;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+
+.cinfo__value {
   color: var(--text);
-  transition: color 0.2s ease;
+  overflow-wrap: anywhere;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-color: var(--line);
+  transition: color 0.2s ease, text-decoration-color 0.2s ease;
 }
 
 .cinfo__value:hover {
+  color: var(--gold);
+  text-decoration-color: var(--gold);
+}
+
+/* 이메일 옆 복사 버튼 — 24px 이상 히트 영역 */
+.cinfo__copy {
+  flex-shrink: 0;
+  width: 30px;
+  height: 30px;
+  display: inline-grid;
+  place-items: center;
+  font-size: 0.95rem;
+  color: var(--dim);
+  background: transparent;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  cursor: pointer;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.cinfo__copy:hover,
+.cinfo__copy.is-copied {
+  color: var(--gold);
+  border-color: var(--gold);
+}
+
+.contact__status {
+  order: 1;
+  min-height: 1.2em;
+  margin: 6px 0 0;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
   color: var(--gold);
 }
 
@@ -123,8 +168,29 @@
   color: var(--faint);
 }
 
+.contact__foot a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: var(--line);
+  transition: color 0.2s ease;
+}
+
 .contact__foot a:hover {
   color: var(--gold);
+}
+
+.contact__colophon {
+  text-align: right;
+  line-height: 1.8;
+}
+
+.contact__colophon-label {
+  color: var(--dim);
+  margin-right: 8px;
+}
+
+.contact__colophon code {
+  font-family: inherit;
 }
 
 @media (max-width: 860px) {
@@ -132,5 +198,15 @@
     flex-direction: column;
     align-items: center;
     gap: 6px;
+  }
+
+  .contact__colophon {
+    text-align: center;
+  }
+
+  .cinfo {
+    grid-template-columns: 24px 72px 1fr;
+    gap: 10px;
+    font-size: 0.84rem;
   }
 }

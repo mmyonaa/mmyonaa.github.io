@@ -12,6 +12,7 @@
     "resume:pdf": "node scripts/build-resume.mjs"
   },
   "devDependencies": {
+    "@types/node": "^26.6.5",
     "@vitejs/plugin-vue": "^6.0.7",
     "typescript": "^6.0.3",
     "vite": "^6.0.7",
