@@ -2,6 +2,7 @@
 import { computed, onBeforeUnmount, ref, watch, watchEffect } from 'vue'
 import { openLightbox } from '../lightbox'
 import { theme } from '../theme'
+import { imageDims } from '../content/image-dims'
 
 const props = withDefaults(
   defineProps<{
@@ -14,8 +15,9 @@ const props = withDefaults(
     wide?: boolean // 16:9 비율 (발표 슬라이드 등)
     zoomable?: boolean // 클릭 시 라이트박스로 확대 (링크(href)가 없을 때만)
     themed?: boolean // 이미지가 다크 기본 + '-light' 변형 쌍으로 존재 — 사이트 테마에 맞춰 스왑
+    eager?: boolean // 첫 장을 바로 받는다 — 화면 상단의 큰 이미지(LCP)에만 쓴다
   }>(),
-  { alt: '', href: '', autoplay: true, frame: undefined, tall: false, wide: false, zoomable: false, themed: false },
+  { alt: '', href: '', autoplay: true, frame: undefined, tall: false, wide: false, zoomable: false, themed: false, eager: false },
 )
 
 // 테마 스왑: base = 다크. 라이트 테마면 '-light' 변형 사용 (아키텍처 다이어그램의 archSrc 와 같은 컨벤션)
@@ -25,20 +27,30 @@ const shownImages = computed(() =>
     : props.images,
 )
 
+// 고유 크기 — 로딩 중 자리를 미리 잡는다. 라이트 변형은 원본과 같은 크기라 원본 키로 찾는다
+function dims(src: string) {
+  const d = imageDims[src] ?? imageDims[src.replace(/-light(\.\w+)$/, '$1')]
+  return d ? { width: d[0], height: d[1] } : {}
+}
+
 // 목업 프레임별 기기 라벨 (좌상단 표시)
 const frameLabel = computed(
   () => props.frame && { kiosk: 'Kiosk', tablet: 'Tablet', phone: 'Mobile' }[props.frame],
 )
 
 // 목업 화면 비율 — 캡처의 실제 비율을 그대로 쓴다. 기기 틀에 맞춰 잘라내면
-// 화면 가장자리(상단 바·하단 버튼)가 깎이므로, 첫 이미지를 따로 재서 그 비율로 화면을 세운다.
-// <img> 의 load 에 기대지 않는 이유: 캐시된 이미지는 load 가 발화하지 않아 비율이
-// 기본값으로 남고, 그 차이만큼 화면이 잘린다.
+// 화면 가장자리(상단 바·하단 버튼)가 깎이므로, 첫 이미지의 비율로 화면을 세운다.
+// 크기 표에 있으면 바로 쓰고, 없을 때만 이미지를 따로 재본다.
 const screenAr = ref('')
 watchEffect((onCleanup) => {
   const src = props.frame ? shownImages.value[0] : ''
   screenAr.value = ''
   if (!src) return
+  const known = dims(src)
+  if (known.width && known.height) {
+    screenAr.value = `${known.width} / ${known.height}`
+    return
+  }
   const probe = new Image()
   const apply = () => {
     if (probe.naturalWidth && probe.naturalHeight) {
@@ -56,6 +68,8 @@ function onImgClick(src: string) {
   if (canZoom.value) openLightbox(src, props.alt)
 }
 
+const reduced = typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches
+
 const slide = ref(0)
 let timer: ReturnType<typeof setInterval> | null = null
 
@@ -67,8 +81,11 @@ function stopAuto() {
 }
 function startAuto() {
   stopAuto()
-  if (props.autoplay && props.images.length > 1) {
-    timer = setInterval(() => slideNext(), 5000)
+  // 모션 최소화면 자동 넘김도 하지 않는다 — 화살표·점으로만 넘긴다
+  if (props.autoplay && !reduced && props.images.length > 1) {
+    timer = setInterval(() => {
+      if (!document.hidden) slideNext()
+    }, 5000)
   }
 }
 function go(i: number) {
@@ -93,6 +110,10 @@ watch(() => props.autoplay, startAuto, { immediate: true })
 onBeforeUnmount(stopAuto)
 
 const hasMany = computed(() => props.images.length > 1)
+
+function loading(i: number): 'eager' | 'lazy' {
+  return props.eager && i === 0 ? 'eager' : 'lazy'
+}
 </script>
 
 <template>
@@ -108,13 +129,23 @@ const hasMany = computed(() => props.images.length > 1)
       <span :class="`slider__${frame}-screen`">
         <div class="slider__track" :style="{ transform: `translateX(-${slide * 100}%)` }">
           <figure v-for="(src, i) in shownImages" :key="src" class="slider__slide">
-            <img
-              :src="src"
-              :alt="`${alt} 스크린샷 ${i + 1}`"
-              loading="lazy"
-              draggable="false"
+            <component
+              :is="canZoom ? 'button' : 'div'"
+              :type="canZoom ? 'button' : undefined"
+              :class="canZoom ? 'slider__zoom' : undefined"
+              :aria-label="canZoom ? `${alt} 스크린샷 ${i + 1} — 확대 보기` : undefined"
               @click="onImgClick(src)"
-            />
+            >
+              <img
+                :src="src"
+                :alt="`${alt} 스크린샷 ${i + 1}`"
+                v-bind="dims(src)"
+                :loading="loading(i)"
+                :fetchpriority="loading(i) === 'eager' ? 'high' : undefined"
+                decoding="async"
+                draggable="false"
+              />
+            </component>
           </figure>
         </div>
       </span>
@@ -123,7 +154,23 @@ const hasMany = computed(() => props.images.length > 1)
     <!-- 일반: 트랙이 통째로 슬라이드 -->
     <div v-else class="slider__track" :style="{ transform: `translateX(-${slide * 100}%)` }">
       <figure v-for="(src, i) in shownImages" :key="src" class="slider__slide">
-        <img :src="src" :alt="`${alt} 스크린샷 ${i + 1}`" loading="lazy" draggable="false" @click="onImgClick(src)" />
+        <component
+          :is="canZoom ? 'button' : 'div'"
+          :type="canZoom ? 'button' : undefined"
+          :class="canZoom ? 'slider__zoom' : undefined"
+          :aria-label="canZoom ? `${alt} 스크린샷 ${i + 1} — 확대 보기` : undefined"
+          @click="onImgClick(src)"
+        >
+          <img
+            :src="src"
+            :alt="`${alt} 스크린샷 ${i + 1}`"
+            v-bind="dims(src)"
+            :loading="loading(i)"
+            :fetchpriority="loading(i) === 'eager' ? 'high' : undefined"
+            decoding="async"
+            draggable="false"
+          />
+        </component>
       </figure>
     </div>
 
@@ -149,7 +196,7 @@ const hasMany = computed(() => props.images.length > 1)
           @click="go(i)"
         />
       </div>
-      <span class="slider__count">{{ String(slide + 1).padStart(2, '0') }} / {{ String(images.length).padStart(2, '0') }}</span>
+      <span class="slider__count" role="status" aria-live="polite">{{ String(slide + 1).padStart(2, '0') }} / {{ String(images.length).padStart(2, '0') }}</span>
     </template>
   </div>
 </template>

@@ -192,6 +192,7 @@ function goto(s: Span) {
               ]"
               :style="bar(s)"
               :title="s.label"
+              :aria-label="s.label"
               @click="goto(s)"
             >
               <span class="ctl__bar-label">{{ s.label }}</span>

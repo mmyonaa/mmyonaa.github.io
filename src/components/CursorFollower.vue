@@ -35,7 +35,13 @@ function onLeave() {
   visible.value = false
 }
 
+// 포인터가 안에 있고 탭이 보일 때만 돈다 — 그 외에는 프레임을 쓰지 않는다
+let running = false
 function loop() {
+  if (!visible.value || document.hidden) {
+    running = false
+    return
+  }
   cx += (tx - cx) * 0.18
   cy += (ty - cy) * 0.18
   if (el.value) {
@@ -43,20 +49,33 @@ function loop() {
   }
   raf = requestAnimationFrame(loop)
 }
+function ensureLoop() {
+  if (running) return
+  running = true
+  raf = requestAnimationFrame(loop)
+}
+function onMoveStart(e: MouseEvent) {
+  onMove(e)
+  ensureLoop()
+}
+function onVisibility() {
+  if (!document.hidden && visible.value) ensureLoop()
+}
 
 onMounted(() => {
   if (!enabled) return
-  window.addEventListener('mousemove', onMove, { passive: true })
+  window.addEventListener('mousemove', onMoveStart, { passive: true })
   window.addEventListener('mouseover', onOver, { passive: true })
   document.addEventListener('mouseleave', onLeave)
-  raf = requestAnimationFrame(loop)
+  document.addEventListener('visibilitychange', onVisibility)
 })
 onBeforeUnmount(() => {
   if (!enabled) return
   cancelAnimationFrame(raf)
-  window.removeEventListener('mousemove', onMove)
+  window.removeEventListener('mousemove', onMoveStart)
   window.removeEventListener('mouseover', onOver)
   document.removeEventListener('mouseleave', onLeave)
+  document.removeEventListener('visibilitychange', onVisibility)
 })
 </script>
 
