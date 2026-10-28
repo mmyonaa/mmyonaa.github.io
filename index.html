@@ -5,13 +5,16 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <!-- 구글 검색 결과 아이콘용: 48px 배수 PNG (SVG만으로는 안 집는 경우 대비) -->
     <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96.png" />
-    <link rel="apple-touch-icon" href="/favicon.svg" />
+    <!-- iOS 홈 화면 아이콘은 SVG 를 읽지 않는다 — 180px PNG -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
       content="임현아(Hyonah Lim) · 풀스택 개발자 포트폴리오. Vue · Next.js · TypeScript · Koa · Fastify · PostgreSQL 기반의 웹 서비스와 AI · 보안 프로젝트를 설계·개발합니다."
     />
+    <!-- 테마 토글이 있으므로 src/theme.ts 가 media 없는 쪽을 현재 테마 값으로 갱신한다 -->
     <meta name="theme-color" content="#0a0a0b" />
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f4f2ea" />
     <meta
       name="google-site-verification"
       content="ZzTHOda-3IRnq_9Pixa05iTAsexkiSW42I2XB7FM5fQ"
@@ -20,14 +23,35 @@
 
     <!-- SEO / Open Graph (링크 공유 미리보기) -->
     <link rel="canonical" href="https://mmyonaa.github.io/" />
+    <link rel="alternate" hreflang="ko" href="https://mmyonaa.github.io/" />
+    <link rel="alternate" hreflang="en" href="https://mmyonaa.github.io/?lang=en" />
+    <link rel="alternate" hreflang="x-default" href="https://mmyonaa.github.io/" />
     <!-- 구글 검색 사이트명은 호스트 루트의 WebSite 구조화 데이터에서 결정된다 -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "WebSite",
-        "name": "Hyonah Lim",
-        "alternateName": "mmyonaa",
-        "url": "https://mmyonaa.github.io/"
+        "@graph": [
+          {
+            "@type": "WebSite",
+            "name": "Hyonah Lim",
+            "alternateName": "mmyonaa",
+            "url": "https://mmyonaa.github.io/"
+          },
+          {
+            "@type": "Person",
+            "name": "Hyonah Lim",
+            "alternateName": "임현아",
+            "jobTitle": "Full-stack Developer",
+            "url": "https://mmyonaa.github.io/",
+            "email": "mailto:apddfhsajrwk@gmail.com",
+            "address": { "@type": "PostalAddress", "addressLocality": "Seoul", "addressCountry": "KR" },
+            "sameAs": [
+              "https://github.com/mmyonaa",
+              "https://www.linkedin.com/in/hyona-lim-a3a626319/",
+              "https://mmyonaa.github.io/blog/"
+            ]
+          }
+        ]
       }
     </script>
     <meta property="og:type" content="website" />
@@ -41,6 +65,7 @@
     <meta property="og:image" content="https://mmyonaa.github.io/og-image.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Hyonah Lim · Full-stack Developer — portfolio" />
     <meta property="og:locale" content="ko_KR" />
     <meta property="og:locale:alternate" content="en_US" />
     <meta name="twitter:card" content="summary_large_image" />
@@ -50,12 +75,11 @@
       content="풀스택 개발자 임현아(Hyonah Lim)의 포트폴리오 — Vue · Next.js · AI · 보안 기반 웹 서비스 설계·개발."
     />
     <meta name="twitter:image" content="https://mmyonaa.github.io/og-image.png" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap"
-      rel="stylesheet"
-    />
+    <meta name="twitter:image:alt" content="Hyonah Lim · Full-stack Developer — portfolio" />
+
+    <!-- 서체는 자가 호스팅(public/fonts, src/fonts.css). 첫 화면에 쓰는 두 파일만 미리 받는다 -->
+    <link rel="preload" href="/fonts/Manrope-300-700-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/SpaceMono-400-latin.woff2" as="font" type="font/woff2" crossorigin />
   </head>
   <body>
     <div id="root"></div>

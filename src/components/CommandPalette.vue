@@ -1,5 +1,6 @@
 <script setup lang="ts">
 // ⌘K / Ctrl+K 커맨드 팔레트 — 프로젝트 점프·섹션 이동·테마/언어·링크.
+// <dialog> 로 열어 포커스 가두기·ESC·배경 비활성(inert)을 브라우저에 맡긴다.
 import { computed, nextTick, onMounted, onUnmounted, ref, watch } from 'vue'
 import { commandOpen, closeCommand, toggleCommand } from '../command'
 import { projects, socials, profile } from '../data'
@@ -11,6 +12,7 @@ type Cmd = { id: string; label: string; hint?: string; keywords?: string; run: (
 const query = ref('')
 const active = ref(0)
 const inputEl = ref<HTMLInputElement | null>(null)
+const dialogEl = ref<HTMLDialogElement | null>(null)
 
 function go(hash: string) {
   window.location.hash = hash
@@ -22,6 +24,7 @@ const commands = computed<Cmd[]>(() => {
     { id: 'home', label: 'Home', hint: 'section', keywords: '홈 top', run: () => go('#top') },
     { id: 'about', label: 'About', hint: 'page', keywords: '소개', run: () => go('#/about') },
     { id: 'works', label: 'Works', hint: 'section', keywords: '프로젝트 projects', run: () => go('#works') },
+    { id: 'archive', label: 'All projects', hint: 'page', keywords: '전체 프로젝트 archive 아카이브', run: () => go('#/archive') },
     { id: 'contact', label: 'Contact', hint: 'section', keywords: '연락', run: () => go('#contact') },
     ...projects.value.map((p) => ({
       id: 'p-' + p.slug,
@@ -48,7 +51,7 @@ const commands = computed<Cmd[]>(() => {
       id: 's-' + s.label,
       label: 'Open ' + s.label,
       hint: 'link',
-      keywords: s.label,
+      keywords: s.label + (s.label === 'Blog' ? ' 블로그 writing 글' : ''),
       run: () => {
         window.open(s.url, s.url.startsWith('mailto') ? '_self' : '_blank')
         closeCommand()
@@ -80,12 +83,21 @@ watch(filtered, () => {
   active.value = 0
 })
 
+const activeId = computed(() => (filtered.value[active.value] ? `cmdk-opt-${filtered.value[active.value].id}` : undefined))
+
 watch(commandOpen, async (open) => {
-  if (!open) return
-  query.value = ''
-  active.value = 0
-  await nextTick()
-  inputEl.value?.focus()
+  const d = dialogEl.value
+  if (open) {
+    query.value = ''
+    active.value = 0
+    await nextTick()
+    if (d && !d.open) d.showModal()
+    document.body.style.overflow = 'hidden'
+    inputEl.value?.focus()
+  } else {
+    document.body.style.overflow = ''
+    if (d?.open) d.close()
+  }
 })
 
 function onListKey(e: KeyboardEvent) {
@@ -99,9 +111,6 @@ function onListKey(e: KeyboardEvent) {
   } else if (e.key === 'Enter') {
     e.preventDefault()
     filtered.value[active.value]?.run()
-  } else if (e.key === 'Escape') {
-    e.preventDefault()
-    closeCommand()
   }
 }
 
@@ -112,45 +121,66 @@ function onGlobalKey(e: KeyboardEvent) {
   }
 }
 
+// 바깥(backdrop) 클릭 — dialog 자신이 타깃일 때만 바깥이다
+function onDialogClick(e: MouseEvent) {
+  if (e.target === dialogEl.value) closeCommand()
+}
+
 onMounted(() => window.addEventListener('keydown', onGlobalKey))
-onUnmounted(() => window.removeEventListener('keydown', onGlobalKey))
+onUnmounted(() => {
+  window.removeEventListener('keydown', onGlobalKey)
+  document.body.style.overflow = ''
+})
 </script>
 
 <template>
-  <transition name="cmdk">
-    <div v-if="commandOpen" class="cmdk" @pointerdown.self="closeCommand()">
-      <div class="cmdk__panel" role="dialog" aria-modal="true" aria-label="Command menu">
-        <div class="cmdk__search">
-          <span class="cmdk__prompt" aria-hidden="true">›</span>
-          <input
-            ref="inputEl"
-            v-model="query"
-            class="cmdk__input"
-            type="text"
-            placeholder="Jump to a project, toggle theme…"
-            spellcheck="false"
-            autocomplete="off"
-            @keydown="onListKey"
-          />
-          <span class="cmdk__badge" aria-hidden="true">esc</span>
-        </div>
-        <ul class="cmdk__list">
-          <li
-            v-for="(c, i) in filtered"
-            :key="c.id"
-            class="cmdk__item"
-            :class="{ 'is-active': i === active }"
-            @pointerenter="active = i"
-            @click="c.run()"
-          >
-            <span class="cmdk__label">{{ c.label }}</span>
-            <span v-if="c.hint" class="cmdk__tag">{{ c.hint }}</span>
-          </li>
-          <li v-if="!filtered.length" class="cmdk__empty">No matches</li>
-        </ul>
+  <dialog
+    ref="dialogEl"
+    class="cmdk"
+    aria-label="Command menu"
+    @cancel.prevent="closeCommand()"
+    @close="closeCommand()"
+    @click="onDialogClick"
+  >
+    <div class="cmdk__panel">
+      <div class="cmdk__search">
+        <span class="cmdk__prompt" aria-hidden="true">›</span>
+        <input
+          ref="inputEl"
+          v-model="query"
+          class="cmdk__input"
+          type="text"
+          role="combobox"
+          aria-expanded="true"
+          aria-controls="cmdk-list"
+          aria-autocomplete="list"
+          :aria-activedescendant="activeId"
+          placeholder="Jump to a project, toggle theme…"
+          spellcheck="false"
+          autocomplete="off"
+          @keydown="onListKey"
+        />
+        <span class="cmdk__badge" aria-hidden="true">esc</span>
       </div>
+      <ul id="cmdk-list" class="cmdk__list" role="listbox">
+        <li
+          v-for="(c, i) in filtered"
+          :id="`cmdk-opt-${c.id}`"
+          :key="c.id"
+          class="cmdk__item"
+          role="option"
+          :aria-selected="i === active"
+          :class="{ 'is-active': i === active }"
+          @pointerenter="active = i"
+          @click="c.run()"
+        >
+          <span class="cmdk__label">{{ c.label }}</span>
+          <span v-if="c.hint" class="cmdk__tag">{{ c.hint }}</span>
+        </li>
+        <li v-if="!filtered.length" class="cmdk__empty" role="presentation">No matches</li>
+      </ul>
     </div>
-  </transition>
+  </dialog>
 </template>
 
 <style scoped src="../styles/CommandPalette.css"></style>

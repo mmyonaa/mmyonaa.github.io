@@ -6,7 +6,7 @@ import { siteKo } from './site'
 import { projectTextKo } from './projects'
 
 export const ko: SiteContent = {
-  profile: { ...profileBase, tagline: siteKo.tagline },
+  profile: { ...profileBase, fullName: siteKo.fullName, tagline: siteKo.tagline },
   contacts,
   skills,
   socials,

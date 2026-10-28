@@ -1,9 +1,8 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import { profile, projects, type Project } from '../data'
+import { projects, type Project } from '../data'
 import { systemMaps } from '../content/shared'
-import ThemeToggle from './ThemeToggle.vue'
-import LanguageToggle from './LanguageToggle.vue'
+import { imageDims } from '../content/image-dims'
 import ImageSlider from './ImageSlider.vue'
 import SystemGraph from './SystemGraph.vue'
 import AnalysisPipeline from './AnalysisPipeline.vue'
@@ -13,7 +12,6 @@ import { theme } from '../theme'
 import { splitTitle } from '../title'
 import { locale } from '../i18n'
 import { openLightbox } from '../lightbox'
-import { openCommand, cmdKLabel } from '../command'
 
 const props = defineProps<{ project: Project }>()
 
@@ -21,15 +19,23 @@ const images = computed(() => props.project.images ?? [])
 
 // 다이어그램: base = 한국어·다크. 영어면 '-en', 라이트 테마면 '-light' 변형 사용
 function archSrc(src: string) {
-  let s = src.replace(/\.png$/, '')
+  const m = src.match(/^(.*)(\.\w+)$/)
+  if (!m) return src
+  let s = m[1]
   if (locale.value === 'en') s += '-en'
   if (theme.value === 'light') s += '-light'
-  return s + '.png'
+  return s + m[2]
 }
 
 // 라이트박스는 다크 변형으로 열되 언어는 현재 로케일에 맞춤
 function archLightboxSrc(src: string) {
-  return locale.value === 'en' ? src.replace(/\.png$/, '-en.png') : src
+  return locale.value === 'en' ? src.replace(/(\.\w+)$/, '-en$1') : src
+}
+
+// 고유 크기 — 로딩 중 자리를 미리 잡아 레이아웃이 밀리지 않게 한다 (변형 파일은 원본과 같은 크기)
+function dims(src: string) {
+  const d = imageDims[src] ?? imageDims[src.replace(/-(en|light|en-light)(\.\w+)$/, '$2')]
+  return d ? { width: d[0], height: d[1] } : {}
 }
 
 const idx = computed(() => projects.value.findIndex((p) => p.slug === props.project.slug))
@@ -56,24 +62,6 @@ const systemMap = computed(() =>
 
 <template>
   <article class="detail">
-    <header class="detail__bar">
-      <a class="detail__back" href="#/">← Back to index</a>
-      <div class="detail__bar-right">
-        <span class="detail__brand">{{ profile.name.toLowerCase() }}<span>_</span></span>
-        <button
-          type="button"
-          class="detail__cmdk"
-          :title="`Command menu — ${cmdKLabel}`"
-          aria-label="Open command menu"
-          @click="openCommand"
-        >
-          <span aria-hidden="true">{{ cmdKLabel }}</span>
-        </button>
-        <LanguageToggle />
-        <ThemeToggle />
-      </div>
-    </header>
-
     <div class="detail__wrap">
       <header class="detail__head">
         <p class="eyebrow reveal">( Project {{ num }} / {{ totalLabel }} )</p>
@@ -111,6 +99,7 @@ const systemMap = computed(() =>
               :tall="!!project.imageFrame"
               :themed="project.themedImages"
               zoomable
+              eager
             />
             <p v-if="images.length && project.imageNote" class="detail__media-note reveal">
               {{ project.imageNote }}
@@ -209,14 +198,22 @@ const systemMap = computed(() =>
             <div class="note__body">
               <h3 class="note__title">{{ n.title }}</h3>
               <p class="note__text">{{ n.body }}</p>
-              <img
+              <button
                 v-if="n.media"
-                class="note__media"
-                :src="n.media"
-                :alt="`${n.title} — 개선 후 동작`"
-                loading="lazy"
+                type="button"
+                class="zoom"
+                :aria-label="`${n.title} — 확대 보기`"
                 @click="openLightbox(n.media, n.title)"
-              />
+              >
+                <img
+                  class="note__media"
+                  :src="n.media"
+                  :alt="`${n.title} — 개선 후 동작`"
+                  v-bind="dims(n.media)"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </button>
             </div>
           </li>
         </ul>
@@ -241,12 +238,20 @@ const systemMap = computed(() =>
         <h2 class="detail__section-title reveal">Architecture</h2>
         <div class="detail__arch">
           <figure v-for="(src, i) in project.architectureImages" :key="src" class="arch reveal">
-            <img
-              :src="archSrc(src)"
-              :alt="project.architectureCaptions?.[i] || `${project.title} 아키텍처 ${i + 1}`"
-              loading="lazy"
+            <button
+              type="button"
+              class="zoom"
+              :aria-label="`${project.architectureCaptions?.[i] || project.title} — 확대 보기`"
               @click="openLightbox(archLightboxSrc(src), project.architectureCaptions?.[i] || '')"
-            />
+            >
+              <img
+                :src="archSrc(src)"
+                :alt="project.architectureCaptions?.[i] || `${project.title} 아키텍처 ${i + 1}`"
+                v-bind="dims(src)"
+                loading="lazy"
+                decoding="async"
+              />
+            </button>
             <figcaption v-if="project.architectureCaptions?.[i]">
               {{ project.architectureCaptions[i] }}
             </figcaption>
@@ -261,12 +266,20 @@ const systemMap = computed(() =>
         <h2 class="detail__section-title reveal">On-site</h2>
         <div class="detail__photos reveal">
           <figure v-for="(src, i) in project.photos" :key="src" class="photo">
-            <img
-              :src="src"
-              :alt="`${project.title} 현장 ${i + 1}`"
-              loading="lazy"
+            <button
+              type="button"
+              class="zoom"
+              :aria-label="`${project.title} 현장 ${i + 1} — 확대 보기`"
               @click="openLightbox(src, project.photosNote?.[0] || '')"
-            />
+            >
+              <img
+                :src="src"
+                :alt="`${project.title} 현장 ${i + 1}`"
+                v-bind="dims(src)"
+                loading="lazy"
+                decoding="async"
+              />
+            </button>
           </figure>
           <div v-if="project.photosNote?.length" class="detail__photos-info">
             <p v-for="(p, i) in project.photosNote" :key="i" class="detail__photos-note">{{ p }}</p>

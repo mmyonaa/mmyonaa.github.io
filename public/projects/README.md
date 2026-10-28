@@ -1,7 +1,7 @@
 # 프로젝트 스크린샷
 
 이 폴더의 이미지는 사이트 루트 경로로 그대로 제공됩니다.
-예) `public/projects/bktheater/bk-theater.png` → 코드에서 `/projects/bktheater/bk-theater.png`
+예) `public/projects/bktheater/bk-theater.png` → 코드에서 `/projects/bktheater/bk-theater.webp`
 
 ## 폴더 구조
 
@@ -30,8 +30,8 @@ public/projects/
   slug: 'bk-theater',
   // ...
   images: [
-    '/projects/bktheater/bk-theater.png',
-    '/projects/bktheater/bk-theater-performance.png',
+    '/projects/bktheater/bk-theater.webp',
+    '/projects/bktheater/bk-theater-performance.webp',
     // ...
   ],
 }

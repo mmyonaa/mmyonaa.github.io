@@ -107,7 +107,13 @@ onMounted(() => {
       }
     }
 
-    raf = requestAnimationFrame(frame)
+    // 모션 최소화면 정적인 한 장으로 끝낸다 — 루프를 돌 이유가 없다
+    if (!reduced && !document.hidden) raf = requestAnimationFrame(frame)
+  }
+
+  function onVisibility() {
+    cancelAnimationFrame(raf)
+    if (!document.hidden) raf = requestAnimationFrame(frame)
   }
 
   function onMove(e: PointerEvent) {
@@ -119,17 +125,24 @@ onMounted(() => {
     mouse.active = false
   }
 
+  function onResize() {
+    resize()
+    if (reduced) frame(0) // 정적 모드는 크기가 바뀔 때만 다시 그린다
+  }
+
   resize()
-  window.addEventListener('resize', resize)
+  window.addEventListener('resize', onResize)
   window.addEventListener('pointermove', onMove, { passive: true })
   window.addEventListener('pointerleave', onLeave)
+  document.addEventListener('visibilitychange', onVisibility)
   raf = requestAnimationFrame(frame)
 
   cleanup = () => {
     cancelAnimationFrame(raf)
-    window.removeEventListener('resize', resize)
+    window.removeEventListener('resize', onResize)
     window.removeEventListener('pointermove', onMove)
     window.removeEventListener('pointerleave', onLeave)
+    document.removeEventListener('visibilitychange', onVisibility)
   }
 })
 

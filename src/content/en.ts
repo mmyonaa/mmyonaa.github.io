@@ -6,7 +6,7 @@ import { siteEn } from './site'
 import { projectTextEn } from './projects'
 
 export const en: SiteContent = {
-  profile: { ...profileBase, tagline: siteEn.tagline, resumeUrl: '/resume-en.pdf' },
+  profile: { ...profileBase, fullName: siteEn.fullName, tagline: siteEn.tagline, resumeUrl: '/resume-en.pdf' },
   contacts,
   skills,
   socials,

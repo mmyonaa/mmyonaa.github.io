@@ -2,6 +2,9 @@
 
 import type { ContactItem, Project, SkillGroup, Social, SystemMap } from './types'
 
+export const BLOG_URL = 'https://mmyonaa.github.io/blog/'
+export const SITE_REPO = 'https://github.com/mmyonaa/mmyonaa.github.io'
+
 export const profileBase = {
   name: 'Hyonah',
   role: 'Full-stack Developer',
@@ -14,6 +17,7 @@ export const contacts: ContactItem[] = [
   { icon: '✉️', label: 'Email', value: 'apddfhsajrwk@gmail.com', href: 'mailto:apddfhsajrwk@gmail.com' },
   { icon: '👩🏻‍💻', label: 'GitHub', value: 'github.com/mmyonaa', href: 'https://github.com/mmyonaa' },
   { icon: '🫴', label: 'LinkedIn', value: 'linkedin.com/in/hyona-lim-a3a626319/', href: 'https://www.linkedin.com/in/hyona-lim-a3a626319/' },
+  { icon: '✍️', label: 'Blog', value: 'mmyonaa.github.io/blog', href: BLOG_URL },
 ]
 
 export const skills: SkillGroup[] = [
@@ -37,8 +41,12 @@ export const skills: SkillGroup[] = [
 
 export const socials: Social[] = [
   { label: 'GitHub', url: 'https://github.com/mmyonaa' },
+  { label: 'Blog', url: BLOG_URL },
   { label: 'Email', url: 'mailto:apddfhsajrwk@gmail.com' },
 ]
+
+// 랜딩 Works 에 보여주는 프로젝트 수 — 배열 앞에서부터. 나머지는 #/archive 표에서 본다.
+export const featuredCount = 5
 
 // 프로젝트 공통(언어 무관) 필드. 최신 → 과거 순.
 export type ProjectText = Pick<
@@ -95,20 +103,20 @@ const projectBase: ProjectBase[] = [
     apiDocs: 'https://bktheater.com/api/docs',
     // 앞 3장은 사용자 화면(랜딩 카드 슬라이더용), 이후는 관리자 화면(상세 페이지용)
     images: [
-      '/projects/bktheater/bk-theater.png',
-      '/projects/bktheater/bk-theater-performance.png',
-      '/projects/bktheater/bk-theater-notice.png',
-      '/projects/bktheater/bk-theater-admin-home.png',
-      '/projects/bktheater/bk-theater-admin-banner.png',
-      '/projects/bktheater/bk-theater-admin-performance.png',
-      '/projects/bktheater/bk-theater-admin-notice.png',
-      '/projects/bktheater/bk-theater-admin-notice-form.png',
+      '/projects/bktheater/bk-theater.webp',
+      '/projects/bktheater/bk-theater-performance.webp',
+      '/projects/bktheater/bk-theater-notice.webp',
+      '/projects/bktheater/bk-theater-admin-home.webp',
+      '/projects/bktheater/bk-theater-admin-banner.webp',
+      '/projects/bktheater/bk-theater-admin-performance.webp',
+      '/projects/bktheater/bk-theater-admin-notice.webp',
+      '/projects/bktheater/bk-theater-admin-notice-form.webp',
     ],
     // 다크 기본 경로 — 라이트 테마에선 컴포넌트가 '-light' 변형을 사용
     architectureImages: [
-      '/projects/bktheater/arch-system.png',
-      '/projects/bktheater/arch-backend.png',
-      '/projects/bktheater/arch-frontend.png',
+      '/projects/bktheater/arch-system.webp',
+      '/projects/bktheater/arch-backend.webp',
+      '/projects/bktheater/arch-frontend.webp',
     ],
   },
   {
@@ -120,14 +128,14 @@ const projectBase: ProjectBase[] = [
     repo: '',
     // 앞 3장은 랜딩 카드 슬라이더용, 전체는 상세 페이지용
     images: [
-      '/projects/esim-site/esim-home.png',
-      '/projects/esim-site/esim-products.png',
-      '/projects/esim-site/esim-product-detail.png',
-      '/projects/esim-site/esim-guide.png',
-      '/projects/esim-site/esim-login.png',
-      '/projects/esim-site/esim-cs.png',
+      '/projects/esim-site/esim-home.webp',
+      '/projects/esim-site/esim-products.webp',
+      '/projects/esim-site/esim-product-detail.webp',
+      '/projects/esim-site/esim-guide.webp',
+      '/projects/esim-site/esim-login.webp',
+      '/projects/esim-site/esim-cs.webp',
     ],
-    architectureImages: ['/projects/esim/system.png'], // 키오스크·어드민과 공유하는 시스템 다이어그램
+    architectureImages: ['/projects/esim/system.webp'], // 키오스크·어드민과 공유하는 시스템 다이어그램
     systemId: 'esim',
   },
   {
@@ -139,14 +147,14 @@ const projectBase: ProjectBase[] = [
     repo: '',
     imageFrame: 'kiosk', // 세로 키오스크 화면 → 키오스크 기기 목업
     images: [
-      '/projects/esim-kiosk/esim-kiosk-01.png',
-      '/projects/esim-kiosk/esim-kiosk-02.png',
-      '/projects/esim-kiosk/esim-kiosk-03.png',
-      '/projects/esim-kiosk/esim-kiosk-04.png',
-      '/projects/esim-kiosk/esim-kiosk-05.png',
+      '/projects/esim-kiosk/esim-kiosk-01.webp',
+      '/projects/esim-kiosk/esim-kiosk-02.webp',
+      '/projects/esim-kiosk/esim-kiosk-03.webp',
+      '/projects/esim-kiosk/esim-kiosk-04.webp',
+      '/projects/esim-kiosk/esim-kiosk-05.webp',
     ],
     photos: ['/projects/esim-kiosk/esim-kiosk-field-01.jpg'], // 일본 현지 매장 배포 현장 사진
-    architectureImages: ['/projects/esim/system.png'], // 서비스·어드민과 공유하는 시스템 다이어그램
+    architectureImages: ['/projects/esim/system.webp'], // 서비스·어드민과 공유하는 시스템 다이어그램
     systemId: 'esim',
   },
   {
@@ -156,7 +164,7 @@ const projectBase: ProjectBase[] = [
     link: '',
     company: '',
     repo: '',
-    architectureImages: ['/projects/esim/system.png'], // 서비스·키오스크와 공유하는 시스템 다이어그램
+    architectureImages: ['/projects/esim/system.webp'], // 서비스·키오스크와 공유하는 시스템 다이어그램
     systemId: 'esim',
   },
   {
@@ -168,11 +176,11 @@ const projectBase: ProjectBase[] = [
     repo: '',
     imageFrame: 'phone', // 모바일 콘텐츠 → 스마트폰 기기 목업
     images: [
-      '/projects/nie/nie-stamp-board.png',
-      '/projects/nie/nie-content-detail.png',
-      '/projects/nie/nie-code-entry.png',
+      '/projects/nie/nie-stamp-board.webp',
+      '/projects/nie/nie-content-detail.webp',
+      '/projects/nie/nie-code-entry.webp',
     ],
-    architectureImages: ['/projects/nie/flow.png', '/projects/nie/kakao-flow.png'],
+    architectureImages: ['/projects/nie/flow.webp', '/projects/nie/kakao-flow.webp'],
   },
   {
     slug: 'apoc-renewal',
@@ -181,7 +189,7 @@ const projectBase: ProjectBase[] = [
     link: 'https://www.apoc.day/',
     company: '',
     repo: '',
-    images: ['/projects/apoc-platform/apoc-home.png'],
+    images: ['/projects/apoc-platform/apoc-home.webp'],
     systemId: 'apoc',
   },
   {
@@ -192,7 +200,7 @@ const projectBase: ProjectBase[] = [
     company: '',
     repo: '',
     imageFrame: 'tablet', // 태블릿 대응이 주제 → 태블릿 기기 목업
-    images: ['/projects/apoc-studio/apoc-studio-tablet-editor.png'],
+    images: ['/projects/apoc-studio/apoc-studio-tablet-editor.webp'],
     systemId: 'apoc',
   },
   {
@@ -218,10 +226,10 @@ const projectBase: ProjectBase[] = [
     board: 'https://github.com/users/mmyonaa/projects/5',
     // 라이브 사이트 캡처 (홈 3D 히어로 · About 발행 히트맵 · 글 읽기 화면 · 토픽/태그) — 첫 장이 랜딩 카드 썸네일
     images: [
-      '/projects/blog-mcp/blog-mcp-home.png',
-      '/projects/blog-mcp/blog-mcp-about.png',
-      '/projects/blog-mcp/blog-mcp-post.png',
-      '/projects/blog-mcp/blog-mcp-topics.png',
+      '/projects/blog-mcp/blog-mcp-home.webp',
+      '/projects/blog-mcp/blog-mcp-about.webp',
+      '/projects/blog-mcp/blog-mcp-post.webp',
+      '/projects/blog-mcp/blog-mcp-topics.webp',
     ],
     themedImages: true,
   },
@@ -237,11 +245,11 @@ const projectBase: ProjectBase[] = [
     releases: 'https://github.com/mmyonaa/quiz/releases',
     // 라이브 사이트 캡처 (필기 연습 · 개념 노트 · 암기 노트 · 실기 필답 · 정보보안기사) — 다크 기본 + '-light' 쌍
     images: [
-      '/projects/daily-quiz/daily-quiz-home.png',
-      '/projects/daily-quiz/daily-quiz-notes.png',
-      '/projects/daily-quiz/daily-quiz-memo.png',
-      '/projects/daily-quiz/daily-quiz-practical.png',
-      '/projects/daily-quiz/daily-quiz-sec.png',
+      '/projects/daily-quiz/daily-quiz-home.webp',
+      '/projects/daily-quiz/daily-quiz-notes.webp',
+      '/projects/daily-quiz/daily-quiz-memo.webp',
+      '/projects/daily-quiz/daily-quiz-practical.webp',
+      '/projects/daily-quiz/daily-quiz-sec.webp',
     ],
     themedImages: true,
   },
@@ -256,12 +264,12 @@ const projectBase: ProjectBase[] = [
     imageFrame: 'phone', // 모바일 전용 웹앱 → 스마트폰 목업
     // 실기기 캡처에서 브라우저 크롬(상단 주소창·하단 툴바)을 잘라낸 화면
     images: [
-      '/projects/jb-front/jb-front-recommend-list.png',
-      '/projects/jb-front/jb-front-filter.png',
-      '/projects/jb-front/jb-front-detail-score.png',
-      '/projects/jb-front/jb-front-anchor.png',
-      '/projects/jb-front/jb-front-async-done.png',
-      '/projects/jb-front/jb-front-history.png',
+      '/projects/jb-front/jb-front-recommend-list.webp',
+      '/projects/jb-front/jb-front-filter.webp',
+      '/projects/jb-front/jb-front-detail-score.webp',
+      '/projects/jb-front/jb-front-anchor.webp',
+      '/projects/jb-front/jb-front-async-done.webp',
+      '/projects/jb-front/jb-front-history.webp',
     ],
   },
   {
@@ -275,8 +283,8 @@ const projectBase: ProjectBase[] = [
     board: 'https://github.com/users/mmyonaa/projects/2',
     // 사이트 자체 캡처 (히어로 · 시스템 다이어그램) — 사이트 개편 시 재캡처
     images: [
-      '/projects/portfolio/portfolio-home.png',
-      '/projects/portfolio/portfolio-sysmap.png',
+      '/projects/portfolio/portfolio-home.webp',
+      '/projects/portfolio/portfolio-sysmap.webp',
     ],
     themedImages: true,
   },

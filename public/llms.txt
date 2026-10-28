@@ -1,0 +1,32 @@
+# Hyonah Lim
+
+> Full-stack developer in Seoul, Korea. Builds web services end to end — from requirements to deployment and operations — across security/AI platforms, global commerce, kiosks, and admin tools. Stack: Vue, React/Next.js, TypeScript, Node (Fastify, Koa), PostgreSQL, Redis/BullMQ, LiteLLM.
+
+- Site: https://mmyonaa.github.io/
+- GitHub: https://github.com/mmyonaa
+- LinkedIn: https://www.linkedin.com/in/hyona-lim-a3a626319/
+- Blog: https://mmyonaa.github.io/blog/
+- Résumé (ko): https://mmyonaa.github.io/resume-ko.pdf · (en): https://mmyonaa.github.io/resume-en.pdf
+- Now: building the AI analysis server of a multi-tenant SIEM security platform at Inbridge (2025.09 –).
+
+## Projects
+
+- [SIEM AI Analysis Server · Automated Incident Analysis](https://mmyonaa.github.io/#/project/siem-ai) — 2025.09 –. A Fastify AI server for SIEM security incident analysis. I built the analysis pipeline on data from a separately developed ingestion and normalization layer, independently developing the orchestrator, LiteLLM gateway, and tenant model management.
+- [SIEM Operations Web Platform · Security Event Monitoring](https://mmyonaa.github.io/#/project/siem-web) — 2025.09 –. A Next.js 15 full-stack web application for a multi-tenant SIEM security platform. I co-developed the SIEM dashboard and incident management with the team, and independently developed the AI report editor.
+- [undefined](https://mmyonaa.github.io/#/project/bk-theater) — 2025.04 –. undefined Live: https://bktheater.com/ Repo: https://github.com/mmyonaa/outsourcing
+- [undefined](https://mmyonaa.github.io/#/project/esim-service) — 2023.11 – 2024.08. undefined Live: https://pre-esim.shop/
+- [undefined](https://mmyonaa.github.io/#/project/esim-kiosk) — 2024.08 – 2025.04. undefined
+- [undefined](https://mmyonaa.github.io/#/project/esim-admin) — 2023.11 – 2025.05. undefined
+- [undefined](https://mmyonaa.github.io/#/project/ecology-content) — 2025.07 – 2025.08. undefined
+- [undefined](https://mmyonaa.github.io/#/project/apoc-renewal) — 2023.07 – 2025.05. undefined Live: https://www.apoc.day/
+- [undefined](https://mmyonaa.github.io/#/project/apoc-studio) — 2025.04 – 2025.08. undefined Live: https://studio.apoc.day/#/
+- [In-house Payment System · Toss & PayPal](https://mmyonaa.github.io/#/project/apoc-payment) — 2024.01 – 2025.05. Integrated Toss and PayPal payment modules and designed/built one-time and recurring subscription payments, plan up/downgrades, and an auto-renewal batch.
+- [undefined](https://mmyonaa.github.io/#/project/blog-mcp) — 2026.07 –. undefined Live: https://mmyonaa.github.io/blog/ Repo: https://github.com/mmyonaa/blog
+- [undefined](https://mmyonaa.github.io/#/project/daily-quiz) — 2026.08 –. undefined Live: https://mmyonaa.github.io/quiz/ Repo: https://github.com/mmyonaa/quiz
+- [undefined](https://mmyonaa.github.io/#/project/jb-front) — 2026.09.10 – 09.20. undefined Live: https://jb-front.kaameo12.workers.dev/ Repo: https://github.com/wanted-hackathon-2026/jb-front
+- [Portfolio Site](https://mmyonaa.github.io/#/project/portfolio) — 2026.07 – 2026.09. My personal portfolio site — planned, designed, built, and deployed myself. The code and full work history are public. Repo: https://github.com/mmyonaa/mmyonaa.github.io
+
+## Notes
+
+- Project pages are hash-routed (`#/project/<slug>`); all pages share one HTML document.
+- Content source: https://github.com/mmyonaa/mmyonaa.github.io/tree/main/src/content

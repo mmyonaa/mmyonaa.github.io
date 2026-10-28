@@ -1,12 +1,29 @@
+/* <dialog> 기본 스타일을 걷어내고 전체 화면 오버레이로 쓴다 */
 .lb {
   position: fixed;
   inset: 0;
   z-index: 1000;
+  width: 100vw;
+  height: 100vh;
+  max-width: none;
+  max-height: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  color: inherit;
   background: rgba(6, 6, 8, 0.9);
   backdrop-filter: blur(6px);
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.lb::backdrop {
+  background: transparent;
+}
+
+.lb:not([open]) {
+  display: none;
 }
 
 .lb__stage {
@@ -27,6 +44,12 @@
   cursor: zoom-in;
   transition: transform 0.08s ease-out;
   will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lb__img {
+    transition: none;
+  }
 }
 
 .lb__img.is-zoomed {

@@ -1,4 +1,5 @@
 <script setup lang="ts">
+// 이미지 확대 보기. <dialog> 로 열어 포커스 가두기·ESC·닫힌 뒤 원래 자리로 포커스 복귀를 브라우저에 맡긴다.
 import { onBeforeUnmount, ref, watch } from 'vue'
 import { lightbox, closeLightbox } from '../lightbox'
 
@@ -6,6 +7,7 @@ const MIN = 1
 const MAX = 6
 const STEP = 0.4
 
+const dialogEl = ref<HTMLDialogElement | null>(null)
 const scale = ref(1)
 const tx = ref(0)
 const ty = ref(0)
@@ -48,34 +50,40 @@ function onUp() {
   dragging = false
 }
 function onKey(e: KeyboardEvent) {
-  if (e.key === 'Escape') closeLightbox()
-  else if (e.key === '+' || e.key === '=') zoomBy(STEP)
+  if (e.key === '+' || e.key === '=') zoomBy(STEP)
   else if (e.key === '-' || e.key === '_') zoomBy(-STEP)
 }
 
 watch(
   () => lightbox.open,
   (open) => {
+    const d = dialogEl.value
     if (open) {
       reset()
-      document.addEventListener('keydown', onKey)
+      if (d && !d.open) d.showModal()
       document.body.style.overflow = 'hidden'
     } else {
-      document.removeEventListener('keydown', onKey)
       document.body.style.overflow = ''
+      if (d?.open) d.close()
     }
   },
 )
 onBeforeUnmount(() => {
-  document.removeEventListener('keydown', onKey)
   document.body.style.overflow = ''
 })
 </script>
 
 <template>
   <Teleport to="body">
-    <div v-if="lightbox.open" class="lb" @pointerdown.self="closeLightbox">
-      <div class="lb__stage" @wheel="onWheel" @pointerdown.self="closeLightbox">
+    <dialog
+      ref="dialogEl"
+      class="lb"
+      :aria-label="lightbox.alt || 'Image'"
+      @cancel.prevent="closeLightbox"
+      @close="closeLightbox"
+      @keydown="onKey"
+    >
+      <div v-if="lightbox.open" class="lb__stage" @wheel="onWheel" @pointerdown.self="closeLightbox">
         <img
           class="lb__img"
           :class="{ 'is-zoomed': scale > 1 }"
@@ -93,14 +101,14 @@ onBeforeUnmount(() => {
 
       <div class="lb__bar" @pointerdown.stop>
         <button type="button" aria-label="축소" @click="zoomBy(-STEP)">−</button>
-        <span class="lb__zoom">{{ Math.round(scale * 100) }}%</span>
+        <span class="lb__zoom" role="status" aria-live="polite">{{ Math.round(scale * 100) }}%</span>
         <button type="button" aria-label="확대" @click="zoomBy(STEP)">+</button>
         <button type="button" aria-label="원래 크기" @click="reset">⤢</button>
       </div>
 
       <button class="lb__close" type="button" aria-label="닫기" @click="closeLightbox">✕</button>
       <p v-if="lightbox.alt" class="lb__caption">{{ lightbox.alt }}</p>
-    </div>
+    </dialog>
   </Teleport>
 </template>
 

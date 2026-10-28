@@ -2,6 +2,7 @@
 
 export interface Profile {
   name: string
+  fullName: string // 히어로·About 상세에 쓰는 전체 이름 (언어별)
   role: string
   tagline: string
   location: string
