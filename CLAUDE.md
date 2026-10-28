@@ -16,8 +16,10 @@
 - 프로젝트 텍스트 → `src/content/projects/<slug>.ts` (한 파일에 `ko`·`en` 나란히).
   새 프로젝트는 파일 추가 후 `projects/index.ts` 에 등록
 - 공통 필드(기간·태그·링크·이미지 경로) → `src/content/shared.ts`.
-  **배열 순서가 곧 랜딩 노출 순서다**
-- 사이트 텍스트(소개·타임라인) → `src/content/site.ts`
+  **배열 순서가 곧 랜딩 노출 순서다.** 랜딩에는 앞의 `featuredCount`(5)개만, 전체는 `#/archive`
+- 사이트 텍스트(소개·히어로 Now·타임라인) → `src/content/site.ts`
+- 이미지는 webp 로 `public/projects/` 에 두고 **`node scripts/image-dims.mjs` 를 다시 돌린다** —
+  `<img width/height>` 가 이 표에서 나온다. 서체를 바꾸면 `node scripts/fetch-fonts.mjs`
 
 ## 함정
 
@@ -28,6 +30,9 @@
   켜져 있다(v1.3 에서 자동화). 라이브 사이트라 되돌리려면 재배포가 필요하다.
 - **`base` 는 `'/'`** — 사용자 사이트(루트)라서다. 프로젝트 페이지로 옮기면
   `vite.config.ts` 의 `base` 를 함께 바꿔야 링크가 깨지지 않는다.
+- **`public/projects/nie/` 는 통째로 gitignore 고 파일별 `!` 예외만 추적된다.** 새 파일을 넣으면
+  `.gitignore` 에 예외를 더해야 배포에 실린다.
+- **`public/portfolio-*.pdf` 는 gitignore 라 사이트에서 링크하지 않는다.**
 - **`apply/` · `4service/` 는 git 에 없다**(로컬 전용 지원 서류·자료). 러너에서도 유효해야
   하는 내용은 여기 두지 않는다.
 - PDF 산출물은 `pnpm portfolio:pdf` · `pnpm resume:pdf` (`scripts/build-*.mjs`).

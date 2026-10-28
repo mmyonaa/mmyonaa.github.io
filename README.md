@@ -7,6 +7,8 @@ Vue 3 + TypeScript + Vite로 만든 개인 포트폴리오. 다크/라이트 테
 ## ✨ 특징
 
 - **다크 미니멀 디자인** — 골드 액센트, 거대 타이포그래피
+- **이름·한 줄 소개·Now 히어로** — 첫 화면에서 누구·무엇을 하는 사람인지 읽힌다. `PORTFOLIO` 워드마크는 배경으로
+- **추천 프로젝트 + 아카이브** — 랜딩에는 앞의 5개(`featuredCount`)만, 전체 14개는 `#/archive` 표(연도·팀/역할·기술·링크)
 - **⌘K 커맨드 팔레트** — 프로젝트 점프·섹션 이동·테마/언어 토글을 키보드로 (Mac `⌘K` / 그 외 `Ctrl K` 자동 표시)
 - **커서 반응형 별자리** — 커서 근처 별들이 얇은 선으로 연결되는 constellation 배경(캔버스, 라이트=골드 점)
 - **터미널 부팅 인트로** — 첫 로드 시 mono 타이핑 시퀀스 (세션당 1회, 클릭/키로 스킵)
@@ -16,7 +18,10 @@ Vue 3 + TypeScript + Vite로 만든 개인 포트폴리오. 다크/라이트 테
 - **아키텍처 다이어그램** — 프로젝트별 구조도를 다크/라이트·한/영 변형으로 표시, 클릭 시 확대(라이트박스)
 - **시스템 그래프** — 함께 이루는 시스템(관련 프로젝트)을 인터랙티브 노드 그래프로 표시(호버 강조·클릭 이동)
 - **스크롤 모션** — 등장(reveal) 애니메이션, Works 타임라인 스크럽 (외부 라이브러리 없이 IntersectionObserver + CSS)
-- **반응형** + `prefers-reduced-motion` 대응
+- **반응형** + `prefers-reduced-motion` 대응 — 좁은 화면은 메뉴 버튼, 모션 최소화면 자동 넘김·별자리 루프도 멈춤
+- **접근성 기본기** — 본문 바로가기, 전역 `:focus-visible`, 라이트박스·커맨드 팔레트는 `<dialog>`(포커스 가두기·ESC·복귀), 확대 이미지는 버튼
+- **자가 호스팅 서체** — Manrope(가변)·Space Mono latin 서브셋을 `public/fonts/` 에 두고 첫 화면 두 파일은 preload
+- **콜로폰·이메일 복사·llms.txt** — 푸터에 스택·버전·커밋 해시, 이메일 옆 복사 버튼, `/llms.txt` 로 구조화 소개
 - **콘텐츠 분리** — 모든 텍스트·프로젝트·연락처를 [`src/content/`](src/content) 한 곳에서 언어별로 관리
 
 ## 🛠 기술 스택
@@ -58,17 +63,21 @@ portfolio/
 │  ├─ command.ts             # ⌘K 커맨드 팔레트 상태 + 플랫폼별 단축키 라벨
 │  ├─ title.ts              # 프로젝트 제목을 '이름 · 부제' 로 분해 (목록·상세 공용)
 │  ├─ data.ts                # ★ 콘텐츠 파사드 — 언어별 콘텐츠를 현재 로케일로 병합해 반응형 export
+│  ├─ fonts.css              # 자가 호스팅 @font-face (scripts/fetch-fonts.mjs 가 생성)
 │  ├─ content/               # 콘텐츠 소스
 │  │  ├─ types.ts            #   콘텐츠 타입 정의
+│  │  ├─ image-dims.ts       #   이미지 고유 크기 표 (scripts/image-dims.mjs 가 생성)
 │  │  ├─ shared.ts           #   언어 공통 (프로필·스킬·연락처, 프로젝트 slug·기간·태그·링크·이미지, 시스템 그래프)
 │  │  ├─ site.ts             #   언어별 사이트 텍스트 (tagline·about·aboutDetail) — siteKo/siteEn
 │  │  ├─ ko.ts / en.ts       #   로케일별 SiteContent 조립 (shared + site + projects 병합)
 │  │  └─ projects/           #   프로젝트 텍스트 — <slug>.ts 안에 ko·en 나란히 (+ index.ts 집계)
-│  ├─ components/            # Navbar·Hero·About(Detail)·Works·Contact·ProjectDetail
+│  ├─ components/            # Navbar·Hero·About(Detail)·Works·Archive·Contact·ProjectDetail·SubBar
 │  │                         # ImageSlider·Lightbox·CommandPalette·BootIntro·SystemGraph
 │  │                         # ThemeToggle·LanguageToggle·CursorFollower·Stars
 │  └─ styles/                # 컴포넌트별 추출 CSS
-└─ public/projects/          # 프로젝트 스크린샷·아키텍처 다이어그램(PNG)
+├─ public/projects/          # 프로젝트 스크린샷·아키텍처 다이어그램(webp)
+├─ public/fonts/             # 서체 woff2
+└─ scripts/                  # PDF 빌드 · fetch-fonts · image-dims
 ```
 
 ## ✏️ 콘텐츠 수정
@@ -79,8 +88,9 @@ portfolio/
   - 제목은 `이름 · 부제` 로 씁니다 — 목록·상세에서 이름은 크게, 부제는 한 줄 아래 작고 여리게 나뉩니다
     ([`title.ts`](src/title.ts)). 구분자는 **앞뒤 공백이 있는** `' · '`·`' — '` 만 인정하므로,
     `홍보·대관` 처럼 붙은 가운뎃점은 낱말로 남습니다. 이름은 한 줄을 넘지 않게 짧게 둡니다
-- **프로젝트 공통 필드** → [`src/content/shared.ts`](src/content/shared.ts) — `slug`·기간·태그·링크(`link`/`company`/`repo`)·이미지/다이어그램 경로, 프로필·스킬·연락처, 시스템 그래프. **배열 순서 = 랜딩 노출 순서**
-- **사이트 텍스트(소개·타임라인)** → [`src/content/site.ts`](src/content/site.ts) — `tagline`·`about`·`aboutDetail` (`siteKo`/`siteEn`)
+- **프로젝트 공통 필드** → [`src/content/shared.ts`](src/content/shared.ts) — `slug`·기간·태그·링크(`link`/`company`/`repo`)·이미지/다이어그램 경로, 프로필·스킬·연락처, 시스템 그래프. **배열 순서 = 랜딩 노출 순서**, 앞의 `featuredCount`(5)개만 랜딩에 보이고 나머지는 `#/archive`
+- **사이트 텍스트(소개·타임라인)** → [`src/content/site.ts`](src/content/site.ts) — `fullName`·`tagline`·`now`(히어로 Now 한 줄)·`about`·`aboutDetail` (`siteKo`/`siteEn`)
+- **이미지를 더하거나 바꿨다면** → `public/projects/` 에 webp 로 두고 `node scripts/image-dims.mjs` 를 돌려 크기 표를 갱신 (`<img width/height>` 로 레이아웃 밀림을 막는 용도)
 
 주요 항목:
 
