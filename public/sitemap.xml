@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 프로젝트 상세는 해시 라우팅(#/project/…)이라 크롤러에게는 별도 URL 이 아니다. 루트와 언어 변형만 적는다. -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://mmyonaa.github.io/</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://mmyonaa.github.io/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://mmyonaa.github.io/?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mmyonaa.github.io/" />
+  </url>
+  <url>
+    <loc>https://mmyonaa.github.io/?lang=en</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://mmyonaa.github.io/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://mmyonaa.github.io/?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mmyonaa.github.io/" />
+  </url>
+</urlset>

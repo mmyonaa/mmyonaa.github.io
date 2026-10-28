@@ -4,6 +4,9 @@ export type Locale = 'ko' | 'en'
 
 function initial(): Locale {
   try {
+    // ?lang=en 처럼 URL 로 언어를 고정할 수 있다 (hreflang 링크가 이 형식을 쓴다). 저장값보다 우선
+    const q = new URLSearchParams(location.search).get('lang')
+    if (q === 'ko' || q === 'en') return q
     const s = localStorage.getItem('locale')
     if (s === 'ko' || s === 'en') return s
   } catch {
