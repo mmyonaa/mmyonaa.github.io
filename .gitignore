@@ -28,20 +28,20 @@ public/portfolio/resume.html
 # 이 레포는 공개(mmyonaa.github.io)라 문안 원본과 그 수정 이력을 두지 않는다 — 사이트는 PDF 만 링크한다.
 docs/*
 
-# nie 다이어그램: draw.io 원본·중간 파일은 비배포 (렌더된 PNG만 포함)
+# nie 다이어그램: draw.io 원본·중간 파일은 비배포 (렌더된 webp 만 포함)
 public/projects/nie/**
-!public/projects/nie/flow.png
-!public/projects/nie/flow-light.png
-!public/projects/nie/flow-en.png
-!public/projects/nie/flow-en-light.png
-!public/projects/nie/kakao-flow.png
-!public/projects/nie/kakao-flow-light.png
-!public/projects/nie/kakao-flow-en.png
-!public/projects/nie/kakao-flow-en-light.png
+!public/projects/nie/flow.webp
+!public/projects/nie/flow-light.webp
+!public/projects/nie/flow-en.webp
+!public/projects/nie/flow-en-light.webp
+!public/projects/nie/kakao-flow.webp
+!public/projects/nie/kakao-flow-light.webp
+!public/projects/nie/kakao-flow-en.webp
+!public/projects/nie/kakao-flow-en-light.webp
 # 앱 스크린샷 (스마트폰 목업 슬라이더용)
-!public/projects/nie/nie-stamp-board.png
-!public/projects/nie/nie-content-detail.png
-!public/projects/nie/nie-code-entry.png
+!public/projects/nie/nie-stamp-board.webp
+!public/projects/nie/nie-content-detail.webp
+!public/projects/nie/nie-code-entry.webp
 
 # 포트폴리오 PDF 는 로컬 생성물(`pnpm portfolio:pdf`) — 사이트에서 링크하지 않으므로 제외.
 # (이력서 PDF 는 헤더 버튼이 링크하므로 public/resume-*.pdf 는 계속 추적합니다.)
