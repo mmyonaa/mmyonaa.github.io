@@ -17,7 +17,7 @@
   새 프로젝트는 파일 추가 후 `projects/index.ts` 에 등록
 - 공통 필드(기간·태그·링크·이미지 경로) → `src/content/shared.ts`.
   **배열 순서가 곧 랜딩 노출 순서다.** 랜딩에는 앞의 `featuredCount`(5)개만, 전체는 `#/archive`
-- 사이트 텍스트(소개·히어로 Now·타임라인) → `src/content/site.ts`
+- 사이트 텍스트(소개·타임라인) → `src/content/site.ts`
 - 이미지는 webp 로 `public/projects/` 에 두고 **`node scripts/image-dims.mjs` 를 다시 돌린다** —
   `<img width/height>` 가 이 표에서 나온다. 서체를 바꾸면 `node scripts/fetch-fonts.mjs`
 

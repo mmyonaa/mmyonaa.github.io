@@ -5,7 +5,6 @@ import type { AboutContent, AboutDetail } from './types'
 export interface SiteText {
   fullName: string
   tagline: string
-  now: string
   about: AboutContent
   aboutDetail: AboutDetail
 }
@@ -13,7 +12,6 @@ export interface SiteText {
 export const siteKo: SiteText = {
   fullName: '임현아',
   tagline: '사용자 중심의 안정적이고 확장 가능한 웹 서비스를 구현하는 풀스택 개발자입니다.',
-  now: '인브릿지에서 멀티테넌트 SIEM 보안 플랫폼의 AI 분석 서버를 만들고 있습니다.',
   about: {
     paragraphs: [
       '보안 AI 플랫폼부터 글로벌 커머스·키오스크까지, 서비스의 처음부터 끝까지 직접 만들어 온 풀스택 개발자입니다.',
@@ -114,7 +112,6 @@ export const siteKo: SiteText = {
 export const siteEn: SiteText = {
   fullName: 'Hyonah Lim',
   tagline: 'A full-stack developer building user-centered, stable, and scalable web services.',
-  now: 'Building the AI analysis server of a multi-tenant SIEM security platform at Inbridge.',
   about: {
     paragraphs: [
       'A full-stack developer who has built services end to end — from a security AI platform to global commerce and kiosks.',

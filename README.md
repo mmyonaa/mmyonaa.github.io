@@ -7,7 +7,6 @@ Vue 3 + TypeScript + Vite로 만든 개인 포트폴리오. 다크/라이트 테
 ## ✨ 특징
 
 - **다크 미니멀 디자인** — 골드 액센트, 거대 타이포그래피
-- **이름·한 줄 소개·Now 히어로** — 첫 화면에서 누구·무엇을 하는 사람인지 읽힌다. `PORTFOLIO` 워드마크는 배경으로
 - **추천 프로젝트 + 아카이브** — 랜딩에는 앞의 5개(`featuredCount`)만, 전체 14개는 `#/archive` 표(연도·팀/역할·기술·링크)
 - **⌘K 커맨드 팔레트** — 프로젝트 점프·섹션 이동·테마/언어 토글을 키보드로 (Mac `⌘K` / 그 외 `Ctrl K` 자동 표시)
 - **커서 반응형 별자리** — 커서 근처 별들이 얇은 선으로 연결되는 constellation 배경(캔버스, 라이트=골드 점)
@@ -89,7 +88,7 @@ portfolio/
     ([`title.ts`](src/title.ts)). 구분자는 **앞뒤 공백이 있는** `' · '`·`' — '` 만 인정하므로,
     `홍보·대관` 처럼 붙은 가운뎃점은 낱말로 남습니다. 이름은 한 줄을 넘지 않게 짧게 둡니다
 - **프로젝트 공통 필드** → [`src/content/shared.ts`](src/content/shared.ts) — `slug`·기간·태그·링크(`link`/`company`/`repo`)·이미지/다이어그램 경로, 프로필·스킬·연락처, 시스템 그래프. **배열 순서 = 랜딩 노출 순서**, 앞의 `featuredCount`(5)개만 랜딩에 보이고 나머지는 `#/archive`
-- **사이트 텍스트(소개·타임라인)** → [`src/content/site.ts`](src/content/site.ts) — `fullName`·`tagline`·`now`(히어로 Now 한 줄)·`about`·`aboutDetail` (`siteKo`/`siteEn`)
+- **사이트 텍스트(소개·타임라인)** → [`src/content/site.ts`](src/content/site.ts) — `fullName`(About 상세 제목)·`tagline`·`about`·`aboutDetail` (`siteKo`/`siteEn`)
 - **이미지를 더하거나 바꿨다면** → `public/projects/` 에 webp 로 두고 `node scripts/image-dims.mjs` 를 돌려 크기 표를 갱신 (`<img width/height>` 로 레이아웃 밀림을 막는 용도)
 
 주요 항목:
