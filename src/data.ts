@@ -8,6 +8,7 @@ import { locale } from './i18n'
 import type { SiteContent } from './content/types'
 import { ko } from './content/ko'
 import { en } from './content/en'
+import { featuredCount } from './content/shared'
 
 export type {
   Profile,
@@ -31,4 +32,5 @@ export const about = computed(() => content.value.about)
 export const aboutDetail = computed(() => content.value.aboutDetail)
 export const skills = computed(() => content.value.skills)
 export const projects = computed(() => content.value.projects)
+export const featuredProjects = computed(() => content.value.projects.slice(0, featuredCount))
 export const socials = computed(() => content.value.socials)
