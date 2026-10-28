@@ -14,6 +14,10 @@ watch(
   theme,
   (t) => {
     document.documentElement.dataset.theme = t
+    // 브라우저 UI 색(모바일 주소창 등)도 테마를 따른다 — index.css 의 --bg 와 같은 값
+    document
+      .querySelector('meta[name="theme-color"]:not([media])')
+      ?.setAttribute('content', t === 'light' ? '#f4f2ea' : '#0a0a0b')
     try {
       localStorage.setItem('theme', t)
     } catch {

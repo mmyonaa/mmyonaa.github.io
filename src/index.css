@@ -3,6 +3,8 @@
    컴포넌트별 스타일은 각 .vue 파일의 <style scoped> 에 위치.
    ========================================================= */
 
+@import './fonts.css';
+
 :root {
   --bg: #0a0a0b;
   --bg-2: #0f0f12;
@@ -41,6 +43,40 @@
 
 html {
   scroll-behavior: smooth;
+  /* 고정 헤더 높이만큼 — 앵커 이동·포커스 요소가 헤더 뒤로 들어가지 않게 */
+  scroll-padding-top: 96px;
+}
+
+/* 키보드 포커스 표시 — 컴포넌트가 outline 을 지우면 같은 자리에 대체 표시를 둬야 한다 */
+:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+main:focus {
+  outline: none;
+}
+
+/* 본문 바로가기 — 키보드 포커스가 올 때만 화면에 나타난다 */
+.skip {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  z-index: 2000;
+  padding: 10px 16px;
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  color: var(--bg);
+  background: var(--gold);
+  border-radius: 999px;
+  transform: translateY(-200%);
+}
+
+.skip:focus-visible {
+  transform: none;
+  outline-offset: 2px;
 }
 
 body {
@@ -128,7 +164,6 @@ main {
     transform: none;
     transition: none;
   }
-  .stars span,
   .badge__ring,
   .mouse span {
     animation: none !important;
