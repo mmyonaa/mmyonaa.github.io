@@ -2,8 +2,6 @@
 import { computed } from 'vue'
 import { profile, about, aboutDetail, skills, contacts } from '../data'
 import CareerTimeline from './CareerTimeline.vue'
-import ThemeToggle from './ThemeToggle.vue'
-import LanguageToggle from './LanguageToggle.vue'
 
 const education = computed(() => aboutDetail.value.education)
 const languages = computed(() => aboutDetail.value.languages)
@@ -11,18 +9,9 @@ const languages = computed(() => aboutDetail.value.languages)
 
 <template>
   <article class="about-detail">
-    <header class="detail__bar">
-      <a class="detail__back" href="#about">← Back to index</a>
-      <div class="detail__bar-right">
-        <span class="detail__brand">{{ profile.name.toLowerCase() }}<span>_</span></span>
-        <LanguageToggle />
-        <ThemeToggle />
-      </div>
-    </header>
-
     <div class="detail__wrap">
       <p class="eyebrow reveal">( About me )</p>
-      <h1 class="about-detail__title reveal">{{ profile.name }}</h1>
+      <h1 class="about-detail__title reveal">{{ profile.fullName }}</h1>
       <p class="about-detail__role reveal">{{ profile.role }} · {{ profile.location }}</p>
 
       <p class="about-detail__intro reveal">{{ aboutDetail.intro }}</p>

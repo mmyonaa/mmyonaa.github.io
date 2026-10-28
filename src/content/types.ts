@@ -2,8 +2,10 @@
 
 export interface Profile {
   name: string
+  fullName: string // 히어로·About 상세에 쓰는 전체 이름 (언어별)
   role: string
   tagline: string
+  now: string // 히어로의 'Now' 한 줄 — 지금 어디서 무엇을 하는지. 사실만 쓴다
   location: string
   email: string
   resumeUrl: string
