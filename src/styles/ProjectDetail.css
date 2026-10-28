@@ -4,67 +4,13 @@
   min-height: 100vh;
 }
 
-.detail__bar {
-  position: sticky;
-  top: 0;
-  z-index: 50;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 20px 40px;
-  background: var(--nav-bg);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--line);
-}
 
-.detail__bar-right {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-}
 
-.detail__back {
-  font-family: var(--mono);
-  font-size: 0.8rem;
-  letter-spacing: 0.06em;
-  color: var(--dim);
-  transition: color 0.2s ease;
-}
 
-.detail__back:hover {
-  color: var(--gold);
-}
 
-.detail__brand {
-  font-weight: 700;
-  font-size: 1.05rem;
-}
 
-.detail__brand span {
-  color: var(--gold);
-}
 
-.detail__cmdk {
-  flex-shrink: 0;
-  height: 30px;
-  display: inline-flex;
-  align-items: center;
-  padding: 0 10px;
-  font-family: var(--mono);
-  font-size: 0.7rem;
-  letter-spacing: 0.04em;
-  color: var(--dim);
-  background: transparent;
-  border: 1px solid var(--line);
-  border-radius: 7px;
-  cursor: pointer;
-  transition: color 0.2s ease, border-color 0.2s ease;
-}
 
-.detail__cmdk:hover {
-  color: var(--text);
-  border-color: var(--gold);
-}
 
 .detail__wrap {
   max-width: 1080px;
@@ -622,10 +568,6 @@
 }
 
 @media (max-width: 860px) {
-  .detail__bar {
-    padding: 16px 22px;
-  }
-
   .detail__wrap {
     padding: 50px 22px 90px;
   }
@@ -682,12 +624,6 @@
   }
 }
 
-@media (max-width: 480px) {
-  .detail__cmdk {
-    display: none;
-  }
-}
-
 /* 라이브 분석 파이프라인 다이어그램 — 좁은 화면에선 가로 스크롤 */
 .detail__pipeline {
   overflow-x: auto;
@@ -733,4 +669,24 @@
   line-height: 1.8;
   color: var(--dim);
   word-break: keep-all;
+}
+
+/* 확대 가능한 이미지를 감싸는 버튼 — 키보드로도 라이트박스를 연다 */
+.zoom {
+  all: unset;
+  display: block;
+  width: 100%;
+  cursor: zoom-in;
+}
+
+.zoom img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.zoom:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+  border-radius: 8px;
 }

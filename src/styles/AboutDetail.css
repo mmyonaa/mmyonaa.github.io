@@ -4,46 +4,11 @@
   min-height: 100vh;
 }
 
-/* ---------- top bar (ProjectDetail 와 동일한 룩) ---------- */
-.detail__bar {
-  position: sticky;
-  top: 0;
-  z-index: 50;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 20px 40px;
-  background: var(--nav-bg);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--line);
-}
 
-.detail__bar-right {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-}
 
-.detail__back {
-  font-family: var(--mono);
-  font-size: 0.8rem;
-  letter-spacing: 0.06em;
-  color: var(--dim);
-  transition: color 0.2s ease;
-}
 
-.detail__back:hover {
-  color: var(--gold);
-}
 
-.detail__brand {
-  font-weight: 700;
-  font-size: 1.05rem;
-}
 
-.detail__brand span {
-  color: var(--gold);
-}
 
 /* ---------- layout ---------- */
 .detail__wrap {
@@ -341,9 +306,6 @@
 
 /* ---------- responsive ---------- */
 @media (max-width: 860px) {
-  .detail__bar {
-    padding: 16px 22px;
-  }
 
   .detail__wrap {
     padding: 50px 22px 90px;

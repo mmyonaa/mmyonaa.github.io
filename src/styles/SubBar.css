@@ -1,0 +1,116 @@
+.subbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 20px 40px;
+  background: var(--nav-bg);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--line);
+}
+
+.subbar__right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.subbar__back {
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  color: var(--dim);
+  padding: 8px 0; /* 텍스트 링크지만 터치 높이는 확보 */
+  transition: color 0.2s ease;
+}
+
+.subbar__back:hover {
+  color: var(--gold);
+}
+
+.subbar__back-short {
+  display: none;
+}
+
+.subbar__brand {
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+
+.subbar__brand span {
+  color: var(--gold);
+}
+
+.subbar__resume {
+  flex-shrink: 0;
+  height: 38px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 16px;
+  font-family: var(--mono);
+  font-size: 0.74rem;
+  letter-spacing: 0.06em;
+  color: var(--bg);
+  background: var(--gold);
+  border: 1px solid var(--gold);
+  border-radius: 999px;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.subbar__resume:hover {
+  opacity: 0.85;
+  transform: translateY(-1px);
+}
+
+.subbar__cmdk {
+  flex-shrink: 0;
+  height: 38px;
+  display: inline-flex;
+  align-items: center;
+  padding: 0 12px;
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.04em;
+  color: var(--dim);
+  background: transparent;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  cursor: pointer;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.subbar__cmdk:hover {
+  color: var(--text);
+  border-color: var(--gold);
+}
+
+@media (max-width: 860px) {
+  .subbar {
+    padding: 14px 22px;
+  }
+  .subbar__right {
+    gap: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .subbar__brand {
+    display: none;
+  }
+  .subbar__back {
+    white-space: nowrap;
+  }
+  .subbar__back-full {
+    display: none;
+  }
+  .subbar__back-short {
+    display: inline;
+  }
+  .subbar__resume {
+    padding: 0 12px;
+  }
+}
