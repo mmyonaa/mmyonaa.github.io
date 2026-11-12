@@ -44,7 +44,7 @@ export const ko: ProjectText = {
     },
     {
       "title": "SSG 기반 SEO 최적화",
-      "body": "vite-ssg로 페이지를 정적 생성하고 메타·JSON-LD·사이트맵을 구성했습니다. 상세 페이지가 색인되지 않던 원인은 SSR 라우터 가드가 next() 없이 반환해 프리렌더를 건너뛰는 문제였습니다. 이를 수정하고 옛 URL을 301 리디렉션했습니다. 이후 77일(2026.07.06~09.20) Search Console에서 노출 376·클릭 95·CTR 25.3%를 확인했습니다. 상호 검색은 평균 1.7위·CTR 52.2%였고, 비상호 검색에서는 24클릭이 발생했습니다."
+      "body": "vite-ssg로 페이지를 정적 생성하고 메타·JSON-LD·사이트맵을 구성했습니다. 상세 페이지가 색인되지 않던 원인은 SSR 라우터 가드가 next() 없이 반환해 프리렌더를 건너뛰는 문제였습니다. 이를 수정하고 옛 URL을 301 리디렉션했습니다. 이후 77일(2026.07.06~09.20) Search Console에서 노출 376·클릭 95·CTR 25.3%를 확인했습니다. 상호 검색은 평균 1.7위·CTR 52.2%였고, 비상호 검색에서는 24클릭이 발생했습니다. 2026년 10월에는 Search Console 색인 실패 23건의 원인을 세 가지로 좁혀 고쳤습니다 — 없는 주소가 홈 사본(soft 404)으로 나가던 것, 옛 상세 주소 리디렉션이 공연 유형을 구분하지 못하던 것, 프리렌더 HTML 본문이 비어 있던 것입니다."
     },
     {
       "title": "데이터 유실 수정과 중복 화면 통합",
@@ -113,7 +113,7 @@ export const en: ProjectText = {
     },
     {
       title: 'SEO via static site generation',
-      body: 'Built statically with vite-ssg to improve initial render and indexing, injecting per-page meta/OG/JSON-LD (NewsArticle, TheaterEvent) after data load. The build collects all articles and performances from the API to auto-generate a sitemap.xml that includes individual URLs. When detail pages stopped being indexed in production, I traced the regression to its root cause — a router guard returning without next() during SSR, which silently skipped prerendering entirely — restored it, and added 301 redirects from legacy ?id= URLs to the new path format to clean up duplicate indexing. In the 77 days after the fix (6 Jul – 20 Sep 2026), Google Search Console shows 20 indexed pages drawing 376 impressions and 95 clicks (25.3% CTR). The brand query itself sits at an average position of 1.7 with a 52.2% CTR and accounts for 75% of those clicks; the remaining 24 came from non-brand searches.',
+      body: 'Built statically with vite-ssg to improve initial render and indexing, injecting per-page meta/OG/JSON-LD (NewsArticle, TheaterEvent) after data load. The build collects all articles and performances from the API to auto-generate a sitemap.xml that includes individual URLs. When detail pages stopped being indexed in production, I traced the regression to its root cause — a router guard returning without next() during SSR, which silently skipped prerendering entirely — restored it, and added 301 redirects from legacy ?id= URLs to the new path format to clean up duplicate indexing. In the 77 days after the fix (6 Jul – 20 Sep 2026), Google Search Console shows 20 indexed pages drawing 376 impressions and 95 clicks (25.3% CTR). The brand query itself sits at an average position of 1.7 with a 52.2% CTR and accounts for 75% of those clicks; the remaining 24 came from non-brand searches. In October 2026 I narrowed 23 Search Console indexing failures down to three causes and fixed them: unknown URLs served as copies of the home page (soft 404), legacy detail redirects that ignored the performance type, and prerendered HTML with an empty body.',
     },
     {
       title: 'Recurring maintenance sprints',

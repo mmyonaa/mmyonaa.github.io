@@ -3,35 +3,35 @@ import type { ProjectText } from '../shared'
 export const ko: ProjectText = {
   stats: [
     {
-      "value": "994문항",
+      "value": "1,028문항",
       "label": "필기 문제"
     },
     {
-      "value": "154문항",
+      "value": "208문항",
       "label": "실기 문제"
     },
     {
-      "value": "137개",
+      "value": "138개",
       "label": "개념 주제"
     },
     {
-      "value": "79장",
+      "value": "80장",
       "label": "암기 카드"
     }
   ],
-  "statsNote": "2026년 10월 기준 · 정보처리기사와 정보보안기사 두 시험의 합계입니다.",
+  "statsNote": "2026년 11월 기준 · 정보처리기사와 정보보안기사 두 시험의 합계입니다.",
   "team": "1인",
   "status": "운영 중",
   "title": "daily.quiz · 자격증 문제 연습장",
   "description": "정보처리기사·정보보안기사의 필기와 실기 문항을 풀고 채점·해설을 확인하는 학습 사이트입니다.",
   "overview": [
-    "blog-mcp의 개념 글을 바탕으로 LLM이 생성한 필기 994문항·실기 154문항과 주제 137개를 제공합니다. 연습·모의고사·오답 복습·암기 노트를 홈에서 고르고, 해설에서 관련 개념 글로 이동할 수 있으며, 출제·채점은 브라우저에서 처리합니다."
+    "blog-mcp의 개념 글을 바탕으로 LLM이 생성한 필기 1,028문항·실기 208문항과 주제 138개를 제공합니다. 연습·모의고사·오답 복습·암기 노트를 홈에서 고르고, 해설에서 관련 개념 글로 이동할 수 있으며, 출제·채점은 브라우저에서 처리합니다."
   ],
   "highlights": [
     "실기 단답의 표기 정규화와 허용 답안 기반 자동 채점",
     "실제 시험 형식의 모의고사 — 필기 100문항·150분, 실기 20문항·150분",
     "1·3·7일 간격 복습과 계정별 오답·북마크 저장",
-    "외울 값만 모은 암기 노트 79장과 값을 덮는 가리기 모드",
+    "외울 값만 모은 암기 노트 80장과 값을 덮는 가리기 모드",
     "문항 스키마·주제 참조 검증과 블로그 글 연결 자동화"
   ],
   "techNotes": [
@@ -53,7 +53,7 @@ export const ko: ProjectText = {
     },
     {
       "title": "암기 노트와 가리기 모드",
-      "body": "개념 노트가 설명을 읽는 자리라면 암기 노트는 외울 값만 모은 자리입니다. 줄글 없이 두문자·대조표·순서 흐름·계층 스택·타일로 카드 79장을 구성했고, 카드는 시험·영역을 직접 갖지 않고 개념 주제에서 물려받아 본문 한 벌이 두 시험 93자리에 함께 섭니다. 가리기 모드는 외울 값을 덮어 눌러서 하나씩 확인하도록 했습니다. 카드별 '외웠다' 표시는 채점이 아니라 사용자 선언이라 오답노트와 분리해 저장합니다."
+      "body": "개념 노트가 설명을 읽는 자리라면 암기 노트는 외울 값만 모은 자리입니다. 줄글 없이 두문자·대조표·순서 흐름·계층 스택·타일로 카드 80장을 구성했고, 카드는 시험·영역을 직접 갖지 않고 개념 주제에서 물려받아 본문 한 벌이 두 시험 94자리에 함께 섭니다. 가리기 모드는 외울 값을 덮어 눌러서 하나씩 확인하도록 했습니다. 카드별 '외웠다' 표시는 채점이 아니라 사용자 선언이라 오답노트와 분리해 저장합니다."
     },
     {
       "title": "빌드 검증과 콘텐츠 게이트",
@@ -73,39 +73,39 @@ export const ko: ProjectText = {
 export const en: ProjectText = {
   stats: [
     {
-      "value": "994",
+      "value": "1,028",
       "label": "Written questions"
     },
     {
-      "value": "154",
+      "value": "208",
       "label": "Practical questions"
     },
     {
-      "value": "137",
+      "value": "138",
       "label": "Concept topics"
     },
     {
-      "value": "79",
+      "value": "80",
       "label": "Memo cards"
     }
   ],
-  statsNote: 'As of October 2026 · totals across both certifications.',
+  statsNote: 'As of November 2026 · totals across both certifications.',
   team: 'Solo',
   status: 'Live',
   title: 'daily.quiz · Certification Practice',
   description:
     'A static practice ground for two Korean IT certifications — multiple-choice written exams and short-answer practical exams with instant grading and explanations. A sister project to the blog-mcp blog: each explanation links back to the concept post.',
   overview: [
-    'A sister project built so the concept posts blog-mcp publishes daily do not end at "read and done." The same topics come back as questions, and a wrong answer leads from the explanation to the blog post. It currently holds 994 written questions (515 + 479 across the two exams), 154 practical questions, 137 concept topics, and 79 memo cards.',
+    'A sister project built so the concept posts blog-mcp publishes daily do not end at "read and done." The same topics come back as questions, and a wrong answer leads from the explanation to the blog post. It currently holds 994 written questions (515 + 479 across the two exams), 154 practical questions, 137 concept topics, and 80 memo cards.',
     'It runs without a server. Questions, answers, and explanations are baked into HTML at build time, and generating and grading a set happens entirely in the browser. Only user data (bookmarks, wrong-answer history) lives in Supabase, behind Google sign-in and RLS isolation per user. The question bank sits behind an Astro content collection with a zod schema as the publish gate — a question that breaks the schema or points at a nonexistent topic fails the build.',
     'Two axes were genuinely hard: grading free-form practical answers with no choices to compare against, and opening two exams with different formats through a single set of screens.',
   ],
   highlights: [
-    '994 written and 154 practical questions, 137 concept topics — LLM-generated from the blog concept posts',
+    '1,028 written and 208 practical questions, 138 concept topics — LLM-generated from the blog concept posts',
     'Automatic grading for free-form practical answers — notation normalization, accepted-form synonym lists',
     'Mock exams in the real format — 100 questions / 150 min written, 20 questions / 150 min practical',
     'Spaced-repetition wrong-answer notebook — 1 → 3 → 7 days to graduate',
-    'A second notebook of 79 memo cards with a mask mode that covers the values to memorize',
+    'A second notebook of 80 memo cards with a mask mode that covers the values to memorize',
     'zod schema as a publish gate — violations and dangling topic references fail the build',
   ],
   techNotes: [
@@ -127,7 +127,7 @@ export const en: ProjectText = {
     },
     {
       title: 'A second notebook — memo cards and mask mode',
-      body: 'The concept notes are where you read why; the memo notes are where only the values to memorize live. Prose is dropped entirely in favor of mnemonics, comparison tables, step flows, layer stacks, and tiles across 79 cards. Cards do not carry an exam or area directly either — they inherit both from the concept topic, so one body of text stands in 93 slots across the two exams instead of being copied per exam. Mask mode covers the memorized values like a red sheet and reveals them one tap at a time, and a per-card "memorized" flag is stored apart from the wrong-answer notebook: it is a user declaration, not a grade, and mixing it in would blur what "N to review today" means.',
+      body: 'The concept notes are where you read why; the memo notes are where only the values to memorize live. Prose is dropped entirely in favor of mnemonics, comparison tables, step flows, layer stacks, and tiles across 79 cards. Cards do not carry an exam or area directly either — they inherit both from the concept topic, so one body of text stands in 94 slots across the two exams instead of being copied per exam. Mask mode covers the memorized values like a red sheet and reveals them one tap at a time, and a per-card "memorized" flag is stored apart from the wrong-answer notebook: it is a user declaration, not a grade, and mixing it in would blur what "N to review today" means.',
     },
     {
       title: 'Coupling with the blog — public artifacts, no API',

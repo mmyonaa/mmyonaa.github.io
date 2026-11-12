@@ -3,7 +3,7 @@ import type { ProjectText } from '../shared'
 export const ko: ProjectText = {
   stats: [
     {
-      "value": "100편+",
+      "value": "160편+",
       "label": "누적 자동 발행"
     },
     {
@@ -11,10 +11,11 @@ export const ko: ProjectText = {
       "label": "기존 글 주소 이관"
     }
   ],
+  "statsNote": "2026년 11월 기준 · 7개 섹션을 돌며 무인 발행",
   "team": "1인",
   "status": "운영 중 (무인 발행)",
   "title": "blog-mcp · 블로그 발행 MCP 서버",
-  "description": "MCP를 학습하기 위해 만든 블로그 자동 발행 서버입니다. 글 생성부터 검증·배포까지 자동화해 100편 이상을 발행했습니다.",
+  "description": "MCP를 학습하기 위해 만든 블로그 자동 발행 서버입니다. 글 생성부터 검증·배포까지 자동화해 160편 이상을 발행했습니다.",
   "overview": [
     "모델 호출은 오케스트레이터가, 글 조회·발행은 MCP 서버가 맡도록 구현했습니다. cron이 주제 선정·집필·검토를 실행하고, 규칙 검증을 통과한 글을 Astro 블로그로 배포합니다."
   ],
@@ -54,7 +55,7 @@ export const ko: ProjectText = {
 export const en: ProjectText = {
   stats: [
     {
-      "value": "100+",
+      "value": "160+",
       "label": "Posts auto-published"
     },
     {
@@ -62,20 +63,21 @@ export const en: ProjectText = {
       "label": "Legacy URLs redirected"
     }
   ],
+  statsNote: 'As of November 2026 · unattended publishing across 7 sections',
   team: 'Solo',
   status: 'Live (unattended publishing)',
   title: 'blog-mcp · Blog Publishing MCP Server',
   description:
-    'A learning project building an MCP (Model Context Protocol) server from scratch, aimed at automatically writing and publishing blog posts. It comprises a stdio MCP server (tools, resources, prompts) and an Astro blog, and a cron orchestrator now rotates through six sections to publish a post unattended every day (100+ posts so far).',
+    'A learning project building an MCP (Model Context Protocol) server from scratch, aimed at automatically writing and publishing blog posts. It comprises a stdio MCP server (tools, resources, prompts) and an Astro blog, and a cron orchestrator now rotates through seven sections to publish a post unattended every day (160+ posts so far).',
   overview: [
     'The stated goal is "auto-publish a blog post every day," but the real point was to learn MCP properly rather than the output itself. So I kept the publishing pipeline as simple as possible and focused on MCP server design, building it as a pnpm-workspace monorepo — server (the MCP server) plus site (the Astro blog).',
     'The core lesson is the principle that "the MCP server never writes posts itself." The server makes no LLM calls and exposes only tools, resources, and prompts as pure functions; the actual behavior is split across three pieces — a trigger (cron), an orchestrator (the LLM loop), and the MCP server. Model calls happen only in the orchestrator while the server just runs functions — drawing that boundary by hand was the objective.',
-    'In Phase 1 I implemented all three MCP primitives in one server, and in Phase 3 the unattended publishing pipeline went live — a daily cron (14:23 KST) drives the orchestrator to write a post in the order set by a five-slot section rotation, and only posts that pass the publish gate (hook) get deployed. The topic axis spans six sections — Building MCP & agents, Building blogs & web, Engineer Information Processing, Information Security Engineer, Algorithms, and Security — and posts that need research (security incidents, MCP ecosystem news) are published through Mode R, which gathers evidence with web-search tools. An LLM agent writes the posts while the server only exposes tools, and a gate inspects each publish deterministically just before it lands — over 100 posts have shipped without a human in the loop. Published posts render through an Astro SSG blog with a table of contents + scrollspy, Shiki dual-theme code highlighting, client-side search (⌘K), tag/section pages, related posts, RSS, sitemap, per-post JSON-LD, and custom visuals like a topic graph and a publish heatmap. GitHub Actions deploys to GitHub Pages on push to main.',
+    'In Phase 1 I implemented all three MCP primitives in one server, and in Phase 3 the unattended publishing pipeline went live — a daily cron (14:23 KST) drives the orchestrator to write a post in the order set by a five-slot section rotation, and only posts that pass the publish gate (hook) get deployed. The topic axis spans seven sections — Building MCP & agents, Building blogs & web, Engineer Information Processing, Information Security Engineer, Big Data Analysis Engineer, Algorithms, and Security — and posts that need research (security incidents, MCP ecosystem news) are published through Mode R, which gathers evidence with web-search tools. An LLM agent writes the posts while the server only exposes tools, and a gate inspects each publish deterministically just before it lands — over 100 posts have shipped without a human in the loop. Published posts render through an Astro SSG blog with a table of contents + scrollspy, Shiki dual-theme code highlighting, client-side search (⌘K), tag/section pages, related posts, RSS, sitemap, per-post JSON-LD, and custom visuals like a topic graph and a publish heatmap. GitHub Actions deploys to GitHub Pages on push to main.',
   ],
   highlights: [
     'Implemented all three MCP primitives by hand — a stdio server with Tools, Resources, Prompts',
     'No-LLM pure-function principle — trigger, orchestrator, and MCP server as three separate pieces',
-    'Unattended publishing pipeline in production — 100+ posts published automatically',
+    'Unattended publishing pipeline in production — 160+ posts published automatically',
     'Deterministic structural validation as a publish gate, blocking link hallucination',
     'Closed the content loop — view counts weight topic selection',
     'Migrated 109 already-indexed URLs broken by a repo rename — redirect pages generated automatically',

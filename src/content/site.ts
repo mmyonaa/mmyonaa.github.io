@@ -73,7 +73,7 @@ export const siteKo: SiteText = {
         body: '고객사 3개사를 대상으로 SIEM 제품을 한국어·영문으로 발표 (글로벌 IT 기업, 대기업 계열사, 국내 대기업). 국·영문 발표 자료와 데모 시나리오를 직접 제작했습니다.',
       },
       {
-        period: '2026',
+        period: '2026.03',
         title: 'RSAC 2026 참관',
         body: '글로벌 보안 컨퍼런스(RSA Conference) 참관 — 최신 보안 트렌드·솔루션 리서치.',
       },
@@ -173,7 +173,7 @@ export const siteEn: SiteText = {
         body: 'Presented and demoed the SIEM product to three enterprise clients in Korean and English (a global IT firm, a large-enterprise affiliate, and a major Korean conglomerate). I authored the decks in both languages and built the demo scenario.',
       },
       {
-        period: '2026',
+        period: '2026.03',
         title: 'RSAC 2026 (attended)',
         body: 'Attended the RSA Conference to research the latest security trends and solutions.',
       },

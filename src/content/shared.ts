@@ -275,7 +275,7 @@ const projectBase: ProjectBase[] = [
   {
     slug: 'portfolio',
     live: true,
-    period: '2026.07 – 2026.09',
+    period: '2026.07 –',
     tags: ['Vue 3', 'TypeScript', 'Vite', 'GitHub Actions', 'CSS'],
     link: '',
     company: '',
