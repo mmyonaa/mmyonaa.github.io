@@ -1,6 +1,12 @@
 import type { ProjectText } from '../shared'
 
 export const ko: ProjectText = {
+  stats: [
+    { value: "8종", label: "역할별 분석 에이전트" },
+    { value: "6종", label: "LLM 프로바이더" },
+    { value: "4종", label: "XDR 연동 벤더" },
+  ],
+  statsNote: "2026.07 기준 코드 실측 · 구조 수치",
   "team": "10인 이하 팀 · 단독 설계·개발",
   "status": "PoC · 데모 (진행 중)",
   "title": "SIEM AI 분석 서버 · 보안 인시던트 자동 분석",
@@ -48,6 +54,12 @@ export const ko: ProjectText = {
 }
 
 export const en: ProjectText = {
+  stats: [
+    { value: "8", label: "Role-specific agents" },
+    { value: "6", label: "LLM providers" },
+    { value: "4", label: "XDR vendors integrated" },
+  ],
+  statsNote: "Measured from the code as of Jul 2026 \u00b7 structural counts",
   "team": "Team under 10 · sole design & build",
   "status": "PoC · demo (in progress)",
   "title": "SIEM AI Analysis Server · Automated Incident Analysis",

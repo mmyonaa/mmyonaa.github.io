@@ -1,6 +1,12 @@
 import type { ProjectText } from '../shared'
 
 export const ko: ProjectText = {
+  stats: [
+    { value: "71개", label: "Prisma 데이터 모델" },
+    { value: "5개", label: "DB 스키마" },
+    { value: "3개", label: "SSE 스트림 엔드포인트" },
+  ],
+  statsNote: "2026.07 기준 코드 실측 · 구조 수치",
   "team": "10인 이하 팀 · 협업 (AI 리포트 에디터 단독)",
   "status": "PoC · 데모 (진행 중)",
   "title": "SIEM 관제 웹 플랫폼 · 보안 이벤트 모니터링·대응",
@@ -47,6 +53,12 @@ export const ko: ProjectText = {
 }
 
 export const en: ProjectText = {
+  stats: [
+    { value: "71", label: "Prisma data models" },
+    { value: "5", label: "Database schemas" },
+    { value: "3", label: "SSE stream endpoints" },
+  ],
+  statsNote: "Measured from the code as of Jul 2026 \u00b7 structural counts",
   "team": "Team under 10 · collaborative (AI report editor solo)",
   "status": "PoC · demo (in progress)",
   "title": "SIEM Operations Web Platform · Security Event Monitoring",

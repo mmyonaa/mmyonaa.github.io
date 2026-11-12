@@ -1,6 +1,11 @@
 import type { ProjectText } from '../shared'
 
 export const ko: ProjectText = {
+  stats: [
+    { value: "4종", label: "SNS 로그인 · 카카오 / 구글 / 페이스북 / MS" },
+    { value: "2개 국어", label: "한국어 · 영어" },
+  ],
+  statsNote: "화면정의서·작업 기록 기준 · 구조 수치",
   "team": "팀 협업 · 프론트엔드 리뉴얼 담당",
   "status": "참여 종료 (2025.05)",
   "title": "자사 서비스 리뉴얼 · 플랫폼 전면 개편",
@@ -26,6 +31,11 @@ export const ko: ProjectText = {
 }
 
 export const en: ProjectText = {
+  stats: [
+    { value: "4", label: "Social logins \u00b7 Kakao / Google / Facebook / MS" },
+    { value: "2", label: "Languages \u00b7 Korean / English" },
+  ],
+  statsNote: "From the screen spec and work records \u00b7 structural counts",
   team: 'Team · owned the frontend renewal',
   status: 'My involvement ended (May 2025)',
   title: 'In-house Service Renewal · Platform Overhaul',

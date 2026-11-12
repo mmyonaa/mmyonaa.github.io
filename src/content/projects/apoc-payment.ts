@@ -1,6 +1,10 @@
 import type { ProjectText } from '../shared'
 
 export const ko: ProjectText = {
+  stats: [
+    { value: "2종", label: "PG 연동 · Toss / PayPal" },
+  ],
+  statsNote: "코드·작업 기록 기준 · 구조 수치",
   "team": "팀 협업 · 결제 시스템 담당",
   "status": "참여 종료 (2025.05)",
   "title": "자사 결제 시스템 · Toss · PayPal 연동",
@@ -35,6 +39,10 @@ export const ko: ProjectText = {
 }
 
 export const en: ProjectText = {
+  stats: [
+    { value: "2", label: "Payment gateways \u00b7 Toss / PayPal" },
+  ],
+  statsNote: "From code and work records \u00b7 structural counts",
   "team": "Team · owned the payment system",
   "status": "My involvement ended (May 2025)",
   "title": "In-house Payment System · Toss & PayPal",
