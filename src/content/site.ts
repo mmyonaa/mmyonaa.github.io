@@ -53,10 +53,10 @@ export const siteKo: SiteText = {
         body: '멀티테넌트 SIEM 보안 플랫폼을 만듭니다. Fastify AI 서버의 멀티 에이전트 인시던트 분석 파이프라인과 LiteLLM 게이트웨이·멀티테넌트 BYOK 설계·개발을 주도하고, Next.js 15 풀스택 웹(대시보드·리포트 에디터)에도 협업으로 참여하고 있습니다.',
       },
       {
-        period: '2025.09 –',
+        period: '2025.09 – 2026.11',
         title: '외주 · 보광 극장 홍보·대관 사이트',
         shortLabel: '외주 · 보광극장',
-        body: '재직과 병행하는 외주 작업입니다. 기획·설계·개발·인프라까지 1인으로 완성했고, vite-ssg 기반 SSG와 동적 메타/JSON-LD로 SEO를 최적화하고 AWS · PM2 · Nginx로 배포·운영하며, 오픈 후에도 전면 코드 리뷰·보안 하드닝 스프린트로 정비를 이어가고 있습니다.',
+        body: '재직과 병행하는 외주 작업입니다. 기획·설계·개발·인프라까지 1인으로 완성했고, vite-ssg 기반 SSG와 동적 메타/JSON-LD로 SEO를 최적화하고 AWS · PM2 · Nginx로 배포·운영했고, 오픈 후에도 전면 코드 리뷰·보안 하드닝 스프린트로 정비를 이어갔습니다. 발주처의 운영 종료 결정에 따라 2026년 11월 서비스를 내리고 AWS 인프라 삭제와 데이터 백업까지 마무리했습니다.',
       },
       {
         period: '2023.07 – 2025.09',
@@ -153,10 +153,10 @@ export const siteEn: SiteText = {
         body: 'Building a multi-tenant SIEM security platform. I lead the design and development of the Fastify AI server’s multi-agent incident-analysis pipeline, LiteLLM gateway, and multi-tenant BYOK, and also contribute to the Next.js 15 full-stack web (dashboard, report editor).',
       },
       {
-        period: '2025.09 –',
+        period: '2025.09 – 2026.11',
         title: 'Freelance · Bogwang Theater Promotion & Booking Site',
         shortLabel: 'Bogwang Theater',
-        body: 'Freelance work running alongside my day job. I delivered the site single-handedly — planning, design, development, and infrastructure — optimized SEO with vite-ssg SSG and dynamic meta/JSON-LD, deployed and operated it on AWS with PM2 and Nginx, and keep it in shape with post-launch code-review and security-hardening sprints.',
+        body: 'Freelance work running alongside my day job. I delivered the site single-handedly — planning, design, development, and infrastructure — optimized SEO with vite-ssg SSG and dynamic meta/JSON-LD, deployed and operated it on AWS with PM2 and Nginx, and kept it in shape with post-launch code-review and security-hardening sprints. When the client no longer needed the service, I took it down in November 2026, deleted the AWS infrastructure, and backed up the data.',
       },
       {
         period: '2023.07 – 2025.09',

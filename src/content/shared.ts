@@ -93,14 +93,12 @@ const projectBase: ProjectBase[] = [
   },
   {
     slug: 'bk-theater',
-    live: true,
-    period: '2025.04 –',
+    period: '2025.04 – 2026.11',
     tags: ['Vue 3', 'TypeScript', 'vite-ssg', 'Koa', 'PostgreSQL', 'AWS S3', 'EC2', 'PM2', 'Nginx', 'SCSS'],
-    link: 'https://bktheater.com/',
+    link: '',
     company: '',
     repo: 'https://github.com/mmyonaa/outsourcing',
     releases: 'https://github.com/mmyonaa/outsourcing/releases',
-    apiDocs: 'https://bktheater.com/api/docs',
     // 앞 3장은 사용자 화면(랜딩 카드 슬라이더용), 이후는 관리자 화면(상세 페이지용)
     images: [
       '/projects/bktheater/bk-theater.webp',

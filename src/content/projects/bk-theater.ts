@@ -17,7 +17,7 @@ export const ko: ProjectText = {
   ],
   statsNote: "Google Search Console · 2026.07.06~09.20, 77일간 · 전체 검색 기준",
   "team": "1인 · 기획부터 인프라까지",
-  "status": "운영 중 (2025.11 오픈)",
+  "status": "운영 종료 (2025.11 오픈 · 2026.11 종료)",
   "title": "보광극장 · 홍보·대관 안내 사이트",
   "architectureCaptions": [
     "시스템 아키텍처 · 배포 구성 (Nginx · PM2 · PostgreSQL · S3)",
@@ -31,7 +31,7 @@ export const ko: ProjectText = {
   ],
   "description": "공연·대관 안내와 관리자 콘텐츠 운영을 제공하는 사이트를 기획부터 배포까지 1인으로 구축했습니다.",
   "overview": [
-    "공연·공지·보도자료·배너를 관리하는 홍보 사이트입니다. Vue 3·Koa·PostgreSQL로 공개 사이트와 관리자 기능을 개발하고, AWS EC2에 배포한 뒤 운영 중 발견한 데이터 수정·검색 노출 문제를 개선했습니다."
+    "공연·공지·보도자료·배너를 관리하는 홍보 사이트입니다. Vue 3·Koa·PostgreSQL로 공개 사이트와 관리자 기능을 개발하고, AWS EC2에 배포한 뒤 운영 중 발견한 데이터 수정·검색 노출 문제를 개선했습니다. 2026년 11월 발주처가 운영을 종료해 서비스를 내리고, AWS 인프라 삭제와 데이터 백업까지 마무리했습니다."
   ],
   "highlights": [
     "공개 사이트·관리자·API·배포 환경을 단독 구축",
@@ -40,7 +40,7 @@ export const ko: ProjectText = {
   "techNotes": [
     {
       "title": "1인 풀스택 + 직접 운영",
-      "body": "Vue 3 · TypeScript 프론트, Koa · PostgreSQL(postgres.js) 백엔드, AWS S3 업로드, EC2 · PM2 · Nginx 배포까지 직접 구성했습니다. 컬럼 snake_case ↔ camelCase 자동 변환 등 데이터 접근 계층도 직접 설계했고, 오픈 후에는 HTTPS 전환과 OpenAPI(Swagger) 문서·ERD 정비까지 운영자로서 이어가고 있습니다."
+      "body": "Vue 3 · TypeScript 프론트, Koa · PostgreSQL(postgres.js) 백엔드, AWS S3 업로드, EC2 · PM2 · Nginx 배포까지 직접 구성했습니다. 컬럼 snake_case ↔ camelCase 자동 변환 등 데이터 접근 계층도 직접 설계했고, 오픈 후에는 HTTPS 전환과 OpenAPI(Swagger) 문서·ERD 정비까지 운영자로서 이어갔고, 종료 시점에는 인프라 삭제와 백업까지 직접 정리했습니다."
     },
     {
       "title": "SSG 기반 SEO 최적화",
@@ -78,7 +78,7 @@ export const en: ProjectText = {
   ],
   statsNote: "Google Search Console · Jul 6–Sep 20, 2026 (77 days) · All search queries",
   team: 'Solo · from planning to infrastructure',
-  status: 'Live (opened Nov 2025)',
+  status: 'Retired (opened Nov 2025 · shut down Nov 2026)',
   title: 'Bogwang Theater · Promotion & Booking Site',
   architectureCaptions: [
     'System architecture & deployment (Nginx · PM2 · PostgreSQL · S3)',
@@ -93,7 +93,7 @@ export const en: ProjectText = {
   description:
     'A theater promotion and booking site built solo — from planning and design to development and infrastructure. Implemented theater browsing and reservations, admin content management, and map integration.',
   overview: [
-    'A promotional site to showcase Bogwang Theater’s performances and venue rentals and to drive online inquiries and bookings. I owned the entire process solo — planning, design, frontend, backend, and infrastructure — and run it in production.',
+    'A promotional site to showcase Bogwang Theater’s performances and venue rentals and to drive online inquiries and bookings. I owned the entire process solo — planning, design, frontend, backend, and infrastructure — and operated it in production until the client retired the service in November 2026, when I took it down, deleted the AWS infrastructure, and backed up the data.',
     'Because search traffic matters for a promotional site, I chose static site generation (SSG) with vite-ssg over a typical SPA, with dynamic meta tags, JSON-LD, and a build-time sitemap for search visibility.',
     'Admins manage performances, notices, press releases, and banners through Quill-based CRUD with S3 uploads. It runs on AWS EC2 with PM2 and Nginx.',
   ],
@@ -102,14 +102,14 @@ export const en: ProjectText = {
     'SEO optimization via vite-ssg static generation, dynamic meta/JSON-LD, and a sitemap',
     'Theater browsing and reservation with an optimized booking flow',
     'Admin registration of performances and notices for content operations',
-    'Ongoing post-launch operation — review sprints (60+ defects), security hardening',
+    'Post-launch operation through shutdown (Nov 2026) — review sprints (60+ defects), security hardening, then AWS teardown and data backup',
     'Merged 20 near-duplicate views (88–99% identical) into 10 shared pages — ~4,000 lines net removed',
     '20 pages indexed after the SEO regression fix — brand query at avg. position 1.7, 52% CTR (Search Console)',
   ],
   techNotes: [
     {
       title: 'Solo full-stack + operations',
-      body: 'I set up everything myself: a Vue 3 / TypeScript frontend, a Koa / PostgreSQL (postgres.js) backend, AWS S3 uploads, and EC2 / PM2 / Nginx deployment — including the data-access layer with automatic snake_case ↔ camelCase conversion. Since launch I have kept operating it hands-on, migrating to HTTPS and maintaining OpenAPI (Swagger) docs and an ERD.',
+      body: 'I set up everything myself: a Vue 3 / TypeScript frontend, a Koa / PostgreSQL (postgres.js) backend, AWS S3 uploads, and EC2 / PM2 / Nginx deployment — including the data-access layer with automatic snake_case ↔ camelCase conversion. After launch I operated it hands-on, migrating to HTTPS and maintaining OpenAPI (Swagger) docs and an ERD, and at shutdown I handled the AWS teardown and data backup myself.',
     },
     {
       title: 'SEO via static site generation',
@@ -117,7 +117,7 @@ export const en: ProjectText = {
     },
     {
       title: 'Recurring maintenance sprints',
-      body: 'I run recurring code-review sprints across the whole stack after launch. The most recent round swept backend and frontend together, surfacing and resolving 60+ defects, prioritized by what actually corrupts data — an update bug where omitted fields were overwritten with NULL and article bodies were lost, a search race that fired the same request twice and showed the wrong page depending on response order, and crashes when entering deleted posts. Fixing them one at a time kept letting the same defects return, so I diagnosed the cause as a duplicated structure where fixing one place never reached the others. Twenty public/admin views (measured 88–99% identical) were consolidated into ten shared pages — a net reduction of about 4,000 lines that removes the path by which "only one copy got fixed" drift bugs recur.',
+      body: 'After launch I ran recurring code-review sprints across the whole stack. The most recent round swept backend and frontend together, surfacing and resolving 60+ defects, prioritized by what actually corrupts data — an update bug where omitted fields were overwritten with NULL and article bodies were lost, a search race that fired the same request twice and showed the wrong page depending on response order, and crashes when entering deleted posts. Fixing them one at a time kept letting the same defects return, so I diagnosed the cause as a duplicated structure where fixing one place never reached the others. Twenty public/admin views (measured 88–99% identical) were consolidated into ten shared pages — a net reduction of about 4,000 lines that removes the path by which "only one copy got fixed" drift bugs recur.',
     },
     {
       title: 'Security hardening',
